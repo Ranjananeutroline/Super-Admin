@@ -1,0 +1,18 @@
+.add-company-modal{
+    padding-top: 2rem;
+}
+.add-company-modal .add-comp-header .close-button {
+    color: black; /* Set the color to black or your desired color */
+    border: none; /* Remove any default button styles if needed */
+    background: none; /* Remove any default button background if needed */
+    font-size: 1.8rem; /* Adjust font size if needed */
+    margin: 0; /* Adjust margin if needed */
+    padding: 0; /* Adjust padding if needed */
+  }
+ 
+  .add-comp-submit{
+    background-color: aqua;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+  }
