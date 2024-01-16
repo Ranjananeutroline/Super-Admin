@@ -2,8 +2,8 @@ import React from 'react'
 import "./Company.css"
 import Table from 'react-bootstrap/Table';
 import companyData from "./companyData"; 
-// import { LiaEditSolid } from "react-icons/lia";
-// import { RiDeleteBinLine } from "react-icons/ri";
+import { LiaEditSolid } from "react-icons/lia";
+import { RiDeleteBinLine } from "react-icons/ri";
 
 const Company = () => {
   const tableStyle = {
@@ -29,7 +29,7 @@ const Company = () => {
             <th>Status</th>
             <th>Start Date</th>
             <th>End Date</th>
-            
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
@@ -43,12 +43,12 @@ const Company = () => {
                   <td>{comp.status}</td>
                   <td>{comp.sdate}</td>
                   <td>{comp.edate}</td>
-                  {/* <td>
+                  <td>
                     <div className='flex gap-[8px] justify-center'>
                       <button><LiaEditSolid style={{fontSize:"20px",color:"#3468C0"}}/></button>
                       <button><RiDeleteBinLine style={{fontSize:"18px",color:"#D24545"}}/></button>
                     </div>
-                  </td> */}
+                  </td> 
                 </tr>
               ))}
             </tbody>

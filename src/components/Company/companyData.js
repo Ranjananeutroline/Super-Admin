@@ -10,6 +10,17 @@ const companyData = [
         edate: '01-02-7777',  
           
         },
+        { 
+            sn: 2, 
+            name: 'Neutrosys.Inc',
+            id: "0112",
+            acc:"22222333",
+            pan:"4444",
+            status: 'active', 
+            sdate: '01-02-1111', 
+            edate: '01-02-7777',  
+              
+            },
     // Add more company data as needed
   ];
 

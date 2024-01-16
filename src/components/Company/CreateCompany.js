@@ -4,6 +4,23 @@ import countryList from 'react-select-country-list'
 import "./Company.css"
 import "./Createcompany.css"
 import { FloatingLabel, Form, Button } from 'react-bootstrap';
+import {
+  validateCompanyName,
+  validateEmail,
+  validatePhoneNumber,
+  validateWebsite,
+  validateBusinessLine,
+  validateFax,
+  validateNaicsCode,
+  validatePanEinNumber,
+  validateName,
+  validateDesignation,
+  validateAddress,
+  validateCity,
+  validateState,
+  validatePostalCode,
+} from './formValidation';
+import { ToastContainer, toast } from "react-toastify";
 
 const CreateCompany = () => {
  
@@ -22,14 +39,116 @@ const CreateCompany = () => {
     setSelectedFile(file);
   };
 
-  const handleUpload = () => {
-    // Handle file upload logic here
-    if (selectedFile) {
-      // You can perform file upload logic here
-      console.log('Uploading file:', selectedFile);
-      // Reset selectedFile state after upload
-      setSelectedFile(null);
+  const [companyName, setCompanyName] = useState('');
+  const [companyNameError, setCompanyNameError] = useState('');
+
+  const [email, setEmail] = useState('');
+  const [emailError, setEmailError] = useState('');
+
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [phoneNumberError, setPhoneNumberError] = useState('');
+
+  const [website, setWebsite] = useState('');
+  const [websiteError, setWebsiteError] = useState('');
+
+  const [businessLine, setBusinessLine] = useState('');
+  const [businessLineError, setBusinessLineError] = useState('');
+
+  const [fax, setFax] = useState('');
+  const [FaxError, setFaxError] = useState('');
+
+  const [naicsCode, setNaicsCode] = useState('');
+  const [naicsCodeError, setNaicsCodeError] = useState('');
+
+  const [panEinNumber, setPanEinNumber] = useState('');
+  const [panEinNumberError, setPanEinNumberError] = useState('');
+
+  const [name, setName] = useState('');
+  const [nameError, setNameError] = useState('');
+
+  const [designation, setDesignation] = useState('');
+  const [designationError, setDesignationError] = useState('');
+
+  const [address, setAddress] = useState('');
+  const [addressError, setAddressError] = useState('');
+
+  const [city, setCity] = useState('');
+  const [cityError, setCityError] = useState('');
+
+  const [state, setState] = useState('');
+  const [stateError, setStateError] = useState('');
+
+  const [postalCode, setPostalCode] = useState('');
+  const [postalCodeError, setPostalCodeError] = useState('');
+
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+  
+    // Validate all fields
+    const companyNameValidation = validateCompanyName(companyName);
+    const emailValidation = validateEmail(email);
+    const phoneNumberValidation = validatePhoneNumber(phoneNumber);
+    const websiteValidation = validateWebsite(website);
+    const businessLineValidation = validateBusinessLine(businessLine);
+    const faxValidation = validateFax(fax);
+    const naicsCodeValidation = validateNaicsCode(naicsCode);
+    const panEinNumberValidation = validatePanEinNumber(panEinNumber);
+    const nameValidation = validateName(name);
+    const designationValidation = validateDesignation(designation);
+    const addressValidation = validateAddress(address);
+    const cityValidation = validateCity(city);
+    const stateValidation = validateState(state);
+    const postalCodeValidation = validatePostalCode(postalCode);
+  
+    // Update state with validation results
+    setCompanyNameError(companyNameValidation);
+    setEmailError(emailValidation);
+    setPhoneNumberError(phoneNumberValidation);
+    setWebsiteError(websiteValidation);
+    setBusinessLineError(businessLineValidation);
+    setFaxError(faxValidation);
+    setNaicsCodeError(naicsCodeValidation);
+    setPanEinNumberError(panEinNumberValidation);
+    setNameError(nameValidation);
+    setDesignationError(designationValidation);
+    setAddressError(addressValidation);
+    setCityError(cityValidation);
+    setStateError(stateValidation);
+    setPostalCodeError(postalCodeValidation);
+  
+    // Check if any error exists
+    if (
+      companyNameValidation ||
+      emailValidation ||
+      phoneNumberValidation ||
+      websiteValidation ||
+      businessLineValidation ||
+      faxValidation ||
+      naicsCodeValidation ||
+      panEinNumberValidation ||
+      nameValidation ||
+      designationValidation ||
+      addressValidation ||
+      cityValidation ||
+      stateValidation ||
+      postalCodeValidation
+    ) {
+      // If any error exists, do not submit the form
+      return;
     }
+  
+     // If all validations pass, show the success toast
+     toast.success('Form submitted successfully', {
+      position: "top-center",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
   };
 
   return (
@@ -38,32 +157,39 @@ const CreateCompany = () => {
             <h2 className='text-[22px] text-[#5B76FC] mt-2 mb-2'>Create Company</h2>
         </div>
 
-       
-        <div className="form-main-div">
+        
+        <div className="form-main-div" >
+        <Form onSubmit={handleSubmit}>
           <div className="form-div1">
           <div>
             <FloatingLabel controlId="companyName" label="Company Name" className="mb-2">
               <Form.Control
                 type="text"
                 placeholder="Company Name"
-                name="companyName"
+                value={companyName}
+                onChange={(e) => setCompanyName(e.target.value)}
               />
+              <span style={{ color: 'red', fontSize:"12px" }}>{companyNameError}</span>
             </FloatingLabel>
 
             <FloatingLabel controlId="email" label="Email" className="mb-2">
               <Form.Control
                 type="email"
                 placeholder="name@example.com"
-                name="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
+               <span style={{ color: 'red', fontSize:"12px" }}>{emailError}</span>
             </FloatingLabel>
 
             <FloatingLabel controlId="phoneNumber" label="Company Phone" className="mb-2">
               <Form.Control
                 type="tel"
                 placeholder="Phone Number"
-                name="phoneNumber"
+                value={phoneNumber}
+                onChange={(e) => setPhoneNumber(e.target.value)}
               />
+               <span style={{ color: 'red', fontSize:"12px" }}>{phoneNumberError}</span>
             </FloatingLabel>
             <Select 
             options={options} 
@@ -107,61 +233,64 @@ const CreateCompany = () => {
               <Form.Control
                 type="text"
                 placeholder="Website"
-                name="website"
+                value={website}
+                onChange={(e) => setWebsite(e.target.value)}
               />
+               <span style={{ color: 'red', fontSize:"12px" }}>{websiteError}</span>
             </FloatingLabel>
-            <FloatingLabel controlId="businessline" label="Line of Business" className="mb-2">
+            <FloatingLabel controlId="businessLine" label="Line of Business" className="mb-2">
               <Form.Control
                 type="text"
                 placeholder="Line of Business"
-                name="businessline"
+                value={businessLine}
+                onChange={(e) => setBusinessLine(e.target.value)}
               />
+               <span style={{ color: 'red', fontSize:"12px" }}>{businessLineError}</span>
             </FloatingLabel>
             <FloatingLabel controlId="fax" label="Fax" className="mb-2">
               <Form.Control
                 type="text"
                 placeholder="Fax"
-                name="fax"
+                value={fax}
+                onChange={(e) => setFax(e.target.value)}
               />
+              <span style={{ color: 'red', fontSize:"12px" }}>{FaxError}</span>
             </FloatingLabel>
             <FloatingLabel controlId="naicsCode" label="NAICS Code" className="mb-2">
               <Form.Control
                 type="number"
                 placeholder="NAICS Code"
-                name="naicsCode"
-                
+                value={naicsCode}
+                onChange={(e) => setNaicsCode(e.target.value)}
               />
+               <span style={{ color: 'red', fontSize:"12px" }}>{naicsCodeError}</span>
             </FloatingLabel>
             <FloatingLabel controlId="panEinNumber" label="PAN/EIN" className="mb-2">
               <Form.Control
                 type="number"
                 placeholder="PAN/EIN"
-                name="panEinNumber"
+                value={panEinNumber}
+                onChange={(e) => setPanEinNumber(e.target.value)}
               />
+               <span style={{ color: 'red', fontSize:"12px" }}>{panEinNumberError}</span>
             </FloatingLabel>
-            {/* <FloatingLabel controlId="fileInput" label="Attach PAN/EIN" className="mb-2">
-        <Form.Control
-          type="file"
-          accept="image/*, .pdf"  // Specify the allowed file types
-          onChange={handleFileChange}
-        />
-      </FloatingLabel> */}
-      <div className='attach-div'>
-      <label htmlFor="fileInput">
-        Attach PAN/EIN
-      </label>
-      <div className="custom-file">
-        <input
-          type="file"
-          className="custom-file-input"
-          id="fileInput"
-          accept="image/*, .pdf"
-          onChange={handleFileChange}
-        />
-       
-      </div>
-      
-    </div>
+            
+            <div className='attach-div'>
+            <label htmlFor="fileInput">
+              Attach PAN/EIN
+            </label>
+            <div className="custom-file">
+              <input
+                type="file"
+                className="custom-file-input"
+                id="fileInput"
+                accept="image/*, .pdf"
+                onChange={handleFileChange}
+              />
+            
+            </div>
+            
+          </div>
            
           </div>
           </div>
@@ -172,37 +301,47 @@ const CreateCompany = () => {
               <Form.Control
                 type="text"
                 placeholder="Name"
-                name="name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
               />
+               <span style={{ color: 'red', fontSize:"12px" }}>{nameError}</span>
             </FloatingLabel>
             <FloatingLabel controlId="designation" label="Designation" className="mb-2">
             <Form.Control
               type="text"
               placeholder="Designation"
-              name="designation"
-            />
+              value={designation}
+                onChange={(e) => setDesignation(e.target.value)}
+              />
+               <span style={{ color: 'red', fontSize:"12px" }}>{designationError}</span>
           </FloatingLabel>
             <FloatingLabel controlId="email" label="Email" className="mb-2">
               <Form.Control
                 type="email"
                 placeholder="name@example.com"
-                name="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
+               <span style={{ color: 'red', fontSize:"12px" }}>{emailError}</span>
             </FloatingLabel>
 
             <FloatingLabel controlId="phoneNumber" label="Contact Mobile" className="mb-2">
               <Form.Control
                 type="tel"
                 placeholder="Contact Mobile"
-                name="phoneNumber"
+                value={phoneNumber}
+                onChange={(e) => setPhoneNumber(e.target.value)}
               />
+               <span style={{ color: 'red', fontSize:"12px" }}>{phoneNumberError}</span>
             </FloatingLabel>
             <FloatingLabel controlId="phoneNumber" label="Phone (Work)" className="mb-2">
               <Form.Control
                 type="tel"
                 placeholder="Phone (Work)"
-                name="phoneNumber"
+                value={phoneNumber}
+                onChange={(e) => setPhoneNumber(e.target.value)}
               />
+               <span style={{ color: 'red', fontSize:"12px" }}>{phoneNumberError}</span>
             </FloatingLabel>
           </div>
           <div>
@@ -211,47 +350,58 @@ const CreateCompany = () => {
           <Form.Control
             type="text"
             placeholder="Address"
-            name="address"
+            value={address}
+            onChange={(e) => setAddress(e.target.value)}
           />
+           <span style={{ color: 'red', fontSize:"12px" }}>{addressError}</span>
         </FloatingLabel>
         <FloatingLabel controlId="address" label="Street Address 2" className="mb-2">
           <Form.Control
             type="text"
             placeholder="Address"
-            name="address"
+            value={address}
+            onChange={(e) => setAddress(e.target.value)}
           />
+           <span style={{ color: 'red', fontSize:"12px" }}>{addressError}</span>
         </FloatingLabel>
         <FloatingLabel controlId="city" label="City/Town/Village" className="mb-2">
         <Form.Control
           type="text"
           placeholder="City/Town/Village"
-          name="city"
+          value={city}
+          onChange={(e) => setCity(e.target.value)}
         />
+         <span style={{ color: 'red', fontSize:"12px" }}>{cityError}</span>
         </FloatingLabel>
         <FloatingLabel controlId="state" label="State/Province" className="mb-2">
         <Form.Control
           type="text"
           placeholder="State/Province"
-          name="state"
+          value={state}
+          onChange={(e) => setState(e.target.value)}
+          />
+            <span style={{ color: 'red', fontSize:"12px" }}>{stateError}</span>
+        </FloatingLabel>
+        <FloatingLabel controlId="postalCode" label="Postal Code" className="mb-2">
+        <Form.Control
+          type="text"
+          placeholder="Postal Code"
+          value={postalCode}
+          onChange={(e) => setPostalCode(e.target.value)}
         />
+        <span style={{ color: 'red', fontSize:"12px" }}>{postalCodeError}</span>
       </FloatingLabel>
-      <FloatingLabel controlId="postalCode" label="Postal Code" className="mb-2">
-      <Form.Control
-        type="text"
-        placeholder="Postal Code"
-        name="postalCode"
-      />
-    </FloatingLabel>
           </div>
           </div>
-        </div>
-
-        <div style={{ justifyContent: "right", textAlign:"right", marginTop: "0.5rem" }}>
+          <div style={{ justifyContent: "right", textAlign:"right", marginTop: "0.5rem" }}>
           <button type="submit" className='create-comp-button'>
             Create Company
           </button>
         </div>
-    
+        </Form>
+        </div>
+
+       
     </div>
   )
 }
