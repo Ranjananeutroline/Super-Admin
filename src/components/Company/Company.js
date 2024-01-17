@@ -9,7 +9,7 @@ import { RiDeleteBinLine } from "react-icons/ri";
 const Company = () => {
 
   const companyData = getCompanyData();
-  
+
   const tableStyle = {
     borderRadius: '8px',
     overflow: 'hidden', // Ensure the rounded corners are applied
@@ -37,7 +37,8 @@ const Company = () => {
           </tr>
         </thead>
         <tbody>
-              {companyData.map((comp) => (
+               {companyData.length > 0 ? (
+                companyData.map((comp) => (
                 <tr key={comp.id} style={{  textAlign:"center", fontSize:"15px" }}>
                   <td>{comp.sn}</td>
                   <td>{comp.name}</td>
@@ -54,9 +55,15 @@ const Company = () => {
                     </div>
                   </td> 
                 </tr>
-              ))}
+              ))
+               ) : (
+                <tr style={{ textAlign: "left", fontSize: "15px" }}>
+                  <td colSpan="9" style={{paddingLeft:"15px"}}>No Companies have been created.</td>
+                </tr>
+              )}
             </tbody>
       </Table>
+     
             </div>
         </div>
     </div>
