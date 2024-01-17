@@ -8,6 +8,8 @@ import {
   validateCompanyName,
   validateEmail,
   validatePhoneNumber,
+  validateStartDate,
+  validateEndDate,
   validateWebsite,
   validateBusinessLine,
   validateFax,
@@ -21,9 +23,19 @@ import {
   validatePostalCode,
 } from './formValidation';
 import { ToastContainer, toast } from "react-toastify";
+import { addCompany } from './companyData';
 
 const CreateCompany = () => {
- 
+  
+  const [companyDetails, setCompanyDetails] = useState({
+    someId: '',      // Replace with the actual ID property
+    someAcc: '',     // Replace with the actual account number property
+    somePan: '',     // Replace with the actual PAN property
+    startDate: '',
+    endDate: '',
+    // Add other properties as needed
+  });
+
   const [value, setValue] = useState('')
   const options = useMemo(() => countryList().getData(), [])
 
@@ -39,6 +51,7 @@ const CreateCompany = () => {
     setSelectedFile(file);
   };
 
+  
   const [companyName, setCompanyName] = useState('');
   const [companyNameError, setCompanyNameError] = useState('');
 
@@ -47,6 +60,12 @@ const CreateCompany = () => {
 
   const [phoneNumber, setPhoneNumber] = useState('');
   const [phoneNumberError, setPhoneNumberError] = useState('');
+
+  const [startDate, setStartDate] = useState('');
+  const [startDateError, setStartDateError] = useState('');
+
+  const [endDate, setEndDate] = useState('');
+  const [endDateError, setEndDateError] = useState('');
 
   const [website, setWebsite] = useState('');
   const [websiteError, setWebsiteError] = useState('');
@@ -84,11 +103,15 @@ const CreateCompany = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
+   
   
     // Validate all fields
     const companyNameValidation = validateCompanyName(companyName);
     const emailValidation = validateEmail(email);
     const phoneNumberValidation = validatePhoneNumber(phoneNumber);
+    const startDateValidation = validateStartDate(startDate);
+    const endDateValidation = validateEndDate(endDate, startDate);
     const websiteValidation = validateWebsite(website);
     const businessLineValidation = validateBusinessLine(businessLine);
     const faxValidation = validateFax(fax);
@@ -105,6 +128,8 @@ const CreateCompany = () => {
     setCompanyNameError(companyNameValidation);
     setEmailError(emailValidation);
     setPhoneNumberError(phoneNumberValidation);
+    setStartDateError(startDateValidation);
+    setEndDateError(endDateValidation);
     setWebsiteError(websiteValidation);
     setBusinessLineError(businessLineValidation);
     setFaxError(faxValidation);
@@ -122,6 +147,8 @@ const CreateCompany = () => {
       companyNameValidation ||
       emailValidation ||
       phoneNumberValidation ||
+      startDateValidation ||
+      endDateValidation ||
       websiteValidation ||
       businessLineValidation ||
       faxValidation ||
@@ -138,6 +165,35 @@ const CreateCompany = () => {
       return;
     }
   
+    
+    // Update the company data
+    const newCompany = {
+      sn: null,
+      name: companyName,
+      id: companyDetails.someId,  // Use the actual ID property
+      acc: companyDetails.someAcc, // Use the actual account number property
+      pan: event.target.panEinNumber.value, // Use the actual PAN property
+      status: 'pending',
+      sdate: event.target.startDate.value,  // Use the event.target to get the value of the input field
+      edate: event.target.endDate.value,    // Use the event.target to get the value of the input field
+      // Add other properties as needed
+    };
+
+    addCompany(newCompany);
+
+    // Reset form fields or perform any other necessary actions
+    setCompanyDetails({
+      sn:'',
+      id: '',
+      name: '',
+      acc: '',
+      pan: '',
+      sdate: '',
+      edate: '',
+      // Reset other properties as needed
+    });
+
+   
      // If all validations pass, show the success toast
      toast.success('Form submitted successfully', {
       position: "top-center",
@@ -215,16 +271,20 @@ const CreateCompany = () => {
               <Form.Control
                 type="date"
                 placeholder="Start Date"
-                name="startDate"
+                value={startDate}
+                onChange={(e) => setStartDate(e.target.value)}
               />
+               <span style={{ color: 'red', fontSize:"12px" }}>{startDateError}</span>
             </FloatingLabel>
 
             <FloatingLabel controlId="endDate" label="End Date" className="mb-2">
               <Form.Control
                 type="date"
                 placeholder="End Date"
-                name="endDate"
+                value={endDate}
+                onChange={(e) => setEndDate(e.target.value)}
               />
+               <span style={{ color: 'red', fontSize:"12px" }}>{endDateError}</span>
             </FloatingLabel>
           </div>
 

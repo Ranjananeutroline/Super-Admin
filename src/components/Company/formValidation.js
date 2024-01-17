@@ -18,6 +18,24 @@ export const validateCompanyName = (companyName) => {
     }
     return '';
   };
+  export const validateStartDate = (startDate) => {
+    if (!startDate) {
+      return 'Start Date is required.';
+    }
+    // You can add more specific validation rules for the Start Date if needed
+    return '';
+  };
+  
+  export const validateEndDate = (endDate, startDate) => {
+    if (!endDate) {
+      return 'End Date is required.';
+    }
+    if (startDate && new Date(endDate) < new Date(startDate)) {
+      return 'End Date must be equal to or later than Start Date.';
+    }
+    // You can add more specific validation rules for the End Date if needed
+    return '';
+  };
   export const validateWebsite = (website) => {
     if (!website.trim()) {
       return 'Website is required.';

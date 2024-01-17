@@ -1,11 +1,15 @@
 import React from 'react'
 import "./Company.css"
 import Table from 'react-bootstrap/Table';
-import companyData from "./companyData"; 
+import { getCompanyData } from './companyData';
 import { LiaEditSolid } from "react-icons/lia";
 import { RiDeleteBinLine } from "react-icons/ri";
 
+
 const Company = () => {
+
+  const companyData = getCompanyData();
+  
   const tableStyle = {
     borderRadius: '8px',
     overflow: 'hidden', // Ensure the rounded corners are applied
