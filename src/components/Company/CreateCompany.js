@@ -26,7 +26,7 @@ import { ToastContainer, toast } from "react-toastify";
 import { addCompany } from './companyData';
 
 const CreateCompany = () => {
-  
+  const [serialNumber, setSerialNumber] = useState(1);
   const [companyDetails, setCompanyDetails] = useState({
     someId: '',      // Replace with the actual ID property
     someAcc: '',     // Replace with the actual account number property
@@ -168,7 +168,7 @@ const CreateCompany = () => {
     
     // Update the company data
     const newCompany = {
-      sn: null,
+      sn: serialNumber,
       name: companyName,
       id: companyDetails.someId,  // Use the actual ID property
       acc: companyDetails.someAcc, // Use the actual account number property
@@ -180,6 +180,9 @@ const CreateCompany = () => {
     };
 
     addCompany(newCompany);
+
+      // Increment serial number for the next company
+    setSerialNumber(serialNumber + 1);
 
     // Reset form fields or perform any other necessary actions
     setCompanyDetails({

@@ -1,20 +1,29 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./Company.css"
 import Table from 'react-bootstrap/Table';
 import { getCompanyData } from './companyData';
 import { LiaEditSolid } from "react-icons/lia";
 import { RiDeleteBinLine } from "react-icons/ri";
+import { TbMessage2Search } from "react-icons/tb";
 
 
 const Company = () => {
 
   const companyData = getCompanyData();
-
+  const [expandedRows, setExpandedRows] = useState([]);
   const tableStyle = {
     borderRadius: '8px',
     overflow: 'hidden', // Ensure the rounded corners are applied
   };
 
+  const toggleRow = (rowIndex) => {
+    setExpandedRows((prevRows) => {
+      const isRowExpanded = prevRows.includes(rowIndex);
+      return isRowExpanded
+        ? prevRows.filter((row) => row !== rowIndex)
+        : [...prevRows, rowIndex];
+    });
+  };
 
   return (
     <div className='company-second'>
@@ -37,24 +46,37 @@ const Company = () => {
           </tr>
         </thead>
         <tbody>
-               {companyData.length > 0 ? (
-                companyData.map((comp) => (
-                <tr key={comp.id} style={{  textAlign:"center", fontSize:"15px" }}>
-                  <td>{comp.sn}</td>
-                  <td>{comp.name}</td>
-                  <td>{comp.id}</td>
-                  <td>{comp.acc}</td>
-                  <td>{comp.pan}</td>
-                  <td>{comp.status}</td>
-                  <td>{comp.sdate}</td>
-                  <td>{comp.edate}</td>
-                  <td>
-                    <div className='flex gap-[8px] justify-center'>
-                      <button><LiaEditSolid style={{fontSize:"20px",color:"#3468C0"}}/></button>
-                      <button><RiDeleteBinLine style={{fontSize:"18px",color:"#D24545"}}/></button>
-                    </div>
-                  </td> 
-                </tr>
+        {companyData.length > 0 ? (
+                companyData.map((comp, index) => (
+                  <React.Fragment key={comp.id}>
+                    <tr style={{ textAlign: "center", fontSize: "15px" }}>
+                      <td>{comp.sn}</td>
+                      <td>{comp.name}</td>
+                      <td>{comp.id}</td>
+                      <td>{comp.acc}</td>
+                      <td>{comp.pan}</td>
+                      <td>{comp.status}</td>
+                      <td>{comp.sdate}</td>
+                      <td>{comp.edate}</td>
+                      <td>
+                        <div className='flex gap-[8px] justify-center'>
+                          <button onClick={() => toggleRow(index)}>
+                            <TbMessage2Search style={{ fontSize: "20px", color: "green" }} />
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                    {expandedRows.includes(index) && (
+                      <tr>
+                        <td colSpan="9">
+                          <div>
+                            <h2 style={{ textAlign: "Center",color:"blue" }}>Company Information</h2>
+                           
+                          </div>
+                        </td>
+                      </tr>
+                    )}
+                  </React.Fragment>
               ))
                ) : (
                 <tr style={{ textAlign: "left", fontSize: "15px" }}>
@@ -63,7 +85,6 @@ const Company = () => {
               )}
             </tbody>
       </Table>
-     
             </div>
         </div>
     </div>
