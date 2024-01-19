@@ -18,6 +18,16 @@ export const validateCompanyName = (companyName) => {
     }
     return '';
   };
+
+
+  export const validateCountry = (country) => {
+  if (!country) {
+    return 'Country selection is required.';
+  }
+  // Add more specific validation rules for the country if needed
+  return '';
+};
+  
   export const validateStartDate = (startDate) => {
     if (!startDate) {
       return 'Start Date is required.';

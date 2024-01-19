@@ -42,4 +42,40 @@
   .table>:not(caption)>*>* {
     background: none;
   }
-  
+  .main-detail{
+    padding:  0.5rem 1rem 1rem 1rem;
+    justify-content: center;
+  }
+  .main-detail h2{
+    text-align: center;
+    font-size: 20px;
+    color: blue;
+    margin: 0 0 1rem 0;
+  }
+  .main-detail p{
+    margin: 10px;
+  }
+  .upper{
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 1rem;
+    padding: 0 1rem;
+    }
+    .upper > div {
+      flex: 1;
+    }
+    .upper > div:last-child {
+     
+    }
+    .lower{
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 1rem;
+      padding: 0 1rem;
+    }
+    .lower > div {
+      flex: 1;
+    }
+    .lower > div:last-child {
+     
+    }

@@ -8,6 +8,7 @@ import {
   validateCompanyName,
   validateEmail,
   validatePhoneNumber,
+  validateCountry,
   validateStartDate,
   validateEndDate,
   validateWebsite,
@@ -61,6 +62,9 @@ const CreateCompany = () => {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [phoneNumberError, setPhoneNumberError] = useState('');
 
+  const [selectedCountry, setSelectedCountry] = useState(null);
+  const [selectedCountryError, setSelectedCountryError] = useState('');
+
   const [startDate, setStartDate] = useState('');
   const [startDateError, setStartDateError] = useState('');
 
@@ -110,6 +114,7 @@ const CreateCompany = () => {
     const companyNameValidation = validateCompanyName(companyName);
     const emailValidation = validateEmail(email);
     const phoneNumberValidation = validatePhoneNumber(phoneNumber);
+    const countryValidation = validateCountry(selectedCountry);
     const startDateValidation = validateStartDate(startDate);
     const endDateValidation = validateEndDate(endDate, startDate);
     const websiteValidation = validateWebsite(website);
@@ -128,6 +133,7 @@ const CreateCompany = () => {
     setCompanyNameError(companyNameValidation);
     setEmailError(emailValidation);
     setPhoneNumberError(phoneNumberValidation);
+    setSelectedCountryError(countryValidation);
     setStartDateError(startDateValidation);
     setEndDateError(endDateValidation);
     setWebsiteError(websiteValidation);
@@ -147,6 +153,7 @@ const CreateCompany = () => {
       companyNameValidation ||
       emailValidation ||
       phoneNumberValidation ||
+      countryValidation ||
       startDateValidation ||
       endDateValidation ||
       websiteValidation ||
@@ -177,8 +184,27 @@ const CreateCompany = () => {
       sdate: event.target.startDate.value,  // Use the event.target to get the value of the input field
       edate: event.target.endDate.value,    // Use the event.target to get the value of the input field
       // Add other properties as needed
+    
+    formData: {  // Pass the form data as a separate property
+      companyName,
+      email,
+      phoneNumber,
+      startDate,
+      endDate,
+      website,
+      businessLine,
+      fax,
+      naicsCode,
+      panEinNumber,
+      name,
+      designation,
+      address,
+      city,
+      state,
+      postalCode,
+      country: selectedCountry.label, // Include the selected country label if needed
+    },
     };
-
     addCompany(newCompany);
 
       // Increment serial number for the next company
@@ -251,9 +277,12 @@ const CreateCompany = () => {
                <span style={{ color: 'red', fontSize:"12px" }}>{phoneNumberError}</span>
             </FloatingLabel>
             <Select 
-            options={options} 
-            value={value} 
-            onChange={changeHandler} 
+            options={options}
+            value={selectedCountry}
+            onChange={(value) => {
+              setSelectedCountry(value);
+              setSelectedCountryError('');
+            }}
             placeholder='Select Country'
             className='country-all-select'
             styles={{
@@ -269,7 +298,8 @@ const CreateCompany = () => {
               }),
             }}
             />
-
+            <span style={{ color: 'red', fontSize: '12px' }}>{selectedCountryError}</span>
+           
             <FloatingLabel controlId="startDate" label="Start Date" className="mb-2">
               <Form.Control
                 type="date"
