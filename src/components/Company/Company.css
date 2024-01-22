@@ -43,8 +43,10 @@
     background: none;
   }
   .main-detail{
-    padding:  0.5rem 1rem 1rem 1rem;
+    padding: 0.5rem 0.5rem;
     justify-content: center;
+    border: 1px solid rgba(128, 128, 128, 0.096); 
+    /* box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px; */
   }
   .main-detail h2{
     text-align: center;
@@ -59,6 +61,7 @@
     display: flex;
     gap: 2rem;
     margin-bottom: 1rem;
+    margin-top: 0.5rem;
     padding: 0 1rem;
     }
     .upper > div {
@@ -70,8 +73,7 @@
     .lower{
       display: flex;
       gap: 2rem;
-      margin-bottom: 1rem;
-      padding: 0 1rem;
+      padding: 0 1rem 1rem 1rem;
     }
     .lower > div {
       flex: 1;
@@ -79,3 +81,4 @@
     .lower > div:last-child {
      
     }
+    

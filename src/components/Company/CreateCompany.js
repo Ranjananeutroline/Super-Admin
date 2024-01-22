@@ -236,6 +236,8 @@ const CreateCompany = () => {
     });
   };
 
+ 
+
   return (
     <div className='comp-create-main mb-4'>
        <div>
