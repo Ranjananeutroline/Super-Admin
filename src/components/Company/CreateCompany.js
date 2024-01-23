@@ -7,7 +7,7 @@ import { FloatingLabel, Form, Button } from 'react-bootstrap';
 import {
   validateCompanyName,
   validateEmail,
-  validatePhoneNumber,
+  validateCompanyPhone,
   validateCountry,
   validateStartDate,
   validateEndDate,
@@ -18,6 +18,8 @@ import {
   validatePanEinNumber,
   validateName,
   validateDesignation,
+  validateContactMobile,
+  validatePhoneWork,
   validateAddress,
   validateCity,
   validateState,
@@ -59,8 +61,8 @@ const CreateCompany = () => {
   const [email, setEmail] = useState('');
   const [emailError, setEmailError] = useState('');
 
-  const [phoneNumber, setPhoneNumber] = useState('');
-  const [phoneNumberError, setPhoneNumberError] = useState('');
+  const [companyPhone, setCompanyPhone] = useState('');
+  const [companyPhoneError, setCompanyPhoneError] = useState('');
 
   const [selectedCountry, setSelectedCountry] = useState(null);
   const [selectedCountryError, setSelectedCountryError] = useState('');
@@ -92,7 +94,17 @@ const CreateCompany = () => {
   const [designation, setDesignation] = useState('');
   const [designationError, setDesignationError] = useState('');
 
-  const [address, setAddress] = useState('');
+  const [contactEmail, setContactEmail] = useState('');
+  const [contactEmailError, setContactEmailError] = useState('');
+
+  const [contactMobile, setContactMobile] = useState('');
+  const [contactMobileError, setContactMobileError] = useState('');
+
+  const [phoneWork, setPhoneWork] = useState('');
+  const [phoneWorkError, setPhoneWorkError] = useState('');
+
+  const [streetAddress1, setStreetAddress1] = useState('');
+  const [streetAddress2, setStreetAddress2] = useState('');
   const [addressError, setAddressError] = useState('');
 
   const [city, setCity] = useState('');
@@ -113,7 +125,7 @@ const CreateCompany = () => {
     // Validate all fields
     const companyNameValidation = validateCompanyName(companyName);
     const emailValidation = validateEmail(email);
-    const phoneNumberValidation = validatePhoneNumber(phoneNumber);
+    const companyPhoneValidation =  validateCompanyPhone(companyPhone);
     const countryValidation = validateCountry(selectedCountry);
     const startDateValidation = validateStartDate(startDate);
     const endDateValidation = validateEndDate(endDate, startDate);
@@ -124,7 +136,10 @@ const CreateCompany = () => {
     const panEinNumberValidation = validatePanEinNumber(panEinNumber);
     const nameValidation = validateName(name);
     const designationValidation = validateDesignation(designation);
-    const addressValidation = validateAddress(address);
+    const contactEmailValidation = validateEmail(contactEmail);
+    const contactMobileValidation = validateContactMobile(contactMobile);
+    const phoneWorkValidation = validatePhoneWork(phoneWork);
+    const addressValidation = validateAddress(streetAddress1, streetAddress2);
     const cityValidation = validateCity(city);
     const stateValidation = validateState(state);
     const postalCodeValidation = validatePostalCode(postalCode);
@@ -132,7 +147,7 @@ const CreateCompany = () => {
     // Update state with validation results
     setCompanyNameError(companyNameValidation);
     setEmailError(emailValidation);
-    setPhoneNumberError(phoneNumberValidation);
+    setCompanyPhoneError(companyPhoneValidation);
     setSelectedCountryError(countryValidation);
     setStartDateError(startDateValidation);
     setEndDateError(endDateValidation);
@@ -143,6 +158,9 @@ const CreateCompany = () => {
     setPanEinNumberError(panEinNumberValidation);
     setNameError(nameValidation);
     setDesignationError(designationValidation);
+    setContactEmailError(contactEmailValidation);
+    setContactMobileError(contactMobileValidation);
+    setPhoneWorkError(phoneWorkValidation);
     setAddressError(addressValidation);
     setCityError(cityValidation);
     setStateError(stateValidation);
@@ -152,7 +170,7 @@ const CreateCompany = () => {
     if (
       companyNameValidation ||
       emailValidation ||
-      phoneNumberValidation ||
+      companyPhoneValidation ||
       countryValidation ||
       startDateValidation ||
       endDateValidation ||
@@ -163,6 +181,9 @@ const CreateCompany = () => {
       panEinNumberValidation ||
       nameValidation ||
       designationValidation ||
+      contactEmailValidation ||
+      contactMobileValidation ||
+      phoneWorkValidation ||
       addressValidation ||
       cityValidation ||
       stateValidation ||
@@ -188,7 +209,7 @@ const CreateCompany = () => {
     formData: {  // Pass the form data as a separate property
       companyName,
       email,
-      phoneNumber,
+      companyPhone,
       startDate,
       endDate,
       website,
@@ -198,7 +219,11 @@ const CreateCompany = () => {
       panEinNumber,
       name,
       designation,
-      address,
+      contactEmail,
+      contactMobile,
+      phoneWork,
+      streetAddress1,
+      streetAddress2,
       city,
       state,
       postalCode,
@@ -208,7 +233,7 @@ const CreateCompany = () => {
     addCompany(newCompany);
 
       // Increment serial number for the next company
-    setSerialNumber(serialNumber + 1);
+      setSerialNumber(serialNumber + 1);
 
     // Reset form fields or perform any other necessary actions
     setCompanyDetails({
@@ -266,17 +291,17 @@ const CreateCompany = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
-               <span style={{ color: 'red', fontSize:"12px" }}>{emailError}</span>
+              <span style={{ color: 'red', fontSize: '12px' }}>{emailError}</span>
             </FloatingLabel>
 
             <FloatingLabel controlId="phoneNumber" label="Company Phone" className="mb-2">
               <Form.Control
                 type="tel"
                 placeholder="Phone Number"
-                value={phoneNumber}
-                onChange={(e) => setPhoneNumber(e.target.value)}
+                value={companyPhone}
+                onChange={(e) => setCompanyPhone(e.target.value)}
               />
-               <span style={{ color: 'red', fontSize:"12px" }}>{phoneNumberError}</span>
+              <span style={{ color: 'red', fontSize: '12px' }}>{companyPhoneError}</span>
             </FloatingLabel>
             <Select 
             options={options}
@@ -410,54 +435,54 @@ const CreateCompany = () => {
               />
                <span style={{ color: 'red', fontSize:"12px" }}>{designationError}</span>
           </FloatingLabel>
-            <FloatingLabel controlId="email" label="Email" className="mb-2">
+            <FloatingLabel controlId="contactEmail" label="Email" className="mb-2">
               <Form.Control
                 type="email"
                 placeholder="name@example.com"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                value={contactEmail}
+                onChange={(e) => setContactEmail(e.target.value)}
               />
-               <span style={{ color: 'red', fontSize:"12px" }}>{emailError}</span>
+              <span style={{ color: 'red', fontSize: '12px' }}>{contactEmailError}</span>
             </FloatingLabel>
 
-            <FloatingLabel controlId="phoneNumber" label="Contact Mobile" className="mb-2">
+            <FloatingLabel controlId="contactMobile" label="Contact Mobile" className="mb-2">
               <Form.Control
                 type="tel"
                 placeholder="Contact Mobile"
-                value={phoneNumber}
-                onChange={(e) => setPhoneNumber(e.target.value)}
+                value={contactMobile}
+                onChange={(e) => setContactMobile(e.target.value)}
               />
-               <span style={{ color: 'red', fontSize:"12px" }}>{phoneNumberError}</span>
+              <span style={{ color: 'red', fontSize: '12px' }}>{contactMobileError}</span>
             </FloatingLabel>
-            <FloatingLabel controlId="phoneNumber" label="Phone (Work)" className="mb-2">
+            <FloatingLabel controlId="phoneWork" label="Phone (Work)" className="mb-2">
               <Form.Control
                 type="tel"
                 placeholder="Phone (Work)"
-                value={phoneNumber}
-                onChange={(e) => setPhoneNumber(e.target.value)}
+                value={phoneWork}
+                onChange={(e) => setPhoneWork(e.target.value)}
               />
-               <span style={{ color: 'red', fontSize:"12px" }}>{phoneNumberError}</span>
+              <span style={{ color: 'red', fontSize: '12px' }}>{phoneWorkError}</span>
             </FloatingLabel>
           </div>
           <div>
           <h3 style={{color:"#525CEB", marginBottom:"0.5rem", fontSize:"16px"}}>Address</h3>
-          <FloatingLabel controlId="address" label="Street Address 1" className="mb-2">
+          <FloatingLabel controlId="streetAddress1" label="Street Address 1" className="mb-2">
           <Form.Control
             type="text"
-            placeholder="Address"
-            value={address}
-            onChange={(e) => setAddress(e.target.value)}
+            placeholder="Address 1"
+            value={streetAddress1}
+            onChange={(e) => setStreetAddress1(e.target.value)}
           />
-           <span style={{ color: 'red', fontSize:"12px" }}>{addressError}</span>
+          <span style={{ color: 'red', fontSize: '12px' }}>{addressError}</span>
         </FloatingLabel>
-        <FloatingLabel controlId="address" label="Street Address 2" className="mb-2">
+        <FloatingLabel controlId="streetAddress2" label="Street Address 2" className="mb-2">
           <Form.Control
             type="text"
-            placeholder="Address"
-            value={address}
-            onChange={(e) => setAddress(e.target.value)}
+            placeholder="Address 2"
+            value={streetAddress2}
+            onChange={(e) => setStreetAddress2(e.target.value)}
           />
-           <span style={{ color: 'red', fontSize:"12px" }}>{addressError}</span>
+          <span style={{ color: 'red', fontSize: '12px' }}>{addressError}</span>
         </FloatingLabel>
         <FloatingLabel controlId="city" label="City/Town/Village" className="mb-2">
         <Form.Control

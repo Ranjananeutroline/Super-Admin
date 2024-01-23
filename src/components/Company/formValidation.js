@@ -12,9 +12,9 @@ export const validateCompanyName = (companyName) => {
     return '';
   };
   
-  export const validatePhoneNumber = (phoneNumber) => {
-    if (!phoneNumber.trim() || !/^\d{10}$/.test(phoneNumber)) {
-      return 'Please enter a valid 10-digit phone number.';
+  export const validateCompanyPhone = (companyPhone) => {
+    if (!companyPhone.trim() || !/^\d{10}$/.test(companyPhone)) {
+      return 'Please enter a valid 10-digit company phone number.';
     }
     return '';
   };
@@ -95,9 +95,23 @@ export const validateCompanyName = (companyName) => {
     return '';
   };
   
-  export const validateAddress = (address) => {
-    if (!address.trim()) {
-      return 'Address is required.';
+  export const validateContactMobile = (contactMobile) => {
+    if (!contactMobile.trim() || !/^\d{10}$/.test(contactMobile)) {
+      return 'Please enter a valid 10-digit contact mobile number.';
+    }
+    return '';
+  };
+  
+  export const validatePhoneWork = (phoneWork) => {
+    if (!phoneWork.trim() || !/^\d{10}$/.test(phoneWork)) {
+      return 'Please enter a valid 10-digit phone (work) number.';
+    }
+    return '';
+  };
+  
+  export const validateAddress = (streetAddress1, streetAddress2) => {
+    if (!streetAddress1.trim() && !streetAddress2.trim()) {
+      return 'At least one street address is required.';
     }
     return '';
   };

@@ -59,7 +59,7 @@ const Company = () => {
                 companyData.map((comp, index) => (
                   <React.Fragment key={comp.id}>
                   {expandedRows.includes(index) ? (
-                    <ExpandedRow comp={comp} onCollapse={() => handleRowClick(index)} />
+                   <ExpandedRow comp={comp} sn={index + 1} onCollapse={() => handleRowClick(index)} />
                   ) : (
                     <tr
                         style={{
@@ -69,7 +69,7 @@ const Company = () => {
                         }}
                         onClick={() => handleRowClick(index)}
                       >
-                      <td>{comp.sn}</td>
+                      <td>{index + 1}</td>
                       <td>{comp.name}</td>
                       <td>{comp.id}</td>
                       <td>{comp.acc}</td>

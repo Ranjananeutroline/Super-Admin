@@ -43,7 +43,7 @@
     background: none;
   }
   .main-detail{
-    padding: 0.5rem 0.5rem;
+    padding: 0.5rem 1rem;
     justify-content: center;
     border: 1px solid rgba(128, 128, 128, 0.096); 
     /* box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px; */
@@ -52,10 +52,15 @@
     text-align: center;
     font-size: 20px;
     color: blue;
-    margin: 0 0 1rem 0;
+    margin: 0 0 1.2rem 0;
+    padding-left: 1.5rem;
+  }
+  .btn-div button{
+    margin: 5px;
   }
   .main-detail p{
-    margin: 10px;
+    margin: 8px;
+    font-size: 14px;
   }
   .upper{
     display: flex;
@@ -81,4 +86,6 @@
     .lower > div:last-child {
      
     }
-    
+    strong{
+      margin-right: 12px;
+    }
