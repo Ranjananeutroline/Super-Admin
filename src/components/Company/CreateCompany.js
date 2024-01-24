@@ -299,7 +299,18 @@ const CreateCompany = () => {
                 type="tel"
                 placeholder="Phone Number"
                 value={companyPhone}
-                onChange={(e) => setCompanyPhone(e.target.value)}
+                onChange={(e) => {
+                  // Allow only numeric input
+                  const numericValue = e.target.value.replace(/\D/g, '');
+                  setCompanyPhone(numericValue);
+                }}
+                onKeyPress={(e) => {
+                  // Allow only numeric key presses
+                  const isValidKey = /^\d$/.test(e.key);
+                  if (!isValidKey) {
+                    e.preventDefault();
+                  }
+                }}
               />
               <span style={{ color: 'red', fontSize: '12px' }}>{companyPhoneError}</span>
             </FloatingLabel>
@@ -372,7 +383,18 @@ const CreateCompany = () => {
                 type="text"
                 placeholder="Fax"
                 value={fax}
-                onChange={(e) => setFax(e.target.value)}
+                onChange={(e) => {
+                  // Allow only numeric input
+                  const numericValue = e.target.value.replace(/\D/g, '');
+                  setFax(numericValue);
+                }}
+                onKeyPress={(e) => {
+                  // Allow only numeric key presses
+                  const isValidKey = /^\d$/.test(e.key);
+                  if (!isValidKey) {
+                    e.preventDefault();
+                  }
+                }}
               />
               <span style={{ color: 'red', fontSize:"12px" }}>{FaxError}</span>
             </FloatingLabel>
@@ -381,7 +403,18 @@ const CreateCompany = () => {
                 type="number"
                 placeholder="NAICS Code"
                 value={naicsCode}
-                onChange={(e) => setNaicsCode(e.target.value)}
+                onChange={(e) => {
+                  // Allow only numeric input
+                  const numericValue = e.target.value.replace(/\D/g, '');
+                  setNaicsCode(numericValue);
+                }}
+                onKeyPress={(e) => {
+                  // Allow only numeric key presses
+                  const isValidKey = /^\d$/.test(e.key);
+                  if (!isValidKey) {
+                    e.preventDefault();
+                  }
+                }}
               />
                <span style={{ color: 'red', fontSize:"12px" }}>{naicsCodeError}</span>
             </FloatingLabel>
@@ -390,7 +423,18 @@ const CreateCompany = () => {
                 type="number"
                 placeholder="PAN/EIN"
                 value={panEinNumber}
-                onChange={(e) => setPanEinNumber(e.target.value)}
+                onChange={(e) => {
+                  // Allow only numeric input
+                  const numericValue = e.target.value.replace(/\D/g, '');
+                  setPanEinNumber(numericValue);
+                }}
+                onKeyPress={(e) => {
+                  // Allow only numeric key presses
+                  const isValidKey = /^\d$/.test(e.key);
+                  if (!isValidKey) {
+                    e.preventDefault();
+                  }
+                }}
               />
                <span style={{ color: 'red', fontSize:"12px" }}>{panEinNumberError}</span>
             </FloatingLabel>
@@ -416,7 +460,7 @@ const CreateCompany = () => {
           </div>
           <div className="form-div2">
           <div>
-          <h3 style={{color:"#525CEB", marginBottom:"0.5rem", fontSize:"16px"}}>Point of Contact</h3>
+          <h3 style={{color:"#525CEB", marginBottom:"0.5rem", fontSize:"18px"}}>Point of Contact</h3>
           <FloatingLabel controlId="name" label="Name" className="mb-2">
               <Form.Control
                 type="text"
@@ -450,7 +494,19 @@ const CreateCompany = () => {
                 type="tel"
                 placeholder="Contact Mobile"
                 value={contactMobile}
-                onChange={(e) => setContactMobile(e.target.value)}
+                onChange={(e) => {
+                  // Allow only numeric input
+                  const numericValue = e.target.value.replace(/\D/g, '');
+                  setContactMobile(numericValue);
+                }}
+                onKeyPress={(e) => {
+                  // Allow only numeric key presses
+                  const isValidKey = /^\d$/.test(e.key);
+                  if (!isValidKey) {
+                    e.preventDefault();
+                  }
+                }}
+                
               />
               <span style={{ color: 'red', fontSize: '12px' }}>{contactMobileError}</span>
             </FloatingLabel>
@@ -459,13 +515,24 @@ const CreateCompany = () => {
                 type="tel"
                 placeholder="Phone (Work)"
                 value={phoneWork}
-                onChange={(e) => setPhoneWork(e.target.value)}
+                onChange={(e) => {
+                  // Allow only numeric input
+                  const numericValue = e.target.value.replace(/\D/g, '');
+                  setPhoneWork(numericValue);
+                }}
+                onKeyPress={(e) => {
+                  // Allow only numeric key presses
+                  const isValidKey = /^\d$/.test(e.key);
+                  if (!isValidKey) {
+                    e.preventDefault();
+                  }
+                }}
               />
               <span style={{ color: 'red', fontSize: '12px' }}>{phoneWorkError}</span>
             </FloatingLabel>
           </div>
           <div>
-          <h3 style={{color:"#525CEB", marginBottom:"0.5rem", fontSize:"16px"}}>Address</h3>
+          <h3 style={{color:"#525CEB", marginBottom:"0.5rem", fontSize:"18px"}}>Address</h3>
           <FloatingLabel controlId="streetAddress1" label="Street Address 1" className="mb-2">
           <Form.Control
             type="text"
@@ -507,7 +574,18 @@ const CreateCompany = () => {
           type="text"
           placeholder="Postal Code"
           value={postalCode}
-          onChange={(e) => setPostalCode(e.target.value)}
+          onChange={(e) => {
+            // Allow only numeric input
+            const numericValue = e.target.value.replace(/\D/g, '');
+            setPostalCode(numericValue);
+          }}
+          onKeyPress={(e) => {
+            // Allow only numeric key presses
+            const isValidKey = /^\d$/.test(e.key);
+            if (!isValidKey) {
+              e.preventDefault();
+            }
+          }}
         />
         <span style={{ color: 'red', fontSize:"12px" }}>{postalCodeError}</span>
       </FloatingLabel>

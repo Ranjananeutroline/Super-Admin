@@ -43,10 +43,11 @@
     background: none;
   }
   .main-detail{
-    padding: 0.5rem 1rem;
+    padding-bottom: 0.3rem;
     justify-content: center;
     border: 1px solid rgba(128, 128, 128, 0.096); 
-    /* box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px; */
+    /* background: rgba(100, 99, 99, 0.03); */
+    background: white;
   }
   .main-detail h2{
     text-align: center;
@@ -54,31 +55,38 @@
     color: blue;
     margin: 0 0 1.2rem 0;
     padding-left: 1.5rem;
+
   }
-  .btn-div button{
-    margin: 5px;
+  .title-row{
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 1rem 0.5rem 1rem;
+    /* border-bottom: 1px solid rgba(128, 128, 128, 0.418); */
   }
+  
   .main-detail p{
     margin: 8px;
     font-size: 14px;
+    color: rgb(110, 105, 105);
   }
   .upper{
     display: flex;
-    gap: 2rem;
-    margin-bottom: 1rem;
-    margin-top: 0.5rem;
-    padding: 0 1rem;
+    gap: 5rem;
+    padding: 0.5rem  1rem;
+    margin: auto;
     }
     .upper > div {
       flex: 1;
     }
     .upper > div:last-child {
-     
+    
+    
     }
     .lower{
       display: flex;
-      gap: 2rem;
-      padding: 0 1rem 1rem 1rem;
+      gap: 5rem;
+      padding: 0.5rem  1rem;
+      margin: auto;
     }
     .lower > div {
       flex: 1;
@@ -88,4 +96,17 @@
     }
     strong{
       margin-right: 12px;
+      font-weight: 400;
+      font-size: 15px;
+      color: black;
     }
+    .btn-div{
+    
+      padding-right: 1rem;
+    } 
+    .btn-div button{
+      display: flex;
+      gap: 5px;
+      margin: 1rem;
+      font-size: 14px;
+    } 

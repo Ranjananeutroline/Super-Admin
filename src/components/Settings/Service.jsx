@@ -200,18 +200,18 @@ const Service = () => {
           <table className="table-auto border rounded-md w-full">
             <thead className="border rounded-[100px] sticky top-0">
               <tr className="h-[50px]  text-[15px] bg-[#d6e0fa] rounded-[10px] ">
-                <th className="font-man font-bold md:w-[60px] text-center s-id s-th">ID</th>
-                <th className="font-man font-bold md:w-[220px] text-center s-sname s-th">
+                <th className="font-man font-medium md:w-[60px] text-center s-id s-th">ID</th>
+                <th className="font-man font-medium md:w-[220px] text-center s-sname s-th">
                   Service Name
                 </th>
-                <th className="font-man font-bold md:w-[200px] text-center s-avi s-th">
+                <th className="font-man font-medium md:w-[200px] text-center s-avi s-th">
                   Availability
                 </th>
-                <th className="font-man font-bold md:w-[150px] text-center s-dur s-th">Duration</th>
-                <th className="font-man font-bold md:w-[120px] text-center s-visi s-th">
+                <th className="font-man font-medium md:w-[150px] text-center s-dur s-th">Duration</th>
+                <th className="font-man font-medium md:w-[120px] text-center s-visi s-th">
                   Visibility
                 </th>
-                <th className="font-man font-bold  md:w-[100px] text-center s-act s-th ">Action</th>
+                <th className="font-man font-medium  md:w-[100px] text-center s-act s-th ">Action</th>
               </tr>
             </thead>
             <tbody>

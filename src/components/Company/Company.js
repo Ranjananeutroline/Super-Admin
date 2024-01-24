@@ -43,14 +43,14 @@ const Company = () => {
             <Table responsive="md" style={tableStyle}>
         <thead>
           <tr  style={{ backgroundColor: "#d6e0fa", height:"45px", fontSize:"15px", textAlign:"center" }}>
-            <th>SN</th>
-            <th>Company Name</th>
-            <th>Company ID</th>
-            <th>Account Number</th>
-            <th>EIN/PAN Number</th>
-            <th>Status</th>
-            <th>Start Date</th>
-            <th>End Date</th>
+            <th className='font-medium'>SN</th>
+            <th className='font-medium'>Company Name</th>
+            <th className='font-medium'>Company ID</th>
+            <th className='font-medium'>Account Number</th>
+            <th className='font-medium'>EIN/PAN Number</th>
+            <th className='font-medium'>Status</th>
+            <th className='font-medium'>Start Date</th>
+            <th className='font-medium'>End Date</th>
             <th></th> 
           </tr>
         </thead>

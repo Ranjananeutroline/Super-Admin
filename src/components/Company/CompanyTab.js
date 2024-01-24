@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import "./Company.css"
 import Company from "./Company";
 import CreateCompany from "./CreateCompany";
+import CurrentClients from "./CurrentClients";
 
 
 const CompanyTab = () => {
@@ -27,12 +28,17 @@ const CompanyTab = () => {
         >
           All Companies
         </button>
-       
+        <button
+          onClick={() => handleTabClick('currentclients')}
+          className={activeTab === 'currentclients' ? 'active-tab' : ''}
+        >
+          Current Clients
+        </button>
       </div>
 
       {activeTab === 'createCompany' && <CreateCompany />} 
       {activeTab === 'allCompanies' && <Company />}
-      
+      {activeTab === 'currentclients' && <CurrentClients />}
     
     </>
   )

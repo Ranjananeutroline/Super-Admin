@@ -52,6 +52,16 @@ margin-bottom: 1rem;
 .country-all-select:hover{
   box-shadow: none!important;
 }
+.css-otdvvq-control {
+  height: 50px!important;
+}
+.css-yndcp5-placeholder{
+  margin-left: 5px!important;
+  /* margin-bottom: 20px!important;  */
+}
+.css-hlgwow{
+  height: 50px!important;
+}
 .attach-div{
   box-shadow: rgb(0 0 0 / 6%) 0px 1px 4px;
   background-color: white;

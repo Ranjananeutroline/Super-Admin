@@ -1,25 +1,33 @@
 import React from 'react';
 import { FiArrowUp } from "react-icons/fi";
 import { LiaEditSolid } from "react-icons/lia";
-import { RiDeleteBinLine } from "react-icons/ri";
 
-const ExpandedRow = ({ comp, onCollapse }) => (
+
+const ExpandedRow = ({ comp, onCollapse }) => {
+  
+
+  return (
+  
     <React.Fragment>
   <tr>
-    <td colSpan="9" className='p-0'>
+    <td colSpan="9" className='p-0 main-row' >
       {/* Detailed information */}
       <div className="main-detail">
-        <div style={{display:"flex", justifyContent:"end", textAlign:"end"}}>
+        {/* <div style={{display:"flex", justifyContent:"end", textAlign:"end"}}>
         <FiArrowUp style={{ color: 'grey', fontSize: '18px', cursor: 'pointer', textAlign:"right" }} onClick={onCollapse} />
+        </div> */}
+       
+          <div className="title-row">
+            <div style={{width:"100%"}}>
+            <h2 style={{ margin: '0', textAlign:"center" }}>{comp.formData?.companyName}</h2>
+            <p style={{ marginTop: '3px', textAlign:"center" }}> {comp.formData?.email}</p>
+            </div>
+          <FiArrowUp style={{ color: 'grey', fontSize: '18px', cursor: 'pointer', textAlign:"right" }} onClick={onCollapse} />
         </div>
-        <div className="inner-detail">
-        <h2 style={{ margin: '0', textAlign:"left" }}>Company Information</h2>
-        {/* <div className='btn-div'>
-              <button><LiaEditSolid/></button>
-              <button><RiDeleteBinLine/></button>
-            </div> */}
-          <div style={{ display:"flex", justifyContent:"space-between"}}>
-            <div style={{width:"90%"}}>
+      
+          <div style={{ display:"flex"}}>
+            <div style={{width:"80%", margin:"auto"}}>
+
             <div className="upper">
                 <div>
                 <p><strong>Company Name:</strong> {comp.formData?.companyName}</p>
@@ -57,19 +65,18 @@ const ExpandedRow = ({ comp, onCollapse }) => (
                 </div>
             </div>
             <div className='btn-div'>
-              <button><LiaEditSolid style={{ color: 'blue', fontSize: '18px' }}/></button>
-              <button><RiDeleteBinLine style={{ color: '#D04848', fontSize: '18px' }}/></button>
+              <button title='Edit' 
+              >Edit<LiaEditSolid style={{ color: '#3081D0', fontSize: '18px' }}/>
+              </button>
             </div>
-
             </div>
-          </div> 
-       
+           
+          
         </div>
     </td>
-   
   </tr>
- 
   </React.Fragment>
 );
+};
 
 export default ExpandedRow;
