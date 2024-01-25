@@ -1,21 +1,43 @@
-import React from 'react';
+import React, { useState }  from 'react';
 import { FiArrowUp } from "react-icons/fi";
 import { LiaEditSolid } from "react-icons/lia";
+import CreateCompany from './CreateCompany';
 
 
-const ExpandedRow = ({ comp, onCollapse }) => {
-  
+const ExpandedRowContent = ({ comp, onCollapse }) => {
+  const [isEditing, setIsEditing] = useState(false);
+
+  const handleEditClick = () => {
+    setIsEditing(true);
+  };
+
+  const handleSaveClick = () => {
+    // Handle save logic, e.g., update data or perform API request
+    setIsEditing(false);
+  };
+
+  const handleCancelClick = () => {
+    // Handle cancel logic, e.g., reset form fields or discard changes
+    setIsEditing(false);
+  };
+
 
   return (
   
     <React.Fragment>
   <tr>
     <td colSpan="9" className='p-0 main-row' >
-      {/* Detailed information */}
+      {isEditing ? (
+          // Render the CreateCompany component when editing is enabled
+          <CreateCompany
+          formDataForEdit={comp.formData}
+          onEditSave={handleSaveClick}
+          onCancel={handleCancelClick}
+          displayTitleAndButton={false}
+        />
+        ) : (
+          // Render the regular content when not editing
       <div className="main-detail">
-        {/* <div style={{display:"flex", justifyContent:"end", textAlign:"end"}}>
-        <FiArrowUp style={{ color: 'grey', fontSize: '18px', cursor: 'pointer', textAlign:"right" }} onClick={onCollapse} />
-        </div> */}
        
           <div className="title-row">
             <div style={{width:"100%"}}>
@@ -24,11 +46,15 @@ const ExpandedRow = ({ comp, onCollapse }) => {
             </div>
           <FiArrowUp style={{ color: 'grey', fontSize: '18px', cursor: 'pointer', textAlign:"right" }} onClick={onCollapse} />
         </div>
+        
+        <div>
+          <h4 className='second-title'>Company Information</h4>
+        </div>
       
           <div style={{ display:"flex"}}>
             <div style={{width:"80%", margin:"auto"}}>
 
-            <div className="upper">
+              <div className="upper">
                 <div>
                 <p><strong>Company Name:</strong> {comp.formData?.companyName}</p>
                 <p><strong>Email:</strong> {comp.formData?.email}</p>
@@ -36,15 +62,26 @@ const ExpandedRow = ({ comp, onCollapse }) => {
                 <p><strong>Country:</strong> {comp.formData?.country}</p>
                 <p><strong>Start Date:</strong> {comp.formData?.startDate}</p>
                 <p><strong>End Date:</strong> {comp.formData?.endDate}</p>
-                </div>
+              </div>
+
                 <div>
                 <p><strong>Website:</strong> {comp.formData?.website}</p>
                 <p><strong>Line of Business:</strong> {comp.formData?.businessLine}</p>
                 <p><strong>Fax:</strong> {comp.formData?.fax}</p>
                 <p><strong>NAICS Code:</strong> {comp.formData?.naicsCode}</p>
                 <p><strong>PAN/EIN Number:</strong> {comp.formData?.panEinNumber}</p>
+                  {comp.formData?.fileData ? (
+                    // Display file data or download link as needed
+                    <p>
+                      <strong>Document/File:</strong> 
+                      <strong>{comp.formData.fileData.name}</strong>
+                    </p>
+                  ) : (
+                    <p>No file attached</p>
+                  )}
                 </div>
                 </div>
+
                 <div className='lower'>
                 <div>
                 <h3 style={{color:"#525CEB", marginBottom:"0.5rem", fontSize:"16px"}}>Point of Contact</h3>
@@ -65,18 +102,33 @@ const ExpandedRow = ({ comp, onCollapse }) => {
                 </div>
             </div>
             <div className='btn-div'>
-              <button title='Edit' 
+              <button title='Edit' onClick={handleEditClick}
               >Edit<LiaEditSolid style={{ color: '#3081D0', fontSize: '18px' }}/>
               </button>
             </div>
+
             </div>
-           
-          
-        </div>
-    </td>
-  </tr>
-  </React.Fragment>
-);
+            </div>
+            )}
+        </td>
+
+      </tr>
+
+      {/* Show Save and Cancel buttons only when editing */}
+      {isEditing && (
+        <tr>
+          <td colSpan="9" className='p-0 main-row'>
+            <div className='btn-div'>
+              <button title='Save' onClick={handleSaveClick}>Save</button>
+              <button title='Cancel' onClick={handleCancelClick}>Cancel</button>
+            </div>
+          </td>
+        </tr>
+      )}
+    </React.Fragment>
+  );
 };
 
-export default ExpandedRow;
+
+
+export default ExpandedRowContent;

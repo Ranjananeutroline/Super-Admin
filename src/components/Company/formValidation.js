@@ -136,3 +136,19 @@ export const validateCompanyName = (companyName) => {
     }
     return '';
   };
+
+  // Add this function to your formValidation.js file or wherever you keep your validation functions
+export const validateFileSize = (file, maxSizeInBytes) => {
+  if (!file) {
+    return 'File attachment is required.';
+  }
+
+  const fileSizeInBytes = file.size;
+  const maxSizeInMegabytes = maxSizeInBytes / (1024 * 1024);
+
+  if (fileSizeInBytes > maxSizeInBytes) {
+    return `File size must be less than ${maxSizeInMegabytes} MB.`;
+  }
+
+  return '';
+};

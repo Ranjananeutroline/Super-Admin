@@ -61,9 +61,18 @@
     display: flex;
     justify-content: space-between;
     padding: 1rem 1rem 0.5rem 1rem;
+    background: #f3f7f9b0;
     /* border-bottom: 1px solid rgba(128, 128, 128, 0.418); */
   }
-  
+  .second-title{
+    text-align: left;
+    color: #3652AD;
+    padding-top: 1rem; 
+    font-size: 18px;
+    /* background: grey; */
+    width: 85%;
+    margin: auto;
+  }
   .main-detail p{
     margin: 8px;
     font-size: 14px;
@@ -99,6 +108,7 @@
       font-weight: 400;
       font-size: 15px;
       color: black;
+      
     }
     .btn-div{
     

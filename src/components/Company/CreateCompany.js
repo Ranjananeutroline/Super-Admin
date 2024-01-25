@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react'
+import React, { useState, useMemo,useEffect } from 'react'
 import Select from 'react-select'
 import countryList from 'react-select-country-list'
 import "./Company.css"
@@ -24,11 +24,12 @@ import {
   validateCity,
   validateState,
   validatePostalCode,
+  validateFileSize,
 } from './formValidation';
 import { ToastContainer, toast } from "react-toastify";
 import { addCompany } from './companyData';
 
-const CreateCompany = () => {
+const CreateCompany = ({ formDataForEdit, onEditSave, onCancelEdit, displayTitleAndButton }) => {
   const [serialNumber, setSerialNumber] = useState(1);
   const [companyDetails, setCompanyDetails] = useState({
     someId: '',      // Replace with the actual ID property
@@ -47,12 +48,6 @@ const CreateCompany = () => {
   }
 
   const [selectedFile, setSelectedFile] = useState(null);
-
-  const handleFileChange = (event) => {
-    // Handle file selection
-    const file = event.target.files[0];
-    setSelectedFile(file);
-  };
 
   
   const [companyName, setCompanyName] = useState('');
@@ -116,11 +111,50 @@ const CreateCompany = () => {
   const [postalCode, setPostalCode] = useState('');
   const [postalCodeError, setPostalCodeError] = useState('');
 
+  const [fileError, setFileError] = useState('');
+
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+
+    // Validate file size (maxSizeInBytes is the maximum allowed size, adjust as needed)
+    const fileSizeValidation = validateFileSize(file, 5 * 1024 * 1024); // Example: 5 MB
+    setFileError(fileSizeValidation);
+
+    setSelectedFile(file);
+  };
+
+  useEffect(() => {
+    // Populate form fields with data when in edit mode
+    if (formDataForEdit) {
+      setCompanyName(formDataForEdit.companyName || '');
+      setEmail(formDataForEdit.email || '');
+      setCompanyPhone(formDataForEdit.companyPhone || '');
+      setSelectedCountry(formDataForEdit.selectedCountry || '');
+      setStartDate(formDataForEdit.startDate || '');
+      setEndDate(formDataForEdit.endDate || '');
+      setWebsite(formDataForEdit.website || '');
+      setBusinessLine(formDataForEdit.businessLine || '');
+      setFax(formDataForEdit.fax || '');
+      setNaicsCode(formDataForEdit.naicsCode || '');
+      setPanEinNumber(formDataForEdit.panEinNumber || '');
+      setName(formDataForEdit.name || '');
+      setDesignation(formDataForEdit.designation || '');
+      setContactEmail(formDataForEdit.contactEmail || '');
+      setContactMobile(formDataForEdit.contactMobile || '');
+      setPhoneWork(formDataForEdit.phoneWork || '');
+      setStreetAddress1(formDataForEdit.streetAddress1 || '');
+      setStreetAddress2(formDataForEdit.streetAddress2 || '');
+      setCity(formDataForEdit.city || '');
+      setPhoneWork(formDataForEdit.phoneWork || '');
+     
+      // ... (populate other fields accordingly)
+    }
+  }, [formDataForEdit]);
+
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
-   
+    onEditSave();
   
     // Validate all fields
     const companyNameValidation = validateCompanyName(companyName);
@@ -143,6 +177,8 @@ const CreateCompany = () => {
     const cityValidation = validateCity(city);
     const stateValidation = validateState(state);
     const postalCodeValidation = validatePostalCode(postalCode);
+    const fileSizeValidation = validateFileSize(selectedFile, 5 * 1024 * 1024); // Example: 5 MB
+    
   
     // Update state with validation results
     setCompanyNameError(companyNameValidation);
@@ -165,7 +201,8 @@ const CreateCompany = () => {
     setCityError(cityValidation);
     setStateError(stateValidation);
     setPostalCodeError(postalCodeValidation);
-  
+    setFileError(fileSizeValidation);
+
     // Check if any error exists
     if (
       companyNameValidation ||
@@ -187,7 +224,8 @@ const CreateCompany = () => {
       addressValidation ||
       cityValidation ||
       stateValidation ||
-      postalCodeValidation
+      postalCodeValidation ||
+      fileSizeValidation
     ) {
       // If any error exists, do not submit the form
       return;
@@ -228,6 +266,7 @@ const CreateCompany = () => {
       state,
       postalCode,
       country: selectedCountry.label, // Include the selected country label if needed
+      fileData: selectedFile,
     },
     };
     addCompany(newCompany);
@@ -261,13 +300,17 @@ const CreateCompany = () => {
     });
   };
 
- 
+  const handleCancelEdit = () => {
+    onCancelEdit(); // Call the onCancelEdit callback to exit edit mode without saving
+  };
 
   return (
     <div className='comp-create-main mb-4'>
-       <div>
-            <h2 className='text-[22px] text-[#5B76FC] mt-2 mb-2'>Create Company</h2>
+       
+        <div>
+          <h2 className='text-[22px] text-[#5B76FC] mt-2 mb-2'>Create Company</h2>
         </div>
+      
 
         
         <div className="form-main-div" >
@@ -440,21 +483,18 @@ const CreateCompany = () => {
             </FloatingLabel>
             
             <div className='attach-div'>
-            <label htmlFor="fileInput">
-              Attach PAN/EIN
-            </label>
-            <div className="custom-file">
-              <input
-                type="file"
-                className="custom-file-input"
-                id="fileInput"
-                accept="image/*, .pdf"
-                onChange={handleFileChange}
-              />
-            
+              <label htmlFor='fileInput'>Attach PAN/EIN</label>
+              <div className='custom-file'>
+                <input
+                  type='file'
+                  className='custom-file-input'
+                  id='fileInput'
+                  accept='image/*, .pdf'
+                  onChange={handleFileChange}
+                />
+              </div>
+              <span style={{ color: 'red', fontSize: '12px' }}>{fileError}</span>
             </div>
-            
-          </div>
            
           </div>
           </div>
@@ -592,9 +632,11 @@ const CreateCompany = () => {
           </div>
           </div>
           <div style={{ justifyContent: "right", textAlign:"right", marginTop: "0.5rem" }}>
-          <button type="submit" className='create-comp-button'>
-            Create Company
-          </button>
+          {displayTitleAndButton && (
+              <button type="submit" className='create-comp-button'>
+                Create Company
+              </button>
+              )}
         </div>
         </Form>
         </div>

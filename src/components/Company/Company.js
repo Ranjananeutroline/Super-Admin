@@ -6,7 +6,7 @@ import { LiaEditSolid } from "react-icons/lia";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { FiArrowUp } from "react-icons/fi";
 import { FiArrowDown } from "react-icons/fi";
-import ExpandedRow  from "./ExpandedRow";
+import ExpandedRowContent  from "./ExpandedRowContent";
 import { FaPlus } from "react-icons/fa6";
 
 const Company = () => {
@@ -59,7 +59,7 @@ const Company = () => {
                 companyData.map((comp, index) => (
                   <React.Fragment key={comp.id}>
                   {expandedRows.includes(index) ? (
-                   <ExpandedRow comp={comp} sn={index + 1} onCollapse={() => handleRowClick(index)} />
+                   <ExpandedRowContent comp={comp} sn={index + 1} onCollapse={() => handleRowClick(index)} />
                   ) : (
                     <tr
                         style={{
