@@ -80,4 +80,7 @@ margin-bottom: 1rem;
 .attach-div:hover{
   background-color: rgb(0 0 0 / 2%);
 }
-
+.edit-btn-div{
+ 
+  gap: 0.5rem;
+}

@@ -2,7 +2,7 @@ import React, { useState }  from 'react';
 import { FiArrowUp } from "react-icons/fi";
 import { LiaEditSolid } from "react-icons/lia";
 import CreateCompany from './CreateCompany';
-
+import "./Company.css";
 
 const ExpandedRowContent = ({ comp, onCollapse }) => {
   const [isEditing, setIsEditing] = useState(false);
@@ -31,9 +31,16 @@ const ExpandedRowContent = ({ comp, onCollapse }) => {
           // Render the CreateCompany component when editing is enabled
           <CreateCompany
           formDataForEdit={comp.formData}
-          onEditSave={handleSaveClick}
-          onCancel={handleCancelClick}
-          displayTitleAndButton={false}
+          onEditSave={() => {
+            // Handle save logic, e.g., update data or perform API request
+            setIsEditing(false);
+          }}
+          onCancelEdit={() => {
+            // Handle cancel logic, e.g., reset form fields or discard changes
+            setIsEditing(false);
+          }}
+          isEditing={isEditing}
+          className="custom-expanded-row-content"
         />
         ) : (
           // Render the regular content when not editing
@@ -114,17 +121,7 @@ const ExpandedRowContent = ({ comp, onCollapse }) => {
 
       </tr>
 
-      {/* Show Save and Cancel buttons only when editing */}
-      {isEditing && (
-        <tr>
-          <td colSpan="9" className='p-0 main-row'>
-            <div className='btn-div'>
-              <button title='Save' onClick={handleSaveClick}>Save</button>
-              <button title='Cancel' onClick={handleCancelClick}>Cancel</button>
-            </div>
-          </td>
-        </tr>
-      )}
+    
     </React.Fragment>
   );
 };

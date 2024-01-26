@@ -29,7 +29,7 @@ import {
 import { ToastContainer, toast } from "react-toastify";
 import { addCompany } from './companyData';
 
-const CreateCompany = ({ formDataForEdit, onEditSave, onCancelEdit, displayTitleAndButton }) => {
+const CreateCompany = ({ formDataForEdit, onEditSave, onCancelEdit, isEditing, className}) => {
   const [serialNumber, setSerialNumber] = useState(1);
   const [companyDetails, setCompanyDetails] = useState({
     someId: '',      // Replace with the actual ID property
@@ -154,7 +154,7 @@ const CreateCompany = ({ formDataForEdit, onEditSave, onCancelEdit, displayTitle
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    onEditSave();
+    
   
     // Validate all fields
     const companyNameValidation = validateCompanyName(companyName);
@@ -230,7 +230,7 @@ const CreateCompany = ({ formDataForEdit, onEditSave, onCancelEdit, displayTitle
       // If any error exists, do not submit the form
       return;
     }
-  
+    onEditSave();
     
     // Update the company data
     const newCompany = {
@@ -238,10 +238,10 @@ const CreateCompany = ({ formDataForEdit, onEditSave, onCancelEdit, displayTitle
       name: companyName,
       id: companyDetails.someId,  // Use the actual ID property
       acc: companyDetails.someAcc, // Use the actual account number property
-      pan: event.target.panEinNumber.value, // Use the actual PAN property
+      pan: panEinNumber, // Use the actual PAN property
       status: 'pending',
-      sdate: event.target.startDate.value,  // Use the event.target to get the value of the input field
-      edate: event.target.endDate.value,    // Use the event.target to get the value of the input field
+      sdate: startDate,   // Use the event.target to get the value of the input field
+      edate: endDate,   // Use the event.target to get the value of the input field
       // Add other properties as needed
     
     formData: {  // Pass the form data as a separate property
@@ -305,10 +305,12 @@ const CreateCompany = ({ formDataForEdit, onEditSave, onCancelEdit, displayTitle
   };
 
   return (
-    <div className='comp-create-main mb-4'>
+    <div className={`comp-create-main mb-4 ${className}`}>
        
         <div>
-          <h2 className='text-[22px] text-[#5B76FC] mt-2 mb-2'>Create Company</h2>
+          <h2 className='text-[22px] text-[#5B76FC] mt-2 mb-2'>
+          {isEditing ? 'Edit Company Form' : 'Create Company'}
+            </h2>
         </div>
       
 
@@ -462,24 +464,24 @@ const CreateCompany = ({ formDataForEdit, onEditSave, onCancelEdit, displayTitle
                <span style={{ color: 'red', fontSize:"12px" }}>{naicsCodeError}</span>
             </FloatingLabel>
             <FloatingLabel controlId="panEinNumber" label="PAN/EIN" className="mb-2">
-              <Form.Control
-                type="number"
-                placeholder="PAN/EIN"
-                value={panEinNumber}
-                onChange={(e) => {
-                  // Allow only numeric input
-                  const numericValue = e.target.value.replace(/\D/g, '');
-                  setPanEinNumber(numericValue);
-                }}
-                onKeyPress={(e) => {
-                  // Allow only numeric key presses
-                  const isValidKey = /^\d$/.test(e.key);
-                  if (!isValidKey) {
-                    e.preventDefault();
-                  }
-                }}
-              />
-               <span style={{ color: 'red', fontSize:"12px" }}>{panEinNumberError}</span>
+            <Form.Control
+              type="number"
+              placeholder="PAN/EIN"
+              value={panEinNumber}
+              onChange={(e) => {
+                // Allow only numeric input
+                const numericValue = e.target.value.replace(/\D/g, '');
+                setPanEinNumber(numericValue);
+              }}
+              onKeyPress={(e) => {
+                // Allow only numeric key presses
+                const isValidKey = /^\d$/.test(e.key);
+                if (!isValidKey) {
+                  e.preventDefault();
+                }
+              }}
+            />
+            <span style={{ color: 'red', fontSize: '12px' }}>{panEinNumberError}</span>
             </FloatingLabel>
             
             <div className='attach-div'>
@@ -632,11 +634,29 @@ const CreateCompany = ({ formDataForEdit, onEditSave, onCancelEdit, displayTitle
           </div>
           </div>
           <div style={{ justifyContent: "right", textAlign:"right", marginTop: "0.5rem" }}>
-          {displayTitleAndButton && (
-              <button type="submit" className='create-comp-button'>
-                Create Company
-              </button>
-              )}
+            {isEditing ? (
+            // Render Save and Cancel buttons when editing
+            <>
+            <div className='edit-btn-div'>
+              <button type="button"
+              style={{background:"#4CB9E7", padding:"5px 10px", marginRight:"0.5rem", borderRadius:"5px"}}
+               onClick={handleSubmit}>
+                Save
+                </button>
+              <button type="button" 
+               style={{border:"1px solid #4CB9E7", padding:"5px 10px", borderRadius:"5px"}}
+               onClick={handleCancelEdit}>
+                Cancel
+                </button>
+            </div>
+              
+            </>
+          ) : (
+            // Render Create Company button when not editing
+            <button type="submit" className='create-comp-button'>
+              Create Company
+            </button>
+          )}
         </div>
         </Form>
         </div>
