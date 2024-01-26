@@ -1,0 +1,128 @@
+.company-main{
+    padding-left: 3.5rem;
+    padding-right: 3.5rem;
+    padding-top: 1.25rem;
+    /* padding-bottom: 1.25rem; */
+  }
+  .company-title{
+    font-size: 27px;
+    color: #3F26A5;
+  }
+ 
+  .comp-tab-div{
+    padding-left: 3.5rem;
+    padding-right: 3.5rem;
+    margin-bottom: 2.5rem;
+    display: flex;
+    justify-content: left;
+  }
+  .comp-tab-div button{
+    border-right-width: 1px;
+   padding: 12px 16px;
+   font-size: 14px; 
+   border-color: #d1d5db;
+   background: linear-gradient(to bottom, #f3f4f6, #ffffff); 
+   box-shadow: inset 0px -2px 5px 0px #d2f3fa; 
+   background-color: #ffffff;
+ }
+ .comp-tab-div button.active-tab {
+   border-width: 0.5px;
+   color: #346AFF;
+   box-shadow: 0px 2px 5px 0px #D2F3FA;
+   font-size: 14px;
+ }
+  .company-second{
+    padding-left: 3.5rem;
+    padding-right: 3.5rem;
+  }
+  .comp-create-main{
+    padding-left: 3.5rem;
+    padding-right: 3.5rem;
+  }
+  .table>:not(caption)>*>* {
+    background: none;
+  }
+  .main-detail{
+    padding-bottom: 0.3rem;
+    justify-content: center;
+    border: 1px solid rgba(128, 128, 128, 0.096); 
+    /* background: rgba(100, 99, 99, 0.03); */
+    background: white;
+  }
+  .main-detail h2{
+    text-align: center;
+    font-size: 20px;
+    color: blue;
+    margin: 0 0 1.2rem 0;
+    padding-left: 1.5rem;
+
+  }
+  .title-row{
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 1rem 0.5rem 1rem;
+    background: #f3f7f9b0;
+    /* border-bottom: 1px solid rgba(128, 128, 128, 0.418); */
+  }
+  .second-title{
+    text-align: left;
+    color: #3652AD;
+    padding-top: 1rem; 
+    font-size: 18px;
+    /* background: grey; */
+    width: 85%;
+    margin: auto;
+  }
+  .main-detail p{
+    margin: 8px;
+    font-size: 14px;
+    color: rgb(110, 105, 105);
+  }
+  .upper{
+    display: flex;
+    gap: 5rem;
+    padding: 0.5rem  1rem;
+    margin: auto;
+    }
+    .upper > div {
+      flex: 1;
+    }
+    .upper > div:last-child {
+    
+    
+    }
+    .lower{
+      display: flex;
+      gap: 5rem;
+      padding: 0.5rem  1rem;
+      margin: auto;
+    }
+    .lower > div {
+      flex: 1;
+    }
+    .lower > div:last-child {
+     
+    }
+    strong{
+      margin-right: 12px;
+      font-weight: 400;
+      font-size: 15px;
+      color: black;
+      
+    }
+    .btn-div{
+    
+      padding-right: 1rem;
+    } 
+    .btn-div button{
+      display: flex;
+      gap: 5px;
+      margin: 1rem;
+      font-size: 14px;
+    } 
+    .custom-expanded-row-content{
+      /* border: 1px solid; */
+      padding-top: 1rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
