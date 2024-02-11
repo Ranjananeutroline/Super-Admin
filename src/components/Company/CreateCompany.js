@@ -1,4 +1,4 @@
-import React, { useState, useMemo,useEffect } from 'react'
+import React, { useState, useMemo, useEffect, useRef } from 'react'
 import Select from 'react-select'
 import countryList from 'react-select-country-list'
 import "./Company.css"
@@ -111,16 +111,39 @@ const CreateCompany = ({ formDataForEdit, onEditSave, onCancelEdit, isEditing, c
   const [postalCode, setPostalCode] = useState('');
   const [postalCodeError, setPostalCodeError] = useState('');
 
+  const fileInputRef = useRef(null);
+
   const [fileError, setFileError] = useState('');
+  const [fileInfo, setFileInfo] = useState({
+    name: '',    // File name
+    // size: 0,     // File size
+    // type: '',    // File type
+  });
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
 
-    // Validate file size (maxSizeInBytes is the maximum allowed size, adjust as needed)
-    const fileSizeValidation = validateFileSize(file, 5 * 1024 * 1024); // Example: 5 MB
-    setFileError(fileSizeValidation);
+    if (file) {
+      const fileSizeValidation = validateFileSize(file, 5 * 1024 * 1024); // Example: 5 MB
+      setFileError(fileSizeValidation);
 
-    setSelectedFile(file);
+      setSelectedFile(file);
+
+      // Update file information for display
+      setFileInfo({
+        name: file.name,
+        // size: file.size,
+        // type: file.type,
+      });
+    } else {
+      // Clear file error and information if no file is selected
+      setFileError('');
+      setFileInfo({
+        name: '',
+        // size: 0,
+        // type: '',
+      });
+    }
   };
 
   useEffect(() => {
@@ -129,7 +152,15 @@ const CreateCompany = ({ formDataForEdit, onEditSave, onCancelEdit, isEditing, c
       setCompanyName(formDataForEdit.companyName || '');
       setEmail(formDataForEdit.email || '');
       setCompanyPhone(formDataForEdit.companyPhone || '');
-      setSelectedCountry(formDataForEdit.selectedCountry || '');
+
+      // Handle selectedCountry separately
+      const countryName = formDataForEdit.country || ''; // Adjust the property name if needed
+      const selectedCountryData = {
+        label: countryName,
+        value: countryName,
+      };
+      setSelectedCountry(selectedCountryData);
+
       setStartDate(formDataForEdit.startDate || '');
       setEndDate(formDataForEdit.endDate || '');
       setWebsite(formDataForEdit.website || '');
@@ -145,13 +176,53 @@ const CreateCompany = ({ formDataForEdit, onEditSave, onCancelEdit, isEditing, c
       setStreetAddress1(formDataForEdit.streetAddress1 || '');
       setStreetAddress2(formDataForEdit.streetAddress2 || '');
       setCity(formDataForEdit.city || '');
-      setPhoneWork(formDataForEdit.phoneWork || '');
+      setState(formDataForEdit.state || ''); 
+      setPostalCode(formDataForEdit.postalCode || ''); 
+
+       // Handle file separately
+      if (formDataForEdit.fileData) {
+        const { name, size, type } = formDataForEdit.fileData;
+        setFileInfo({ name, size, type });
+      }
      
       // ... (populate other fields accordingly)
     }
   }, [formDataForEdit]);
 
-
+  const resetForm = () => {
+    setCompanyName('');
+    setEmail('');
+    setCompanyPhone('');
+    setSelectedCountry(null);
+    setStartDate('');
+    setEndDate('');
+    setWebsite('');
+    setBusinessLine('');
+    setFax('');
+    setNaicsCode('');
+    setPanEinNumber('');
+    setName('');
+    setDesignation('');
+    setContactEmail('');
+    setContactMobile('');
+    setPhoneWork('');
+    setStreetAddress1('');
+    setStreetAddress2('');
+    setCity('');
+    setState('');
+    setPostalCode('');
+    setSelectedFile(null);
+    setFileInfo({
+      name: '',
+    });
+    setFileError('');
+    // Reset file input
+  if (fileInputRef.current) {
+    fileInputRef.current.value = '';
+  }
+    // Add more state variables if needed and reset their values
+    // ...
+  };
   const handleSubmit = (event) => {
     event.preventDefault();
     
@@ -286,9 +357,12 @@ const CreateCompany = ({ formDataForEdit, onEditSave, onCancelEdit, isEditing, c
       // Reset other properties as needed
     });
 
-   
-     // If all validations pass, show the success toast
-     toast.success('Form submitted successfully', {
+    // If all validations pass, show the appropriate toast message
+      const toastMessage = isEditing
+      ? 'Edited Form is Submitted'
+      : 'Form submitted successfully';
+
+    toast.success(toastMessage, {
       position: "top-center",
       autoClose: 3000,
       hideProgressBar: false,
@@ -298,7 +372,9 @@ const CreateCompany = ({ formDataForEdit, onEditSave, onCancelEdit, isEditing, c
       progress: undefined,
       theme: "light",
     });
-  };
+    // Reset the form after successful submission
+    resetForm();
+    };
 
   const handleCancelEdit = () => {
     onCancelEdit(); // Call the onCancelEdit callback to exit edit mode without saving
@@ -362,7 +438,7 @@ const CreateCompany = ({ formDataForEdit, onEditSave, onCancelEdit, isEditing, c
             </FloatingLabel>
             <Select 
             options={options}
-            value={selectedCountry}
+            value={selectedCountry} // Make sure selectedCountry is an object with value and label properties
             onChange={(value) => {
               setSelectedCountry(value);
               setSelectedCountryError('');
@@ -487,6 +563,11 @@ const CreateCompany = ({ formDataForEdit, onEditSave, onCancelEdit, isEditing, c
             
             <div className='attach-div'>
               <label htmlFor='fileInput'>Attach PAN/EIN</label>
+              {isEditing && fileInfo.name && (
+                <div>
+                  <span style={{ fontSize: '13px', color: 'grey' }}>Selected File: {fileInfo.name}</span>
+                </div>
+              )}
               <div className='custom-file'>
                 <input
                   type='file'
@@ -494,6 +575,7 @@ const CreateCompany = ({ formDataForEdit, onEditSave, onCancelEdit, isEditing, c
                   id='fileInput'
                   accept='image/*, .pdf'
                   onChange={handleFileChange}
+                  ref={fileInputRef}
                 />
               </div>
               <span style={{ color: 'red', fontSize: '12px' }}>{fileError}</span>

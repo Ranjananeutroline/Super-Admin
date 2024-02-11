@@ -76,7 +76,7 @@ const ExpandedRowContent = ({ comp, onCollapse }) => {
                     // Display file data or download link as needed
                     <p>
                       <strong>Document/File:</strong> 
-                      <strong>{comp.formData.fileData.name}</strong>
+                      <strong style={{color:"gray"}}>{comp.formData.fileData.name}</strong>
                     </p>
                   ) : (
                     <p>No file attached</p>
