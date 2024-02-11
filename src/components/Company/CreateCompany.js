@@ -304,6 +304,7 @@ const CreateCompany = ({ formDataForEdit, onEditSave, onCancelEdit, isEditing, c
     onCancelEdit(); // Call the onCancelEdit callback to exit edit mode without saving
   };
 
+
   return (
     <div className={`comp-create-main mb-4 ${className}`}>
        
@@ -639,12 +640,18 @@ const CreateCompany = ({ formDataForEdit, onEditSave, onCancelEdit, isEditing, c
             <>
             <div className='edit-btn-div'>
               <button type="button"
-              style={{background:"#4CB9E7", padding:"5px 10px", marginRight:"0.5rem", borderRadius:"5px"}}
+              style={{background:"#40A2D8", padding:"5px 10px", marginRight:"0.5rem",
+               borderRadius:"5px", color:"white",
+               boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
+              }}
                onClick={handleSubmit}>
                 Save
                 </button>
               <button type="button" 
-               style={{border:"1px solid #4CB9E7", padding:"5px 10px", borderRadius:"5px"}}
+               style={{border:"1px solid #40A2D8", padding:"5px 10px",
+                borderRadius:"5px", color:"#40A2D8",
+                boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
+              }}
                onClick={handleCancelEdit}>
                 Cancel
                 </button>

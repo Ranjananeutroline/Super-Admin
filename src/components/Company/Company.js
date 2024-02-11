@@ -9,6 +9,7 @@ import { FiArrowDown } from "react-icons/fi";
 import ExpandedRowContent  from "./ExpandedRowContent";
 import { FaPlus } from "react-icons/fa6";
 
+
 const Company = () => {
 
   const companyData = getCompanyData();
