@@ -15,6 +15,7 @@ const Company = () => {
   const companyData = getCompanyData();
   
   const [expandedRows, setExpandedRows] = useState([]);
+  const [editedData, setEditedData] = useState(null);
 
   const tableStyle = {
     borderRadius: '8px',
@@ -33,6 +34,16 @@ const Company = () => {
         return [index];
       }
     });
+  };
+
+  const handleEditSave = (newFormData) => {
+    // Update the editedData state with the new form data
+    setEditedData(newFormData);
+
+    // Clear the expandedRows state to close the expanded row
+    setExpandedRows([]);
+
+    // You may also want to perform any additional actions here, such as saving the data to an API or updating the state in a more permanent way
   };
 
   return (
@@ -60,9 +71,15 @@ const Company = () => {
                 companyData.map((comp, index) => (
                   <React.Fragment key={comp.id}>
                   {expandedRows.includes(index) ? (
-                   <ExpandedRowContent comp={comp} sn={index + 1} onCollapse={() => handleRowClick(index)} />
+                     <ExpandedRowContent
+                     comp={editedData !== null ? { ...comp, formData: editedData } : comp}
+                     sn={index + 1}
+                     onCollapse={() => handleRowClick(index)}
+                     onEditSave={handleEditSave}
+                   />
                   ) : (
                     <tr
+                        key={comp.id}
                         style={{
                           textAlign: 'center',
                           fontSize: '15px',
@@ -71,13 +88,13 @@ const Company = () => {
                         onClick={() => handleRowClick(index)}
                       >
                       <td>{index + 1}</td>
-                      <td>{comp.name}</td>
-                      <td>{comp.id}</td>
-                      <td>{comp.acc}</td>
-                      <td>{comp.pan}</td>
-                      <td>{comp.status}</td>
-                      <td>{comp.sdate}</td>
-                      <td>{comp.edate}</td>
+                      <td>{editedData !== null ? editedData.name : comp.name}</td>
+                  <td>{editedData !== null ? editedData.id : comp.id}</td>
+                  <td>{editedData !== null ? editedData.acc : comp.acc}</td>
+                  <td>{editedData !== null ? editedData.pan : comp.pan}</td>
+                  <td>{editedData !== null ? editedData.status : comp.status}</td>
+                  <td>{editedData !== null ? editedData.sdate : comp.sdate}</td>
+                  <td>{editedData !== null ? editedData.edate : comp.edate}</td>
                       <td>
                           {expandedRows.includes(index) ? (
                             <FiArrowUp style={{ color: 'grey', fontSize: '18px' }} />

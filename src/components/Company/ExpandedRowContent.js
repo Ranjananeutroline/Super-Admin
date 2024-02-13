@@ -7,14 +7,21 @@ import "./Company.css";
 const ExpandedRowContent = ({ comp, onCollapse }) => {
   const [isEditing, setIsEditing] = useState(false);
 
+  const onEditSave = () => {
+    // Implement your logic when the form is saved during editing
+    console.log('Form saved during editing');
+  };
+
   const handleEditClick = () => {
     setIsEditing(true);
   };
 
-  const handleSaveClick = () => {
+ const handleSaveClick = (newFormData) => {
     // Handle save logic, e.g., update data or perform API request
     setIsEditing(false);
     onEditSave();
+    // Update the comp object with the new form data
+    comp.formData = newFormData;
   };
 
   const handleCancelClick = () => {
@@ -30,13 +37,14 @@ const ExpandedRowContent = ({ comp, onCollapse }) => {
     <td colSpan="9" className='p-0 main-row' >
       {isEditing ? (
           // Render the CreateCompany component when editing is enabled
-          <CreateCompany
-          formDataForEdit={comp.formData}
-          onEditSave={handleSaveClick}  // Pass the correct function here
-          onCancelEdit={handleCancelClick}
-          isEditing={isEditing}
-          className="custom-expanded-row-content"
-        />
+           <CreateCompany
+            formDataForEdit={comp.formData}
+            onEditSave={(newFormData) => handleSaveClick(newFormData)} 
+            onCancelEdit={handleCancelClick}
+            onFormSubmit={handleSaveClick}
+            isEditing={isEditing}
+            className="custom-expanded-row-content"
+          />
         ) : (
           // Render the regular content when not editing
       <div className="main-detail">
