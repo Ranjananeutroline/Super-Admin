@@ -6,6 +6,7 @@ import "./Company.css";
 
 const ExpandedRowContent = ({ comp, onCollapse }) => {
   const [isEditing, setIsEditing] = useState(false);
+  
 
   const onEditSave = () => {
     // Implement your logic when the form is saved during editing
@@ -41,7 +42,7 @@ const ExpandedRowContent = ({ comp, onCollapse }) => {
             formDataForEdit={comp.formData}
             onEditSave={(newFormData) => handleSaveClick(newFormData)} 
             onCancelEdit={handleCancelClick}
-            onFormSubmit={handleSaveClick}
+            // onEditSave={handleSaveClick}
             isEditing={isEditing}
             className="custom-expanded-row-content"
           />

@@ -373,12 +373,15 @@ const CreateCompany = ({ formDataForEdit, onEditSave, onCancelEdit, onFormSubmit
       progress: undefined,
       theme: "light",
     });
-    // Call the onFormSubmit callback with the new form data
-    onFormSubmit(newCompany.formData);
+   // Check if onEditSave is a function before calling it
+      if (typeof onEditSave === 'function') {
+        onEditSave(newCompany.formData);
+      }
     // Reset the form after successful submission
     resetForm();
    
     };
+    
 
   const handleCancelEdit = () => {
     onCancelEdit(); // Call the onCancelEdit callback to exit edit mode without saving

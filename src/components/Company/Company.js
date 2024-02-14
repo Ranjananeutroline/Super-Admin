@@ -12,10 +12,11 @@ import { FaPlus } from "react-icons/fa6";
 
 const Company = () => {
 
-  const companyData = getCompanyData();
+  const [companyData, setCompanyData] = useState(getCompanyData());
   
   const [expandedRows, setExpandedRows] = useState([]);
   const [editedData, setEditedData] = useState(null);
+  const [editingRowIndex, setEditingRowIndex] = useState(null);
 
   const tableStyle = {
     borderRadius: '8px',
@@ -23,27 +24,30 @@ const Company = () => {
   };
 
   const handleRowClick = (index) => {
+    setEditingRowIndex(index);
     setExpandedRows((prevExpandedRows) => {
       const isRowExpanded = prevExpandedRows.includes(index);
-
+  
       if (isRowExpanded) {
-        // If the clicked row is already expanded, collapse all rows
         return [];
       } else {
-        // If the clicked row is collapsed, expand only the clicked row
         return [index];
       }
     });
   };
 
-  const handleEditSave = (newFormData) => {
-    // Update the editedData state with the new form data
-    setEditedData(newFormData);
-
-    // Clear the expandedRows state to close the expanded row
-    setExpandedRows([]);
-
-    // You may also want to perform any additional actions here, such as saving the data to an API or updating the state in a more permanent way
+  const handleEditSave = (newFormData, sn, rowIndex) => {
+    const editedRowIndex = companyData.findIndex((comp) => comp.sn === sn);
+  
+    if (editedRowIndex !== -1 && editedRowIndex === rowIndex) {
+      const updatedCompanyData = [...companyData];
+      updatedCompanyData[editedRowIndex] = { ...companyData[editedRowIndex], ...newFormData };
+  
+      setEditedData({ ...editedData, ...newFormData }); // Update editedData state
+      setExpandedRows([]); // Close the expanded row
+      setEditingRowIndex(null); // Clear the editing row index
+      setCompanyData(updatedCompanyData); // Update the state with the edited data
+    }
   };
 
   return (
@@ -70,16 +74,16 @@ const Company = () => {
         {companyData.length > 0 ? (
                 companyData.map((comp, index) => (
                   <React.Fragment key={comp.id}>
-                  {expandedRows.includes(index) ? (
+                    {expandedRows.includes(index) ? (
                      <ExpandedRowContent
-                     comp={editedData !== null ? { ...comp, formData: editedData } : comp}
-                     sn={index + 1}
+                     comp={comp}
                      onCollapse={() => handleRowClick(index)}
-                     onEditSave={handleEditSave}
+                     onEditSave={(newFormData) => handleEditSave(newFormData, comp.sn, index, comp.id)}
+                     isEditing={editingRowIndex === index}
                    />
-                  ) : (
-                    <tr
-                        key={comp.id}
+                    ) : (
+                      <tr
+                        
                         style={{
                           textAlign: 'center',
                           fontSize: '15px',
@@ -87,24 +91,24 @@ const Company = () => {
                         }}
                         onClick={() => handleRowClick(index)}
                       >
-                      <td>{index + 1}</td>
-                      <td>{editedData !== null ? editedData.name : comp.name}</td>
-                  <td>{editedData !== null ? editedData.id : comp.id}</td>
-                  <td>{editedData !== null ? editedData.acc : comp.acc}</td>
-                  <td>{editedData !== null ? editedData.pan : comp.pan}</td>
-                  <td>{editedData !== null ? editedData.status : comp.status}</td>
-                  <td>{editedData !== null ? editedData.sdate : comp.sdate}</td>
-                  <td>{editedData !== null ? editedData.edate : comp.edate}</td>
-                      <td>
+                        <td>{index + 1}</td>
+                        <td>{comp.name}</td>
+                        <td>{comp.id}</td>
+                        <td>{comp.acc}</td>
+                        <td>{comp.pan}</td>
+                        <td>{comp.status}</td>
+                        <td>{comp.sdate}</td>
+                        <td>{comp.edate}</td>
+                        <td>
                           {expandedRows.includes(index) ? (
                             <FiArrowUp style={{ color: 'grey', fontSize: '18px' }} />
                           ) : (
                             <FiArrowDown style={{ color: 'grey', fontSize: '18px' }} />
                           )}
                         </td>
-                    </tr>
-                  )}
-                </React.Fragment>
+                      </tr>
+                    )}
+                  </React.Fragment>
                    
               ))
                ) : (
