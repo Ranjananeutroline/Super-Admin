@@ -29,7 +29,7 @@ import {
 import { ToastContainer, toast } from "react-toastify";
 import { addCompany } from './companyData';
 
-const CreateCompany = ({ formDataForEdit, onEditSave, onCancelEdit, onFormSubmit, isEditing, className}) => {
+const CreateCompany = ({ formDataForEdit, onEditSave, onCancelEdit, isEditing, className}) => {
   const [serialNumber, setSerialNumber] = useState(1);
   const [companyDetails, setCompanyDetails] = useState({
     someId: '',      // Replace with the actual ID property
@@ -188,7 +188,6 @@ const CreateCompany = ({ formDataForEdit, onEditSave, onCancelEdit, onFormSubmit
       // ... (populate other fields accordingly)
     }
   }, [formDataForEdit]);
-  
 
   const resetForm = () => {
     setCompanyName('');
@@ -373,15 +372,9 @@ const CreateCompany = ({ formDataForEdit, onEditSave, onCancelEdit, onFormSubmit
       progress: undefined,
       theme: "light",
     });
-   // Check if onEditSave is a function before calling it
-      if (typeof onEditSave === 'function') {
-        onEditSave(newCompany.formData);
-      }
     // Reset the form after successful submission
     resetForm();
-   
     };
-    
 
   const handleCancelEdit = () => {
     onCancelEdit(); // Call the onCancelEdit callback to exit edit mode without saving

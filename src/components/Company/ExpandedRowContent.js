@@ -4,30 +4,27 @@ import { LiaEditSolid } from "react-icons/lia";
 import CreateCompany from './CreateCompany';
 import "./Company.css";
 
-const ExpandedRowContent = ({ comp, onCollapse }) => {
+const ExpandedRowContent = ({ comp, sn, onCollapse, onUpdateData }) => {
   const [isEditing, setIsEditing] = useState(false);
-  
-
-  const onEditSave = () => {
-    // Implement your logic when the form is saved during editing
-    console.log('Form saved during editing');
-  };
+  const [editedData, setEditedData] = useState(null);
 
   const handleEditClick = () => {
     setIsEditing(true);
   };
 
- const handleSaveClick = (newFormData) => {
+  const handleSaveClick = (updatedData) => {
     // Handle save logic, e.g., update data or perform API request
     setIsEditing(false);
-    onEditSave();
-    // Update the comp object with the new form data
-    comp.formData = newFormData;
+    setEditedData(updatedData);
+    // Call the onUpdateData callback to update data in the parent component
+    onUpdateData(sn - 1, updatedData);
   };
 
   const handleCancelClick = () => {
     // Handle cancel logic, e.g., reset form fields or discard changes
     setIsEditing(false);
+    // Call the onCollapse callback to collapse the row
+    onCollapse();
   };
 
 
@@ -38,14 +35,13 @@ const ExpandedRowContent = ({ comp, onCollapse }) => {
     <td colSpan="9" className='p-0 main-row' >
       {isEditing ? (
           // Render the CreateCompany component when editing is enabled
-           <CreateCompany
-            formDataForEdit={comp.formData}
-            onEditSave={(newFormData) => handleSaveClick(newFormData)} 
-            onCancelEdit={handleCancelClick}
-            // onEditSave={handleSaveClick}
-            isEditing={isEditing}
-            className="custom-expanded-row-content"
-          />
+          <CreateCompany
+              formDataForEdit={comp.formData}
+              onEditSave={handleSaveClick}
+              onCancelEdit={handleCancelClick}
+              isEditing={isEditing}
+              className="custom-expanded-row-content"
+            />
         ) : (
           // Render the regular content when not editing
       <div className="main-detail">

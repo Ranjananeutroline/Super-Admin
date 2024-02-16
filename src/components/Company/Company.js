@@ -12,11 +12,9 @@ import { FaPlus } from "react-icons/fa6";
 
 const Company = () => {
 
-  const [companyData, setCompanyData] = useState(getCompanyData());
+  const companyData = getCompanyData();
   
   const [expandedRows, setExpandedRows] = useState([]);
-  const [editedData, setEditedData] = useState(null);
-  const [editingRowIndex, setEditingRowIndex] = useState(null);
 
   const tableStyle = {
     borderRadius: '8px',
@@ -24,30 +22,17 @@ const Company = () => {
   };
 
   const handleRowClick = (index) => {
-    setEditingRowIndex(index);
     setExpandedRows((prevExpandedRows) => {
       const isRowExpanded = prevExpandedRows.includes(index);
-  
+
       if (isRowExpanded) {
+        // If the clicked row is already expanded, collapse all rows
         return [];
       } else {
+        // If the clicked row is collapsed, expand only the clicked row
         return [index];
       }
     });
-  };
-
-  const handleEditSave = (newFormData, sn, rowIndex) => {
-    const editedRowIndex = companyData.findIndex((comp) => comp.sn === sn);
-  
-    if (editedRowIndex !== -1 && editedRowIndex === rowIndex) {
-      const updatedCompanyData = [...companyData];
-      updatedCompanyData[editedRowIndex] = { ...companyData[editedRowIndex], ...newFormData };
-  
-      setEditedData({ ...editedData, ...newFormData }); // Update editedData state
-      setExpandedRows([]); // Close the expanded row
-      setEditingRowIndex(null); // Clear the editing row index
-      setCompanyData(updatedCompanyData); // Update the state with the edited data
-    }
   };
 
   return (
@@ -74,41 +59,44 @@ const Company = () => {
         {companyData.length > 0 ? (
                 companyData.map((comp, index) => (
                   <React.Fragment key={comp.id}>
-                    {expandedRows.includes(index) ? (
-                     <ExpandedRowContent
-                     comp={comp}
-                     onCollapse={() => handleRowClick(index)}
-                     onEditSave={(newFormData) => handleEditSave(newFormData, comp.sn, index, comp.id)}
-                     isEditing={editingRowIndex === index}
-                   />
-                    ) : (
-                      <tr
-                        
-                        style={{
-                          textAlign: 'center',
-                          fontSize: '15px',
-                          cursor: 'pointer',
-                        }}
-                        onClick={() => handleRowClick(index)}
-                      >
-                        <td>{index + 1}</td>
-                        <td>{comp.name}</td>
-                        <td>{comp.id}</td>
-                        <td>{comp.acc}</td>
-                        <td>{comp.pan}</td>
-                        <td>{comp.status}</td>
-                        <td>{comp.sdate}</td>
-                        <td>{comp.edate}</td>
-                        <td>
-                          {expandedRows.includes(index) ? (
-                            <FiArrowUp style={{ color: 'grey', fontSize: '18px' }} />
-                          ) : (
-                            <FiArrowDown style={{ color: 'grey', fontSize: '18px' }} />
-                          )}
+                {expandedRows.includes(index) ? (
+                  <ExpandedRowContent comp={comp} sn={index + 1} onCollapse={() => handleRowClick(index)} />
+                ) : (
+                  <>
+                    <tr
+                      style={{
+                        textAlign: 'center',
+                        fontSize: '15px',
+                        cursor: 'pointer',
+                      }}
+                      onClick={() => handleRowClick(index)}
+                    >
+                      <td>{index + 1}</td>
+                      <td>{comp.name}</td>
+                      <td>{comp.id}</td>
+                      <td>{comp.acc}</td>
+                      <td>{comp.pan}</td>
+                      <td>{comp.status}</td>
+                      <td>{comp.sdate}</td>
+                      <td>{comp.edate}</td>
+                      <td>
+                        {expandedRows.includes(index) ? (
+                          <FiArrowUp style={{ color: 'grey', fontSize: '18px' }} />
+                        ) : (
+                          <FiArrowDown style={{ color: 'grey', fontSize: '18px' }} />
+                        )}
+                      </td>
+                    </tr>
+                    {comp.isEditing && (
+                      <tr>
+                        <td colSpan="9">
+                          <ExpandedRowContent comp={comp} sn={index + 1} onCollapse={() => handleRowClick(index)} />
                         </td>
                       </tr>
                     )}
-                  </React.Fragment>
+                  </>
+                )}
+              </React.Fragment>
                    
               ))
                ) : (
