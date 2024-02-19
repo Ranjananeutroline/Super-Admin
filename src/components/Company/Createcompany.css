@@ -14,27 +14,19 @@ background-color: rgb(0 0 0 / 2%);
 /* border: 1px solid;   */
 }
 .form-div1{
-display: flex;
+display: grid;
+grid-template-columns: 50% 50%;
 gap: 1rem;
 margin-bottom: 1rem;
 }
-.form-div1 > div {
-  flex: 1;
-}
-.form-div1 > div:last-child {
- 
-}
+
 .form-div2{
-  display: flex;
+  display: grid;
+  grid-template-columns: 50% 50%;
   gap: 1rem;
   margin-bottom: 0.5rem;
 }
-.form-div2 > div {
-  flex: 1;
-}
-.form-div2 > div:last-child {
- 
-}
+
 .create-comp-button{
   background-color: #4CB9E7;
   padding: 10px 16px;
@@ -57,7 +49,7 @@ margin-bottom: 1rem;
 }
 .css-yndcp5-placeholder{
   margin-left: 5px!important;
-  /* margin-bottom: 20px!important;  */
+  /* margin-bottom: 20px!important;   */
 }
 .css-hlgwow{
   height: 50px!important;
@@ -83,4 +75,24 @@ margin-bottom: 1rem;
 .edit-btn-div{
  
   gap: 0.5rem;
+}
+
+
+@media only screen and (max-width: 995px){
+  .form-div1, .form-div2{
+    gap: 0.5rem;
+  }
+}
+@media only screen and (max-width: 970px){
+  .form-div1, .form-div2{
+    gap: 0;
+  }
+  .div1-left,.div1-right,.div2-left,.div2-right{
+    width: 98%;
+  }
+}
+@media only screen and (max-width: 960px){
+  .form-main-div{
+    width: 98%;
+  }
 }

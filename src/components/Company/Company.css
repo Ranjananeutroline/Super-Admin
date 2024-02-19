@@ -121,8 +121,39 @@
       font-size: 14px;
     } 
     .custom-expanded-row-content{
+
       /* border: 1px solid; */
       padding-top: 1rem;
       padding-left: 1rem;
       padding-right: 1rem;
     }
+
+
+    @media only screen and (max-width: 995px) {
+      .company-main{
+          padding-left: 2rem;
+          padding-right: 2rem;
+      }
+      .comp-tab-div{
+        padding-left: 2rem;
+        padding-right: 2rem;
+      }
+      .comp-create-main{
+        padding-left: 2rem;
+        padding-right: 2rem;
+      }
+    } 
+    @media only screen and (max-width: 970px) {
+      .company-main{
+          padding-left: 1rem;
+          padding-right: 1rem;
+      }
+      .comp-tab-div{
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+      .comp-create-main{
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+    } 

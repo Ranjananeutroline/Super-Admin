@@ -40,7 +40,7 @@ function App(item) {
   return (
     <div className="App">
       <ToastContainer style={{ width: "330px" }} />
-      {/* {!isLoginPageOrSignup && ( */}
+      {/* {!isLoginPageOrSignup && (  */}
       {user && (
         <>
           <Header />
@@ -81,6 +81,7 @@ function App(item) {
           </Routes>
         </div>
       )}
+      
     </div>
    
   );

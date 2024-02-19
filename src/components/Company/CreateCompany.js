@@ -395,7 +395,7 @@ const CreateCompany = ({ formDataForEdit, onEditSave, onCancelEdit, isEditing, c
         <div className="form-main-div" >
         <Form onSubmit={handleSubmit}>
           <div className="form-div1">
-          <div>
+          <div className='div1-left'>
             <FloatingLabel controlId="companyName" label="Company Name" className="mb-2">
               <Form.Control
                 type="text"
@@ -481,7 +481,7 @@ const CreateCompany = ({ formDataForEdit, onEditSave, onCancelEdit, isEditing, c
             </FloatingLabel>
           </div>
 
-          <div>
+          <div className='div1-right'>
             <FloatingLabel controlId="website" label="Website" className="mb-2">
               <Form.Control
                 type="text"
@@ -584,7 +584,7 @@ const CreateCompany = ({ formDataForEdit, onEditSave, onCancelEdit, isEditing, c
           </div>
           </div>
           <div className="form-div2">
-          <div>
+          <div className='div2-left'>
           <h3 style={{color:"#525CEB", marginBottom:"0.5rem", fontSize:"18px"}}>Point of Contact</h3>
           <FloatingLabel controlId="name" label="Name" className="mb-2">
               <Form.Control
@@ -656,7 +656,7 @@ const CreateCompany = ({ formDataForEdit, onEditSave, onCancelEdit, isEditing, c
               <span style={{ color: 'red', fontSize: '12px' }}>{phoneWorkError}</span>
             </FloatingLabel>
           </div>
-          <div>
+          <div className="div2-right">
           <h3 style={{color:"#525CEB", marginBottom:"0.5rem", fontSize:"18px"}}>Address</h3>
           <FloatingLabel controlId="streetAddress1" label="Street Address 1" className="mb-2">
           <Form.Control
