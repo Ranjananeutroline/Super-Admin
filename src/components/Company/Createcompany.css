@@ -78,12 +78,8 @@ margin-bottom: 1rem;
 }
 
 
-@media only screen and (max-width: 995px){
-  .form-div1, .form-div2{
-    gap: 0.5rem;
-  }
-}
-@media only screen and (max-width: 970px){
+
+@media only screen and (max-width: 980px){
   .form-div1, .form-div2{
     gap: 0;
   }
@@ -91,8 +87,21 @@ margin-bottom: 1rem;
     width: 98%;
   }
 }
-@media only screen and (max-width: 960px){
-  .form-main-div{
+@media only screen and (max-width: 935px){
+  .form-div1, .form-div2{
+    grid-template-columns: 100%;
+  }
+  .submit-div{
     width: 98%;
   }
+  
 }
+@media only screen and (max-width: 800px){
+  .div1-left,.div1-right,.div2-left,.div2-right{
+    width: 100%;
+  }
+  .submit-div{
+    width: 100%;
+  }
+}
+

@@ -73,6 +73,8 @@ import { FaUserClock } from "react-icons/fa";
 import { PiSpeakerSimpleHighFill } from "react-icons/pi";
 import { IoMdSettings } from "react-icons/io";
 import { ImUser } from 'react-icons/im';
+import { HiUsers } from "react-icons/hi";
+import { FaBuilding } from "react-icons/fa";
 const swipeOpenMenuStyles = {
   float: "left",
   position: "fixed",
@@ -220,7 +222,7 @@ export const Header = () => {
           >
             <li>
               <div
-                className={`flex  h-[47px]  w-[160px] md:w-[200px] items-center justify-center mt-[15px] 
+                className={`flex  h-[47px]  w-[160px] md:w-[200px] items-center justify-center mt-[8px] 
             rounded-md p-[20px] border bg-[#1a98ecbd]
              ${
                open ? "w-[289]" : "w-[60px] p-[0px] ml-0"
@@ -240,11 +242,62 @@ export const Header = () => {
                     Dashboard
                   </h3>
                 </div>
+                
               </div>
             </li>
             <li>
               <div
-                className={`flex  h-[47px]  w-[160px] md:w-[200px] bg-[#1a98ecbd]  items-center justify-center mt-[10px] 
+                className={`flex  h-[47px]  w-[160px] md:w-[200px] items-center justify-center mt-[8px] 
+            rounded-md p-[20px] border bg-[#1a98ecbd]
+             ${
+               open ? "w-[289]" : "w-[60px] p-[0px] ml-0"
+             } relative duration-300 `}
+                onClick={() => {
+                  setOpen(!open);
+                  navigate("/users");
+                }}
+              >
+                <div className="flex gap-2 items-center w-[160px] ">
+                <HiUsers style={{color:"white"}}/>
+                  <h3
+                    className={`${
+                      !open && "hidden"
+                    } text-[14px] text-[white] font-normal`}
+                  >
+                    Users
+                  </h3>
+                </div>
+                
+              </div>
+            </li>
+            <li>
+              <div
+                className={`flex  h-[47px]  w-[160px] md:w-[200px] items-center justify-center mt-[8px] 
+            rounded-md p-[20px] border bg-[#1a98ecbd]
+             ${
+               open ? "w-[289]" : "w-[60px] p-[0px] ml-0"
+             } relative duration-300 `}
+                onClick={() => {
+                  setOpen(!open);
+                  navigate("/company");
+                }}
+              >
+                <div className="flex gap-2 items-center w-[160px] ">
+                <FaBuilding style={{color:"white"}}/>
+                  <h3
+                    className={`${
+                      !open && "hidden"
+                    } text-[14px] text-[white] font-normal`}
+                  >
+                    Company
+                  </h3>
+                </div>
+                
+              </div>
+            </li>
+            <li>
+              <div
+                className={`flex  h-[47px]  w-[160px] md:w-[200px] bg-[#1a98ecbd]  items-center justify-center mt-[8px] 
              rounded-md gap-5 p-[20px] border
              ${
               open ? "w-[289]" : "w-[60px] p-[0px] ml-0"
@@ -289,7 +342,7 @@ export const Header = () => {
             </li> */}
             <li>
               <div
-                className={`flex  h-[47px]  w-[160px] md:w-[200px] items-center bg-[#1a98ecbd] justify-center mt-[10px] 
+                className={`flex  h-[47px]  w-[160px] md:w-[200px] items-center bg-[#1a98ecbd] justify-center mt-[8px] 
              rounded-md gap-5 p-[20px] border 
              ${
               open ? "w-[289]" : "w-[60px] p-[0px] ml-0"
@@ -313,7 +366,7 @@ export const Header = () => {
             </li>
             <li>
               <div
-                className={`flex  h-[47px]  w-[160px] md:w-[200px] bg-[#1a98ecbd] items-center justify-center mt-[10px] 
+                className={`flex  h-[47px]  w-[160px] md:w-[200px] bg-[#1a98ecbd] items-center justify-center mt-[8px] 
                rounded-md gap-5 p-[20px] border
                ${
                 open ? "w-[289]" : "w-[60px] p-[0px] ml-0"

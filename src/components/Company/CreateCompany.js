@@ -384,7 +384,7 @@ const CreateCompany = ({ formDataForEdit, onEditSave, onCancelEdit, isEditing, c
   return (
     <div className={`comp-create-main mb-4 ${className}`}>
        
-        <div>
+        <div className='form-title'>
           <h2 className='text-[22px] text-[#5B76FC] mt-2 mb-2'>
           {isEditing ? 'Edit Company Form' : 'Create Company'}
             </h2>
@@ -716,7 +716,7 @@ const CreateCompany = ({ formDataForEdit, onEditSave, onCancelEdit, isEditing, c
       </FloatingLabel>
           </div>
           </div>
-          <div style={{ justifyContent: "right", textAlign:"right", marginTop: "0.5rem" }}>
+          <div style={{ justifyContent: "right", textAlign:"right", marginTop: "0.5rem" }} className='submit-div'>
             {isEditing ? (
             // Render Save and Cancel buttons when editing
             <>

@@ -129,7 +129,7 @@
     }
 
 
-    @media only screen and (max-width: 995px) {
+     @media only screen and (max-width: 980px) {
       .company-main{
           padding-left: 2rem;
           padding-right: 2rem;
@@ -142,8 +142,13 @@
         padding-left: 2rem;
         padding-right: 2rem;
       }
+    }  
+    @media only screen and (max-width: 945px){
+      .comp-create-main{
+        width: 98%;
+      }
     } 
-    @media only screen and (max-width: 970px) {
+    @media only screen and (max-width: 600px) {
       .company-main{
           padding-left: 1rem;
           padding-right: 1rem;
@@ -156,4 +161,14 @@
         padding-left: 1rem;
         padding-right: 1rem;
       }
-    } 
+    }  
+    @media only screen and (max-width: 500px){
+      .comp-tab-div button{
+        padding: 10px 10px;
+      }
+    }
+    /* @media only screen and (max-width: 465px){
+      .comp-create-main{
+        padding-right: 0.3rem;
+      }
+    } */
