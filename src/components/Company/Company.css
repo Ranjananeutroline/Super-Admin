@@ -167,8 +167,65 @@
         padding: 10px 10px;
       }
     }
-    /* @media only screen and (max-width: 465px){
-      .comp-create-main{
-        padding-right: 0.3rem;
+      @media only screen and (max-width: 450px){
+      
+      .company-main{
+        width: 88%;
       }
-    } */
+      .comp-tab-div{
+        width: 88%;
+      }
+      .comp-tab-div button.active-tab{
+        padding: 8px 8px;
+        font-size: 12px;
+      }
+      .comp-tab-div button{
+        padding: 8px 8px;
+        font-size: 12px;
+      }
+      .comp-create-main{
+        width: 90%;
+      }
+    }  
+    @media only screen and (max-width: 415px){
+      .comp-create-main{
+        width: 88%;
+      }
+    }
+    @media only screen and (max-width: 386px){
+      .comp-tab-div button.active-tab{
+        font-size: 11px;
+      }
+      .comp-tab-div button{
+        font-size: 11px;
+      }
+    }
+    @media only screen and (max-width: 353px){
+      .comp-tab-div button.active-tab{
+        padding: 5px;
+      }
+      .comp-tab-div button{
+        padding: 5px;
+      }
+    }
+    @media only screen and (max-width: 1075px){
+      .heading-td{
+        font-size: 13px;
+      }
+      .company-main{
+        padding-left: 2.5rem;
+        padding-right: 2.5rem;
+    }
+    .comp-tab-div{
+      padding-left: 2.5rem;
+      padding-right: 2.5rem;
+    }
+    .comp-create-main{
+      padding-left: 2.5rem;
+      padding-right: 2.5rem;
+    }
+    .company-second{
+      padding-left: 2.5rem;
+      padding-right: 2.5rem;
+    }
+    }

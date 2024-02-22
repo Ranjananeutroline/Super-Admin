@@ -15,6 +15,7 @@ const CompanyTab = () => {
 
   return (
     <>
+    <div>
      <div className='comp-tab-div'>
         <button
           onClick={() => handleTabClick('createCompany')}
@@ -39,7 +40,7 @@ const CompanyTab = () => {
       {activeTab === 'createCompany' && <CreateCompany />} 
       {activeTab === 'allCompanies' && <Company />}
       {activeTab === 'currentclients' && <CurrentClients />}
-    
+    </div>
     </>
   )
 }

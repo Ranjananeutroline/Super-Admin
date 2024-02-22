@@ -41,13 +41,13 @@ function App(item) {
     <div className="App">
       <ToastContainer style={{ width: "330px" }} />
       {/* {!isLoginPageOrSignup && (  */}
-      {user && (
+      {user && ( 
         <>
           <Header />
-          <div className="opacity-100" style={{ display: "flex" }}>
-            <div>
+          <div className="opacity-100 overall-div">
+            
               <NavSidebar/>
-            </div>
+           
             <div className="w-[100%] right-body">
            
               <Routes>
@@ -69,8 +69,8 @@ function App(item) {
             </div>
           </div>
         </>
-      )}
-      {!user && (
+       )}
+      {!user && ( 
         <div>
          <Routes>
             <Route exact path="/" element={<LoginForm />} />
@@ -80,7 +80,7 @@ function App(item) {
             <Route path="*" element={<NotFound />} /> {/* Catch-all route */}
           </Routes>
         </div>
-      )}
+       )} 
       
     </div>
    
