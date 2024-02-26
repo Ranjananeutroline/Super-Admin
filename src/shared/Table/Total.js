@@ -16,7 +16,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllAppointments } from "../../redux/actions/appointmentAction.js";
 import {confirmAppointmentRequestHere} from "../../redux/actions/appointmentAction.js"
 import "./Today.css";
-// import getAllAppointments from "../"
+
+
 const closeIcon = (
   <svg
     width="28"
@@ -138,19 +139,21 @@ console.log(data);
   const handleAcceptBookAppointmentRequest = ()=>{
     dispatch(confirmAppointmentRequestHere())
   }
+  
+
   return (
+    <>
     <div className="border w-full">
       <table className="w-full h-full">
         <thead className="bg-[#E2F2FA] text-center">
           <tr className="h-[50px] text-[12px] md:text-[16px]">
-            <th className="font-normal  w-[5%] md:w-[5%]">ID</th>
-            <th className="font-normal  w-[25%] md:w-[20%]">Name</th>
-            <th className="font-normal w-[20%] md:w-[15%]">Services</th>
-            <th className="font-normal w-[15%] md:w-[10%]">Time</th>
-            <th className=" font-normal w-[15%] md:w-[10%]">Duration</th>
-            <th className=" font-normal w-[10%] md:w-[10%]">Status</th>
-            <th className="font-normal w-[10%] md:w-[10%]">Action</th>
-            <th className="font-normal w-[10%] md:w-[13%]">Reminder</th>
+          <th className=" font-normal w-[5%]">ID</th>
+            <th className="font-normal  w-[18%]">Name</th>
+            <th className="font-normal w-[10%]">Services</th>
+            <th className="font-normal w-[12%]">Contact</th>
+            <th className=" font-normal w-[10%]">Time</th>
+            <th className="font-normal w-[18%]">Date</th>
+            <th className=" font-normal w-[10%]">Status</th>
           </tr>
         </thead>
         <tbody>
@@ -171,14 +174,17 @@ console.log(data);
               <td className="text-center w-[20%] md:w-[15%]">
                 {item.services}
               </td>
+              <td className="text-center w-[20%] md:w-[15%]">
+                {item.contact}
+              </td>
               <td className="text-center  w-[15%] md:w-[10%] text-[#0038FF]">
                 {item.time}
               </td>
-              <td className=" text-center w-[15%] md:w-[10%] text-[#00AA3A]">
-                {item.duration}
+              <td className="text-center w-[15%] md:w-[10%] text-[#00AA3A] text-[14px] item-d">
+                {item.date}
               </td>
               <td className="text-center  w-[10%] md:w-[10%]">
-                <div className="md:flex md:justify-evenly md:gap-2  md:items-center  ">
+                <div className="md:flex md:justify-evenly  md:items-center  ">
                   <div className="flex justify-center items-centers">
                     {item.status === "Pending" ? (
                       <img className="w-2" src={circle} alt="yellow"></img>
@@ -189,93 +195,8 @@ console.log(data);
                   <div className="hidden md:block">{item.status}</div>
                 </div>
               </td>
-              <td className="  flex flex-col md:flex-row justify-center items-center    md:h-[60px] ">
-                
-                <button onClick={onOpenModal} className="group relative">
-                  <img
-                    className="md:hidden w-[13px] h-[15px]"
-                    src={Delete}
-                    alt="Delete"
-                  ></img>
-                  <div className=" hidden md:block">
-                    <svg
-                      width="18"
-                      height="18"
-                      viewBox="0 0 18 20"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M11 8V15M7 8V15M3 4V15.8C3 16.9201 3 17.4798 3.21799 17.9076C3.40973 18.2839 3.71547 18.5905 4.0918 18.7822C4.5192 19 5.07899 19 6.19691 19H11.8031C12.921 19 13.48 19 13.9074 18.7822C14.2837 18.5905 14.5905 18.2839 14.7822 17.9076C15 17.4802 15 16.921 15 15.8031V4M3 4H5M3 4H1M5 4H13M5 4C5 3.06812 5 2.60241 5.15224 2.23486C5.35523 1.74481 5.74432 1.35523 6.23438 1.15224C6.60192 1 7.06812 1 8 1H10C10.9319 1 11.3978 1 11.7654 1.15224C12.2554 1.35523 12.6447 1.74481 12.8477 2.23486C12.9999 2.6024 13 3.06812 13 4M13 4H15M15 4H17"
-                        stroke="#AD3307"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                  </div>
-
-                  <p className=" hidden md:hidden md:group-hover:blockabsolute top-0 left-0  p-1 rounded mt-9  bg-white  shadow">
-                    Delete
-                  </p>
-                </button>
-                <Modal
-                  className="hello"
-                  open={open}
-                  onClose={onCloseModal}
-                  closeIcon={closeIcon}
-                  classNames={{
-                    overlay: "totalOverlay",
-                    modal: "totalModal",
-                    closeButton: "customButton",
-                  }}
-                  center
-                >
-                  <div className=" sm:w-[450px]  bg-[white] rounded-[10px]  flex flex-col justify-center items-start gap-7 p-4">
-                  <div  className="w-full  sm:h-[60px] p-2  rounded-t-[10px] flex items-left justify-left">
-                      <p className="text-[18px]   text-left  tracking-wide w-[100%] ">
-                        Are you sure want to Delete?
-                      </p>
-                    </div>
-
-                    <div className=" w-full flex gap-3 px-2 justify-end">
-                      <button
-                        onClick={() => handleDelete(item.id)}
-                        className="bg-[#6499E9] text-[white] rounded  focus:outline-none  px-[14px]  text-[13.3px] h-[36px]"
-                        style={{ boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px" }}
-                      >
-                        Delete
-                      </button>
-                      <button
-                        onClick={onCloseModal}
-                        className="border-1 border-[#6499E9] text-[#6499E9] rounded focus:outline-none  px-[14px]  text-[13.3px] h-[36px]"
-                        style={{ boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px" }}
-                      >
-                        Cancel
-                      </button>
-                    </div>
-                  </div>
-                </Modal>
-              </td>
-              <td>
-              <div className="flex justify-center">
-                {!item.notified ? (
-                  <button
-                    className="flex p-2  bg-[#C3ECF4] md:px-3 md:gap-1 text-[15px] justify-center items-center rounded-sm md:p-1"
-                    onClick={() => handleNotifyClick(item.id)}
-                  >
-                    <span className="hidden  md:inline notify-text">{item.reminder}</span>
-                   {/* <img className="w-4 " src={bell} alt="notification" /> */}
-                   <IoIosNotifications style={{color:"#ffe000", fontSize:"17px"}}/>
-                  </button>
-                ) : (
-                  <button className="flex gap-1 px-2 bg-[#EDEDED] text-[#0038FF] text-[14px] justify-center rounded-sm items-center p-1">
-                    <span className="hidden md:inline notify-text">Notified</span>
-                    <img className="w-3" src={vector} alt="notified" />
-                  </button>
-                )}
-              </div>
-              </td>
+              
+              
             </tr>
           ))}
         </tbody>
@@ -376,6 +297,9 @@ console.log(data);
         )}
       </Modal>
     </div>
+
+   
+    </>
   );
 }
 

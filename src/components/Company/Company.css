@@ -16,21 +16,7 @@
     display: flex;
     justify-content: left;
   }
-  .comp-tab-div button{
-    border-right-width: 1px;
-   padding: 12px 16px;
-   font-size: 14px; 
-   border-color: #d1d5db;
-   background: linear-gradient(to bottom, #f3f4f6, #ffffff); 
-   box-shadow: inset 0px -2px 5px 0px #d2f3fa; 
-   background-color: #ffffff;
- }
- .comp-tab-div button.active-tab {
-   border-width: 0.5px;
-   color: #346AFF;
-   box-shadow: 0px 2px 5px 0px #D2F3FA;
-   font-size: 14px;
- }
+  
   .company-second{
     padding-left: 3.5rem;
     padding-right: 3.5rem;
@@ -56,6 +42,12 @@
     margin: 0 0 1.2rem 0;
     padding-left: 1.5rem;
 
+  }
+  .c-tr{
+    background: #d6e0fa;
+    height: 40px;
+    font-size: 15px;
+    text-align: center;
   }
   .title-row{
     display: flex;
@@ -127,8 +119,46 @@
       padding-left: 1rem;
       padding-right: 1rem;
     }
+    .d-svg{
+      color: grey;
+      font-size: 18px;
+    }
+    .mble-view{
+      display: none;
+    }
+    .m-svg{
+      margin-top: 5px;
+      color: #19a7ce;
+      transform: rotate(317deg);
+      font-size: 20px;
+    }
 
-
+    @media only screen and (max-width: 923px){
+      .desktop-screen{
+        display: none;
+      }
+      .mble-view{
+        display: block;
+      }
+      .mobile-row{
+        padding: 1rem;
+        border-radius: 8px;
+        background: rgb(0 0 0 / 3%);
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 3px -1px, rgba(0, 0, 0, 0.3) 0px 1px 2px -1px;
+        margin-bottom: 1.5rem;
+      }
+      .mobile-row p{
+        margin-bottom: 3px;
+      }
+      .index-no{
+        font-size: 14px;
+        background: #50C4ED;
+        border-radius: 50%;
+        padding: 1px 0.5rem;
+        color: white;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+      }
+    }
      @media only screen and (max-width: 980px) {
       .company-main{
           padding-left: 2rem;
@@ -212,6 +242,9 @@
       .heading-td{
         font-size: 13px;
       }
+      .d-svg{
+        font-size: 15px;
+      }
       .company-main{
         padding-left: 2.5rem;
         padding-right: 2.5rem;
@@ -228,4 +261,31 @@
       padding-left: 2.5rem;
       padding-right: 2.5rem;
     }
+    }
+    @media only screen and (max-width: 1029px){
+     
+      .company-main{
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+    .comp-tab-div{
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+    .comp-create-main{
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+    .company-second{
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+    }
+    @media only screen and (max-width: 997px){
+      .heading-td{
+        font-size: 11.5px;
+      }
+      .t-data{
+        font-size: 11.5px;
+      }
     }

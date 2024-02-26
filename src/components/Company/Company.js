@@ -41,9 +41,9 @@ const Company = () => {
             <h2 className='text-[22px] text-[#5B76FC] mt-2'>All Companies</h2>
 
             <div className="mt-2">
-            <Table responsive="md" style={tableStyle}>
+            <Table responsive="md" style={tableStyle} className='desktop-screen'>
         <thead>
-          <tr  style={{ backgroundColor: "#d6e0fa", height:"45px", fontSize:"15px", textAlign:"center" }}>
+          <tr  className='c-tr'>
             <th className='font-medium heading-td'>SN</th>
             <th className='font-medium heading-td'>Company Name</th>
             <th className='font-medium heading-td'>Company ID</th>
@@ -71,19 +71,19 @@ const Company = () => {
                       }}
                       onClick={() => handleRowClick(index)}
                     >
-                      <td>{index + 1}</td>
-                      <td>{comp.name}</td>
-                      <td>{comp.id}</td>
-                      <td>{comp.acc}</td>
-                      <td>{comp.pan}</td>
-                      <td>{comp.status}</td>
-                      <td>{comp.sdate}</td>
-                      <td>{comp.edate}</td>
-                      <td>
+                      <td className='t-data'>{index + 1}</td>
+                      <td className='t-data'>{comp.name}</td>
+                      <td className='t-data'>{comp.id}</td>
+                      <td className='t-data'>{comp.acc}</td>
+                      <td className='t-data'>{comp.pan}</td>
+                      <td className='t-data'>{comp.status}</td>
+                      <td className='t-data'>{comp.sdate}</td>
+                      <td className='t-data'>{comp.edate}</td>
+                      <td className='t-data'>
                         {expandedRows.includes(index) ? (
-                          <FiArrowUp style={{ color: 'grey', fontSize: '18px' }} />
+                          <FiArrowUp  className='d-svg' />
                         ) : (
-                          <FiArrowDown style={{ color: 'grey', fontSize: '18px' }} />
+                          <FiArrowDown  className='d-svg' />
                         )}
                       </td>
                     </tr>
@@ -108,9 +108,52 @@ const Company = () => {
               )}
             </tbody>
       </Table>
+      </div>
+
+      <div className='mble-view mt-2'>
+  {companyData.length > 0 ? (
+    companyData.map((comp, index) => (
+      <div key={comp.id} className="mobile-row">
+
+        {/* Render other mobile view columns here */}
+        {expandedRows.includes(index) && (
+          <div>
+            <ExpandedRowContent comp={comp} sn={index + 1} onCollapse={() => handleRowClick(index)} />
+          </div>
+        )}
+
+        {/* Render company details section */}
+        {!expandedRows.includes(index) && (
+          <div>
+            <div className='flex justify-between'>
+            <p className="font-medium text-[#864AF9]">{comp.name}</p>
+            <p className="font-medium index-no">{index + 1}</p>
+            </div>
+            
+            <p className="font-medium">{comp.id}</p>
+            <p className="font-medium">{comp.acc}</p>
+            <p className="font-medium">{comp.pan}</p>
+            <p className="font-medium">{comp.status}</p>
+            <p className="font-medium">{comp.sdate}</p>
+            <div className='flex justify-between'>
+              <p className="font-medium">{comp.edate}</p>
+              <button onClick={() => handleRowClick(index)}><FiArrowUp className='m-svg'/></button>
+            </div>
+          </div>
+        )}
+      </div>
+    ))
+  ) : (
+    <div className="mobile-row">
+      <p colSpan="9">
+        <span className="flex gap-[5px]"><FaPlus style={{marginTop:"2px", color:"#5B76FC"}}/>Create New Company.</span>
+      </p>
+    </div>
+  )}
+</div>
             </div>
         </div>
-    </div>
+    
   )
 }
 

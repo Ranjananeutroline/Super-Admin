@@ -19,19 +19,64 @@ const CompanyTab = () => {
      <div className='comp-tab-div'>
         <button
           onClick={() => handleTabClick('createCompany')}
-          className={activeTab === 'createCompany' ? 'active-tab' : ''}
+          className={`border-r w-full  p-3 ${
+            activeTab === "createCompany"
+              ? "border-gray-300  bg-gradient-to-b from-gray-100 via-white to-transparent shadow-inner inset-x-0 inset-y-2 bg-blue-200"
+              : ""
+          } md:h-[50px]  md:w-[130px] md:p-0 text-[14px]`}
+          style={
+            activeTab === "createCompany"
+              ? {
+                  borderWidth: "0.5px",
+                  color: "#346AFF",
+                  boxShadow: "0px 2px 5px 0px #D2F3FA",
+                  fontSize:"14px",
+                  
+                }
+              : { boxShadow: "0px 2px 5px 0px #D2F3FA" }
+          }
         >
           Create Company
         </button>
         <button
           onClick={() => handleTabClick('allCompanies')}
-          className={activeTab === 'allCompanies' ? 'active-tab' : ''}
+          className={`border-r w-full  p-3 ${
+            activeTab === "allCompanies"
+              ? "border-gray-300  bg-gradient-to-b from-gray-100 via-white to-transparent shadow-inner inset-x-0 inset-y-2 bg-blue-200"
+              : ""
+          } md:h-[50px]  md:w-[130px] md:p-0 text-[14px]`}
+          style={
+            activeTab === "allCompanies"
+              ? {
+                  borderWidth: "0.5px",
+                  color: "#346AFF",
+                  boxShadow: "0px 2px 5px 0px #D2F3FA",
+                  fontSize:"14px",
+                  
+                }
+              : { boxShadow: "0px 2px 5px 0px #D2F3FA" }
+          }
         >
           All Companies
         </button>
         <button
           onClick={() => handleTabClick('currentclients')}
-          className={activeTab === 'currentclients' ? 'active-tab' : ''}
+          className={`border-r w-full  p-3 ${
+            activeTab === "currentclients"
+              ? "border-gray-300  bg-gradient-to-b from-gray-100 via-white to-transparent shadow-inner inset-x-0 inset-y-2 bg-blue-200"
+              : ""
+          } md:h-[50px] md:w-[130px] md:p-0 text-[14px]`}
+          style={
+            activeTab === "currentclients"
+              ? {
+                  borderWidth: "0.5px",
+                  color: "#346AFF",
+                  boxShadow: "0px 2px 5px 0px #D2F3FA",
+                  fontSize:"14px",
+                  
+                }
+              : { boxShadow: "0px 2px 5px 0px #D2F3FA" }
+          }
         >
           Current Clients
         </button>
