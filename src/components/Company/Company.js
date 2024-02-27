@@ -124,7 +124,7 @@ const Company = () => {
 
         {/* Render company details section */}
         {!expandedRows.includes(index) && (
-          <div>
+          <div className='expand-mble'>
             <div className='flex justify-between'>
             <p className="font-medium text-[#864AF9]">{comp.name}</p>
             <p className="font-medium index-no">{index + 1}</p>

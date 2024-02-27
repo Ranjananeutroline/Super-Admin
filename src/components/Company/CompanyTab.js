@@ -23,7 +23,7 @@ const CompanyTab = () => {
             activeTab === "createCompany"
               ? "border-gray-300  bg-gradient-to-b from-gray-100 via-white to-transparent shadow-inner inset-x-0 inset-y-2 bg-blue-200"
               : ""
-          } md:h-[50px]  md:w-[130px] md:p-0 text-[14px]`}
+          } md:h-[50px]  md:w-[145px] md:p-0 text-[14px]`}
           style={
             activeTab === "createCompany"
               ? {
@@ -44,7 +44,7 @@ const CompanyTab = () => {
             activeTab === "allCompanies"
               ? "border-gray-300  bg-gradient-to-b from-gray-100 via-white to-transparent shadow-inner inset-x-0 inset-y-2 bg-blue-200"
               : ""
-          } md:h-[50px]  md:w-[130px] md:p-0 text-[14px]`}
+          } md:h-[50px]  md:w-[145px] md:p-0 text-[14px]`}
           style={
             activeTab === "allCompanies"
               ? {
@@ -65,7 +65,7 @@ const CompanyTab = () => {
             activeTab === "currentclients"
               ? "border-gray-300  bg-gradient-to-b from-gray-100 via-white to-transparent shadow-inner inset-x-0 inset-y-2 bg-blue-200"
               : ""
-          } md:h-[50px] md:w-[130px] md:p-0 text-[14px]`}
+          } md:h-[50px] md:w-[145px] md:p-0 text-[14px]`}
           style={
             activeTab === "currentclients"
               ? {

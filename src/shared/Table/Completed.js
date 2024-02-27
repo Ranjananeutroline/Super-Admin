@@ -189,8 +189,8 @@ function Total() {
 
   return (
     <>
-    <div className="border w-full overflow-x-auto">
-      <table className="w-[800px] md:w-full h-full">
+    <div className="border w-full">
+      <table className=" md:w-full h-full">
         <thead className="bg-[#E2F2FA] text-center">
           <tr className="h-[50px] text-[16px] md:text-[100%]">
             <th className=" font-normal w-[5%]">ID</th>
@@ -198,8 +198,8 @@ function Total() {
             <th className="font-normal w-[10%]">Services</th>
             <th className="font-normal w-[12%]">Contact</th>
             <th className=" font-normal w-[10%]">Time</th>
-            <th className="font-normal w-[18%]">Date</th>
-            <th className=" font-normal w-[10%]">Status</th>
+            <th className="font-normal w-[15%]">Date</th>
+            <th className=" font-normal w-[12%]">Status</th>
            
           </tr>
         </thead>
@@ -224,8 +224,13 @@ function Total() {
               <td className="text-center  w-[15%] md:w-[10%] text-[#0038FF]">
                 {item.time}
               </td>
-              <td className="text-center w-[15%] md:w-[10%] text-[#00AA3A] text-[14px] item-d">
-                {item.date}
+              <td className="text-center w-[15%] md:w-[10%] text-[#00AA3A] item-d">
+                {/* {item.date}  */}
+                {new Date(item.date).toLocaleDateString(undefined, {
+                  year: 'numeric',
+                  month: '2-digit',
+                  day: '2-digit',
+                })} 
               </td>
               <td className=" text-center  w-[10%] md:w-[10%]">
                 <div className="md:flex md:justify-evenly  md:items-center  ">

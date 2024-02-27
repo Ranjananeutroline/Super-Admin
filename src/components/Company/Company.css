@@ -62,13 +62,17 @@
     padding-top: 1rem; 
     font-size: 18px;
     /* background: grey; */
-    width: 85%;
+    width: 88%;
     margin: auto;
   }
   .main-detail p{
     margin: 8px;
     font-size: 14px;
     color: rgb(110, 105, 105);
+  }
+  .above-up{
+    width: 80%;
+    margin: auto;
   }
   .upper{
     display: flex;
@@ -132,6 +136,9 @@
       transform: rotate(317deg);
       font-size: 20px;
     }
+    /* .btn-div-mble{
+      display: none;
+    } */
 
     @media only screen and (max-width: 923px){
       .desktop-screen{
@@ -141,11 +148,22 @@
         display: block;
       }
       .mobile-row{
-        padding: 1rem;
         border-radius: 8px;
         background: rgb(0 0 0 / 3%);
         box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 3px -1px, rgba(0, 0, 0, 0.3) 0px 1px 2px -1px;
         margin-bottom: 1.5rem;
+      }
+      .expand-mble{
+        padding: 1rem;
+      }
+      button.btn-edit{
+        font-size: 0;
+      }
+      .btn-div{
+        padding-right: 0.7rem;
+      }
+      strong{
+        margin-right: 0;
       }
       .mobile-row p{
         margin-bottom: 3px;
@@ -261,6 +279,16 @@
       padding-left: 2.5rem;
       padding-right: 2.5rem;
     }
+    .second-title{
+      width: 100%;
+      margin-left: 1.5rem;
+    }
+    .above-up{
+      width: 100%;
+    }
+    .btn-div button{
+      margin: 0;
+    }
     }
     @media only screen and (max-width: 1029px){
      
@@ -287,5 +315,10 @@
       }
       .t-data{
         font-size: 11.5px;
+      }
+    }
+    @media only screen and (max-width: 960px){
+      .upper, .lower{
+        gap: 3rem;
       }
     }

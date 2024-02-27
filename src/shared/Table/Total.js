@@ -152,8 +152,8 @@ console.log(data);
             <th className="font-normal w-[10%]">Services</th>
             <th className="font-normal w-[12%]">Contact</th>
             <th className=" font-normal w-[10%]">Time</th>
-            <th className="font-normal w-[18%]">Date</th>
-            <th className=" font-normal w-[10%]">Status</th>
+            <th className="font-normal w-[15%]">Date</th>
+            <th className=" font-normal w-[12%]">Status</th>
           </tr>
         </thead>
         <tbody>
@@ -180,8 +180,13 @@ console.log(data);
               <td className="text-center  w-[15%] md:w-[10%] text-[#0038FF]">
                 {item.time}
               </td>
-              <td className="text-center w-[15%] md:w-[10%] text-[#00AA3A] text-[14px] item-d">
-                {item.date}
+              <td className="text-center w-[15%] md:w-[10%] text-[#00AA3A] item-d">
+                 {/* {item.date}  */}
+                 {new Date(item.date).toLocaleDateString(undefined, {
+                  year: 'numeric',
+                  month: '2-digit',
+                  day: '2-digit',
+                })} 
               </td>
               <td className="text-center  w-[10%] md:w-[10%]">
                 <div className="md:flex md:justify-evenly  md:items-center  ">
