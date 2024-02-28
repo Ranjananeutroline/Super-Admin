@@ -31,8 +31,8 @@ const ExpandedRowContent = ({ comp, sn, onCollapse, onUpdateData }) => {
   return (
   
     <React.Fragment>
-  <tr>
-    <td colSpan="9" className='p-0 main-row' >
+  <tr className='main-tr'>
+    <td colSpan="9" className='p-0 main-row'>
       {isEditing ? (
           // Render the CreateCompany component when editing is enabled
           <CreateCompany
@@ -90,7 +90,7 @@ const ExpandedRowContent = ({ comp, sn, onCollapse, onUpdateData }) => {
                 </div>
 
                 <div className='lower'>
-                <div>
+                <div className='lower-first'>
                 <h3 style={{color:"#525CEB", marginBottom:"0.5rem", fontSize:"16px", paddingLeft:"0.5rem"}}>Point of Contact</h3>
                 <p><strong>Name:</strong> {comp.formData?.name}</p>
                 <p><strong>Designation:</strong> {comp.formData?.designation}</p>

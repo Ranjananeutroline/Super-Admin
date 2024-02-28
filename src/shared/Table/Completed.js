@@ -190,16 +190,16 @@ function Total() {
   return (
     <>
     <div className="border w-full">
-      <table className=" md:w-full h-full">
+      <table className=" md:w-full h-full comp-table">
         <thead className="bg-[#E2F2FA] text-center">
           <tr className="h-[50px] text-[16px] md:text-[100%]">
-            <th className=" font-normal w-[5%]">ID</th>
-            <th className="font-normal  w-[18%]">Name</th>
-            <th className="font-normal w-[10%]">Services</th>
-            <th className="font-normal w-[12%]">Contact</th>
-            <th className=" font-normal w-[10%]">Time</th>
-            <th className="font-normal w-[15%]">Date</th>
-            <th className=" font-normal w-[12%]">Status</th>
+            <th className=" font-normal w-[5%] comp-th hide-id">ID</th>
+            <th className="font-normal  w-[18%] comp-th">Name</th>
+            <th className="font-normal w-[10%] comp-th">Services</th>
+            <th className="font-normal comp-th hide-data">Contact</th>
+            <th className="font-normal w-[10%] comp-th hide-data">Time</th>
+            <th className="font-normal w-[15%] comp-th">Date</th>
+            <th className=" font-normal w-[12%] comp-th">Status</th>
            
           </tr>
         </thead>
@@ -207,9 +207,9 @@ function Total() {
           {data?.map((item) => (
             <tr
               key={item.id}
-              className={` h-[50%] text-[16px] md:text-[16px] md:h-[60px] ${item.status=== "Completed"} ? `}
+              className={` h-[45px] text-[16px] md:text-[16px] md:h-[50px] ${item.status=== "Completed"} ? `}
             >
-              <td className="text-center w-[5%] md:w-[3%]">{item.id}</td>
+              <td className="text-center w-[5%] md:w-[3%] hide-id">{item.id}</td>
               <td className="text-center w-[25%] md:w-[20%]">
                 <button onClick={() => onOpenDetailModal(item.id)}>
                   {item.name}
@@ -218,10 +218,10 @@ function Total() {
               <td className="text-center w-[20%] md:w-[15%]">
                 {item.services}
               </td>
-              <td className="text-center w-[20%] md:w-[15%]">
+              <td className="text-center w-[20%] md:w-[15%] hide-data">
                 {item.contact}
               </td>
-              <td className="text-center  w-[15%] md:w-[10%] text-[#0038FF]">
+              <td className="text-center  w-[15%] md:w-[10%] text-[#0038FF] hide-data">
                 {item.time}
               </td>
               <td className="text-center w-[15%] md:w-[10%] text-[#00AA3A] item-d">

@@ -126,18 +126,21 @@ const Company = () => {
         {!expandedRows.includes(index) && (
           <div className='expand-mble'>
             <div className='flex justify-between'>
-            <p className="font-medium text-[#864AF9]">{comp.name}</p>
+            <p className="font-medium text-[#864AF9] mble-title">{comp.name}</p>
             <p className="font-medium index-no">{index + 1}</p>
             </div>
             
             <p className="font-medium">{comp.id}</p>
             <p className="font-medium">{comp.acc}</p>
-            <p className="font-medium">{comp.pan}</p>
-            <p className="font-medium">{comp.status}</p>
-            <p className="font-medium">{comp.sdate}</p>
-            <div className='flex justify-between'>
-              <p className="font-medium">{comp.edate}</p>
+            <p className="font-medium mble-stat">{comp.status}</p>
+            <div className='flex justify-between mt-3'>
+              <div className='flex gap-[8px]'>
+                <p className="font-medium start-p">{comp.sdate}</p>-
+                <p className="font-medium end-p">{comp.edate}</p>
+              </div>
+              <div>
               <button onClick={() => handleRowClick(index)}><FiArrowUp className='m-svg'/></button>
+              </div>
             </div>
           </div>
         )}

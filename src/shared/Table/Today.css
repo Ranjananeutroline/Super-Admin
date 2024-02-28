@@ -37,6 +37,12 @@
   .resp-time{
     padding: 0.25rem 0.5rem;
   }
+  .hide-data{
+    display: none;
+  }
+  .comp-table{
+    width: 100%;
+  }
 }
 @media only screen and (max-width: 1075px){
   th{
@@ -51,4 +57,14 @@
   .notify-text{
     font-size: 13.2px;
   }
+}
+@media only screen and (max-width: 480px){
+  .comp-th{
+    font-size: 13px;
+  }
+}
+@media only screen and (max-width: 465px){
+ .hide-id{
+  display: none;
+ }
 }
