@@ -149,7 +149,7 @@ const Company = () => {
   ) : (
     <div className="mobile-row">
       <p colSpan="9">
-        <span className="flex gap-[5px]"><FaPlus style={{marginTop:"2px", color:"#5B76FC"}}/>Create New Company.</span>
+        <span className="flex gap-[5px] spancol-p"><FaPlus style={{marginTop:"2px", color:"#5B76FC"}}/>Create New Company.</span>
       </p>
     </div>
   )}

@@ -19,7 +19,7 @@ const CompanyTab = () => {
      <div className='comp-tab-div'>
         <button
           onClick={() => handleTabClick('createCompany')}
-          className={`border-r w-full  p-3 ${
+          className={`border-r w-full  p-3 btn-active ${
             activeTab === "createCompany"
               ? "border-gray-300  bg-gradient-to-b from-gray-100 via-white to-transparent shadow-inner inset-x-0 inset-y-2 bg-blue-200"
               : ""
@@ -40,7 +40,7 @@ const CompanyTab = () => {
         </button>
         <button
           onClick={() => handleTabClick('allCompanies')}
-          className={`border-r w-full  p-3 ${
+          className={`border-r w-full  p-3 btn-active ${
             activeTab === "allCompanies"
               ? "border-gray-300  bg-gradient-to-b from-gray-100 via-white to-transparent shadow-inner inset-x-0 inset-y-2 bg-blue-200"
               : ""
@@ -61,7 +61,7 @@ const CompanyTab = () => {
         </button>
         <button
           onClick={() => handleTabClick('currentclients')}
-          className={`border-r w-full  p-3 ${
+          className={`border-r w-full  p-3 btn-active ${
             activeTab === "currentclients"
               ? "border-gray-300  bg-gradient-to-b from-gray-100 via-white to-transparent shadow-inner inset-x-0 inset-y-2 bg-blue-200"
               : ""

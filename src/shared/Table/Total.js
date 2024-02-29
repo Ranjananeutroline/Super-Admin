@@ -140,6 +140,24 @@ console.log(data);
     dispatch(confirmAppointmentRequestHere())
   }
   
+  const rowsPerPage = 5;
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+  const goToPreviousPage = () => {
+    setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
+  };
+
+  const goToNextPage = () => {
+    setCurrentPage((prevPage) => Math.min(prevPage + 1, Math.ceil(data.length / rowsPerPage)));
+  };
+
+  const startIndex = (currentPage - 1) * rowsPerPage;
+  const endIndex = startIndex + rowsPerPage;
+  const displayedData = data?.slice(startIndex, endIndex);
 
   return (
     <>
@@ -157,7 +175,7 @@ console.log(data);
           </tr>
         </thead>
         <tbody>
-          {data?.map((item) => (
+        {displayedData?.map((item) => (
             <tr
               key={item.id}
               className="h-[45px] text-[11px] md:text-[16px] md:h-[50px]"
@@ -206,6 +224,8 @@ console.log(data);
           ))}
         </tbody>
       </table>
+        
+       
 
       <Modal
         open={open2}
@@ -303,7 +323,33 @@ console.log(data);
       </Modal>
     </div>
 
-   
+    {/* Pagination */}
+    <div className="pagination mt-3">
+        <button
+          onClick={goToPreviousPage}
+          disabled={currentPage === 1}
+          className={`arrow-button ${currentPage === 1 ? 'disabled' : ''}`}
+        >
+          &laquo;
+        </button>
+        {Array.from({ length: Math.ceil(data.length / rowsPerPage) }, (_, index) => (
+          <button
+            key={index + 1}
+            onClick={() => handlePageChange(index + 1)}
+            className={`index-button ${currentPage === index + 1 ? 'active' : ''}`}
+            disabled={currentPage === 1 && index === 0}
+          >
+            {index + 1}
+          </button>
+        ))}
+        <button
+          onClick={goToNextPage}
+          disabled={currentPage === Math.ceil(data.length / rowsPerPage)}
+          className="arrow-button"
+        >
+           &raquo;
+        </button>
+      </div>
     </>
   );
 }
