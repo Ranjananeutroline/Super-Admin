@@ -10,6 +10,7 @@ import ExpandedRowContent  from "./ExpandedRowContent";
 import { FaPlus } from "react-icons/fa6";
 import { parseISO, isBefore, isAfter, isToday } from 'date-fns';
 
+
 const Company = () => {
 
   const companyData = getCompanyData();
@@ -59,6 +60,7 @@ const Company = () => {
         return '';
     }
   };
+  
 
   return (
     <div className='company-second'>
