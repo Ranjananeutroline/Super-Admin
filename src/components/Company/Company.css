@@ -136,11 +136,8 @@
       transform: rotate(317deg);
       font-size: 20px;
     }
-    /* .btn-div-mble{
-      display: none;
-    } */
-
-    @media only screen and (max-width: 923px){
+    
+    @media only screen and (max-width: 934px){
       .desktop-screen{
         display: none;
       }
@@ -169,9 +166,12 @@
       .spancol-p{
         padding: 0.5rem;
       }
-      /* .mobile-row p{
-        margin-bottom: 3px;
-      } */
+      .mble-status{
+        font-size: 14px!important;
+        margin-bottom: 8px!important;
+        margin-top: 12px!important;
+       
+      }
       .index-no{
         font-size: 14px;
         background: #50C4ED;
@@ -187,13 +187,8 @@
         font-size: 16px!important;
         font-weight: 550!important;
       }
-      .mble-stat{
-        margin-bottom: 8px!important;
-        margin-top: 10px!important;
-        background: #B7C9F2!important;
-        border-radius: 6px!important;
-        padding: 3px 8px 5px 8px!important;
-        width: 70px!important;
+      .start-p,.end-p{
+        font-size: 14px!important;
       }
     }
      @media only screen and (max-width: 980px) {
@@ -396,7 +391,7 @@
         padding-right: 1rem;
       }
     }
-    @media only screen and (max-width: 455px){
+    @media only screen and (max-width: 463px){
      
       .company-main{
         padding-left: 1rem;

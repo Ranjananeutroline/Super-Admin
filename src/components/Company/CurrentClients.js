@@ -23,14 +23,14 @@ const CurrentClients = () => {
             <Table responsive="md" style={tableStyle}>
         <thead>
           <tr  style={{ backgroundColor: "#d6e0fa", height:"45px", fontSize:"15px", textAlign:"center" }}>
-            <th className='font-medium'>SN</th>
-            <th className='font-medium'>Company Name</th>
-            <th className='font-medium'>Company ID</th>
-            <th className='font-medium'>Account Number</th>
-            <th className='font-medium'>EIN/PAN Number</th>
-            <th className='font-medium'>Status</th>
-            <th className='font-medium'>Start Date</th>
-            <th className='font-medium'>End Date</th>
+            <th className='font-medium heading-td'>SN</th>
+            <th className='font-medium heading-td'>Company Name</th>
+            <th className='font-medium heading-td'>Company ID</th>
+            <th className='font-medium heading-td'>Account Number</th>
+            <th className='font-medium heading-td'>EIN/PAN Number</th>
+            <th className='font-medium heading-td'>Status</th>
+            <th className='font-medium heading-td'>Start Date</th>
+            <th className='font-medium heading-td'>End Date</th>
             <th></th> 
           </tr>
         </thead>
@@ -41,14 +41,14 @@ const CurrentClients = () => {
                           fontSize: '15px',
                         }}
                       >
-                      <td>1</td>
-                      <td>Neutroline</td>
-                      <td>12312</td>
-                      <td>1230232</td>
-                      <td>8686</td>
-                      <td>active</td>
-                      <td>30/08/2021</td>
-                      <td>05/05/2040</td>
+                      <td className='t-data'>1</td>
+                      <td className='t-data'>Neutroline</td>
+                      <td className='t-data'>12312</td>
+                      <td className='t-data'>1230232</td>
+                      <td className='t-data'>8686</td>
+                      <td className='t-data'>active</td>
+                      <td className='t-data'>30/08/2021</td>
+                      <td className='t-data'>05/05/2040</td>
                     </tr>
                   
                 

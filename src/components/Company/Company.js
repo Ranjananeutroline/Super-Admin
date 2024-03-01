@@ -8,7 +8,7 @@ import { FiArrowUp } from "react-icons/fi";
 import { FiArrowDown } from "react-icons/fi";
 import ExpandedRowContent  from "./ExpandedRowContent";
 import { FaPlus } from "react-icons/fa6";
-
+import { parseISO, isBefore, isAfter, isToday } from 'date-fns';
 
 const Company = () => {
 
@@ -33,6 +33,31 @@ const Company = () => {
         return [index];
       }
     });
+  };
+  const getStatus = (startDate, endDate) => {
+    const parsedStartDate = parseISO(startDate);
+    const parsedEndDate = parseISO(endDate);
+    const currentDate = new Date();
+  
+    if (isBefore(currentDate, parsedStartDate)) {
+      return 'Upcoming';
+    } else if (isAfter(currentDate, parsedEndDate)) {
+      return 'Expired';
+    } else {
+      return 'Active';
+    }
+  };
+  const getStatusColor = (status) => {
+    switch (status) {
+      case 'Upcoming':
+        return 'blue';
+      case 'Active':
+        return 'green';
+      case 'Expired':
+        return 'red';
+      default:
+        return '';
+    }
   };
 
   return (
@@ -76,7 +101,12 @@ const Company = () => {
                       <td className='t-data'>{comp.id}</td>
                       <td className='t-data'>{comp.acc}</td>
                       <td className='t-data'>{comp.pan}</td>
-                      <td className='t-data'>{comp.status}</td>
+                      <td
+                        className='t-data'
+                        style={{ color: getStatusColor(getStatus(comp.sdate, comp.edate)) }}
+                      >
+                        {getStatus(comp.sdate, comp.edate)}
+                      </td>
                       <td className='t-data'>{comp.sdate}</td>
                       <td className='t-data'>{comp.edate}</td>
                       <td className='t-data'>
@@ -132,7 +162,10 @@ const Company = () => {
             
             <p className="font-medium">{comp.id}</p>
             <p className="font-medium">{comp.acc}</p>
-            <p className="font-medium mble-stat">{comp.status}</p>
+            <p className='t-data mble-status'
+                        style={{ color: getStatusColor(getStatus(comp.sdate, comp.edate)) }}
+                      >
+                        {getStatus(comp.sdate, comp.edate)}</p>
             <div className='flex justify-between mt-3'>
               <div className='flex gap-[8px]'>
                 <p className="font-medium start-p">{comp.sdate}</p>-
