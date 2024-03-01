@@ -80,7 +80,8 @@ const CurrentClients = () => {
           </tr>
         </thead>
         <tbody>
-        {getActiveCompanies().map((comp, index) => (
+        {getActiveCompanies().length > 0 ? (
+                getActiveCompanies().map((comp, index) => (
                   <React.Fragment key={comp.id}>
                 {expandedRows.includes(index) ? (
                   <ExpandedRowContent comp={comp} sn={index + 1} onCollapse={() => handleRowClick(index)} />
@@ -126,50 +127,65 @@ const CurrentClients = () => {
                 )}
               </React.Fragment>
                    
-              ))} 
+              ))
+              ) : (
+                <tr style={{ textAlign: 'left', fontSize: '15px' }}>
+                  <td colSpan="9">
+                    <p className='pl-2'>No Active Client.</p>
+                  </td>
+                </tr>
+              )}
             </tbody>
           </Table>
             </div>
 
             <div className='mble-view mt-2'>
-            {getActiveCompanies().map((comp, index) => (
-            <div key={comp.id} className="mobile-row">
+            {getActiveCompanies().length > 0 ? (
+              getActiveCompanies().map((comp, index) => (
+                <div key={comp.id} className="mobile-row">
 
-                {/* Render other mobile view columns here */}
-                {expandedRows.includes(index) && (
-                  <div>
-                    <ExpandedRowContent comp={comp} sn={index + 1} onCollapse={() => handleRowClick(index)} />
-                  </div>
-                )}
+                  {/* Render other mobile view columns here */}
+                  {expandedRows.includes(index) && (
+                    <div>
+                      <ExpandedRowContent comp={comp} sn={index + 1} onCollapse={() => handleRowClick(index)} />
+                    </div>
+                  )}
 
-                {/* Render company details section */}
-                {!expandedRows.includes(index) && (
-                  <div className='expand-mble'>
-                    <div className='flex justify-between'>
-                    <p className="font-medium text-[#864AF9] mble-title">{comp.name}</p>
-                    <p className="font-medium index-no">{index + 1}</p>
-                    </div>
-                    
-                    <p className="font-medium">{comp.id}</p>
-                    <p className="font-medium">{comp.acc}</p>
-                    <p className='t-data mble-status'
-                                style={{ color: getStatusColor(getStatus(comp.sdate, comp.edate)) }}
-                              >
-                                {getStatus(comp.sdate, comp.edate)}</p>
-                    <div className='flex justify-between mt-3'>
-                      <div className='flex gap-[8px]'>
-                        <p className="font-medium start-p">{comp.sdate}</p>-
-                        <p className="font-medium end-p">{comp.edate}</p>
+                  {/* Render company details section */}
+                  {!expandedRows.includes(index) && (
+                    <div className='expand-mble'>
+                      <div className='flex justify-between'>
+                      <p className="font-medium text-[#864AF9] mble-title">{comp.name}</p>
+                      <p className="font-medium index-no">{index + 1}</p>
                       </div>
-                      <div>
-                      <button onClick={() => handleRowClick(index)}><FiArrowUp className='m-svg'/></button>
+                      
+                      <p className="font-medium">{comp.id}</p>
+                      <p className="font-medium">{comp.acc}</p>
+                      <p className='t-data mble-status'
+                                  style={{ color: getStatusColor(getStatus(comp.sdate, comp.edate)) }}
+                                >
+                                  {getStatus(comp.sdate, comp.edate)}</p>
+                      <div className='flex justify-between mt-3'>
+                        <div className='flex gap-[8px]'>
+                          <p className="font-medium start-p">{comp.sdate}</p>-
+                          <p className="font-medium end-p">{comp.edate}</p>
+                        </div>
+                        <div>
+                        <button onClick={() => handleRowClick(index)}><FiArrowUp className='m-svg'/></button>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                )}
-              </div>
-            ))}
-            </div>
+                  )}
+                </div>
+              ))
+              ) : (
+                <div className="mobile-row">
+                  <p colSpan="9">
+                    <span className='pl-2'>No Active Client.</span>
+                  </p>
+                </div>
+              )}
+          </div>
         </div>
         </div>
     

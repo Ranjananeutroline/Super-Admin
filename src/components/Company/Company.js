@@ -142,53 +142,53 @@ const Company = () => {
       </Table>
       </div>
 
-      <div className='mble-view mt-2'>
-  {companyData.length > 0 ? (
-    companyData.map((comp, index) => (
-      <div key={comp.id} className="mobile-row">
+        <div className='mble-view mt-2'>
+            {companyData.length > 0 ? (
+              companyData.map((comp, index) => (
+                <div key={comp.id} className="mobile-row">
 
-        {/* Render other mobile view columns here */}
-        {expandedRows.includes(index) && (
-          <div>
-            <ExpandedRowContent comp={comp} sn={index + 1} onCollapse={() => handleRowClick(index)} />
-          </div>
-        )}
+                  {/* Render other mobile view columns here */}
+                  {expandedRows.includes(index) && (
+                    <div>
+                      <ExpandedRowContent comp={comp} sn={index + 1} onCollapse={() => handleRowClick(index)} />
+                    </div>
+                  )}
 
-        {/* Render company details section */}
-        {!expandedRows.includes(index) && (
-          <div className='expand-mble'>
-            <div className='flex justify-between'>
-            <p className="font-medium text-[#864AF9] mble-title">{comp.name}</p>
-            <p className="font-medium index-no">{index + 1}</p>
-            </div>
-            
-            <p className="font-medium">{comp.id}</p>
-            <p className="font-medium">{comp.acc}</p>
-            <p className='t-data mble-status'
-                        style={{ color: getStatusColor(getStatus(comp.sdate, comp.edate)) }}
-                      >
-                        {getStatus(comp.sdate, comp.edate)}</p>
-            <div className='flex justify-between mt-3'>
-              <div className='flex gap-[8px]'>
-                <p className="font-medium start-p">{comp.sdate}</p>-
-                <p className="font-medium end-p">{comp.edate}</p>
+                  {/* Render company details section */}
+                  {!expandedRows.includes(index) && (
+                    <div className='expand-mble'>
+                      <div className='flex justify-between'>
+                      <p className="font-medium text-[#864AF9] mble-title">{comp.name}</p>
+                      <p className="font-medium index-no">{index + 1}</p>
+                      </div>
+                      
+                      <p className="font-medium">{comp.id}</p>
+                      <p className="font-medium">{comp.acc}</p>
+                      <p className='t-data mble-status'
+                                  style={{ color: getStatusColor(getStatus(comp.sdate, comp.edate)) }}
+                                >
+                                  {getStatus(comp.sdate, comp.edate)}</p>
+                      <div className='flex justify-between mt-3'>
+                        <div className='flex gap-[8px]'>
+                          <p className="font-medium start-p">{comp.sdate}</p>-
+                          <p className="font-medium end-p">{comp.edate}</p>
+                        </div>
+                        <div>
+                        <button onClick={() => handleRowClick(index)}><FiArrowUp className='m-svg'/></button>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ))
+            ) : (
+              <div className="mobile-row">
+                <p colSpan="9">
+                  <span className="flex gap-[5px] spancol-p"><FaPlus style={{marginTop:"2px", color:"#5B76FC"}}/>Create New Company.</span>
+                </p>
               </div>
-              <div>
-              <button onClick={() => handleRowClick(index)}><FiArrowUp className='m-svg'/></button>
-              </div>
-            </div>
+            )}
           </div>
-        )}
-      </div>
-    ))
-  ) : (
-    <div className="mobile-row">
-      <p colSpan="9">
-        <span className="flex gap-[5px] spancol-p"><FaPlus style={{marginTop:"2px", color:"#5B76FC"}}/>Create New Company.</span>
-      </p>
-    </div>
-  )}
-</div>
             </div>
         </div>
     
