@@ -4,6 +4,7 @@ const initialState = {
   isLoggedIn: false,
   isLoading: false,
   error: null,
+  adminUser:null,
 };
 
 const authReducer = (state = initialState, action) => {
@@ -18,7 +19,12 @@ const authReducer = (state = initialState, action) => {
       return { ...state, user: null, isLoggedIn: false };
       case 'USER_UPDATE':
         return {...state, isLoggedIn:true, user:action.payload, error:null}
-    default:
+        case 'SET_ADMIN_USER':
+          return {
+            ...state,
+            adminUser: action.payload
+          };
+        default:
       return state;
   }
 };

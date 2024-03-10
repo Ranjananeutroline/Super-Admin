@@ -105,15 +105,20 @@ export const Header = () => {
     handleDropdownToggle();
     navigate("/profile");
   };
-  const handleLogoutNavigation = async() => {
+  const adminUser = useSelector((state) => state.auth.adminUser);
+
+  const handleLogoutNavigation = async () => {
     handleDropdownToggle();
     try {
-      const success = await dispatch(
-        userlogout()
-      );
+      const success = await dispatch(userlogout());
       if (success) {
-        navigate("/");
-      }
+
+          // Redirect admin to admin login
+          navigate("/adminlogin");
+        } else {
+          // Redirect regular user to login page
+          navigate("/");
+        }
     } catch (error) {
       console.log(error);
     }

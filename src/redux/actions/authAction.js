@@ -40,7 +40,7 @@ export const signup = (credentials) => {
     dispatch(authStart());
 
     try {
-      console.log("yesma erro");
+      console.log("yesma error");
       console.log("credentials", credentials);
       const response = await axios.post(
         "http://localhost:8000/api/auth/register",

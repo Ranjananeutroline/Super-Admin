@@ -363,6 +363,15 @@ export default function Login() {
             </Link>
             {/* {login ? <Navigate to="dashboard" /> : null} */}
           </p>
+          <p className="mt-4 font-sans text-[#474749]">
+           
+            <Link to="/adminlogin">
+              <span className="text-[#1E4AE9] font-[600] ml-3  font-sans  hover:text-[#3A45B4] active:text-[#2C3477] ">
+              Admin Sign in
+              </span>
+            </Link>
+            {/* {login ? <Navigate to="dashboard" /> : null} */}
+          </p>
         </form>
         {/* <button onClick={() => setLogin(true)}>
           -- {login ? <Navigate to="dashboard" /> : null}
