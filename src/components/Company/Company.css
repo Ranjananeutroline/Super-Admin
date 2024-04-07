@@ -1,0 +1,463 @@
+.company-main{
+    padding-left: 3.5rem;
+    padding-right: 3.5rem;
+    padding-top: 1.25rem;
+    /* padding-bottom: 1.25rem; */
+  }
+  .company-title{
+    font-size: 27px;
+    color: #3F26A5;
+  }
+ 
+  .comp-tab-div{
+    padding-left: 3.5rem;
+    padding-right: 3.5rem;
+    margin-bottom: 2.5rem;
+    display: flex;
+    justify-content: left;
+  }
+  
+  .company-second{
+    padding-left: 3.5rem;
+    padding-right: 3.5rem;
+  }
+  .comp-create-main{
+    padding-left: 3.5rem;
+    padding-right: 3.5rem;
+  }
+  .table>:not(caption)>*>* {
+    background: none;
+  }
+  .main-detail{
+    padding-bottom: 0.3rem;
+    justify-content: center;
+    border: 1px solid rgba(128, 128, 128, 0.096); 
+    /* background: rgba(100, 99, 99, 0.03); */
+    background: white;
+  }
+  .main-detail h2{
+    text-align: center;
+    font-size: 20px;
+    color: blue;
+    margin: 0 0 1.2rem 0;
+    padding-left: 1.5rem;
+
+  }
+  .c-tr{
+    /* background: #d6e0fa; */
+    background: rgba(207, 158, 207, 0.247);
+    height: 40px;
+    font-size: 15px;
+    text-align: center;
+  }
+  .inner-tr{
+      text-align: center;
+      font-size: 15px;
+      cursor: pointer;
+  }
+  .inner-tr:nth-child(even){
+    background: rgb(207 205 205 / 10%);
+  }
+  .title-row{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1rem;
+    background: rgb(207 205 205 / 18%);
+    /* border-bottom: 1px solid rgba(128, 128, 128, 0.418); */
+  }
+  .second-title{
+    text-align: left;
+    color: #3652AD;
+    padding-top: 1.3rem; 
+    padding-bottom: 0.5rem;
+    font-size: 18px;
+    /* background: grey; */
+    width: 90%;
+    margin: auto;
+  }
+  .main-detail p{
+    margin: 8px;
+    font-size: 14px;
+    color: rgb(110, 105, 105);
+  }
+  .above-up{
+    width: 85%;
+    margin: auto;
+  }
+  .upper{
+    display: flex;
+    gap: 5rem;
+    padding: 0.5rem  1rem;
+    margin: auto;
+    }
+    .upper > div {
+      flex: 1;
+    }
+    .upper > div:last-child {
+    
+    
+    }
+    .lower{
+      display: flex;
+      gap: 5rem;
+      padding: 0.5rem  1rem;
+      margin: auto;
+    }
+    .lower > div {
+      flex: 1;
+    }
+    .lower > div:last-child {
+     
+    }
+    strong{
+      margin-right: 12px;
+      font-weight: 400;
+      font-size: 15px;
+      color: black;
+      
+    }
+    .btn-div{
+    
+      padding-right: 1rem;
+    } 
+    .btn-div button{
+      display: flex;
+      gap: 5px;
+      margin: 1rem;
+      font-size: 14px;
+    } 
+    .custom-expanded-row-content{
+
+      /* border: 1px solid; */
+      padding-top: 1rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    .d-svg{
+      color: grey;
+      font-size: 18px;
+    }
+    .mble-view{
+      display: none;
+    }
+    .m-svg{
+      margin-top: 5px;
+      color: #19a7ce;
+      transform: rotate(317deg);
+      font-size: 20px;
+    }
+    .detail-tab{
+      /* border: 1px solid;  */
+      display: flex;
+      justify-content: left;
+      gap: 1.8rem; 
+      width: 92%;
+      margin: auto;
+    }
+   
+    .tab-button{
+      margin: 1rem 0;
+      /* padding: 0.5rem; */
+      /* border-right: 1px solid skyblue; */
+    }
+    .tab-button:hover{
+      color: #387ADF;
+    }
+    .active-detail-btn:hover{
+      color: #6420AA;
+    }
+    .active-detail-btn{
+      color: #6420AA;
+      /* font-weight: 550; */
+      /* background: rgba(255, 255, 255, 0.815); */
+      border-bottom: 1px solid #6420AA;
+    }
+    
+    
+    @media only screen and (max-width: 934px){
+      .desktop-screen{
+        display: none;
+      }
+      .mble-view{
+        display: block;
+      }
+      .mobile-row{
+        border-radius: 8px;
+        background: rgb(0 0 0 / 3%);
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 3px -1px, rgba(0, 0, 0, 0.3) 0px 1px 2px -1px;
+        margin-bottom: 1.5rem;
+        /* padding-bottom: 0.2rem; */
+      }
+      .expand-mble{
+        padding: 1.2rem 1.5rem;
+      }
+      button.btn-edit{
+        font-size: 0;
+      }
+      .btn-div{
+        padding-right: 0.7rem;
+      }
+      strong{
+        margin-right: 0;
+      }
+      .spancol-p{
+        padding: 0.5rem;
+      }
+      .mble-status{
+        font-size: 14px!important;
+        margin-bottom: 8px!important;
+        margin-top: 12px!important;
+       
+      }
+      .index-no{
+        font-size: 14px;
+        background: #50C4ED;
+        border-radius: 50%;
+        padding: 1px 0.5rem;
+        color: white;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+      }
+      .main-tr, .main-row{
+        display: block;
+      }
+      .mble-title{
+        font-size: 16px!important;
+        font-weight: 550!important;
+      }
+      .start-p,.end-p{
+        font-size: 14px!important;
+      }
+      .no-client-p{
+        padding: 0.5rem 1rem;
+      }
+    }
+     @media only screen and (max-width: 980px) {
+      .company-main{
+          padding-left: 2rem;
+          padding-right: 2rem;
+      }
+      .comp-tab-div{
+        padding-left: 2rem;
+        padding-right: 2rem;
+      }
+      .comp-create-main{
+        padding-left: 2rem;
+        padding-right: 2rem;
+      }
+    }  
+    @media only screen and (max-width: 945px){
+      .comp-create-main{
+        width: 98%;
+      }
+    } 
+    @media only screen and (max-width: 600px) {
+      .company-main{
+          padding-left: 1rem;
+          padding-right: 1rem;
+      }
+      .comp-tab-div{
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+      .comp-create-main{
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+    }  
+    @media only screen and (max-width: 500px){
+      .comp-tab-div button{
+        padding: 10px 10px;
+      }
+    }
+      @media only screen and (max-width: 450px){
+      
+      .company-main{
+        width: 88%;
+      }
+      .comp-tab-div{
+        width: 88%;
+      }
+      .comp-tab-div button.active-tab{
+        padding: 8px 8px;
+        font-size: 12px;
+      }
+      .comp-tab-div button{
+        padding: 8px 8px;
+        font-size: 12px;
+      }
+      .comp-create-main{
+        width: 90%;
+      }
+    }  
+    @media only screen and (max-width: 415px){
+      .comp-create-main{
+        width: 88%;
+      }
+    }
+    @media only screen and (max-width: 386px){
+      .comp-tab-div button.active-tab{
+        font-size: 11px;
+      }
+      .comp-tab-div button{
+        font-size: 11px;
+      }
+    }
+    @media only screen and (max-width: 353px){
+      .comp-tab-div button.active-tab{
+        padding: 5px;
+      }
+      .comp-tab-div button{
+        padding: 5px;
+      }
+    }
+    @media only screen and (max-width: 1075px){
+      .heading-td{
+        font-size: 13px;
+      }
+      .d-svg{
+        font-size: 15px;
+      }
+      .company-main{
+        padding-left: 2.5rem;
+        padding-right: 2.5rem;
+    }
+    .comp-tab-div{
+      padding-left: 2.5rem;
+      padding-right: 2.5rem;
+    }
+    .comp-create-main{
+      padding-left: 2.5rem;
+      padding-right: 2.5rem;
+    }
+    .company-second{
+      padding-left: 2.5rem;
+      padding-right: 2.5rem;
+    }
+    .second-title{
+      width: 100%;
+      margin-left: 1.5rem;
+    }
+    .above-up{
+      width: 100%;
+    }
+    .btn-div button{
+      margin: 0;
+    }
+    }
+    @media only screen and (max-width: 1029px){
+     
+      .company-main{
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+    .comp-tab-div{
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+    .comp-create-main{
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+    .company-second{
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+    }
+    @media only screen and (max-width: 997px){
+      .heading-td{
+        font-size: 11.5px;
+      }
+      .t-data{
+        font-size: 11.5px;
+      }
+    }
+    @media only screen and (max-width: 960px){
+      .upper, .lower{
+        gap: 3rem;
+      }
+    }
+    @media only screen and (max-width: 857px){
+      .upper, .lower{
+        gap: 1rem;
+      }
+    }
+    @media only screen and (max-width: 825px){
+      strong{
+        font-size: 13.2px;
+      }
+      .mobile-row p{
+        font-size: 13px;
+      }
+      .mble-stat, .start-p, .end-p{
+        font-size: 15px!important;
+      }
+    }
+    @media only screen and (max-width: 767px){
+      .comp-tab-div{
+        width: 80%;
+      }
+    }
+    @media only screen and (max-width: 664px){
+      .comp-tab-div button{
+        padding: 0.5rem!important;
+      }
+    }
+    @media only screen and (max-width: 595px){
+      .comp-tab-div{
+        width: 90%;
+      }
+    }
+    @media only screen and (max-width: 510px){
+      .comp-tab-div{
+        width: 100%;
+      }
+    }
+   
+    @media only screen and (max-width: 515px){
+      .upper, .lower{
+        display: grid;
+        gap: 0;
+      }
+      strong{
+        font-size: 15px;
+      }
+      .mobile-row p{
+        font-size: 14px;
+      }
+      .lower-first{
+        margin-bottom: 10px;
+      }
+      .btn-div{
+        padding-right: 1rem;
+      }
+    }
+    @media only screen and (max-width: 463px){
+     
+      .company-main{
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    .comp-tab-div{
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    .comp-create-main{
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    .company-second{
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    .btn-active{
+      font-size: 12px!important;
+    }
+    .comp-tab-div button{
+      width: 115px;
+    }
+    }
+    @media only screen and (max-width: 425px){
+      .comp-tab-div button{
+        width: 90px;
+      }
+    }
