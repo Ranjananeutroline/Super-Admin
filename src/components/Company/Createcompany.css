@@ -28,14 +28,15 @@ margin-bottom: 1rem;
 }
 
 .create-comp-button{
-  background-color: #4CB9E7;
+  /* background-color: #ba7bcbde; */
+  background: #836FFF; 
   padding: 10px 16px;
   color: white;
   border-radius: 5px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 .create-comp-button:hover{
-  background-color: #3caada; 
+  background-color: #826fffe3;
 }
 .country-all-select{
   width: 100%!important;

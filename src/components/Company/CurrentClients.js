@@ -63,7 +63,7 @@ const CurrentClients = () => {
   return (
     <div className='company-second'>
         <div>
-            <h2 className='text-[22px] text-[#5B76FC] mt-2'>Current Clients</h2>
+            <h2 className='text-[22px] text-[#BC7FCD] mt-2'>Current Clients</h2>
 
             <div className="mt-2">
             <Table responsive="md" style={tableStyle} className='desktop-screen'>

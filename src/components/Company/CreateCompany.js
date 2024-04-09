@@ -385,7 +385,7 @@ const CreateCompany = ({ formDataForEdit, onEditSave, onCancelEdit, isEditing, c
     <div className={`comp-create-main mb-4 ${className}`}>
        
         <div className='form-title'>
-          <h2 className='text-[22px] text-[#5B76FC] mt-2 mb-2'>
+          <h2 className='text-[22px] text-[#BC7FCD] mt-2 mb-2'>
           {isEditing ? 'Edit Company Form' : 'Create Company'}
             </h2>
         </div>
@@ -722,7 +722,7 @@ const CreateCompany = ({ formDataForEdit, onEditSave, onCancelEdit, isEditing, c
             <>
             <div className='edit-btn-div'>
               <button type="button"
-              style={{background:"#40A2D8", padding:"5px 10px", marginRight:"0.5rem",
+              style={{background:"#836FFF", padding:"5px 10px", marginRight:"0.5rem",
                borderRadius:"5px", color:"white",
                boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
               }}
@@ -730,8 +730,8 @@ const CreateCompany = ({ formDataForEdit, onEditSave, onCancelEdit, isEditing, c
                 Save
                 </button>
               <button type="button" 
-               style={{border:"1px solid #40A2D8", padding:"5px 10px",
-                borderRadius:"5px", color:"#40A2D8",
+               style={{border:"1px solid #836FFF", padding:"5px 10px",
+                borderRadius:"5px", color:"#836FFF",
                 boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
               }}
                onClick={handleCancelEdit}>

@@ -115,14 +115,14 @@ const DashboardS = () => {
           ))}
         </TableBody>
       </Table>
-      {/* <button onClick={openModal} className="mt-[10px] font-[8px] text-black">
+    <button onClick={openModal} className="mt-[10px] font-[8px] text-black">
         See more orders
-      </button> */}
+      </button>
       <NavLink></NavLink>
 
       {/* Modal */}
       {isModalOpen && (
-        <Modal onClose={closeModal}>
+        <Modal open={isModalOpen} onClose={closeModal}>
           <RegistrationDetails />
         </Modal>
       )}

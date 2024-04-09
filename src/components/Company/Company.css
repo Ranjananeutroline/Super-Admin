@@ -172,8 +172,45 @@
       /* background: rgba(255, 255, 255, 0.815); */
       border-bottom: 1px solid #6420AA;
     }
+  
     
-    
+   .subs-title{
+    text-align: left;
+    color: #3652AD;
+    padding-top: 1.3rem; 
+    padding-bottom: 0.5rem;
+    font-size: 18px;
+    /* background: grey; */
+    width: 90%;
+    margin: auto;
+  }
+  .second-subs{
+    width: 90%;
+    margin: auto;
+  }
+  .second-subs p{
+    margin: 0;
+    font-size: 16px;
+  }
+  .serv-btn-div{
+    display: flex;
+    gap: 6.5rem;
+    margin: 0.8rem 0 1.5rem 0;
+  }
+  .serv-btn-div button{
+    border: 1px solid #3724cd5e;
+    color:  #3724cd;
+    padding: 8px 20px;
+    border-radius: 5px;
+  }
+  .serv-btn-div button:hover{
+    background: #3724cd5e;
+    color: white;
+    border: none;
+  }
+
+
+
     @media only screen and (max-width: 934px){
       .desktop-screen{
         display: none;

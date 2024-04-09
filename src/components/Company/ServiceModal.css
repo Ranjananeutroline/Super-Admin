@@ -1,0 +1,86 @@
+.newS-input{
+    color: #808080b8;
+    height: 48px;
+    width: 100%;
+    border: 1px solid grey;
+    font-size: 15px;
+    padding: 0 0.5rem 0 0.8rem;
+    border: none;
+    background: #e9ecef82;
+    cursor: pointer;
+    margin-top: 8px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgb(0 0 0 / 6%) 0px 1px 2px;
+  }
+  .serv-choose{
+    color: #808080b8;
+    height: 48px;
+    width: 100%;
+    font-size: 15px;
+    padding: 0 0.5rem 0 0.8rem;
+    border: none;
+    background: #e9ecef82;
+    cursor: pointer;
+    margin-top: 8px;
+    -webkit-appearance: none; /* Remove default arrow in Chrome/Safari */
+    -moz-appearance: none; /* Remove default arrow in Firefox */
+    appearance: none; /* Remove default arrow in other browsers */
+    background-image: url("F:\Super-Admin-master\public\down-arrow.png"); /* Path to your arrow image */
+    background-repeat: no-repeat;
+    background-position: calc(100% - 10px) center; 
+    background-size: 16px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgb(0 0 0 / 6%) 0px 1px 2px;
+  }
+  .serv-choose:focus {
+    outline: none!important; /* Remove default focus outline */
+    border: 1px solid rgba(83, 211, 228, 0.438)!important;
+    background: white!important;
+    box-shadow: none!important;
+
+}
+
+  .div-2 {
+    margin: 1.5rem 0;
+  }
+  .div-12{
+    display: grid;
+    
+  }
+ .radio-btn{
+  height: 12px;
+  width: 20px;
+  margin-right: 5px;
+  cursor: pointer;
+ }
+ .custom-modal-header{
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    background: #8576FF;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+ }
+ .custom-modal {
+  max-width: 600px; /* adjust as needed */
+  min-height: 300px; /* adjust as needed */
+  margin-top: 4rem;
+}
+.modal-title{
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-size: 18px;
+}
+.newS-body{
+  padding: 1.5rem 2rem;
+}
+.Act-btn-div{
+  text-align: right;
+  margin: 2.5rem 0 0.5rem 0;
+}
+.Act-btn{
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  padding: 8px 16px;
+  border-radius: 5px;
+  background: #8576FF;
+  color: white;
+}

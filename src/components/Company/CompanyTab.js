@@ -26,7 +26,7 @@ const CompanyTab = () => {
           } md:h-[50px] md:w-[145px] md:p-0 text-[14px]`}
           style={{
             borderWidth: "0.2px",
-            color: activeTab === "createCompany" ? "#E26EE5" : "", // Adjust color if needed
+            color: activeTab === "createCompany" ? "rgb(186 0 237)" : "", // Adjust color if needed
             boxShadow: activeTab === "createCompany" ? "rgb(125 0 125 / 11%) 0px 2px 5px 0px" : "rgb(125 0 125 / 11%) 0px 2px 5px 0px", // Adjust boxShadow for both states
             fontSize: "14px",
           }}
@@ -43,7 +43,7 @@ const CompanyTab = () => {
           } md:h-[50px] md:w-[145px] md:p-0 text-[14px]`}
           style={{
             borderWidth: "0.2px",
-            color: activeTab === "currentclients" ? "#E26EE5" : "", // Adjust color if needed
+            color: activeTab === "currentclients" ? "rgb(186 0 237)" : "", // Adjust color if needed
             boxShadow: activeTab === "currentclients" ? "rgb(125 0 125 / 11%) 0px 2px 5px 0px" : "rgb(125 0 125 / 11%) 0px 2px 5px 0px", // Adjust boxShadow for both states
             fontSize: "14px",
           }}
@@ -60,7 +60,7 @@ const CompanyTab = () => {
           } md:h-[50px] md:w-[145px] md:p-0 text-[14px]`}
           style={{
             borderWidth: "0.2px",
-            color: activeTab === "allCompanies" ? "#E26EE5" : "", // Adjust color if needed
+            color: activeTab === "allCompanies" ? "rgb(186 0 237)" : "", // Adjust color if needed
             boxShadow: activeTab === "allCompanies" ? "rgb(125 0 125 / 11%) 0px 2px 5px 0px" : "rgb(125 0 125 / 11%) 0px 2px 5px 0px", // Adjust boxShadow for both states
             fontSize: "14px",
           }}
