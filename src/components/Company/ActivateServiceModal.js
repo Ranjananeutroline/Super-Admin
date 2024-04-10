@@ -20,7 +20,7 @@ function ActivateServiceModal({ show, onHide }) {
         <>
          <Modal show={show} onHide={onHide} dialogClassName="custom-modal">
             <div className="custom-modal-header">
-                <h5 className="modal-title">Activate New Service</h5>
+                <h5 className="modal-title">Service Activation</h5>
                 <button type="button" className="custom-close-button" onClick={onHide}>
                 <RxCross2 />
                 </button>
@@ -37,8 +37,8 @@ function ActivateServiceModal({ show, onHide }) {
                     />
                 </div>
                 <div className='div-2'>
-                    <label className='w-[150px] text-[14px]'>Service Type</label>
-                    {/* <div style={{marginRight:'2rem'}}>
+                    <label className='w-[150px] text-[14px] mb-2'>Activation Options</label>
+                     <div style={{marginRight:'2rem', marginBottom:"15px"}}>
                         <input
                             type="radio"
                             id="hold"
@@ -61,9 +61,9 @@ function ActivateServiceModal({ show, onHide }) {
                             className='radio-btn'
                         />
                         <label htmlFor="reactivate">Reactivate</label>
-                    </div> */}
+                    </div> 
                      <Form.Select aria-label="Default select example" className='serv-choose'>
-                        <option>Choose Service</option>
+                        <option>Activation Options</option>
                         <option value="1">Hold</option>
                         <option value="2">Reactivate</option>
                         

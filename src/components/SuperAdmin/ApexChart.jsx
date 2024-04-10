@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ReactApexChart from 'react-apexcharts';
+import "./superAdminDashboard.css";
 
 const ApexChart = () => {
   const [chartData, setChartData] = useState({
@@ -27,7 +28,7 @@ const ApexChart = () => {
     <div>
      
       <div id="chart"
-      class="max-w-sm w-full h-auto bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-6 mt-2 mr-3 border"
+      class="max-w-sm w-full h-auto bg-white rounded-lg  dark:bg-gray-800 p-4 md:p-6 mt-2 mr-3 border "
       > 
       <h1 className="text-[18px] text-[#5a1d65] mb-3">User Registrations</h1>
       

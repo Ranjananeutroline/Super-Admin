@@ -194,7 +194,7 @@
   }
   .serv-btn-div{
     display: flex;
-    gap: 6.5rem;
+    gap: 7rem;
     margin: 0.8rem 0 1.5rem 0;
   }
   .serv-btn-div button{
@@ -202,6 +202,7 @@
     color:  #3724cd;
     padding: 8px 20px;
     border-radius: 5px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   }
   .serv-btn-div button:hover{
     background: #3724cd5e;

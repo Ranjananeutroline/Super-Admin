@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { BarChart } from '@mui/x-charts/BarChart';
 import ApexCharts from 'apexcharts';
+import "./superAdminDashboard.css";
 // const chartSetting = {
 //   xAxis: [
 //     {
@@ -151,7 +152,7 @@ return () => {
 //     />
 //     </div>
 
-<div class="max-w-2xl w-full bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-6 mt-2 mr-3 border">
+<div class="max-w-2xl w-full bg-white rounded-lg  dark:bg-gray-800 p-4 md:p-6 mt-2 mr-3 border appoint-bar">
   <div class="flex justify-between border-gray-200 border-b dark:border-gray-700 pb-3">
     <dl>
       <dt class="text-base font-semibold text-gray-500 dark:text-gray-400 pb-1">Company's Appointment</dt>

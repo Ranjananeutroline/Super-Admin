@@ -81,9 +81,9 @@ const DashboardS = () => {
   };
   return (
     <div className="w-full px-[50px] md:px-10 dashboard-main">
-      <h1 className="text-[27px] text-[#3F26A5] pb-2 mt-[-10px] dash-title">Dashboard</h1>
+      <h1 className="text-[27px] text-[#3F26A5] pb-3  dash-title">Dashboard</h1>
       <AdminCards />
-    <div className='flex mt-[15px] justify-between'>
+    <div className='flex mt-4 justify-between'>
     {/* <Chart/> */}
 <HorizontalBars/>
     <ApexChart/>
@@ -91,7 +91,7 @@ const DashboardS = () => {
 </div>
     
      
-      <div className="px-7 py-3 mt-[20px] w-full border rounded-[10px] h-auto bg-[#ffffff] shadow-lg">
+      <div className="px-7 py-3 mt-[20px] w-full border rounded-[10px] h-auto bg-[#ffffff] recent-reg">
       <Title>Recent Registrations</Title>
       <Table size="small">
         <TableHead sx={{background:'#D9D9D9', height:'40px'}}>
@@ -115,7 +115,7 @@ const DashboardS = () => {
           ))}
         </TableBody>
       </Table>
-    <button onClick={openModal} className="mt-[10px] font-[8px] text-black">
+    <button onClick={openModal} className="mt-[10px] text-[14px] text-[purple] ml-[15px]">
         See more orders
       </button>
       <NavLink></NavLink>
