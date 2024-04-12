@@ -193,16 +193,26 @@
     font-size: 16px;
   }
   .serv-btn-div{
-    display: flex;
-    gap: 7rem;
-    margin: 0.8rem 0 1.5rem 0;
+    display: grid;
+    gap: 1rem;
+    margin: 0.8rem 0 0.3rem 0;
+    
+  } 
+  .serv-btn-div2{
+    /* border: 1px solid; */
+    height: 150px;
+  }
+  .serv-btn-div h5{
+    margin-bottom: 10px;
+    color: #912BBC;
   }
   .serv-btn-div button{
     border: 1px solid #3724cd5e;
     color:  #3724cd;
-    padding: 8px 20px;
+    padding: 8px 16px;
     border-radius: 5px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    margin: 10px 0;
   }
   .serv-btn-div button:hover{
     background: #3724cd5e;

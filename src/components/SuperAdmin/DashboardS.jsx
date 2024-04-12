@@ -91,7 +91,7 @@ const DashboardS = () => {
 </div>
     
      
-      <div className="px-7 py-3 mt-[20px] w-full border rounded-[10px] h-auto bg-[#ffffff] recent-reg">
+      <div className="px-7 py-3 mt-[1.5rem] w-full border rounded-[10px] h-auto bg-[#ffffff] recent-reg">
       <Title>Recent Registrations</Title>
       <Table size="small">
         <TableHead sx={{background:'#D9D9D9', height:'40px'}}>

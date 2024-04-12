@@ -1,9 +1,9 @@
 .newS-input{
-    color: #808080b8;
+    color: rgba(0, 0, 0, 0.685); 
     height: 48px;
     width: 100%;
     border: 1px solid grey;
-    font-size: 15px;
+    font-size: 14px;
     padding: 0 0.5rem 0 0.8rem;
     border: none;
     background: #e9ecef82;
@@ -12,15 +12,15 @@
     box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgb(0 0 0 / 6%) 0px 1px 2px;
   }
   .serv-choose{
-    color: #808080b8;
+    color: rgba(0, 0, 0, 0.685); 
     height: 48px;
     width: 100%;
-    font-size: 15px;
+    font-size: 14px;
     padding: 0 0.5rem 0 0.8rem;
     border: none;
     background: #e9ecef82;
     cursor: pointer;
-    margin-top: 15px;
+    margin-top: 8px;
     -webkit-appearance: none; /* Remove default arrow in Chrome/Safari */
     -moz-appearance: none; /* Remove default arrow in Firefox */
     appearance: none; /* Remove default arrow in other browsers */
@@ -35,15 +35,14 @@
     border: 1px solid rgba(83, 211, 228, 0.438)!important;
     background: white!important;
     box-shadow: none!important;
-
 }
 
   .div-2 {
-    margin: 1.5rem 0;
+    margin: 1.2rem 0;
   }
   .div-12{
     display: grid;
-    
+    margin: 1.2rem 0;
   }
  .radio-btn{
   height: 12px;
@@ -63,7 +62,7 @@
  .custom-modal {
   max-width: 600px; /* adjust as needed */
   min-height: 300px; /* adjust as needed */
-  margin-top: 4rem;
+  margin-top: 2rem;
 }
 .modal-title{
   width: 100%;
@@ -72,11 +71,13 @@
   font-size: 18px;
 }
 .newS-body{
-  padding: 1.5rem 2rem;
+  padding: 0 1.5rem;
 }
 .Act-btn-div{
-  text-align: right;
-  margin: 2.5rem 0 0.5rem 0;
+  display: flex;
+  gap: 1rem;
+  justify-content: end;
+  margin: 1.7rem 0 1.7rem 0;
 }
 .Act-btn{
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
@@ -84,6 +85,13 @@
   border-radius: 5px;
   background: #8576FF;
   color: white;
+}
+.Act-btn2{
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  padding: 8px 16px;
+  border-radius: 5px;
+  border: 1px solid #8576FF;
+  color: #8576FF;
 }
 #confirmationCheckbox{
   height: 15px;

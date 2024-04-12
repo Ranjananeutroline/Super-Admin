@@ -5,52 +5,71 @@ import { RxCross2 } from "react-icons/rx";
 import Form from 'react-bootstrap/Form';
 
 function RenewalModal({ show, onHide }) {
-  const [serviceType, setServiceType] = useState('');
+  const [confirmationChecked, setConfirmationChecked] = useState(false);
+  const [activationDate, setActivationDate] = useState('');
 
-  const handleServiceTypeChange = (event) => {
-    setServiceType(event.target.value);
-};
+  const handleDateChange = (event) => {
+      setActivationDate(event.target.value);
+  };
+
+  const handleConfirmationChange = () => {
+    setConfirmationChecked(!confirmationChecked);
+  };
 
   return (
     <div>
         <Modal show={show} onHide={onHide} dialogClassName="custom-modal">
         <div className="custom-modal-header">
-                <h5 className="modal-title">Renewal</h5>
-                <button type="button" className="custom-close-button" onClick={onHide}>
-                <RxCross2 />
-                </button>
-            </div>
-        <Modal.Body>
-        <div className='div-2'>
-              <label className='w-[150px] text-[14px] mb-2'>Renewal Options</label>
-              <div style={{ marginRight: '2rem', marginBottom: "15px" }}>
-                  <input
-                      type="radio"
-                      id="monthly"
-                      name="serviceType"
-                      value="Monthly"
-                      checked={serviceType === "Monthly"}
-                      onChange={handleServiceTypeChange}
-                      className='radio-btn'
-                  />
-                  <label htmlFor="monthlyEnd">Monthly</label>
-              </div>
-              <div>
-                  <input
-                      type="radio"
-                      id="annually"
-                      name="serviceType"
-                      value="Annually"
-                      checked={serviceType === "Annually"}
-                      onChange={handleServiceTypeChange}
-                      className='radio-btn'
-                  />
-                  <label htmlFor="annuallyEnd">Annually</label>
-              </div> 
+          <h5 className="modal-title">Renewal</h5>
+            <button type="button" className="custom-close-button" onClick={onHide}>
+              <RxCross2 />
+            </button>
           </div>
+        <Modal.Body className='newS-body'>
+        <div className='div-1'>
+        <div className='div-12'>
+          <label className='text-[15px]'>Renewal Date</label>
+            <input
+              type="date"
+              value={activationDate}
+              onChange={handleDateChange}
+              className='newS-input'
+            />
+        </div>
+        <div className='div-2'>
+          <label className='text-[15px]'>Renewal Period</label>
+            <Form.Select aria-label="Default select example" className='serv-choose'>
+              <option>Select</option>
+              <option value="1">Monthly</option>
+              <option value="2">Annually</option>
+            </Form.Select>
+        </div>
+        <div className='div-2'>
+          <label className='text-[15px]'>Additional Service</label>
+            <Form.Select aria-label="Default select example" className='serv-choose'>
+              <option>Choose service</option>
+              <option value="1">Service 1</option>
+              <option value="2">Service 2</option>
+              <option value="3">Service 3</option>
+              <option value="4">Service 4</option>
+              <option value="5">Others</option>
+            </Form.Select>
+        </div>
+        <div className='div-3 flex items-center'>
+                <input
+                    type="checkbox"
+                    id="confirmationCheckbox"
+                    checked={confirmationChecked}
+                    onChange={handleConfirmationChange}
+                />
+                <label htmlFor="confirmationCheckbox" className='text-[15px]'>By clicking, I confirm that I want to renew the service.</label>
+                </div>
           <div className='Act-btn-div'>
             <button className='Act-btn'>Renew</button>
+            <button className='Act-btn2'>Cancel</button>
           </div>
+      
+      </div>
         </Modal.Body>
     </Modal>
  

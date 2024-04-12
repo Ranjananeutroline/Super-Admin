@@ -384,13 +384,23 @@ const CreateCompany = ({ formDataForEdit, onEditSave, onCancelEdit, isEditing, c
   return (
     <div className={`comp-create-main mb-4 ${className}`}>
        
+       {!isEditing && (
         <div className='form-title'>
           <h2 className='text-[22px] text-[#BC7FCD] mt-2 mb-2'>
-          {isEditing ? 'Edit Company Form' : 'Create Company'}
-            </h2>
+            Create Company
+          </h2>
+          {/* Add your message here */}
+          <p className="text-gray-500 mb-3">Welcome to the company creation form. Please fill out the following details to create your company.</p>
         </div>
-      
+      )}
 
+      {isEditing && (
+        <div className='form-title'>
+          <h2 className='text-[22px] text-[#BC7FCD] mt-2 mb-2'>
+            Edit Company Form
+          </h2>
+        </div>
+      )}
         
         <div className="form-main-div" >
         <Form onSubmit={handleSubmit}>
