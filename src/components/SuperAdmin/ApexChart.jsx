@@ -9,6 +9,7 @@ const ApexChart = () => {
       chart: {
         type: 'donut',
       },
+      colors: ['#C3ACD0', '#6DB9EF', '#9195F6'],
       responsive: [{
         breakpoint: 680,
         options: {

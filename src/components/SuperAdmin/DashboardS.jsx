@@ -16,59 +16,70 @@ import Chart from './Chart';
 import HorizontalBars from './HorizontalBars';
 import ApexChart from './ApexChart';
 import RegistrationDetails from './RegistrationDetails';
-import Modal from 'react-responsive-modal';
+import {Modal} from 'react-responsive-modal';
 import { NavLink } from 'react-router-dom';
 
 // Generate Order Data
-function createData(id, date, name, shipTo, paymentMethod, amount) {
-  return { id, date, name, shipTo, paymentMethod, amount };
+function createData(id, date, name,location,phone, email, users, appointments) {
+  return { id, date, name, location,phone, email, users, appointments };
 }
 
 const rows = [
   createData(
     0,
-    '16 Mar, 2019',
+    '16 Mar, 2024',
     'Skadden',
     'Tupelo, MS',
     '998833223719',
-    312.44,
+    'skadden@gmail.com',
+    '75',
+    '25%'
   ),
   createData(
     1,
-    '16 Mar, 2019',
+    '16 Mar, 2024',
     'Sidley Austin',
     'London, UK',
     '332237192574',
-    866.99,
+    'sidleyaustin@gmail.com',
+    '35',
+    '60%'
   ),
   createData(
-    2, '16 Mar, 2019',
+    2, '16 Mar, 2024',
      'Bakers & Mckenzie', 
      'Boston, MA', 
      '200059191253', 
-     100.81
+     'bakersmckenzie@gmail.com',
+    '98',
+    '46%'
      ),
   createData(
     3,
-    '16 Mar, 2019',
+    '16 Mar, 2024',
     'Davis Polk & Wardwell',
     'Gary, IN',
     '371925742000',
-    654.39,
+    'davispolkwardwell@gmail.com',
+    '23',
+    '55%'
   ),
   createData(
     4,
-    '15 Mar, 2019',
+    '15 Mar, 2024',
     'Hogan Lovells',
     'Long Branch, NJ',
     '257420005919',
-    212.79,
+    'hoganlovells@gmail.com',
+    '77',
+    '47%'
   ),
 ];
 
 function preventDefault(event) {
   event.preventDefault();
 }
+
 const DashboardS = () => {
   const [isModalOpen, setIsModalOpen] = useState(false); // State to manage modal visibility
 
@@ -79,6 +90,7 @@ const DashboardS = () => {
   const closeModal = () => {
     setIsModalOpen(false);
   };
+
   return (
     <div className="w-full px-[50px] md:px-10 dashboard-main">
       <h1 className="text-[27px] text-[#3F26A5] pb-3  dash-title">Dashboard</h1>
@@ -92,15 +104,18 @@ const DashboardS = () => {
     
      
       <div className="px-7 py-3 mt-[1.5rem] w-full border rounded-[10px] h-auto bg-[#ffffff] recent-reg">
-      <Title>Recent Registrations</Title>
+       <Title>Recent Registrations</Title>
       <Table size="small">
-        <TableHead sx={{background:'#D9D9D9', height:'40px'}}>
+        <TableHead className="bg-[#aabcf3] h-[40px]">
           <TableRow>
             <TableCell>Date</TableCell>
             <TableCell>Name</TableCell>
             <TableCell>Location</TableCell>
             <TableCell>Phone</TableCell>
-            <TableCell align="right">Usage</TableCell>
+            <TableCell>Email</TableCell>
+            <TableCell>Users</TableCell>
+            <TableCell align="right">Appointments</TableCell>
+            {/* <TableCell align="right">Usage</TableCell> */}
           </TableRow>
         </TableHead>
         <TableBody>
@@ -108,24 +123,27 @@ const DashboardS = () => {
             <TableRow key={row.id}  sx={{ height: '40px' }}>
               <TableCell>{row.date}</TableCell>
               <TableCell>{row.name}</TableCell>
-              <TableCell>{row.shipTo}</TableCell>
-              <TableCell>{row.paymentMethod}</TableCell>
-              <TableCell align="right">{`$${row.amount}`}</TableCell>
+              <TableCell>{row.location}</TableCell>
+              <TableCell>{row.phone}</TableCell>
+              <TableCell>{row.email}</TableCell>
+              <TableCell>{row.users}</TableCell>
+              <TableCell align="right">{row.appointments}</TableCell>
+              {/* <TableCell align="right">{`$${row.amount}`}</TableCell> */}
             </TableRow>
           ))}
         </TableBody>
       </Table>
-    <button onClick={openModal} className="mt-[10px] text-[14px] text-[purple] ml-[15px]">
-        See more orders
+      <button onClick={openModal} className="mt-2 text-[15px] ml-4 font-sans text-[#8b58d1] hover:underline">
+        See more registration
       </button>
-      <NavLink></NavLink>
+      {/* <NavLink></NavLink> */}
 
       {/* Modal */}
       {isModalOpen && (
         <Modal open={isModalOpen} onClose={closeModal}>
-          <RegistrationDetails />
+          <RegistrationDetails tableData={rows} onClose={closeModal} />
         </Modal>
-      )}
+      )} 
       </div>
     </div>
   )

@@ -38,7 +38,7 @@ export default function HorizontalBars() {
           series: [
             {
               name: "User",
-              color: "#31C48D",
+              color:"#9195F6",
               data: ["1420", "1620", "1820", "1420"],
             },
             // {
@@ -159,7 +159,7 @@ return () => {
       {/* <dd class="leading-none text-3xl font-bold text-gray-900 dark:text-white">$5,405</dd> */}
     </dl>
     <div>
-      <span class="bg-green-100 text-green-800 text-xs font-medium inline-flex items-center px-2.5 py-1 rounded-md dark:bg-green-900 dark:text-green-300">
+    <span class=" text-blue-800 text-xs font-medium inline-flex items-center px-2.5 py-1 rounded-md bg-[#dfecf5] dark:text-blue-300">
         <svg class="w-2.5 h-2.5 me-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 14">
           <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13V1m0 0L1 5m4-4 4 4"/>
         </svg>

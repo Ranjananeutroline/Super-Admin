@@ -35,6 +35,7 @@ import { AuthProvider } from './components/Login/AuthContext';
 import AdminLogin from './components/Login/AdminLogin';
 import AdminCards from './components/Dashboard/AdminCards';
 import RegistrationDetails from './components/SuperAdmin/RegistrationDetails';
+import AdminSettings from './components/SuperAdmin/AdminSettings';
 
 function App(item) {
   const user = useSelector((state) => state.auth.user);
@@ -124,6 +125,7 @@ const dispatch=useDispatch();
                 <Route exact path="/users" element={<UserAdminPage />} />
                 <Route exact path="/company" element={<CompanyPage />} />
                 <Route exact path='/registration-details' element={<RegistrationDetails/>}/>
+                <Route exact path='/adminsettings' element={<AdminSettings/>}/>
               </Routes>
             </div>
           </div>
