@@ -13,6 +13,7 @@ const CompanySubscriptions = () => {
   const [showRenewalModal, setShowRenewalModal] = useState(false);
 
   const [showDivContent, setShowDivContent] = useState(false); // State variable for showing/hiding div content
+  const [serviceEnded, setServiceEnded] = useState(false);
 
   const toggleDivContent = () => {
     setShowDivContent(!showDivContent); // Toggle the state of showDivContent
@@ -20,6 +21,11 @@ const CompanySubscriptions = () => {
 
   const handleCancel = () => {
     setShowDivContent(false); // Hide the div content
+  };
+
+  const handleServiceEnd = () => {
+    setShowDivContent(false); // Hide the div content after service ends
+    setServiceEnded(true);
   };
   
   return (
@@ -30,9 +36,19 @@ const CompanySubscriptions = () => {
 
     <div className='second-subs'>
     <div className='upper-subs'>
-        <p> Please proceed with the following given services at your earliest convenience.</p>
-        {!showDivContent && <button onClick={toggleDivContent}>End of Review</button>}
-      </div>
+          {serviceEnded ? (
+            <>
+              <p>Your service has ended. Please reactivate your service.</p>
+              <button>Reactivate Service</button>
+              {/* <button onClick={toggleDivContent}>Reactivate Service</button> to show div content */}
+            </>
+          ) : (
+            <>
+              <p>Please proceed with the following given services at your earliest convenience.</p>
+              {!showDivContent && <button onClick={toggleDivContent}>End of Review</button>}
+            </>
+          )}
+        </div>
       
 
       {showDivContent && (
@@ -65,7 +81,7 @@ const CompanySubscriptions = () => {
     </div>
       <ActivateServiceModal show={showActivateServiceModal} onHide={() => setShowActivateServiceModal(false)} />
       <RenewalModal show={showRenewalModal} onHide={() => setShowRenewalModal(false)} />
-      <EndServiceModal show={showEndServiceModal} onHide={() => setShowEndServiceModal(false)} />
+      <EndServiceModal show={showEndServiceModal} onHide={() => setShowEndServiceModal(false)} onServiceEnd={handleServiceEnd} />
    
     </>
   )

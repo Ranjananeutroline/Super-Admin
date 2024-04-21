@@ -6,7 +6,7 @@ import Form from 'react-bootstrap/Form';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-function EndServiceModal({ show, onHide }) {
+function EndServiceModal({ show, onHide, onServiceEnd }) {
   const [confirmationChecked, setConfirmationChecked] = useState(false);
   const [activationDate, setActivationDate] = useState('');
   const [selectedService, setSelectedService] = useState('');
@@ -99,6 +99,7 @@ function EndServiceModal({ show, onHide }) {
       });
       onHide();
       resetForm(); // Reset form after successful submission
+      onServiceEnd();
     }
   };
 
