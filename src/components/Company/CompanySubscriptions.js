@@ -11,37 +11,57 @@ const CompanySubscriptions = () => {
   const [showActivateServiceModal, setShowActivateServiceModal] = useState(false);
   const [showEndServiceModal, setShowEndServiceModal] = useState(false);
   const [showRenewalModal, setShowRenewalModal] = useState(false);
+
+  const [showDivContent, setShowDivContent] = useState(false); // State variable for showing/hiding div content
+
+  const toggleDivContent = () => {
+    setShowDivContent(!showDivContent); // Toggle the state of showDivContent
+  };
+
+  const handleCancel = () => {
+    setShowDivContent(false); // Hide the div content
+  };
   
   return (
     <>
     <div>
         <h3 className='subs-title'>Account Service</h3>
-        
     </div>
+
     <div className='second-subs'>
-      <p> Please proceed with the following given Services at your earliest convenience.</p>
-      <div className='serv-btn-div'>
+    <div className='upper-subs'>
+        <p> Please proceed with the following given services at your earliest convenience.</p>
+        {!showDivContent && <button onClick={toggleDivContent}>End of Review</button>}
+      </div>
+      
+
+      {showDivContent && (
+        <div>
         <div className='serv-btn-div'>
           <div className='serv-btn-div2'>
           <h5>Activate New Service</h5>
-          <p>Welcome to our service activation process! Please choose a date for your new service to commence. We're excited to have you onboard!</p>
+          <p>Welcome to our service activation process! Please choose a date for your new service to start.</p>
           <button onClick={() => setShowActivateServiceModal(true)}>Service Activation</button>
           </div>
           
           <div className='serv-btn-div2'>
           <h5> Renewal</h5>
-          <p>Renewal time is here! Ensure uninterrupted service by renewing now. Your continued support means the world to us. Let's keep the journey going together!</p>
+          <p>Renewal time is here! Ensure uninterrupted service by renewing now.</p>
           <button onClick={() => setShowRenewalModal(true)}>Renewal</button>
           </div>
 
           <div className='serv-btn-div2'>
           <h5> End the Service</h5>
-          <p>It's time to bid farewell to our service. We appreciate your support. Automatic termination is initiated, but if you prefer a manual option, it's available too. Thank you for being a part of our journey!</p>
+          <p>It's time to bid farewell to our service. We appreciate your support. Automatic termination is initiated, but if you prefer a manual option, it's available too.</p>
           <button onClick={() => setShowEndServiceModal(true)}>Service End</button>
           </div>
 
         </div>
-      </div>
+          <div className='subs-upper-cancel'>
+            <button onClick={handleCancel}>Cancel</button> 
+          </div>
+        </div>
+      )}
     </div>
       <ActivateServiceModal show={showActivateServiceModal} onHide={() => setShowActivateServiceModal(false)} />
       <RenewalModal show={showRenewalModal} onHide={() => setShowRenewalModal(false)} />

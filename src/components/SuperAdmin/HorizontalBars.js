@@ -38,7 +38,7 @@ export default function HorizontalBars() {
           series: [
             {
               name: "User",
-              color:"#9195F6",
+              color:"#d862bc38",
               data: ["1420", "1620", "1820", "1420"],
             },
             // {
@@ -155,7 +155,7 @@ return () => {
 <div class="max-w-2xl w-full bg-white rounded-lg  dark:bg-gray-800 p-4 md:p-6 mt-2 mr-3 border appoint-bar">
   <div class="flex justify-between border-gray-200 border-b dark:border-gray-700 pb-3">
     <dl>
-      <dt class="text-base font-semibold text-gray-500 dark:text-gray-400 pb-1">Company's Appointment</dt>
+      <dt class="font-normal text-[#D862BC] text-[18px] pb-1">Company's Appointment</dt>
       {/* <dd class="leading-none text-3xl font-bold text-gray-900 dark:text-white">$5,405</dd> */}
     </dl>
     <div>

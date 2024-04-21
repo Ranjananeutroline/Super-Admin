@@ -49,7 +49,7 @@ const CompanyTab = () => {
           }}
           
         >
-          Current Clients
+          Active Clients
         </button>
         <button
           onClick={() => handleTabClick('allCompanies')}

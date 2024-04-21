@@ -18,6 +18,7 @@ import ApexChart from './ApexChart';
 import RegistrationDetails from './RegistrationDetails';
 import {Modal} from 'react-responsive-modal';
 import { NavLink } from 'react-router-dom';
+import "./superAdminDashboard.css";
 
 // Generate Order Data
 function createData(id, date, name,location,phone, email, users, appointments) {
@@ -106,7 +107,7 @@ const DashboardS = () => {
       <div className="px-7 py-3 mt-[1.5rem] w-full border rounded-[10px] h-auto bg-[#ffffff] recent-reg">
        <Title>Recent Registrations</Title>
       <Table size="small">
-        <TableHead className="bg-[#aabcf3] h-[40px]">
+        <TableHead className="bg-[#e3a3e354] h-[40px]">
           <TableRow>
             <TableCell>Date</TableCell>
             <TableCell>Name</TableCell>

@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import { RiCloseLine } from 'react-icons/ri';
+import { RxCross2 } from "react-icons/rx";
 import "./superAdminDashboard.css";
+import AccountDetails from './AccountDetails'; 
 
 const AdminSettings = ({ show, onHide }) => {
   const [activeTab, setActiveTab] = useState('Account');
@@ -67,7 +69,7 @@ const AdminSettings = ({ show, onHide }) => {
       <div className="flex gap-4 mt-2 mb-3 ">
         <h2
           className={`cursor-pointer font-sans text-[18px] ${activeTab === 'Account' ? 'underline' : ''} ${
-            activeTab === 'Account' ? 'text-blue-800 ' : 'text-gray-600 hover:text-blue-800'
+            activeTab === 'Account' ? 'text-[#D862BC] ' : 'text-gray-600 hover:text-[#D862BC]'
           }`}
           onClick={() => setActiveTab('Account')}
         >
@@ -75,7 +77,7 @@ const AdminSettings = ({ show, onHide }) => {
         </h2>
         <h2
           className={`cursor-pointer font-sans text-[18px] ${activeTab === 'Notification' ? 'underline' : ''} ${
-            activeTab === 'Notification' ? 'text-blue-800 ' : 'text-gray-600 hover:text-blue-800'
+            activeTab === 'Notification' ? 'text-[#D862BC]' : 'text-gray-600 hover:text-[#D862BC]'
           }`}
           onClick={() => setActiveTab('Notification')}
         >
@@ -83,7 +85,7 @@ const AdminSettings = ({ show, onHide }) => {
         </h2>
         <h2
           className={`cursor-pointer font-sans text-[18px] ${activeTab === 'Profile' ? 'underline' : ''} ${
-            activeTab === 'Profile' ? 'text-blue-800 ' : 'text-gray-600 hover:text-blue-800'
+            activeTab === 'Profile' ? 'text-[#D862BC]' : 'text-gray-600 hover:text-[#D862BC]'
           }`}
           onClick={() => setActiveTab('Profile')}
         >
@@ -91,14 +93,16 @@ const AdminSettings = ({ show, onHide }) => {
         </h2>
       </div>
 
-      {activeTab === 'Account' && <div className="pb-4 md:pb-20 accountsettings">{/* Account Settings Content */}</div>}
+      {activeTab === 'Account' && <div className="pb-4 md:pb-20 accountsettings">
+        <AccountDetails/>
+        </div>}
 
       {activeTab === 'Notification' && (
         <div className="pb-4 md:pb-20 notificationsettings">
           {/* Notification Settings Content */}
           <div className="flex justify-end">
             <button
-              className="mt-2 mr-4 bg-[#826fffe3] hover:bg-[#836FFF] text-white px-[16px] shadow-md py-[8px] rounded-md font-sans "
+              className="mt-2 mr-4 bg-[#d862bc7d] hover:bg-[#d862bcc0] text-white px-[16px] shadow-md py-[8px] rounded-md font-sans "
               onClick={openModal}
             >
               Add Notification
@@ -119,13 +123,13 @@ const AdminSettings = ({ show, onHide }) => {
                 </div>
                 <div className="flex justify-end mt-2 mx-4 my-3">
                   <button
-                    className="bg-blue-500 hover:bg-blue-700 text-white px-[10px] py-[5px] rounded-md mr-2 text-[12px] font-sans"
+                    className="bg-blue-500 hover:bg-blue-700 text-white px-[8px] py-[5px] rounded-md mr-2 text-[12px] font-sans"
                     onClick={() => handleEdit(index)}
                   >
                     Edit
                   </button>
                   <button
-                    className="bg-[#ec7d7d] hover:bg-[#ee6161] text-white px-[10px] py-[5px] rounded-md text-[12px] font-sans"
+                    className="bg-[#ec7d7d] hover:bg-[#ee6161] text-white px-[8px] py-[5px] rounded-md text-[12px] font-sans"
                     onClick={() => handleDelete(index)}
                   >
                     Delete
@@ -137,10 +141,16 @@ const AdminSettings = ({ show, onHide }) => {
         </div>
       )}
 
-      <Modal show={showModal} onHide={closeModal} dialogClassName="custom-modal">
-      <Modal.Header className="custom-modal-header">
+      <Modal show={showModal} onHide={onHide} dialogClassName="custom-modal">
+      <div className="custom-modal-header">
+            <h4>{editIndex !== null ? 'Edit Notification' : 'Add Notification'}</h4>
+            <button type="button" className="custom-close-button"  onClick={closeModal}>
+                <RxCross2 />
+            </button>
+        </div>
+      {/* <Modal.Header className="custom-modal-header">
           <Modal.Title>{editIndex !== null ? 'Edit Notification' : 'Add Notification'}</Modal.Title>
-        </Modal.Header>
+        </Modal.Header> */}
         
         <Modal.Body className='noti-body'>
           <form onSubmit={handleSubmit}>

@@ -4,10 +4,15 @@
 .custom-modal-header{
     display: flex;
     justify-content: space-between;
-    padding: 1rem;
-    background: #8576FF;
+    padding: 1.3rem 1rem;
+    background: #db7dc583;
     border-top-right-radius: 8px;
     border-top-left-radius: 8px;
+ }
+ .custom-modal-header h4{
+  width: 100%;
+  text-align: center;
+  color: white;
  }
  .custom-modal {
   max-width: 600px; /* adjust as needed */
@@ -61,18 +66,18 @@
     margin: 1.7rem 0 1.7rem 0;
   }
   .Noti-btn{
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-    padding: 8px 16px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    padding: 5px 15px;
     border-radius: 5px;
-    background: #8576FF;
+    background: #d862bc98;
     color: white;
   }
   .Noti-btn2{
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-    padding: 8px 16px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    padding: 5px 15px;
     border-radius: 5px;
-    border: 1px solid #8576FF;
-    color: #8576FF;
+    border: 1px solid #d862bca6;
+    color: #d862bcc0;
   }
   .noti-div-main{
     display: grid;
@@ -87,10 +92,14 @@
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 .noti-title{
-    background: #826fff75;
+    background: #d862bc38;
     padding:  1rem;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
     text-align: center;
-    color: white;
+    color: #0000008c;
+}
+.css-gi7hi0-MuiTypography-root{
+  color: #D862BC!important;
+  font-size: 18px!important;
 }
