@@ -6,12 +6,12 @@ import Form from 'react-bootstrap/Form';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-function ActivateServiceModal({ show, onHide }) {
+function ReactivateServiceModal({ show, onHide }) {
     const [confirmationChecked, setConfirmationChecked] = useState(false);
-    const [activationDate, setActivationDate] = useState('');
-    const [activationTime, setActivationTime] = useState('');
+    const [reactivationDate, setReactivationDate] = useState('');
+    const [reactivationTime, setReactivationTime] = useState('');
     const [selectedService, setSelectedService] = useState('');
-    const [activationOption, setActivationOption] = useState('');
+    const [reactivationOption, setReactivationOption] = useState('');
     const [formErrors, setFormErrors] = useState({
         service: '',
         date: '',
@@ -29,10 +29,10 @@ function ActivateServiceModal({ show, onHide }) {
 
     const resetForm = () => {
         setConfirmationChecked(false);
-        setActivationDate('');
-        setActivationTime('');
+        setReactivationDate('');
+        setReactivationTime('');
         setSelectedService('');
-        setActivationOption('');
+        setReactivationOption('');
         setFormErrors({
             service: '',
             date: '',
@@ -43,13 +43,13 @@ function ActivateServiceModal({ show, onHide }) {
     };
 
     const handleDateChange = (event) => {
-        setActivationDate(event.target.value);
+        setReactivationDate(event.target.value);
         // Clear date error when date is changed
         setFormErrors({ ...formErrors, date: '' });
     };
 
     const handleTimeChange = (event) => {
-        setActivationTime(event.target.value);
+        setReactivationTime(event.target.value);
         // Clear time error when time is changed
         setFormErrors({ ...formErrors, time: '' });
     };
@@ -66,35 +66,35 @@ function ActivateServiceModal({ show, onHide }) {
         setFormErrors({ ...formErrors, service: '' });
     };
 
-    const handleActivationOptionChange = (event) => {
-        setActivationOption(event.target.value);
+    const handleReactivationOptionChange = (event) => {
+        setReactivationOption(event.target.value);
         // Clear option error when option is changed
         setFormErrors({ ...formErrors, option: '' });
     };
 
-    const handleActivate = (event) => {
+    const handleReactivate = (event) => {
         event.preventDefault(); // Prevent default form submission behavior
         let errors = {};
         if (!selectedService) {
             errors.service = 'Please select a service.';
         }
-        if (!activationDate) {
-            errors.date = 'Please select an activation date.';
+        if (!reactivationDate) {
+            errors.date = 'Please select a reactivation date.';
         }
-        if (!activationTime) {
-            errors.time = 'Please select an activation time.';
+        if (!reactivationTime) {
+            errors.time = 'Please select a reactivation time.';
         }
-        if (!activationOption) {
-            errors.option = 'Please select an activation option.';
+        if (!reactivationOption) {
+            errors.option = 'Please select a reactivation option.';
         }
         if (!confirmationChecked) {
-            errors.confirmation = 'Please confirm the activation.';
+            errors.confirmation = 'Please confirm the reactivation.';
         }
         setFormErrors(errors);
 
         if (Object.keys(errors).length === 0) {
-            // Perform activation logic here
-            toast.success("Service activated successfully!", {
+            // Perform reactivation logic here
+            toast.success("Service reactivated successfully!", {
                 position: "top-center",
                 autoClose: 3000,
                 hideProgressBar: false,
@@ -104,7 +104,7 @@ function ActivateServiceModal({ show, onHide }) {
                 progress: undefined,
                 theme: "light",
             });
-            onHide(); // Close modal after successful activation
+            onHide(); // Close modal after successful reactivation
         }
     };
 
@@ -112,16 +112,16 @@ function ActivateServiceModal({ show, onHide }) {
         <>
             <Modal show={show} onHide={onHide} dialogClassName="custom-modal" onExited={resetForm}>
                 <div className="custom-modal-header">
-                    <h5 className="modal-title">Service Activation</h5>
+                    <h5 className="modal-title">Service Reactivation</h5>
                     <button type="button" className="custom-close-button" onClick={onHide}>
                         <RxCross2 />
                     </button>
                 </div>
                 <Modal.Body className='newS-body'>
-                    <Form onSubmit={handleActivate}>
+                    <Form onSubmit={handleReactivate}>
                         <div className='div-1'>
                             <div className='div-2'>
-                                <label className='text-[15px]'>Select Service to Activate</label>
+                                <label className='text-[15px]'>Select Service to Reactivate</label>
                                 <Form.Select aria-label="Default select example" className='serv-choose' onChange={handleServiceChange}>
                                     <option>Choose service</option>
                                     <option value="1">Service 1</option>
@@ -134,10 +134,10 @@ function ActivateServiceModal({ show, onHide }) {
                             </div>
                             <div className='div-12 div-121'>
                                 <div>
-                                <label className='text-[15px]'>Activation Date</label>
+                                <label className='text-[15px]'>Reactivation Date</label>
                                 <input
                                     type="date"
-                                    value={activationDate}
+                                    value={reactivationDate}
                                     onChange={handleDateChange}
                                     className='newS-input'
                                 />
@@ -145,10 +145,10 @@ function ActivateServiceModal({ show, onHide }) {
                                 </div>
 
                                 <div>
-                                <label className='text-[15px]'>Activation Time</label>
+                                <label className='text-[15px]'>Reactivation Time</label>
                                 <input
                                     type="time"
-                                    value={activationTime}
+                                    value={reactivationTime}
                                     onChange={handleTimeChange}
                                     className='newS-input'
                                     placeholder="Select Time"
@@ -157,12 +157,11 @@ function ActivateServiceModal({ show, onHide }) {
                                 </div>
                             </div>
                             <div className='div-2'>
-                                <label className='text-[15px]'>Activation Options</label>
-                                <Form.Select aria-label="Default select example" className='serv-choose' onChange={handleActivationOptionChange}>
+                                <label className='text-[15px]'>Reactivation Options</label>
+                                <Form.Select aria-label="Default select example" className='serv-choose' onChange={handleReactivationOptionChange}>
                                     <option>Select</option>
-                                    <option value="1">Hold Service</option>
-                                    <option value="2">Activate Now</option>
-                                    <option value="3">Schedule Activation</option>
+                                    <option value="1">Reactivate Now</option>
+                                    <option value="2">Schedule Reactivation</option>
                                 </Form.Select>
                                 {formErrors.option && <p className="text-red-500 text-[13px]">{formErrors.option}</p>}
                             </div>
@@ -174,12 +173,12 @@ function ActivateServiceModal({ show, onHide }) {
                                     checked={confirmationChecked}
                                     onChange={handleConfirmationChange}
                                 />
-                                <label htmlFor="confirmationCheckbox" className='text-[15px]'>By clicking, I confirm that I want to activate the service.</label>
+                                <label htmlFor="confirmationCheckbox" className='text-[15px]'>By clicking, I confirm that I want to reactivate the service.</label>
                                 </div>
                                 {formErrors.confirmation && <p className="text-red-500 text-[13px]">{formErrors.confirmation}</p>}
                             </div>
                             <div className='Act-btn-div'>
-                                <button type="submit" className='Act-btn'>Activate</button>
+                                <button type="submit" className='Act-btn'>Reactivate</button>
                                 <button type="button" className='Act-btn2' onClick={onHide}>Cancel</button>
                             </div>
                         </div>
@@ -190,4 +189,4 @@ function ActivateServiceModal({ show, onHide }) {
     );
 }
 
-export default ActivateServiceModal;
+export default ReactivateServiceModal;

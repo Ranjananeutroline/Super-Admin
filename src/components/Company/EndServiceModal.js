@@ -9,12 +9,14 @@ import 'react-toastify/dist/ReactToastify.css';
 function EndServiceModal({ show, onHide, onServiceEnd }) {
   const [confirmationChecked, setConfirmationChecked] = useState(false);
   const [activationDate, setActivationDate] = useState('');
+  const [activationTime, setActivationTime] = useState('');
   const [selectedService, setSelectedService] = useState('');
   const [endServiceOption, setEndServiceOption] = useState('');
   const [terminationReason, setTerminationReason] = useState('');
   const [formErrors, setFormErrors] = useState({
     service: '',
     date: '',
+    time:'',
     option: '',
     reason: '',
     confirmation: ''
@@ -29,12 +31,14 @@ function EndServiceModal({ show, onHide, onServiceEnd }) {
   const resetForm = () => {
     setConfirmationChecked(false);
     setActivationDate('');
+    setActivationTime('');
     setSelectedService('');
     setEndServiceOption('');
     setTerminationReason('');
     setFormErrors({
       service: '',
       date: '',
+      time:'',
       option: '',
       reason: '',
       confirmation: ''
@@ -44,6 +48,12 @@ function EndServiceModal({ show, onHide, onServiceEnd }) {
   const handleDateChange = (event) => {
     setActivationDate(event.target.value);
     setFormErrors({ ...formErrors, date: '' });
+  };
+
+  const handleTimeChange = (event) => {
+    setActivationTime(event.target.value);
+    // Clear time error when time is changed
+    setFormErrors({ ...formErrors, time: '' });
   };
 
   const handleConfirmationChange = () => {
@@ -74,6 +84,9 @@ function EndServiceModal({ show, onHide, onServiceEnd }) {
     }
     if (!activationDate) {
       errors.date = 'Please select an end of service date.';
+    }
+    if (!activationTime) {
+      errors.time = 'Please select an activation time.';
     }
     if (!endServiceOption) {
       errors.option = 'Please select an end service option.';
@@ -127,7 +140,8 @@ function EndServiceModal({ show, onHide, onServiceEnd }) {
                 </Form.Select>
                 {formErrors.service && <p className="text-red-500 text-[13px]">{formErrors.service}</p>}
               </div>
-              <div className='div-12'>
+              <div className='div-12 div-121'>
+                <div>
                 <label className='text-[15px]'>End of Service Date</label>
                 <input
                   type="date"
@@ -136,6 +150,19 @@ function EndServiceModal({ show, onHide, onServiceEnd }) {
                   className='newS-input'
                 />
                 {formErrors.date && <p className="text-red-500 text-[13px]">{formErrors.date}</p>}
+                </div>
+               
+                <div>
+                  <label className='text-[15px]'>End of Service Time</label>
+                  <input
+                    type="time"
+                    value={activationTime}
+                    onChange={handleTimeChange}
+                    className='newS-input'
+                    placeholder="Select Time"
+                  />
+                  {formErrors.time && <p className="text-red-500 text-[13px]">{formErrors.time}</p>}
+                </div>
               </div>
               <div className='div-2'>
                 <label className='text-[15px]'>End Service Options</label>
