@@ -1,28 +1,70 @@
-.notify-div-main{
-    display: grid;
-    grid-template-columns: 48% 48%;
-    gap: 2rem;
+.notifi-main-div{
     width: 90%;
-    margin: 1rem auto 1.5rem auto;   
+    margin: auto;
 }
-.notify-div{
-    border: 1px solid rgba(207, 158, 207, 0.363);
-    border-radius: 8px;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+.notifi-main-div h3{
+    text-align: left;
+    color: #3652AD;
+    padding-top: 1.3rem; 
+    padding-bottom: 0.5rem;
+    font-size: 18px;
+    /* background: grey; */
 }
-.notify-title{
-    background: rgb(207 158 207 / 25%);
-    padding:  1rem;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
+.notifi-main-div p{
+    margin: 0;
+    /* padding-top: 8px; */
 }
-.notify-title h4{
-    text-align: center; 
+.notifi-div{
+    width: 90%;
+    margin: 1rem auto;
 }
-.notify-text{
-    padding: 0.5rem 1rem;
-    text-align: justify;
+.notifi-lower-div{
+    width: 90%;
+    margin: 1.8rem auto 1.5rem auto;
+    /* border: 1px solid; */
+    display: flex;
+    gap: 5rem;
 }
-.notify-text p{
-    margin-bottom: 15px;
+.notifi-div-btn{
+    font-size: 14px;
+    background: #3724cd5e;
+    color: white;
+    border: none;
+    padding: 6px 15px;
+    border-radius: 5px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
+.notifi-div-btn:hover{
+    background: #3824cd71;
+  }
+  .input-notifi{
+    height: 18px;
+    width: 18px;
+    margin-right: 10px;
+    /* border-radius: 50%; */
+    border: 1px solid #999;
+    /* display: inline-block;
+    vertical-align: middle;
+    position: relative; */
+  }
+  
+  .notify-div{
+    width: 90%;
+    margin: 1rem auto;
+    justify-content: end;
+    text-align: end;
+    }
+    .notify-div-btn{
+        font-size: 14px;
+        background: #3724cd5e;
+        color: white;
+        border: none;
+        padding: 6px 15px;
+        border-radius: 5px;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    }
+    .notify-div-btn:hover{
+        background: #3824cd71;
+      }
+     
+      
