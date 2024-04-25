@@ -2,16 +2,19 @@ import React, { useState } from "react";
 import "./AdminSettings.css";
 import Modal from 'react-bootstrap/Modal'; 
 import { RxCross2 } from "react-icons/rx";
+import { countries } from "countries-list";
 
 const AddUserModal = ({ show, onHide }) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [email, setEmail] = useState('');
     const [fullName, setFullName] = useState('');
+    const [country, setCountry] = useState('');
     const [role, setRole] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
     const [address, setAddress] = useState('');
-    const [status, setStatus] = useState('');
+    const [startDate, setStartDate] = useState('');
+    const [endDate, setEndDate] = useState('');
 
     const handleAddUser = () => {
         // Logic to handle adding user, you can send this data to your backend API
@@ -41,14 +44,6 @@ const AddUserModal = ({ show, onHide }) => {
                     />
                 </div>
                 <div>
-                    <label>Password</label>
-                    <input
-                     type="password" 
-                     value={password} onChange={(e) => setPassword(e.target.value)}
-                     className="adduser-input"
-                    />
-                </div>
-                <div>
                     <label>Email</label>
                     <input
                     type="email" 
@@ -58,10 +53,31 @@ const AddUserModal = ({ show, onHide }) => {
                     />
                     </div>
                 <div>
-                    <label>Full Name</label>
-                    <input 
-                    type="text" 
-                    value={fullName} onChange={(e) => setFullName(e.target.value)}
+                    <label>Password</label>
+                    <input
+                     type="password" 
+                     value={password} onChange={(e) => setPassword(e.target.value)}
+                     className="adduser-input"
+                    />
+                </div>
+                {/* <div>
+                    <label>Country</label>
+                    <select 
+                    value={country} onChange={(e) => setCountry(e.target.value)}
+                    className="adduser-input"
+                    >
+                        <option value="">Select Country</option>
+                        {Object.keys(countries).map((code) => (
+                            <option key={code} value={code}>
+                                {countries[code]}
+                            </option>
+                        ))}
+                    </select>
+                </div> */}
+                <div>
+                    <label>Role</label>
+                    <input type="text" 
+                    value={role} onChange={(e) => setRole(e.target.value)}
                     className="adduser-input" 
                     />
                 </div>
@@ -69,9 +85,10 @@ const AddUserModal = ({ show, onHide }) => {
 
             <div className="add-div">
                 <div>
-                    <label>Role</label>
-                    <input type="text" 
-                    value={role} onChange={(e) => setRole(e.target.value)}
+                    <label>Full Name</label>
+                    <input 
+                    type="text" 
+                    value={fullName} onChange={(e) => setFullName(e.target.value)}
                     className="adduser-input" 
                     />
                 </div>
@@ -92,16 +109,21 @@ const AddUserModal = ({ show, onHide }) => {
                     />
                 </div>
                 <div>
-                    <label>Status</label>
-                    <select 
-                    value={status} 
-                    onChange={(e) => setStatus(e.target.value)}
-                    className="adduser-input"
-                    >
-                        <option value="active">Active</option>
-                        <option value="inactive">Inactive</option>
-                    </select>
-                </div> 
+                    <label>Start Date</label>
+                    <input 
+                    type="date" 
+                    value={startDate} onChange={(e) => setStartDate(e.target.value)}
+                    className="adduser-input" 
+                    />
+                </div>
+                <div>
+                    <label>End Date</label>
+                    <input 
+                    type="date" 
+                    value={endDate} onChange={(e) => setEndDate(e.target.value)}
+                    className="adduser-input" 
+                    />
+                </div>
             </div>
             </div>
            
