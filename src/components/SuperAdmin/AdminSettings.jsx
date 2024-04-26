@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const AdminSettings = () => {
   const [activeTab, setActiveTab] = useState('Profile');
@@ -9,7 +11,11 @@ const AdminSettings = () => {
   const [name, setName] = useState('Pooja Tiwari');
   const [email, setEmail] = useState('admin@example.com');
   const [currentPassword, setCurrentPassword] = useState('poojapooja');
+  const [newPassword, setNewPassword] = useState('');
   const [passwordError, setPasswordError] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [currentPasswordError, setCurrentPasswordError] = useState('');
+  const [confirmPasswordError, setConfirmPasswordError] = useState('');
   const [newUserData, setNewUserData] = useState({
     username: '',
     email: '',
@@ -38,35 +44,82 @@ const AdminSettings = () => {
     setEditField(field);
     setEditedValue('');
     setShowModal(true);
+    setCurrentPassword(''); // Clear current password field
+    setCurrentPasswordError(''); // Clear current password error state
   };
 
   const closeModal = () => {
     setShowModal(false);
+    setCurrentPassword(''); // Clear current password field
+    setPasswordError(''); // Clear password error state
+  };
+
+
+  const handleSavePassword = () => {
+    setCurrentPasswordError('');
     setPasswordError('');
-  };
-
-  const handleInputChange = (e) => {
-    setEditedValue(e.target.value);
-  };
-
-  const handleSave = () => {
-    if (editField === 'name') {
-      console.log('Updated Name:', editedValue);
-      setName(editedValue);
-    } else if (editField === 'email') {
-      console.log('Updated Email:', editedValue);
-      setEmail(editedValue);
-    } else if (editField === 'password') {
-      if (editedValue === currentPassword) {
-        console.log('Password changed successfully:', editedValue);
-        setCurrentPassword(editedValue);
-      } else {
-        setPasswordError('Current password does not match');
-        return;
-      }
+    setConfirmPasswordError('');
+  
+    let hasError = false;
+  
+    if (currentPassword.trim() === '') {
+      setCurrentPasswordError('Please enter your current password');
+      hasError = true;
     }
+  
+    if (newPassword.trim() === '') {
+      setPasswordError('Please enter a new password');
+      hasError = true;
+    }
+  
+    if (confirmPassword.trim() === '') {
+      setConfirmPasswordError('Please confirm your new password');
+      hasError = true;
+    }
+  
+    if (hasError) {
+      return;
+    }
+  
+    if (currentPassword !== 'poojapooja') {
+      setCurrentPasswordError('Current password is incorrect');
+      return;
+    }
+  
+    if (newPassword !== confirmPassword) {
+      setConfirmPasswordError('New password and confirm password do not match');
+      return;
+    }
+  
+    setCurrentPassword(newPassword);
+
+    toast.success("Password change successfully!", {
+      position: "top-center",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+  });
+
+    // Reset the form and close the modal
+    setNewPassword('');
+    setConfirmPassword('');
     closeModal();
   };
+
+   // Function to clear individual error message
+   const handleInputChange = (field) => {
+    if (field === 'currentPassword') {
+      setCurrentPasswordError('');
+    } else if (field === 'newPassword' || field === 'confirmPassword') {
+      setConfirmPasswordError('');
+    }
+  };
+  
+  
 
   const handleAddUser = () => {
     setUsers([...users, { ...newUserData, role: 'User' }]);
@@ -202,7 +255,8 @@ const AdminSettings = () => {
         </div>
       )}
 
-      {showModal && (
+      
+{showModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
           <div className="bg-white rounded-md w-[400px]">
             <div className="bg-[#d28ce0] h-[60px] rounded-md flex items-center justify-center pt-4">
@@ -215,56 +269,57 @@ const AdminSettings = () => {
               </h2>
             </div>
             <div className="p-3">
-              {editField !== 'password' && (
+               {editField === 'password' && (
+              <>
                 <input
-                  type="text"
-                  value={editedValue}
-                  onChange={handleInputChange}
+                  type="password"
+                  value={currentPassword}
+                  onChange={(e) => { setCurrentPassword(e.target.value); handleInputChange('currentPassword'); }}
+                  placeholder="Current Password"
                   className="mt-1 p-1 border border-gray-300 rounded-md w-full text-[13px] font-sans"
                   required
                 />
-              )}
-              {editField === 'password' && (
-                <>
-                  <input
+                {currentPasswordError && <p className="text-red-500 text-sm">{currentPasswordError}</p>}
+                <input
                     type="password"
-                    name="currentValue"
-                    placeholder="Current Password"
-                    onChange={handleInputChange}
-                    className="mt-1 p-1 border border-gray-300 rounded-md w-full text-[13px] font-sans"
-                    required
-                  />
-                  <input
-                    type="password"
-                    name="newValue"
+                    value={newPassword}
+                    onChange={(e) => { setNewPassword(e.target.value); handleInputChange('newPassword'); }}
                     placeholder="New Password"
-                    onChange={handleInputChange}
                     className="mt-1 p-1 border border-gray-300 rounded-md w-full text-[13px] font-sans"
                     required
                   />
-                  {passwordError && <p className="text-red-500 text-xs">{passwordError}</p>}
-                </>
-              )}
-              <div className="flex justify-end mt-2">
-                <button
-                  type="button"
-                  className="bg-[#a7a5a5] hover:bg-[#767474] text-white px-3 py-1 rounded-md mr-2"
-                  onClick={closeModal}
-                >
-                  Close
-                </button>
-                <button
-                  type="button"
-                  onClick={handleSave}
-                  className="bg-[#c88ce0] hover:bg-[#b968d9] text-white px-3 py-1 rounded-md"
-                >
-                  Save
-                </button>
-              </div>
+                  <input
+                    type="password"
+                    value={confirmPassword}
+                    onChange={(e) => { setConfirmPassword(e.target.value); handleInputChange('confirmPassword'); }}
+                    placeholder="Confirm Password"
+                    className="mt-1 p-1 border border-gray-300 rounded-md w-full text-[13px] font-sans"
+                    required
+                  />
+                {confirmPasswordError && <p className="text-red-500 text-sm">{confirmPasswordError}</p>}
+                <div className="flex justify-end mt-2">
+                  <button
+                    type="button"
+                    className="bg-[#a7a5a5] hover:bg-[#767474] text-white px-3 py-1 rounded-md mr-2"
+                    onClick={closeModal}
+                  >
+                    Close
+                  </button>
+                  <button
+                    type="button"
+                    className="bg-[#c88ce0] hover:bg-[#b968d9] text-white px-3 py-1 rounded-md"
+                    onClick={handleSavePassword}
+                  >
+                    Save
+                  </button>
+                </div>
+              </>
+            )}
             </div>
           </div>
         </div>
       )}
+
 
       {showUserModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
