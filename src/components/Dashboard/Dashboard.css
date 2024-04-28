@@ -27,7 +27,8 @@ transition-duration: 1s;
   cursor: pointer;
 }
 .see-all p{
-  font-size: 11px;
+  font-size: 12.5px;
+  padding-right: 5px;
 }
 .see-change:hover{
   color: gray;

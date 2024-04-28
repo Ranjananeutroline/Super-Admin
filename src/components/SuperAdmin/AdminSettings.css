@@ -1,69 +1,85 @@
-.Acc-main{
-    margin: 2.5rem 0;
-    display: grid;
-    gap: 1.3rem;
+.profileSettings{
+  /* border: 1px solid rgb(233, 228, 228);  */
+  margin: 1.7rem 0 1rem 0;
+  padding: 1rem 1.3rem;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  border-radius: 5px;
 }
-.section{
-    cursor: pointer;
-    padding: 1rem;
-    /* border-bottom: 1px solid rgb(185, 184, 184); */
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+.pro-div{
+  /* background: rgba(219, 218, 218, 0.527);  */
+  border-radius: 5px;
+
 }
-.section h3{
-    font-weight: bold;
-    display: flex;
-    justify-content: space-between;
+.pro-input{
+  width: 100%;
+  background: rgba(219, 218, 218, 0.322);
+  height: 55px;
+  padding-left: 13px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+  color: grey;
 }
-.section-content{
-    padding: 1rem 1rem 0.5rem 1rem;
+.pro-edit-btn{
+  /* background: skyblue; */
+  position: absolute;
+  top: 16px;
+  right: 15px;
+  /* padding: 5px 10px; */
+  border-radius: 5px;
+  font-size: 15px;
+  color: #bc40df;
 }
-.section-content h5{
-    margin-bottom: 10px;
-    color: #D862BC;
+.change-pswd-btn{
+  background: #bd40df6e;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  font-size: 15px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
 }
-.section-content ul {
-    list-style-type: disc; /* Use disc for filled circles */
-  }
-  .section-content li {
-    margin-bottom: 5px; 
-    color: grey; 
-    margin-left: 1rem;
-  }
-  .adduser-btn{
-    /* padding: 8px 16px;  */
-    border: none;
-    text-align: center;
-    /* color: grey; */
-    color: #D862BC;
-    width: 100px;
-    /* background: #d862bc98;
-    color: white; */
-    /* border-radius: 5px; */
-    font-size: 15.5px;
-    /* box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; */
-  }
-  .adduser-btn:hover{
-    color: #D862BC;
-    text-decoration: underline;
-  }
-  .custom-modal-adduser {
-    max-width: 850px; /* adjust as needed */
-    min-height: 300px; /* adjust as needed */
-    margin-top: 2rem;
-   }
-  .add-form-main{
-    display: flex;
-    gap: 1rem; 
-    /* border: 1px solid; */
-  }
-  .add-div{
-    /* border: 1px solid red; */
-    width: 100%;
-  }
-  .adduser-input{
-    border: 1px solid;
-    height: 45px;
-    width: 100%;
-    border-radius: 5px;
-    margin-bottom: 10px;
-  }
+.change-pswd-btn:hover{
+  background: #bd40df61;
+}
+.pswd-input{
+  color: rgba(0, 0, 0, 0.685); 
+  height: 48px;
+  width: 100%;
+  border: 1px solid grey;
+  font-size: 14px;
+  padding: 0 0.5rem 0 0.8rem;
+  border: none;
+  background: #e9ecef82;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgb(0 0 0 / 6%) 0px 1px 2px;
+}
+.pswd-input:focus {
+  outline: none!important; /* Remove default focus outline */
+  border: 1px solid rgba(83, 211, 228, 0.438)!important;
+  background: white!important;
+  box-shadow: none!important;
+}
+.pswd-body{
+  padding: 0 1.3rem;
+}
+.pswd-footer{
+  border-top: none;
+  padding: 1.2rem 1rem;
+}
+.pswd-btn{
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  padding: 8px 16px;
+  border-radius: 5px;
+  background: #d862bca1;
+  color: white;
+  border: none;
+}
+.pswd-btn2{
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  padding: 8px 16px;
+  border-radius: 5px;
+  border: 1px solid #d862bc88;
+  color: #d862bcb4;
+}
+.form-pswd-div{
+  margin-top: 1rem;
+}

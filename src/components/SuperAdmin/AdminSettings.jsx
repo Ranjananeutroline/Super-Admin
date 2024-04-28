@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
+import { Modal, Button, Form } from 'react-bootstrap';
 import { toast } from 'react-toastify';
+import { RxCross2 } from "react-icons/rx"; 
 import 'react-toastify/dist/ReactToastify.css';
+import "./AdminSettings.css";
 
-const AdminSettings = () => {
+const AdminSettings = ({ show, onHide }) => {
   const [activeTab, setActiveTab] = useState('Profile');
   const [showModal, setShowModal] = useState(false);
   const [showUserModal, setShowUserModal] = useState(false);
@@ -16,6 +19,8 @@ const AdminSettings = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [currentPasswordError, setCurrentPasswordError] = useState('');
   const [confirmPasswordError, setConfirmPasswordError] = useState('');
+  const [nameError, setNameError] = useState('');
+  const [emailError, setEmailError] = useState('');
   const [newUserData, setNewUserData] = useState({
     username: '',
     email: '',
@@ -41,8 +46,8 @@ const AdminSettings = () => {
   };
 
   const openModal = (field) => {
-    setEditField(field);
-    setEditedValue('');
+     setEditField(field);
+    setEditedValue(field === 'name' ? name : email);
     setShowModal(true);
     setCurrentPassword(''); // Clear current password field
     setCurrentPasswordError(''); // Clear current password error state
@@ -50,47 +55,76 @@ const AdminSettings = () => {
 
   const closeModal = () => {
     setShowModal(false);
-    setCurrentPassword(''); // Clear current password field
-    setPasswordError(''); // Clear password error state
+    setCurrentPassword('');
+    setPasswordError('');
+    setNewPassword('');
+    setConfirmPassword('');
+    setCurrentPasswordError('');
+    setConfirmPasswordError('');
+     setNameError('');
+    setEmailError('');
   };
 
+  const handleSaveName = () => {
+    if (editedValue.trim() === '') {
+      setNameError('Please enter a name');
+      return;
+    }
+  
+    setName(editedValue); // Update name with edited value
+    setEditedValue(''); // Clear edited value after saving
+    closeModal();
+  };
+  
+  const handleSaveEmail = () => {
+    // Validation for email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(editedValue)) {
+      setEmailError('Please enter a valid email address');
+      return;
+    }
+  
+    setEmail(editedValue); // Update email with edited value
+    setEditedValue(''); // Clear edited value after saving
+    closeModal();
+  };
 
   const handleSavePassword = () => {
     setCurrentPasswordError('');
     setPasswordError('');
     setConfirmPasswordError('');
-  
+
     let hasError = false;
-  
+
     if (currentPassword.trim() === '') {
       setCurrentPasswordError('Please enter your current password');
       hasError = true;
     }
-  
+
     if (newPassword.trim() === '') {
       setPasswordError('Please enter a new password');
       hasError = true;
     }
-  
+
     if (confirmPassword.trim() === '') {
       setConfirmPasswordError('Please confirm your new password');
       hasError = true;
     }
-  
+
     if (hasError) {
       return;
     }
-  
+
     if (currentPassword !== 'poojapooja') {
       setCurrentPasswordError('Current password is incorrect');
       return;
     }
-  
+
     if (newPassword !== confirmPassword) {
       setConfirmPasswordError('New password and confirm password do not match');
       return;
     }
-  
+
     setCurrentPassword(newPassword);
 
     toast.success("Password change successfully!", {
@@ -102,7 +136,7 @@ const AdminSettings = () => {
       draggable: true,
       progress: undefined,
       theme: "light",
-  });
+    });
 
     // Reset the form and close the modal
     setNewPassword('');
@@ -110,16 +144,19 @@ const AdminSettings = () => {
     closeModal();
   };
 
-   // Function to clear individual error message
-   const handleInputChange = (field) => {
+  
+  // Function to clear individual error message
+  const handleInputChange = (field) => {
     if (field === 'currentPassword') {
       setCurrentPasswordError('');
     } else if (field === 'newPassword' || field === 'confirmPassword') {
       setConfirmPasswordError('');
+    } else if (field === 'name') {
+      setNameError('');
+    } else if (field === 'email') {
+      setEmailError('');
     }
   };
-  
-  
 
   const handleAddUser = () => {
     setUsers([...users, { ...newUserData, role: 'User' }]);
@@ -139,11 +176,11 @@ const AdminSettings = () => {
     <div className="w-full px-[50px] md:px-10 dashboard-main">
       <h1 className="text-[27px] text-[#3F26A5] pb-2 ">Settings</h1>
 
-      <div className="flex gap-3 mt-2 mb-3 ">
+      <div className="flex gap-4 mt-2 mb-3 ">
         <h2
           className={`cursor-pointer font-sans text-[18px] ${
             activeTab === 'Profile' ? 'underline' : ''
-          } ${activeTab === 'Profile' ? 'text-blue-600 ' : 'text-gray-600 hover:text-blue-800'}`}
+            } ${activeTab === 'Profile' ? 'text-[#BC7FCD]' : 'text-gray-600 hover:text-[#BC7FCD]'}`}
           onClick={() => setActiveTab('Profile')}
         >
           Profile Settings
@@ -151,7 +188,7 @@ const AdminSettings = () => {
         <h2
           className={`cursor-pointer font-sans text-[18px] ${
             activeTab === 'Account' ? 'underline' : ''
-          } ${activeTab === 'Account' ? 'text-blue-600 ' : 'text-gray-600 hover:text-blue-800'}`}
+            } ${activeTab === 'Account' ? 'text-[#BC7FCD]' : 'text-gray-600 hover:text-[#BC7FCD]'}`}
           onClick={() => setActiveTab('Account')}
         >
           Account Settings
@@ -159,46 +196,50 @@ const AdminSettings = () => {
       </div>
 
       {activeTab === 'Profile' && (
-        <div className="pb-4 md:pb-20 bg-gradient-to-b from-[#f1ebf8]  to-[#fdfbfe] rounded-lg shadow-md p-6 profileSettings">
+        <div className="profileSettings">
           {/* User details */}
-          <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-700 py-1">Name:</label>
-            <div className="flex justify-between items-center rounded-md px-3 bg-[#ffffff] shadow-sm">
-              <input
-                type="text"
-                className="text-gray-900 font-semibold focus:outline-none"
-                value={name}
-                readOnly
-              />
-              <button
-                onClick={() => openModal('name')}
-                className=" h-[35px] ml-2 px-2 rounded-md bg-[#f0d1f7] text-[#8a298d] text-sm hover:bg-[#d9a2f4] focus:outline-none"
-              >
-                Edit Name
-              </button>
+          <div className="mb-3">
+            <label className="block text-[15px] font-medium text-gray-700 py-[5px]">Name</label>
+            <div className="flex justify-between pro-div">
+              <div className="relative w-full">
+                <input
+                  type="text"
+                  value={name}
+                  className='pro-input'
+                  readOnly
+                />
+                <button
+                  onClick={() => openModal('name')}
+                  className="pro-edit-btn"
+                >
+                  Edit
+                </button>
+              </div>
             </div>
           </div>
-          <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-700 py-1">Email:</label>
-            <div className="flex justify-between items-center rounded-md px-3 bg-[#ffffff] shadow-sm">
-              <input
-                type="text"
-                className="text-gray-900 font-semibold focus:outline-none"
-                value={email}
-                readOnly
-              />
-              <button
-                onClick={() => openModal('email')}
-                className=" h-[35px] ml-2 px-2 rounded-md text-[#8a298d] text-sm hover:bg-[#d9a2f4] focus:outline-none"
-              >
-                Edit Email
-              </button>
+          <div className="mb-3">
+            <label className="block text-[15px] font-medium text-gray-700 py-[5px]">Email</label>
+            <div className="flex justify-between pro-div">
+              <div className="relative w-full">
+                <input
+                  type="text"
+                  value={email}
+                  className='pro-input'
+                  readOnly
+                />
+                <button
+                  onClick={() => openModal('email')}
+                  className="pro-edit-btn"
+                >
+                  Edit
+                </button>
+              </div>
             </div>
           </div>
-          <div className="mb-4">
+          <div className="mb-3">
             <button
               onClick={() => openModal('password')}
-              className="px-3 py-1 rounded-md bg-[#f0d1f7] text-[#8a298d] text-sm hover:bg-[#d9a2f4] focus:outline-none"
+              className="change-pswd-btn"
             >
               Change Password
             </button>
@@ -255,119 +296,166 @@ const AdminSettings = () => {
         </div>
       )}
 
-      
-{showModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
-          <div className="bg-white rounded-md w-[400px]">
-            <div className="bg-[#d28ce0] h-[60px] rounded-md flex items-center justify-center pt-4">
-              <h2 className="text-xl font-semibold mb-4 text-[#ffffff]">
-                {editField === 'name'
-                  ? 'Edit Name'
-                  : editField === 'email'
-                  ? 'Edit Email'
-                  : 'Change Password'}
-              </h2>
-            </div>
-            <div className="p-3">
-               {editField === 'password' && (
-              <>
-                <input
+      <Modal show={showModal} onHide={closeModal}  dialogClassName="custom-modal">
+         <div className="custom-modal-header">
+                    <h5 className="modal-title">
+                      {editField === 'name'
+                        ? 'Edit Name'
+                        : editField === 'email'
+                        ? 'Edit Email'
+                        : 'Change Password'}
+                    </h5>
+                    <button type="button" className="custom-close-button" onClick={closeModal}>
+                        <RxCross2 />
+                    </button>
+                </div>
+        <Modal.Body className='pswd-body'>
+         {editField === 'name' && (
+            <Form>
+            <div className='form-pswd-div'>
+              <Form.Group controlId="formName">
+                <Form.Label>Name</Form.Label>
+                <Form.Control
+                  type="text"
+                  value={editedValue}
+                  onChange={(e) => { setEditedValue(e.target.value); handleInputChange('name'); }}
+                  placeholder="Enter your name"
+                  className='pswd-input'
+                  required
+                />
+                {nameError && <p className="text-red-500 text-sm">{nameError}</p>}
+              </Form.Group>
+              </div>
+            </Form>
+          )}
+          {editField === 'email' && (
+            <Form>
+              <div className='form-pswd-div'>
+              <Form.Group controlId="formEmail">
+                <Form.Label>Email</Form.Label>
+                <Form.Control
+                  type="email"
+                  value={editedValue}
+                  onChange={(e) => { setEditedValue(e.target.value); handleInputChange('email'); }}
+                  placeholder="Enter your email"
+                  className='pswd-input'
+                  required
+                />
+                {emailError && <p className="text-red-500 text-sm">{emailError}</p>}
+              </Form.Group>
+              </div>
+            </Form>
+          )}
+          {editField === 'password' && (
+            <Form>
+              <div className='form-pswd-div'>
+              <Form.Group controlId="formCurrentPassword">
+                <Form.Label>Current Password</Form.Label>
+                <Form.Control
                   type="password"
                   value={currentPassword}
                   onChange={(e) => { setCurrentPassword(e.target.value); handleInputChange('currentPassword'); }}
-                  placeholder="Current Password"
-                  className="mt-1 p-1 border border-gray-300 rounded-md w-full text-[13px] font-sans"
+                  placeholder="Enter current password"
+                  className='pswd-input'
                   required
                 />
                 {currentPasswordError && <p className="text-red-500 text-sm">{currentPasswordError}</p>}
-                <input
-                    type="password"
-                    value={newPassword}
-                    onChange={(e) => { setNewPassword(e.target.value); handleInputChange('newPassword'); }}
-                    placeholder="New Password"
-                    className="mt-1 p-1 border border-gray-300 rounded-md w-full text-[13px] font-sans"
-                    required
-                  />
-                  <input
-                    type="password"
-                    value={confirmPassword}
-                    onChange={(e) => { setConfirmPassword(e.target.value); handleInputChange('confirmPassword'); }}
-                    placeholder="Confirm Password"
-                    className="mt-1 p-1 border border-gray-300 rounded-md w-full text-[13px] font-sans"
-                    required
-                  />
+              </Form.Group>
+              </div>
+              
+              <div className='form-pswd-div'>
+              <Form.Group controlId="formNewPassword form-pswd-div">
+                <Form.Label>New Password</Form.Label>
+                <Form.Control
+                  type="password"
+                  value={newPassword}
+                  onChange={(e) => { setNewPassword(e.target.value); handleInputChange('newPassword'); }}
+                  placeholder="Enter new password"
+                  className='pswd-input'
+                  required
+                />
+              </Form.Group>
+              </div>
+
+               <div className='form-pswd-div'>
+              <Form.Group controlId="formConfirmPassword form-pswd-div">
+                <Form.Label>Confirm Password</Form.Label>
+                <Form.Control
+                  type="password"
+                  value={confirmPassword}
+                  onChange={(e) => { setConfirmPassword(e.target.value); handleInputChange('confirmPassword'); }}
+                  placeholder="Confirm new password"
+                  className='pswd-input'
+                  required
+                />
                 {confirmPasswordError && <p className="text-red-500 text-sm">{confirmPasswordError}</p>}
-                <div className="flex justify-end mt-2">
-                  <button
-                    type="button"
-                    className="bg-[#a7a5a5] hover:bg-[#767474] text-white px-3 py-1 rounded-md mr-2"
-                    onClick={closeModal}
-                  >
-                    Close
-                  </button>
-                  <button
-                    type="button"
-                    className="bg-[#c88ce0] hover:bg-[#b968d9] text-white px-3 py-1 rounded-md"
-                    onClick={handleSavePassword}
-                  >
-                    Save
-                  </button>
-                </div>
-              </>
-            )}
-            </div>
-          </div>
-        </div>
-      )}
+              </Form.Group>
+              </div>
+            </Form>
+          )}
+        </Modal.Body>
+         <Modal.Footer className='pswd-footer'>
+        {editField === 'password' ? (
+          <>
+          <button className='pswd-btn' onClick={handleSavePassword}>
+            Save
+          </button>
+          <button className='pswd-btn2' onClick={closeModal}>
+            Close
+          </button>
+          </>
+          ) : (
+          <>
+          <button className='pswd-btn' onClick={editField === 'name' ? handleSaveName : handleSaveEmail}>
+            Save
+          </button>
+          <button className='pswd-btn2' onClick={closeModal}>
+            Close
+          </button>
+          </>
+        )}
+        </Modal.Footer>
+      </Modal>
 
-
-      {showUserModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
-          <div className="bg-white rounded-md w-[400px]">
-            <div className="bg-[#d28ce0] h-[60px] rounded-md flex items-center justify-center pt-4">
-              <h2 className="text-xl font-semibold mb-4 text-[#ffffff]">
-                {newUserData.role === 'Admin' ? 'Add Admin' : 'Add User'}
-              </h2>
-            </div>
-            <div className="p-3">
-              <input
+      <Modal show={showUserModal} onHide={closeUserModal}>
+        <Modal.Header closeButton>
+          <Modal.Title>{newUserData.role === 'Admin' ? 'Add Admin' : 'Add User'}</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form>
+            <Form.Group controlId="formUsername">
+              <Form.Label>Username</Form.Label>
+              <Form.Control
                 type="text"
                 name="username"
-                placeholder="Username"
+                placeholder="Enter username"
                 value={newUserData.username}
                 onChange={handleNewUserInputChange}
-                className="mt-1 p-1 border border-gray-300 rounded-md w-full text-[13px] font-sans"
                 required
               />
-              <input
+            </Form.Group>
+            <Form.Group controlId="formEmail">
+              <Form.Label>Email</Form.Label>
+              <Form.Control
                 type="email"
                 name="email"
-                placeholder="Email"
+                placeholder="Enter email"
                 value={newUserData.email}
                 onChange={handleNewUserInputChange}
-                className="mt-1 p-1 border border-gray-300 rounded-md w-full text-[13px] font-sans"
                 required
               />
-              <div className="flex justify-end mt-2">
-                <button
-                  type="button"
-                  className="bg-[#a7a5a5] hover:bg-[#767474] text-white px-3 py-1 rounded-md mr-2"
-                  onClick={closeUserModal}
-                >
-                  Close
-                </button>
-                <button
-                  type="button"
-                  onClick={newUserData.role === 'Admin' ? handleAddAdmin : handleAddUser}
-                  className="bg-[#c88ce0] hover:bg-[#b968d9] text-white px-3 py-1 rounded-md"
-                >
-                  {newUserData.role === 'Admin' ? 'Add Admin' : 'Add User'}
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
+            </Form.Group>
+          </Form>
+        </Modal.Body>
+        <Modal.Footer>
+          <button className='pswd-btn' onClick={newUserData.role === 'Admin' ? handleAddAdmin : handleAddUser}>
+            {newUserData.role === 'Admin' ? 'Add Admin' : 'Add User'}
+          </button>
+          <button className='pswd-btn2' onClick={closeUserModal}>
+            Close
+          </button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 };
