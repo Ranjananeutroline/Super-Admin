@@ -83,3 +83,9 @@
 .form-pswd-div{
   margin-top: 1rem;
 }
+.accountSettings{
+  display: flex;
+  gap: 1rem;
+  margin: 1.7rem 0 1rem 0;
+  /* border: 1px solid; */
+}

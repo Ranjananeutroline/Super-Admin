@@ -248,23 +248,23 @@ const AdminSettings = ({ show, onHide }) => {
       )}
 
       {activeTab === 'Account' && (
-        <div className="pb-4 md:pb-20 accountSettings flex">
+        <div className="accountSettings">
           {/* User Settings */}
-          <div className="w-1/2 pr-4">
-            <div className="mb-8">
-              <h3 className="text-lg font-semibold mb-2">User Settings</h3>
+          <div className="w-1/2">
+            <div>
+              <h3 className="text-lg  mb-[0.8rem]">User Settings</h3>
               <button
                 onClick={openUserModal}
-                className="bg-purple-600 text-white px-4 py-2 rounded-md shadow-md hover:bg-purple-700 focus:outline-none"
+                className=" text-[#d862bc] px-[16px] py-[8px] rounded-md shadow-md border-[0.8px] border-[#d862bca] hover:bg-gray-100 focus:outline-none"
               >
                 Add User
               </button>
-              <div className="mt-4 bg-gradient-to-b from-[#f1eaf8] to-[#ffffff] px-3 py-2 mb-2 border border-[a43ab4]">
+              <div className="mt-[2rem] bg-white mb-2">
                 {users.map((user, index) => (
-                  <div key={index} className="border-b border-gray-200 pb-2 mb-2">
-                    <p className="text-lg font-semibold">{user.username}</p>
-                    <p className="text-gray-600">{user.email}</p>
-                    <p className="text-gray-600">{user.role}</p>
+                  <div key={index} className="border border-gray-200 rounded-md p-[0.8rem] shadow-sm">
+                    <p className="text-lg font-medium text-[#8644A2] mb-[5px]">{user.username}</p>
+                    <p className="text-gray-600 text-[15px] mb-[5px]">{user.email}</p>
+                    <p className="text-gray-600 mb-[5px] text-[#7AA2E3]">{user.role}</p>
                   </div>
                 ))}
               </div>
@@ -273,21 +273,21 @@ const AdminSettings = ({ show, onHide }) => {
           {/* Vertical Line */}
           <div className="w-px bg-gray-300"></div>
           {/* Admin Settings */}
-          <div className="w-1/2 pl-4">
+          <div className="w-1/2">
             <div>
-              <h3 className="text-lg font-semibold mb-2">Admin Settings</h3>
+              <h3 className="text-lg  mb-[0.8rem]">Admin Settings</h3>
               <button
                 onClick={openAdminModal}
-                className="bg-purple-600 text-white px-4 py-2 rounded-md shadow-md hover:bg-purple-700 focus:outline-none"
+                className=" text-[#d862bc] px-[16px] py-[8px] rounded-md shadow-md border-[0.8px] border-[#d862bca] hover:bg-gray-100 focus:outline-none"
               >
                 Add Admin
               </button>
-              <div className="mt-4 bg-gradient-to-b from-[#f1eaf8] to-[#ffffff] px-3 py-2 mb-2 border border-[a43ab4]">
+              <div className="mt-[2rem] bg-white mb-2">
                 {admins.map((admin, index) => (
-                  <div key={index} className="border-b border-gray-200 pb-2 mb-2">
-                    <p className="text-lg font-semibold">{admin.username}</p>
-                    <p className="text-gray-600">{admin.email}</p>
-                    <p className="text-gray-600">{admin.role}</p>
+                  <div key={index} className="border border-gray-200 rounded-md p-[0.8rem] shadow-sm">
+                    <p className="text-lg font-medium text-[#8644A2] mb-[5px]">{admin.username}</p>
+                    <p className="text-gray-600 text-[15px]  mb-[5px]">{admin.email}</p>
+                    <p className="text-gray-600 mb-[5px] text-[#7AA2E3]">{admin.role}</p>
                   </div>
                 ))}
               </div>
@@ -417,12 +417,16 @@ const AdminSettings = ({ show, onHide }) => {
         </Modal.Footer>
       </Modal>
 
-      <Modal show={showUserModal} onHide={closeUserModal}>
-        <Modal.Header closeButton>
-          <Modal.Title>{newUserData.role === 'Admin' ? 'Add Admin' : 'Add User'}</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
+      <Modal show={showUserModal} onHide={closeUserModal} dialogClassName="custom-modal">
+      <div className="custom-modal-header">
+                    <h5 className="modal-title">{newUserData.role === 'Admin' ? 'Add Admin' : 'Add User'}</h5>
+                    <button type="button" className="custom-close-button" onClick={closeUserModal}>
+                        <RxCross2 />
+                    </button>
+                </div>
+        <Modal.Body className='pswd-body'>
           <Form>
+          <div className='form-pswd-div'>
             <Form.Group controlId="formUsername">
               <Form.Label>Username</Form.Label>
               <Form.Control
@@ -431,9 +435,12 @@ const AdminSettings = ({ show, onHide }) => {
                 placeholder="Enter username"
                 value={newUserData.username}
                 onChange={handleNewUserInputChange}
+                className='pswd-input'
                 required
               />
             </Form.Group>
+            </div>
+            <div className='form-pswd-div'>
             <Form.Group controlId="formEmail">
               <Form.Label>Email</Form.Label>
               <Form.Control
@@ -442,9 +449,11 @@ const AdminSettings = ({ show, onHide }) => {
                 placeholder="Enter email"
                 value={newUserData.email}
                 onChange={handleNewUserInputChange}
+                className='pswd-input'
                 required
               />
             </Form.Group>
+            </div>
           </Form>
         </Modal.Body>
         <Modal.Footer>

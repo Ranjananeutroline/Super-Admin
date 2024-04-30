@@ -22,9 +22,9 @@ const RegistrationDetails =  ({ tableData, onClose }) => {
     
   return (
     
-    <div className="bg-[#ffffff] w-[800px] rounded-[10px] pb-3">
-    <div className="h-[65px] flex flex-col items-center justify-center bg-[#836FFF] rounded-t-[10px] mb-2">
-      <h2 className="text-[#ffffff] text-[24px] font-[600] font-sans">Recent Registrations</h2>
+    <div className="bg-[#ffffff] w-[800px] rounded-[10px] ">
+    <div className="h-[65px] flex flex-col items-center justify-center bg-[#db7dc583] rounded-t-[10px] mb-2">
+      <h2 className="text-[#ffffff] text-[22px] font-[600] font-sans">Recent Registrations</h2>
       <div className="w-full relative">{/* Add your preview image here */}</div>
     </div>
 
@@ -94,9 +94,9 @@ const RegistrationDetails =  ({ tableData, onClose }) => {
       ))}
 
 
-    <div className="flex items-center justify-center">
+    <div className="flex items-center justify-end m-4">
       <button
-        className="bg-[#836FFF] text-[16px] text-white font-[500] px-[20px] py-[8px] rounded-[5px] shadow-md hover:bg-[#4c73de] hover:shadow-md"
+        className="bg-[#d862bc98] text-[16px] text-white font-[500] px-[15px] py-[8px] rounded-[5px] shadow-md hover:bg-[#d862bca6] hover:shadow-md"
         onClick={onClose}
       >
         OK
