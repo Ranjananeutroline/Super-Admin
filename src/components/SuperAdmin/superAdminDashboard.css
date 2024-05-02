@@ -1,0 +1,108 @@
+#chart, .appoint-bar, .recent-reg{
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px!important;
+}
+.custom-modal-header{
+    display: flex;
+    justify-content: space-between;
+    padding: 1.3rem 1rem;
+    background: #db7dc583;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+ }
+ .custom-modal-header h4{
+  width: 100%;
+  text-align: center;
+  color: white;
+ }
+ .custom-modal {
+  max-width: 600px; /* adjust as needed */
+  min-height: 300px; /* adjust as needed */
+  margin-top: 2rem;
+ }
+ .modal-title{
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-size: 18px;
+  }
+  .noti-input{
+    color: rgba(0, 0, 0, 0.685); 
+    height: 48px;
+    width: 100%;
+    font-size: 14px;
+    padding: 0 0.5rem 0 0.8rem;
+    border: none;
+    background: #e9ecef82;
+    cursor: pointer;
+    margin-top: 8px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgb(0 0 0 / 6%) 0px 1px 2px
+  }
+  .noti-input2{
+    height: 70px;
+    color: rgba(0, 0, 0, 0.685); 
+    width: 100%;
+    font-size: 14px;
+    padding: 1rem 0.5rem 0 0.8rem;
+    border: none;
+    border-radius: 5px;
+    background: #e9ecef82;
+    cursor: pointer;
+    margin-top: 8px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgb(0 0 0 / 6%) 0px 1px 2px
+  }
+  .noti-input2:focus {
+    outline: none!important; /* Remove default focus outline */
+    border: 1px solid rgba(83, 211, 228, 0.438)!important;
+    background: white!important;
+    box-shadow: none!important;
+}
+  .noti-body{
+    padding: 1rem 1.5rem 0 1.5rem;
+  }
+  .Noti-btn-div{
+    display: flex;
+    gap: 1rem;
+    justify-content: end;
+    margin: 1.7rem 0 1.7rem 0;
+  }
+  .Noti-btn{
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    padding: 5px 15px;
+    border-radius: 5px;
+    background: #d862bc98;
+    color: white;
+  }
+  .Noti-btn2{
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    padding: 5px 15px;
+    border-radius: 5px;
+    border: 1px solid #d862bca6;
+    color: #d862bcc0;
+  }
+  .noti-div-main{
+    display: grid;
+    grid-template-columns: 42% 42%;
+    gap: 2rem;
+    width: 100%; 
+    margin: 2rem 0 1rem 0;
+}
+.noti-div{
+    border: 1px solid rgba(207, 158, 207, 0.363);
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+.noti-title{
+    background: #d862bc38;
+    padding:  1rem;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    text-align: center;
+    color: #0000008c;
+}
+.css-gi7hi0-MuiTypography-root{
+  color: #D862BC!important;
+  font-size: 18px!important;
+}
+.react-responsive-modal-modal{
+  margin-top: 3rem;
+}

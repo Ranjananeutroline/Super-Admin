@@ -1,0 +1,33 @@
+.user-main{
+    padding-left: 3.5rem;
+    padding-right: 3.5rem;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+  }
+  .user-inner{
+    display: flex;
+    justify-content: space-between;
+  }
+  .user-title{
+    font-size: 27px;
+    color: #3F26A5;
+  }
+  .add-user-btn{
+    background: #f8f8f8;
+    color: #5b76fcd1;
+    font-weight: 600;
+    border-radius: 5px;
+    height: 35px;
+    width: 75px;
+  }
+  .add-user-btn:hover{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    color: #614BC3;
+  }
+  .user-second{
+    padding-left: 3.5rem;
+    padding-right: 3.5rem;
+  }
+  .table>:not(caption)>*>* {
+    background: none;
+  }
