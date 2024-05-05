@@ -38,7 +38,7 @@ export default function HorizontalBars() {
           series: [
             {
               name: "User",
-              color:"#e3a3e37d",
+              color:"#bc7fcd8f",
               data: ["1420", "1620", "1820", "1420"],
             },
             // {

@@ -4,6 +4,7 @@ import { toast } from 'react-toastify';
 import { RxCross2 } from "react-icons/rx"; 
 import 'react-toastify/dist/ReactToastify.css';
 import "./AdminSettings.css";
+import Settingsbh from './Settingsbh';
 
 const AdminSettings = ({ show, onHide }) => {
   const [activeTab, setActiveTab] = useState('Profile');
@@ -193,7 +194,21 @@ const AdminSettings = ({ show, onHide }) => {
         >
           Account Settings
         </h2>
+        <h2
+          className={`cursor-pointer font-sans text-[18px] ${
+            activeTab === 'Settings' ? 'underline' : ''
+            } ${activeTab === 'Settings' ? 'text-[#BC7FCD]' : 'text-gray-600 hover:text-[#BC7FCD]'}`}
+          onClick={() => setActiveTab('Settings')}
+        >
+          Settings
+        </h2>
       </div>
+
+      {activeTab === 'Settings' && (
+       <div>
+          <Settingsbh/>
+       </div>
+      )}
 
       {activeTab === 'Profile' && (
         <div className="profileSettings">

@@ -122,13 +122,13 @@ const DashboardS = () => {
         <TableBody>
           {rows.map((row) => (
             <TableRow key={row.id}  sx={{ height: '40px' }}>
-              <TableCell>{row.date}</TableCell>
-              <TableCell>{row.name}</TableCell>
-              <TableCell>{row.location}</TableCell>
-              <TableCell>{row.phone}</TableCell>
-              <TableCell>{row.email}</TableCell>
-              <TableCell>{row.users}</TableCell>
-              <TableCell align="right">{row.appointments}</TableCell>
+              <TableCell style={{fontSize:"13px"}}>{row.date}</TableCell>
+              <TableCell style={{fontSize:"13px"}}>{row.name}</TableCell>
+              <TableCell style={{fontSize:"13px"}}>{row.location}</TableCell>
+              <TableCell style={{fontSize:"13px"}}>{row.phone}</TableCell>
+              <TableCell style={{fontSize:"13px"}}>{row.email}</TableCell>
+              <TableCell style={{fontSize:"13px"}}>{row.users}</TableCell>
+              <TableCell align="right" style={{fontSize:"13px"}}>{row.appointments}</TableCell>
               {/* <TableCell align="right">{`$${row.amount}`}</TableCell> */}
             </TableRow>
           ))}

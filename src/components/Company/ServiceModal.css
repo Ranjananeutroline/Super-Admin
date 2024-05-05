@@ -76,7 +76,7 @@
 .Act-btn-div{
   display: flex;
   gap: 1rem;
-  justify-content: end;
+  justify-content: flex-end;
   margin: 1.7rem 0 1.7rem 0;
 }
 .Act-btn{

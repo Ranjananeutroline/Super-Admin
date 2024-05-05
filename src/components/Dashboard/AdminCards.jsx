@@ -15,11 +15,11 @@ const AdminCards = () => {
    
 
    <div
-      className="bg-gradient-to-b from-[#f1eaf8]  to-[#ffffff]
+      className="bg-gradient-to-b from-[#f1eaf88a]  to-[#ffffff]
       h-[130px] w-[230px] rounded-[10px] border p-4 flex flex-col gap-1 md:mt-0 cards-box shadow-sm "
     >
       <div className='flex justify-between'>
-        <h3 className="text-[18px] mb-[5px]  card-title font-sans text-[#8644A2] ">Registration</h3>
+        <h3 className="text-[18px] mb-[5px]  card-title font-sans  ">Registration</h3>
         <div>      
       <span class=" text-[#912bbcc4] text-[11.5px] inline-flex items-center px-[4px] py-[3px] rounded-md bg-[#f4dff5] dark:text-blue-300">
         <svg class="w-[8px] h-[9px] me-[4px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 14">
@@ -40,11 +40,11 @@ const AdminCards = () => {
     </div>
 
     <div
-      className="bg-gradient-to-b from-[#f1eaf8]  to-[#ffffff]
+      className="bg-gradient-to-b from-[#f1eaf88a]  to-[#ffffff]
       h-[130px] w-[230px] rounded-[10px] border p-4 flex flex-col gap-1 md:mt-0 cards-box shadow-sm "
     >
       <div className='flex justify-between'>
-        <h3 className="text-[18px] mb-[5px]  card-title font-sans text-[#8644A2] ">Appointment</h3>
+        <h3 className="text-[18px] mb-[5px]  card-title font-sans ">Appointment</h3>
         <div>      
       <span class=" text-[#912bbcc4] text-[11.5px] inline-flex items-center px-[4px] py-[3px] rounded-md bg-[#f4dff5] dark:text-blue-300">
         <svg class="w-[8px] h-[9px] me-[4px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 14">
@@ -65,11 +65,11 @@ const AdminCards = () => {
     </div>
 
     <div
-      className="bg-gradient-to-b from-[#f1eaf8]  to-[#ffffff]
+      className="bg-gradient-to-b from-[#f1eaf88a]  to-[#ffffff]
       h-[130px] w-[230px] rounded-[10px] border p-4 flex flex-col gap-1 md:mt-0 cards-box shadow-sm "
     >
       <div className='flex justify-between'>
-        <h3 className="text-[18px] mb-[5px]  card-title font-sans text-[#8644A2]">Service</h3>
+        <h3 className="text-[18px] mb-[5px]  card-title font-sans ">Service</h3>
         <div>      
       <span class=" text-[#912bbcc4] text-[11.5px] inline-flex items-center px-[4px] py-[3px] rounded-md bg-[#f4dff5] dark:text-blue-300">
         <svg class="w-[8px] h-[9px] me-[4px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 14">
@@ -89,11 +89,11 @@ const AdminCards = () => {
       </div>
     </div>
     <div
-      className="bg-gradient-to-b from-[#f1eaf8]  to-[#ffffff]
+      className="bg-gradient-to-b from-[#f1eaf88a]  to-[#ffffff]
       h-[130px] w-[230px] rounded-[10px] border p-4 flex flex-col gap-1 md:mt-0 cards-box shadow-sm "
     >
       <div className='flex justify-between'>
-        <h3 className="text-[18px] mb-[5px]  card-title font-sans text-[#8644A2]">Users</h3>
+        <h3 className="text-[18px] mb-[5px]  card-title font-sans ">Users</h3>
         <div>      
       <span class=" text-[#912bbcc4] text-[11.5px] inline-flex items-center px-[4px] py-[3px] rounded-md bg-[#f4dff5] dark:text-blue-300">
         <svg class="w-[8px] h-[9px] me-[4px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 14">
