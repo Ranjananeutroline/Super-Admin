@@ -471,7 +471,7 @@ const AdminSettings = ({ show, onHide }) => {
             </div>
           </Form>
         </Modal.Body>
-        <Modal.Footer>
+        <Modal.Footer style={{borderTop:"0", marginTop:"0.5rem", marginBottom:"0.5rem"}}>
           <button className='pswd-btn' onClick={newUserData.role === 'Admin' ? handleAddAdmin : handleAddUser}>
             {newUserData.role === 'Admin' ? 'Add Admin' : 'Add User'}
           </button>

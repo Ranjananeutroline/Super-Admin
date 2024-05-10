@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
+import "./AdminSettings.css";
 
 const Settingsbh = () => {
-  // State to manage the selected business days
+  // State to manage the selected business days and work hours
   const [selectedFromDay, setSelectedFromDay] = useState('');
   const [selectedToDay, setSelectedToDay] = useState('');
-  const [selectedFromTime, setSelectedFromTime] = useState('');
-  const [selectedToTime, setSelectedToTime] = useState('');
+  const [workHours, setWorkHours] = useState({});
 
   // Array of weekdays
-  const weekdays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Sunday', 'Saturday'];
+  const weekdays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
   // Array of hours
   const hours = Array.from({ length: 24 }, (_, i) => `${i < 10 ? '0' : ''}${i}:00`);
@@ -23,25 +23,20 @@ const Settingsbh = () => {
     setSelectedToDay(e.target.value);
   };
 
-  // Function to handle "From" dropdown change for hours
-  const handleFromTimeChange = (e) => {
-    setSelectedFromTime(e.target.value);
-  };
-
-  // Function to handle "To" dropdown change for hours
-  const handleToTimeChange = (e) => {
-    setSelectedToTime(e.target.value);
+  // Function to handle work hours change for a specific day
+  const handleWorkHoursChange = (day, fromTime, toTime) => {
+    setWorkHours({ ...workHours, [day]: { from: fromTime, to: toTime } });
   };
 
   return (
-    <div className="pb-4 md:pb-20 bg-gradient-to-b from-[#f1ebf8]  to-[#fdfbfe]
-    rounded-lg shadow-md p-6 Settings">
-      <div className="max-w-md mt-2 flex">
-        <h3>Business Days:</h3>
+    <div className="pb-4 md:pb-20 bg-gradient-to-b from-[#f1ebf89c]  to-[#fdfbfe]
+    rounded-lg  p-6 Settings">
+      <div className="mt-2 flex">
+        <h3 className='w-[120px] text-[16px]'>Business Days:</h3>
        <div className='mt-[-10px]'>
-        <span className="mx-2 font-sans text-[16px]  "> From</span>
+        <span className="mx-2 font-sans text-[15px] text-[grey] "> From</span>
         <select id="fromDay" value={selectedFromDay} onChange={handleFromDayChange} 
-          className="border rounded-md py-2 px-3 mb-3 mr-2 font-sans text-[12px] ">
+          className="border rounded-md mb-3 mr-2 font-sans text-[12px]">
           <option value="">Select Day</option>
           {weekdays.map((day, index) => (
             <option key={index} value={day}>
@@ -50,8 +45,8 @@ const Settingsbh = () => {
           ))}
         </select>
        
-        <span className="mr-2 font-sans text-[16px]">To</span>
-        <select id="toDay" value={selectedToDay} onChange={handleToDayChange} className="border rounded-md py-2 px-3 mb-3 mr-2 font-sans text-[12px]">
+        <span className="ml-[3px] mr-[10px] font-sans text-[15px] text-[grey]">To</span>
+        <select id="toDay" value={selectedToDay} onChange={handleToDayChange} className="border rounded-md mb-3 mr-2 font-sans text-[12px]">
           <option value="">Select Day</option>
           {weekdays.map((day, index) => (
             <option key={index} value={day}>
@@ -61,38 +56,55 @@ const Settingsbh = () => {
         </select>
         </div>
       </div>
-      <div className="max-w-md mt-2 flex">
-        <h3>Work Hours:</h3>
-        <div className='mt-[-10px]'>
-        <label htmlFor="fromTime" className="mx-2 font-sans text-[16px]  "> From</label>
-        <select id="fromTime" value={selectedFromTime} onChange={handleFromTimeChange} 
-          className="border rounded-md py-2 px-3 mb-3 mr-2 font-sans text-[12px] ">
-          <option value="">Select Time</option>
-          {hours.map((hour, index) => (
-            <option key={index} value={hour}>
-              {hour}
-            </option>
-          ))}
-        </select>
-        <label htmlFor="toTime" className="mr-2 font-sans text-[16px]">To</label>
-        <select id="toTime" value={selectedToTime} onChange={handleToTimeChange} className="border rounded-md py-2 px-3 mb-3 mr-2 font-sans text-[12px]">
-          <option value="">Select Time</option>
-          {hours.map((hour, index) => (
-            <option key={index} value={hour}>
-              {hour}
-            </option>
-          ))}
-        </select>
-        </div>
-      </div>
       {selectedFromDay && selectedToDay && (
-        <p className="text-blue-500">
-          Selected Business Days: {selectedFromDay} to {selectedToDay}
+        <div className="mt-2 flex">
+          <h3 className='w-[120px] text-[16px]'>Work Hours:</h3>
+          <div className='mt-[-10px]'>
+            {weekdays
+              .slice(weekdays.indexOf(selectedFromDay), weekdays.indexOf(selectedToDay) + 1)
+              .map((day, index) => (
+                <div key={index} className="flex gap-[0.5rem] items-center ">
+                  <div className='mt-[-15px]'>
+                  <span className="mx-2 font-sans text-[16px] text-[grey]">{day}</span>
+                  </div>
+                  <select
+                    value={workHours[day]?.from || ''}
+                    onChange={(e) => handleWorkHoursChange(day, e.target.value, workHours[day]?.to || '')}
+                    className="border rounded-md mb-3 mr-2 font-sans text-[12px] work-select"
+                  >
+                    <option value="">From</option>
+                    {hours.map((hour, index) => (
+                      <option key={index} value={hour}>
+                        {hour}
+                      </option>
+                    ))}
+                  </select>
+                  <select
+                    value={workHours[day]?.to || ''}
+                    onChange={(e) => handleWorkHoursChange(day, workHours[day]?.from || '', e.target.value)}
+                    className="border rounded-md  mb-3 mr-2 font-sans text-[12px] work-select"
+                  >
+                    <option value="">To</option>
+                    {hours.map((hour, index) => (
+                      <option key={index} value={hour}>
+                        {hour}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              ))}
+          </div>
+        </div>
+      )}
+      {selectedFromDay && selectedToDay && (
+        <p className="text-[15.5px] text-[#000000cf] mt-[0.5rem]">
+          Selected Business Days: <span className="ml-[8px] text-[#03AED2] text-[15px]">{selectedFromDay} - {selectedToDay}</span>
         </p>
       )}
-      {selectedFromTime && selectedToTime && (
-        <p className="text-blue-500">
-          Selected Work Hours: {selectedFromTime} to {selectedToTime}
+      {Object.keys(workHours).length > 0 && (
+        <p className="text-[15.5px] mt-[0.2rem] text-[#000000cf]">
+          Selected Work Hours: <span className="ml-[8px] text-[#03AED2] text-[15px]">
+          {Object.keys(workHours).map((day) => `${day}: ${workHours[day].from} to ${workHours[day].to}`).join(', ')}</span>
         </p>
       )}
     </div>

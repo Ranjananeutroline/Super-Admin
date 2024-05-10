@@ -43,9 +43,102 @@ const CreateCompany = ({ formDataForEdit, onEditSave, onCancelEdit, isEditing, c
   const [value, setValue] = useState('')
   const options = useMemo(() => countryList().getData(), [])
 
-  const changeHandler = value => {
-    setValue(value)
-  }
+  const handleChange = (fieldName, value) => {
+    // Update the state for the specified field
+    switch (fieldName) {
+      case 'companyName':
+        setCompanyName(value);
+        setCompanyNameError('');
+        break;
+      case 'email':
+        setEmail(value);
+        setEmailError('');
+        break;
+          case 'companyPhone':
+            // Allow only numeric input
+            const numericValue = value.replace(/\D/g, '');
+            setCompanyPhone(numericValue);
+            setCompanyPhoneError('');
+            break;
+          case 'selectedCountry':
+            setSelectedCountry(value);
+            setSelectedCountryError('');
+            break;
+          case 'startDate':
+            setStartDate(value);
+            setStartDateError('');
+            break;
+          case 'endDate':
+            setEndDate(value);
+            setEndDateError('');
+            break;
+            case 'website':
+              setWebsite(value);
+              setWebsiteError('');
+              break;
+            case 'businessLine':
+              setBusinessLine(value);
+              setBusinessLineError('');
+              break;
+            case 'fax':
+              // Allow only numeric input
+              const numericFaxValue = value.replace(/\D/g, '');
+              setFax(numericFaxValue);
+              setFaxError('');
+              break;
+            case 'naicsCode':
+              // Allow only numeric input
+              const numericNaicsValue = value.replace(/\D/g, '');
+              setNaicsCode(numericNaicsValue);
+              setNaicsCodeError('');
+              break;
+            case 'panEinNumber':
+              // Allow only numeric input
+              const numericPanEinValue = value.replace(/\D/g, '');
+              setPanEinNumber(numericPanEinValue);
+              setPanEinNumberError('');
+              break;
+              case 'name':
+                setName(value);
+                setNameError('');
+                break;
+              case 'designation':
+              setDesignation(value);
+              setDesignationError('');
+              break; 
+              case 'contactEmail':
+                setContactEmail(value);
+                setContactEmailError('');
+                break;
+                case 'contactMobile':
+                  setContactMobile(value);
+                  setContactMobileError('');
+                  break;
+                  case 'phoneWork':
+                    setPhoneWork(value);
+                    setPhoneWorkError('');
+                    case 'streetAddress1':
+                      setStreetAddress1(value);
+                      setAddressError('');
+                      break;        
+                      case 'streetAddress2':
+                        setStreetAddress2(value);
+                        setAddressError('');
+                        break;
+                        case 'city':
+                          setCity(value);
+                          setCityError('');
+                          break;
+                          case 'state':
+                            setState(value);
+                            setStateError('');
+                            break;
+                            case 'postalCode':
+                              setPostalCode(value);
+                              setPostalCodeError('');
+                              break; 
+    }     
+  };
 
   const [selectedFile, setSelectedFile] = useState(null);
 
@@ -411,7 +504,7 @@ const CreateCompany = ({ formDataForEdit, onEditSave, onCancelEdit, isEditing, c
                 type="text"
                 placeholder="Company Name"
                 value={companyName}
-                onChange={(e) => setCompanyName(e.target.value)}
+                onChange={(e) => handleChange('companyName', e.target.value)}
               />
               <span style={{ color: 'red', fontSize:"12px" }}>{companyNameError}</span>
             </FloatingLabel>
@@ -421,7 +514,7 @@ const CreateCompany = ({ formDataForEdit, onEditSave, onCancelEdit, isEditing, c
                 type="email"
                 placeholder="name@example.com"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={(e) => handleChange('email', e.target.value)}
               />
               <span style={{ color: 'red', fontSize: '12px' }}>{emailError}</span>
             </FloatingLabel>
@@ -431,11 +524,7 @@ const CreateCompany = ({ formDataForEdit, onEditSave, onCancelEdit, isEditing, c
                 type="tel"
                 placeholder="Phone Number"
                 value={companyPhone}
-                onChange={(e) => {
-                  // Allow only numeric input
-                  const numericValue = e.target.value.replace(/\D/g, '');
-                  setCompanyPhone(numericValue);
-                }}
+                onChange={(e) => handleChange('companyPhone', e.target.value)}
                 onKeyPress={(e) => {
                   // Allow only numeric key presses
                   const isValidKey = /^\d$/.test(e.key);
@@ -449,10 +538,7 @@ const CreateCompany = ({ formDataForEdit, onEditSave, onCancelEdit, isEditing, c
             <Select 
             options={options}
             value={selectedCountry} // Make sure selectedCountry is an object with value and label properties
-            onChange={(value) => {
-              setSelectedCountry(value);
-              setSelectedCountryError('');
-            }}
+            onChange={(value) => handleChange('selectedCountry', value)}
             placeholder='Select Country'
             className='country-all-select'
             styles={{
@@ -475,7 +561,7 @@ const CreateCompany = ({ formDataForEdit, onEditSave, onCancelEdit, isEditing, c
                 type="date"
                 placeholder="Start Date"
                 value={startDate}
-                onChange={(e) => setStartDate(e.target.value)}
+                onChange={(e) => handleChange('startDate', e.target.value)}
               />
                <span style={{ color: 'red', fontSize:"12px" }}>{startDateError}</span>
             </FloatingLabel>
@@ -485,7 +571,7 @@ const CreateCompany = ({ formDataForEdit, onEditSave, onCancelEdit, isEditing, c
                 type="date"
                 placeholder="End Date"
                 value={endDate}
-                onChange={(e) => setEndDate(e.target.value)}
+                onChange={(e) => handleChange('endDate', e.target.value)}
               />
                <span style={{ color: 'red', fontSize:"12px" }}>{endDateError}</span>
             </FloatingLabel>
@@ -497,7 +583,7 @@ const CreateCompany = ({ formDataForEdit, onEditSave, onCancelEdit, isEditing, c
                 type="text"
                 placeholder="Website"
                 value={website}
-                onChange={(e) => setWebsite(e.target.value)}
+                onChange={(e) => handleChange('website', e.target.value)}
               />
                <span style={{ color: 'red', fontSize:"12px" }}>{websiteError}</span>
             </FloatingLabel>
@@ -506,7 +592,7 @@ const CreateCompany = ({ formDataForEdit, onEditSave, onCancelEdit, isEditing, c
                 type="text"
                 placeholder="Line of Business"
                 value={businessLine}
-                onChange={(e) => setBusinessLine(e.target.value)}
+                onChange={(e) => handleChange('businessLine', e.target.value)}
               />
                <span style={{ color: 'red', fontSize:"12px" }}>{businessLineError}</span>
             </FloatingLabel>
@@ -515,11 +601,7 @@ const CreateCompany = ({ formDataForEdit, onEditSave, onCancelEdit, isEditing, c
                 type="text"
                 placeholder="Fax"
                 value={fax}
-                onChange={(e) => {
-                  // Allow only numeric input
-                  const numericValue = e.target.value.replace(/\D/g, '');
-                  setFax(numericValue);
-                }}
+                onChange={(e) => handleChange('fax', e.target.value)}
                 onKeyPress={(e) => {
                   // Allow only numeric key presses
                   const isValidKey = /^\d$/.test(e.key);
@@ -535,11 +617,7 @@ const CreateCompany = ({ formDataForEdit, onEditSave, onCancelEdit, isEditing, c
                 type="number"
                 placeholder="NAICS Code"
                 value={naicsCode}
-                onChange={(e) => {
-                  // Allow only numeric input
-                  const numericValue = e.target.value.replace(/\D/g, '');
-                  setNaicsCode(numericValue);
-                }}
+                onChange={(e) => handleChange('naicsCode', e.target.value)}
                 onKeyPress={(e) => {
                   // Allow only numeric key presses
                   const isValidKey = /^\d$/.test(e.key);
@@ -555,11 +633,7 @@ const CreateCompany = ({ formDataForEdit, onEditSave, onCancelEdit, isEditing, c
               type="number"
               placeholder="PAN/EIN"
               value={panEinNumber}
-              onChange={(e) => {
-                // Allow only numeric input
-                const numericValue = e.target.value.replace(/\D/g, '');
-                setPanEinNumber(numericValue);
-              }}
+              onChange={(e) => handleChange('panEinNumber', e.target.value)}
               onKeyPress={(e) => {
                 // Allow only numeric key presses
                 const isValidKey = /^\d$/.test(e.key);
@@ -601,7 +675,7 @@ const CreateCompany = ({ formDataForEdit, onEditSave, onCancelEdit, isEditing, c
                 type="text"
                 placeholder="Name"
                 value={name}
-                onChange={(e) => setName(e.target.value)}
+                onChange={(e) => handleChange('name', e.target.value)}
               />
                <span style={{ color: 'red', fontSize:"12px" }}>{nameError}</span>
             </FloatingLabel>
@@ -610,7 +684,7 @@ const CreateCompany = ({ formDataForEdit, onEditSave, onCancelEdit, isEditing, c
               type="text"
               placeholder="Designation"
               value={designation}
-                onChange={(e) => setDesignation(e.target.value)}
+              onChange={(e) => handleChange('designation', e.target.value)}
               />
                <span style={{ color: 'red', fontSize:"12px" }}>{designationError}</span>
           </FloatingLabel>
@@ -619,7 +693,7 @@ const CreateCompany = ({ formDataForEdit, onEditSave, onCancelEdit, isEditing, c
                 type="email"
                 placeholder="name@example.com"
                 value={contactEmail}
-                onChange={(e) => setContactEmail(e.target.value)}
+                onChange={(e) => handleChange('contactEmail', e.target.value)}
               />
               <span style={{ color: 'red', fontSize: '12px' }}>{contactEmailError}</span>
             </FloatingLabel>
@@ -629,11 +703,7 @@ const CreateCompany = ({ formDataForEdit, onEditSave, onCancelEdit, isEditing, c
                 type="tel"
                 placeholder="Contact Mobile"
                 value={contactMobile}
-                onChange={(e) => {
-                  // Allow only numeric input
-                  const numericValue = e.target.value.replace(/\D/g, '');
-                  setContactMobile(numericValue);
-                }}
+                onChange={(e) => handleChange('contactMobile', e.target.value)}
                 onKeyPress={(e) => {
                   // Allow only numeric key presses
                   const isValidKey = /^\d$/.test(e.key);
@@ -650,11 +720,7 @@ const CreateCompany = ({ formDataForEdit, onEditSave, onCancelEdit, isEditing, c
                 type="tel"
                 placeholder="Phone (Work)"
                 value={phoneWork}
-                onChange={(e) => {
-                  // Allow only numeric input
-                  const numericValue = e.target.value.replace(/\D/g, '');
-                  setPhoneWork(numericValue);
-                }}
+                onChange={(e) => handleChange('phoneWork', e.target.value)}
                 onKeyPress={(e) => {
                   // Allow only numeric key presses
                   const isValidKey = /^\d$/.test(e.key);
@@ -673,7 +739,7 @@ const CreateCompany = ({ formDataForEdit, onEditSave, onCancelEdit, isEditing, c
             type="text"
             placeholder="Address 1"
             value={streetAddress1}
-            onChange={(e) => setStreetAddress1(e.target.value)}
+            onChange={(e) => handleChange('streetAddress1', e.target.value)}
           />
           <span style={{ color: 'red', fontSize: '12px' }}>{addressError}</span>
         </FloatingLabel>
@@ -682,7 +748,7 @@ const CreateCompany = ({ formDataForEdit, onEditSave, onCancelEdit, isEditing, c
             type="text"
             placeholder="Address 2"
             value={streetAddress2}
-            onChange={(e) => setStreetAddress2(e.target.value)}
+            onChange={(e) => handleChange('streetAddress2', e.target.value)}
           />
           <span style={{ color: 'red', fontSize: '12px' }}>{addressError}</span>
         </FloatingLabel>
@@ -691,7 +757,7 @@ const CreateCompany = ({ formDataForEdit, onEditSave, onCancelEdit, isEditing, c
           type="text"
           placeholder="City/Town/Village"
           value={city}
-          onChange={(e) => setCity(e.target.value)}
+          onChange={(e) => handleChange('city', e.target.value)}
         />
          <span style={{ color: 'red', fontSize:"12px" }}>{cityError}</span>
         </FloatingLabel>
@@ -700,7 +766,7 @@ const CreateCompany = ({ formDataForEdit, onEditSave, onCancelEdit, isEditing, c
           type="text"
           placeholder="State/Province"
           value={state}
-          onChange={(e) => setState(e.target.value)}
+          onChange={(e) => handleChange('state', e.target.value)}
           />
             <span style={{ color: 'red', fontSize:"12px" }}>{stateError}</span>
         </FloatingLabel>
@@ -709,11 +775,7 @@ const CreateCompany = ({ formDataForEdit, onEditSave, onCancelEdit, isEditing, c
           type="text"
           placeholder="Postal Code"
           value={postalCode}
-          onChange={(e) => {
-            // Allow only numeric input
-            const numericValue = e.target.value.replace(/\D/g, '');
-            setPostalCode(numericValue);
-          }}
+          onChange={(e) => handleChange('postalCode', e.target.value)}
           onKeyPress={(e) => {
             // Allow only numeric key presses
             const isValidKey = /^\d$/.test(e.key);
