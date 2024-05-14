@@ -35,7 +35,20 @@ transition-duration: 1s;
 }
 
 
-
+@media only screen and (max-width: 1075px) {
+  .admin-cards-div{
+    gap: 2rem;
+    display: flex;
+    width: 100%;
+    justify-content: normal;
+  }
+}
+@media only screen and (max-width: 1025px) {
+  .admin-cards-div{
+    gap: 1.6rem;
+    width: 95%;
+  }
+}
 @media only screen and (max-width: 1040px) {
   .dashboard-main{
       padding-left: 2.5rem;

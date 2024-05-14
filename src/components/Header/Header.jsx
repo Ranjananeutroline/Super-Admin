@@ -72,6 +72,8 @@ import { BiSolidDashboard } from "react-icons/bi";
 import { FaUserClock } from "react-icons/fa";
 import { PiSpeakerSimpleHighFill } from "react-icons/pi";
 import { IoMdSettings } from "react-icons/io";
+import { HiUsers } from "react-icons/hi";
+import { FaBuilding } from "react-icons/fa";
 import { ImUser } from 'react-icons/im';
 const swipeOpenMenuStyles = {
   float: "left",
@@ -225,8 +227,8 @@ export const Header = () => {
           >
             <li>
               <div
-                className={`flex  h-[47px]  w-[160px] md:w-[200px] items-center justify-center mt-[15px] 
-            rounded-md p-[20px] border bg-[#1a98ecbd]
+                className={`flex  h-[47px]  w-[165px] md:w-[200px] items-center justify-center mt-[15px] 
+            rounded-md p-[20px] border bg-[#836FFF]
              ${
                open ? "w-[289]" : "w-[60px] p-[0px] ml-0"
              } relative duration-300 `}
@@ -249,24 +251,24 @@ export const Header = () => {
             </li>
             <li>
               <div
-                className={`flex  h-[47px]  w-[160px] md:w-[200px] bg-[#1a98ecbd]  items-center justify-center mt-[10px] 
+                className={`flex  h-[47px]  w-[165px] md:w-[200px] bg-[#836FFF]  items-center justify-center mt-[10px] 
              rounded-md gap-5 p-[20px] border
              ${
               open ? "w-[289]" : "w-[60px] p-[0px] ml-0"
             } relative duration-300 `}
                onClick={() => {
                  setOpen(!open);
-                 navigate("/appointment");
+                 navigate("/users");
                }}
              >
                 <div className="flex gap-2 items-center  w-[200px]">
-                <FaUserClock style={{color:"white"}}/>
+                <HiUsers style={{color:"white"}}/>
                   <h3
                     className={`${
                       !open && "hidden"
                     } text-[14px] text-[white] font-normal`}
                   >
-                    Appointment
+                    Users
                   </h3>{" "}
                 </div>
               </div>
@@ -294,38 +296,38 @@ export const Header = () => {
             </li> */}
             <li>
               <div
-                className={`flex  h-[47px]  w-[160px] md:w-[200px] items-center bg-[#1a98ecbd] justify-center mt-[10px] 
+                className={`flex  h-[47px]  w-[165px] md:w-[200px] items-center bg-[#836FFF] justify-center mt-[10px] 
              rounded-md gap-5 p-[20px] border 
              ${
               open ? "w-[289]" : "w-[60px] p-[0px] ml-0"
             } relative duration-300 `}
                onClick={() => {
                  setOpen(!open);
-                 navigate("/announcement");
+                 navigate("/company");
                }}
              >
                 <div className="flex gap-2  items-center  w-[200px]">
-                <PiSpeakerSimpleHighFill style={{color:"white"}}/>
+                <FaBuilding style={{color:"white"}}/>
                   <h3
                     className={`${
                       !open && "hidden"
                     } text-[14px] text-[white] font-normal`}
                   >
-                    Announcement
+                    Company
                   </h3>{" "}
                 </div>
               </div>
             </li>
             <li>
               <div
-                className={`flex  h-[47px]  w-[160px] md:w-[200px] bg-[#1a98ecbd] items-center justify-center mt-[10px] 
+                className={`flex  h-[47px]  w-[165px] md:w-[200px] bg-[#836FFF] items-center justify-center mt-[10px] 
                rounded-md gap-5 p-[20px] border
                ${
                 open ? "w-[289]" : "w-[60px] p-[0px] ml-0"
               } relative duration-300 `}
                  onClick={() => {
                    setOpen(!open);
-                   navigate("/settings");
+                   navigate("/adminsettings");
                  }}
                >
                 <div className="flex gap-2 items-center  w-[200px]">
@@ -335,7 +337,7 @@ export const Header = () => {
                       !open && "hidden"
                     } text-[14px] text-[white] font-normal`}
                   >
-                    Settings
+                    Admin Settings
                   </h3>{" "}
                 </div>
               </div>

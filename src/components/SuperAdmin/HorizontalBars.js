@@ -152,14 +152,14 @@ return () => {
 //     />
 //     </div>
 
-<div class="max-w-2xl w-full bg-white rounded-lg  dark:bg-gray-800 p-4 md:p-6 mt-2 mr-3 border appoint-bar">
-  <div class="flex justify-between border-gray-200 border-b dark:border-gray-700 pb-3">
+<div class="max-w-2xl w-full bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-6 mt-2 mr-3 border appoint-bar">
+<div class="flex justify-between border-gray-200 border-b dark:border-gray-700 pb-3">
     <dl>
-      <dt class="font-normal text-[#D862BC] text-[18px] pb-1">Company's Appointment</dt>
+      <dt class="text-base font-semibold text-gray-500 dark:text-gray-400 pb-1">Company's Appointment</dt>
       {/* <dd class="leading-none text-3xl font-bold text-gray-900 dark:text-white">$5,405</dd> */}
     </dl>
-    <div>
-    <span class=" text-blue-800 text-xs font-medium inline-flex items-center px-2.5 py-1 rounded-md bg-[#dfecf5] dark:text-blue-300">
+    <div>      
+      <span class=" text-blue-800 text-xs font-medium inline-flex items-center px-2.5 py-1 rounded-md bg-[#dfecf5] dark:text-blue-300">
         <svg class="w-2.5 h-2.5 me-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 14">
           <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13V1m0 0L1 5m4-4 4 4"/>
         </svg>
@@ -230,6 +230,5 @@ return () => {
       </div> */}
     </div>
 </div>
-
   );
 }

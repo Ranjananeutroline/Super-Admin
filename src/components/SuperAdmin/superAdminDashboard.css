@@ -1,3 +1,10 @@
+.super-admin-dash{
+  padding-left: 3.5rem;
+  padding-right: 3.5rem;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+  /* background: #f3f7f9b0; */
+}
 #chart, .appoint-bar, .recent-reg{
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px!important;
 }
@@ -105,4 +112,45 @@
 }
 .react-responsive-modal-modal{
   margin-top: 3rem;
+}
+
+
+@media only screen and (max-width: 1075px) {
+  .super-admin-dash{
+      padding-left: 1rem;
+      padding-right: 1rem;
+  }
+  .bar-main{
+    width: 95%;
+    display: grid;
+    gap: 0.5rem;
+    grid-template-columns: 65% 35%;
+  }
+  #chart, .appoint-bar{
+    width: 100%;
+    height: 95%!important;
+    padding: 0.8rem!important;
+  }
+  #apexchartse7rveswu{
+    height: 130px!important;
+  }
+  .recent-reg{
+    width: 96%;
+    padding: 0.8rem!important;
+  }
+}
+@media only screen and (max-width: 1025px) {
+.css-1howxi1-MuiTableCell-root, .css-dsuxgy-MuiTableCell-root{
+  font-size: 13px!important;
+  padding: 6px!important;
+}
+.recent-reg{
+  width: 94%;
+}
+.bar-main{
+  width: 93%;
+}
+.see-btn{
+  margin-left: 0.5rem;
+}
 }

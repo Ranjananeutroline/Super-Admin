@@ -11,7 +11,7 @@ import "./Dashboard.css";
 
 const AdminCards = () => {
   return (
-    <div className="flex flex-wrap justify-between cards-div">
+    <div className="flex flex-wrap justify-between admin-cards-div">
    
 
    <div

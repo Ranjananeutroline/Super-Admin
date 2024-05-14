@@ -114,13 +114,14 @@ const CreateCompany = ({ formDataForEdit, onEditSave, onCancelEdit, isEditing, c
                   setContactMobile(value);
                   setContactMobileError('');
                   break;
-                  case 'phoneWork':
-                    setPhoneWork(value);
-                    setPhoneWorkError('');
-                    case 'streetAddress1':
-                      setStreetAddress1(value);
-                      setAddressError('');
-                      break;        
+                  case 'phoneWork': // Make sure this case only handles phoneWork
+      setPhoneWork(value);
+      setPhoneWorkError('');
+      break;
+    case 'streetAddress1': // Make sure this case only handles streetAddress1
+      setStreetAddress1(value);
+      setAddressError('');
+      break;            
                       case 'streetAddress2':
                         setStreetAddress2(value);
                         setAddressError('');

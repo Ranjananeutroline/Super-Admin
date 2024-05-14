@@ -93,10 +93,10 @@ const DashboardS = () => {
   };
 
   return (
-    <div className="w-full px-[50px] md:px-10 dashboard-main">
+    <div className="w-full px-[50px] md:px-10 super-admin-dash">
       <h1 className="text-[27px] text-[#3F26A5] pb-3  dash-title">Dashboard</h1>
       <AdminCards />
-    <div className='flex mt-4 justify-between'>
+    <div className='flex mt-4 justify-between bar-main'>
     {/* <Chart/> */}
 <HorizontalBars/>
     <ApexChart/>
@@ -134,7 +134,7 @@ const DashboardS = () => {
           ))}
         </TableBody>
       </Table>
-      <button onClick={openModal} className="mt-2 text-[15px] ml-4 font-sans text-[#8b58d1] hover:underline">
+      <button onClick={openModal} className="mt-2 text-[15px] ml-4 font-sans text-[#8b58d1] hover:underline see-btn">
         See more registration
       </button>
       {/* <NavLink></NavLink> */}
