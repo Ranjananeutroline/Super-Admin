@@ -38,7 +38,7 @@ const ApexChart = () => {
         series={chartData.series} 
          type="donut"  
          />
-         <h3 className='text-[14px] text-[#842569] mt-4'>No. of User Registered Today</h3>
+         <h3 className='text-[14px] text-[#842569] mt-4 chart-no'>No. of User Registered Today</h3>
          <h3 className='text-[14px] text-[#842569] mt-2'>REPORTS</h3>
 
       </div>

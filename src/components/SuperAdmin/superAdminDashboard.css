@@ -117,40 +117,61 @@
 
 @media only screen and (max-width: 1075px) {
   .super-admin-dash{
-      padding-left: 1rem;
-      padding-right: 1rem;
+      padding-left: 1rem!important;
+      padding-right: 1rem!important;
   }
   .bar-main{
-    width: 95%;
-    display: grid;
-    gap: 0.5rem;
-    grid-template-columns: 65% 35%;
+    width: 95%!important;
+    display: grid!important;
+    gap: 0.5rem!important;
+    grid-template-columns: 60% 40%!important;
   }
   #chart, .appoint-bar{
-    width: 100%;
+    width: 100%!important;
     height: 95%!important;
     padding: 0.8rem!important;
   }
-  #apexchartse7rveswu{
+  /* #apexchartse7rveswu{
     height: 130px!important;
+  } */
+  .chart-no{
+    margin-top: 10px!important;
   }
   .recent-reg{
-    width: 96%;
+    width: 96%!important;
     padding: 0.8rem!important;
   }
 }
+@media only screen and (max-width: 1055px){
+  .css-1howxi1-MuiTableCell-root, .css-dsuxgy-MuiTableCell-root, .css-13njpue, .css-1o6fzn1 {
+    font-size: 13px!important;
+    padding: 6px!important;
+  }
+}
+@media only screen and (max-width: 935px){
+  .bar-main{
+    width: 100%!important;
+    grid-template-columns: 100%!important;
+  }
+  
+}
+@media only screen and (max-width: 1035px){
+  .apexchartsvn8n9tqb{
+    height: 155px!important;
+  }
+}
 @media only screen and (max-width: 1025px) {
-.css-1howxi1-MuiTableCell-root, .css-dsuxgy-MuiTableCell-root{
+/* .css-1howxi1-MuiTableCell-root, .css-dsuxgy-MuiTableCell-root, .css-13njpue, .css-1o6fzn1 {
   font-size: 13px!important;
   padding: 6px!important;
-}
+} */
 .recent-reg{
-  width: 94%;
+  width: 94%!important;
 }
 .bar-main{
-  width: 93%;
+  width: 93%!important;
 }
 .see-btn{
-  margin-left: 0.5rem;
+  margin-left: 0.5rem!important;
 }
 }

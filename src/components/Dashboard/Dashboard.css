@@ -49,6 +49,23 @@ transition-duration: 1s;
     width: 95%;
   }
 }
+@media only screen and (max-width: 1017px) {
+  .admin-cards-div{
+    gap: 1rem;
+  }
+}
+@media only screen and (max-width: 996px) {
+  .admin-cards-div{
+    width: 98%;
+    gap: 0.8rem;
+  }
+}
+@media only screen and (max-width: 967px) {
+  .admin-cards-div{
+   justify-content: space-between;
+   width: 94.5%;
+  }
+}
 @media only screen and (max-width: 1040px) {
   .dashboard-main{
       padding-left: 2.5rem;
