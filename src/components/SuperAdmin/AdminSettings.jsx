@@ -5,6 +5,7 @@ import { RxCross2 } from "react-icons/rx";
 import 'react-toastify/dist/ReactToastify.css';
 import "./AdminSettings.css";
 import Settingsbh from './Settingsbh';
+import User from '../Users/User';
 
 const AdminSettings = ({ show, onHide }) => {
   const [activeTab, setActiveTab] = useState('Profile');
@@ -173,9 +174,11 @@ const AdminSettings = ({ show, onHide }) => {
     setNewUserData({ ...newUserData, [e.target.name]: e.target.value });
   };
 
+  <User users={users}/>
+  
   return (
     <div className="w-full px-[50px] md:px-10 dashboard-main">
-      <h1 className="text-[27px] text-[#3F26A5] pb-2 ">Settings</h1>
+      <h1 className="text-[27px] text-[#3F26A5] pb-2 ">Admin Settings</h1>
 
       <div className="flex gap-4 mt-2 mb-3 ">
         <h2
@@ -277,9 +280,9 @@ const AdminSettings = ({ show, onHide }) => {
               <div className="mt-[2rem] bg-white mb-2">
                 {users.map((user, index) => (
                   <div key={index} className="border border-gray-200 rounded-md p-[0.8rem] shadow-sm">
-                    <p className="text-lg font-medium text-[#8644A2] mb-[5px]">{user.username}</p>
-                    <p className="text-gray-600 text-[15px] mb-[5px]">{user.email}</p>
-                    <p className="text-gray-600 mb-[5px] text-[#7AA2E3]">{user.role}</p>
+                    <p className="text-lg font-medium text-[#8644A2] mb-[5px] user-p">{user.username}</p>
+                    <p className="text-gray-600 text-[15px] mb-[5px] user-p">{user.email}</p>
+                    <p className="text-gray-600 mb-[5px] text-[#7AA2E3] user-p">{user.role}</p>
                   </div>
                 ))}
               </div>
@@ -300,9 +303,9 @@ const AdminSettings = ({ show, onHide }) => {
               <div className="mt-[2rem] bg-white mb-2">
                 {admins.map((admin, index) => (
                   <div key={index} className="border border-gray-200 rounded-md p-[0.8rem] shadow-sm">
-                    <p className="text-lg font-medium text-[#8644A2] mb-[5px]">{admin.username}</p>
-                    <p className="text-gray-600 text-[15px]  mb-[5px]">{admin.email}</p>
-                    <p className="text-gray-600 mb-[5px] text-[#7AA2E3]">{admin.role}</p>
+                    <p className="text-lg font-medium text-[#8644A2] mb-[5px] user-p">{admin.username}</p>
+                    <p className="text-gray-600 text-[15px]  mb-[5px] user-p">{admin.email}</p>
+                    <p className="text-gray-600 mb-[5px] text-[#7AA2E3] user-p">{admin.role}</p>
                   </div>
                 ))}
               </div>

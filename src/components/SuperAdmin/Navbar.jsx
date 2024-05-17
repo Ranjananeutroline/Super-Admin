@@ -16,7 +16,7 @@ const Navbar = () => {
     const [currentPage, setCurrentPage] = useState(null);
     useEffect(() => {
       // Check the current route and determine whether to show the sidebar
-      if (location.pathname === '/admindashboard' ||location.pathname === '/users'|| location.pathname === '/company') {
+      if (location.pathname === '/admindashboard' ||location.pathname === '/adminusers'|| location.pathname === '/admincompany'|| location.pathname === '/adminsettings') {
         setSidebarOpen(true);
       } else {
         setSidebarOpen(false);
@@ -46,16 +46,16 @@ const Navbar = () => {
         <BiSolidDashboard style={{ marginTop: "5px" }} className="nav-svg"/>
         <span className="mobile-text">Dashboard</span>
       </NavLink>
-<NavLink to='/users' activeStyle>
+<NavLink to='/adminusers' activeStyle>
         <HiUsers style={{ marginTop: "5px" }} className="nav-svg"/>
         <span className="mobile-text">Users</span>
       </NavLink>
-      <NavLink to='/company' activeStyle>
+      <NavLink to='/admincompany' activeStyle>
         <FaBuilding style={{ marginTop: "5px" }} className="nav-svg"/>
         <span className="mobile-text">Company</span>
       </NavLink>
       <NavLink to='/adminsettings' activeStyle>
-        <BiSolidDashboard style={{ marginTop: "5px" }} className="nav-svg"/>
+        <IoMdSettings  style={{ marginTop: "5px" }} className="nav-svg"/>
         <span className="mobile-text">Admin Settings</span>
       </NavLink>
 </NavMenu>

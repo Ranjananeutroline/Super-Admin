@@ -63,6 +63,7 @@ const dispatch=useDispatch();
       }
     }, [user, adminUser, navigate]);
     
+    
   return (
     <div className="App">
       <ToastContainer style={{ width: "330px" }} />
@@ -122,8 +123,8 @@ const dispatch=useDispatch();
             <div className="w-[100%] right-body">
               <Routes>
                 <Route path="/admindashboard" element={<DashboardS />} />
-                <Route exact path="/users" element={<UserAdminPage />} />
-                <Route exact path="/company" element={<CompanyPage />} />
+                <Route exact path="/adminusers" element={<UserAdminPage />} />
+                <Route exact path="/admincompany" element={<CompanyPage />} />
                 <Route exact path='/registration-details' element={<RegistrationDetails/>}/>
                 <Route exact path='/adminsettings' element={<AdminSettings/>}/>
               </Routes>

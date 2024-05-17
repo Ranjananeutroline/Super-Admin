@@ -148,13 +148,7 @@
     padding: 6px!important;
   }
 }
-@media only screen and (max-width: 935px){
-  .bar-main{
-    width: 100%!important;
-    grid-template-columns: 100%!important;
-  }
-  
-}
+
 @media only screen and (max-width: 1035px){
   .apexchartsvn8n9tqb{
     height: 155px!important;

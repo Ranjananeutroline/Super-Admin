@@ -107,6 +107,7 @@ export const Header = () => {
     handleDropdownToggle();
     navigate("/profile");
   };
+  const user = useSelector((state) => state.auth.user);
   const adminUser = useSelector((state) => state.auth.adminUser);
 
   const handleLogoutNavigation = async () => {
@@ -114,17 +115,17 @@ export const Header = () => {
     try {
       const success = await dispatch(userlogout());
       if (success) {
-
-          // Redirect admin to admin login
+        if (adminUser) {
           navigate("/adminlogin");
         } else {
-          // Redirect regular user to login page
           navigate("/");
         }
+      }
     } catch (error) {
       console.log(error);
     }
   };
+
   return (
     <header  className="border-b  z-10 border-gray-300 sticky top-0 header">
       
@@ -133,7 +134,7 @@ export const Header = () => {
           className="lg:hidden  h-6 w-6 cursor-pointer ml-2 sm:ml-5 md:ml-10 mob-menu"
           onClick={() => setOpen(!open)}
         />
-        <Link to="/dashboard">
+         <Link to={adminUser ? "/admindashboard" : "/dashboard"}>
           <div className="flex items-center">
             <img
               src={Neutroline_logo}
@@ -212,181 +213,250 @@ export const Header = () => {
         <nav
           className={`${
             open ? "block" : "hidden"
-          }   absolute top-[100%] h-screen bg-[white] pb-5 nav-div`} {...handlers}
+          } absolute top-[100%] h-screen bg-[white] pb-5 nav-div`}
         >
-          <ul
-            className={`${
-              open ? "hidden" : "hidden"
-            } text-base text-gray-700 lg:flex lg:justify-between lg:items-center`}
-          >
-          </ul>
           <ul
             className={`${
               open ? "block" : "hidden"
             } text-base text-black font-medium lg:justify-between lg:hidden block mx-1 p-2`}
           >
-            <li>
-              <div
-                className={`flex  h-[47px]  w-[165px] md:w-[200px] items-center justify-center mt-[15px] 
-            rounded-md p-[20px] border bg-[#836FFF]
-             ${
-               open ? "w-[289]" : "w-[60px] p-[0px] ml-0"
-             } relative duration-300 `}
-                onClick={() => {
-                  setOpen(!open);
-                  navigate("/dashboard");
-                }}
-              >
-                <div className="flex gap-2 items-center w-[160px] ">
-                <BiSolidDashboard style={{color:"white"}}/>
-                  <h3
-                    className={`${
-                      !open && "hidden"
-                    } text-[14px] text-[white] font-normal`}
+            {adminUser ? (
+              <>
+                <li>
+                  <div
+                    className={`flex h-[47px] w-[165px] md:w-[200px] items-center justify-center mt-[15px] 
+                    rounded-md p-[20px] border bg-[#836FFF] ${
+                      open ? "w-[289]" : "w-[60px] p-[0px] ml-0"
+                    } relative duration-300`}
+                    onClick={() => {
+                      setOpen(!open);
+                      navigate("/admindashboard");
+                    }}
                   >
-                    Dashboard
-                  </h3>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div
-                className={`flex  h-[47px]  w-[165px] md:w-[200px] bg-[#836FFF]  items-center justify-center mt-[10px] 
-             rounded-md gap-5 p-[20px] border
-             ${
-              open ? "w-[289]" : "w-[60px] p-[0px] ml-0"
-            } relative duration-300 `}
-               onClick={() => {
-                 setOpen(!open);
-                 navigate("/users");
-               }}
-             >
-                <div className="flex gap-2 items-center  w-[200px]">
-                <HiUsers style={{color:"white"}}/>
-                  <h3
-                    className={`${
-                      !open && "hidden"
-                    } text-[14px] text-[white] font-normal`}
+                    <div className="flex gap-2 items-center w-[160px]">
+                      <BiSolidDashboard style={{ color: "white" }} />
+                      <h3
+                        className={`${
+                          !open && "hidden"
+                        } text-[14px] text-[white] font-normal`}
+                      >
+                        Dashboard
+                      </h3>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div
+                    className={`flex h-[47px] w-[165px] md:w-[200px] bg-[#836FFF] items-center justify-center mt-[10px] 
+                    rounded-md gap-5 p-[20px] border ${
+                      open ? "w-[289]" : "w-[60px] p-[0px] ml-0"
+                    } relative duration-300`}
+                    onClick={() => {
+                      setOpen(!open);
+                      navigate("/adminusers");
+                    }}
                   >
-                    Users
-                  </h3>{" "}
-                </div>
-              </div>
-            </li>
-            {/* <li>
-              <div
-                className={`flex  h-[47px] w-[200px] bg-white  items-center justify-center mt-[15px] 
-            mt-[18px] rounded-md gap-5 p-[20px] border
-            ${
-              open ? "w-[289]" : "w-[60px] p-[5px] ml-0"
-            }  relative duration-300`}
-              >
-                
-                <div className="flex gap-3 items-center  w-[200px]">
-                  <img src={announcement} className="w-[20px] h-[20px]" />
-                  <h3
-                    className={`${
-                      !open && "hidden"
-                    } text-[14px] md:text-[20px]`}
+                    <div className="flex gap-2 items-center w-[200px]">
+                      <HiUsers style={{ color: "white" }} />
+                      <h3
+                        className={`${
+                          !open && "hidden"
+                        } text-[14px] text-[white] font-normal`}
+                      >
+                        Users
+                      </h3>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div
+                    className={`flex h-[47px] w-[165px] md:w-[200px] items-center bg-[#836FFF] justify-center mt-[10px] 
+                    rounded-md gap-5 p-[20px] border ${
+                      open ? "w-[289]" : "w-[60px] p-[0px] ml-0"
+                    } relative duration-300`}
+                    onClick={() => {
+                      setOpen(!open);
+                      navigate("/admincompany");
+                    }}
                   >
-                    Announcement
-                  </h3>{" "}
-                </div>
-              </div>
-            </li> */}
-            <li>
-              <div
-                className={`flex  h-[47px]  w-[165px] md:w-[200px] items-center bg-[#836FFF] justify-center mt-[10px] 
-             rounded-md gap-5 p-[20px] border 
-             ${
-              open ? "w-[289]" : "w-[60px] p-[0px] ml-0"
-            } relative duration-300 `}
-               onClick={() => {
-                 setOpen(!open);
-                 navigate("/company");
-               }}
-             >
-                <div className="flex gap-2  items-center  w-[200px]">
-                <FaBuilding style={{color:"white"}}/>
-                  <h3
-                    className={`${
-                      !open && "hidden"
-                    } text-[14px] text-[white] font-normal`}
+                    <div className="flex gap-2 items-center w-[200px]">
+                      <FaBuilding style={{ color: "white" }} />
+                      <h3
+                        className={`${
+                          !open && "hidden"
+                        } text-[14px] text-[white] font-normal`}
+                      >
+                        Company
+                      </h3>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div
+                    className={`flex h-[47px] w-[165px] md:w-[200px] bg-[#836FFF] items-center justify-center mt-[10px] 
+                    rounded-md gap-5 p-[20px] border ${
+                      open ? "w-[289]" : "w-[60px] p-[0px] ml-0"
+                    } relative duration-300`}
+                    onClick={() => {
+                      setOpen(!open);
+                      navigate("/adminsettings");
+                    }}
                   >
-                    Company
-                  </h3>{" "}
-                </div>
-              </div>
-            </li>
-            <li>
-              <div
-                className={`flex  h-[47px]  w-[165px] md:w-[200px] bg-[#836FFF] items-center justify-center mt-[10px] 
-               rounded-md gap-5 p-[20px] border
-               ${
-                open ? "w-[289]" : "w-[60px] p-[0px] ml-0"
-              } relative duration-300 `}
-                 onClick={() => {
-                   setOpen(!open);
-                   navigate("/adminsettings");
-                 }}
-               >
-                <div className="flex gap-2 items-center  w-[200px]">
-                <IoMdSettings style={{color:"white"}}/>
-                  <h3
-                    className={`${
-                      !open && "hidden"
-                    } text-[14px] text-[white] font-normal`}
+                    <div className="flex gap-2 items-center w-[200px]">
+                      <IoMdSettings style={{ color: "white" }} />
+                      <h3
+                        className={`${
+                          !open && "hidden"
+                        } text-[14px] text-[white] font-normal`}
+                      >
+                        Admin Settings
+                      </h3>
+                    </div>
+                  </div>
+                </li>
+              </>
+            ) : (
+              <>
+                <li>
+                  <div
+                    className={`flex h-[47px] w-[165px] md:w-[200px] items-center justify-center mt-[15px] 
+                    rounded-md p-[20px] border bg-[#836FFF] ${
+                      open ? "w-[289]" : "w-[60px] p-[0px] ml-0"
+                    } relative duration-300`}
+                    onClick={() => {
+                      setOpen(!open);
+                      navigate("/dashboard");
+                    }}
                   >
-                    Admin Settings
-                  </h3>{" "}
-                </div>
-              </div>
-            </li>
-            {/* <li>
-              {" "}
-              <div
-                className={`flex w-[200px] h-[47px]  items-center mt-[15px] 
-            rounded-md p-[20px]
-             ${
-               open ? "w-[289]" : "w-[60px] p-[5px] ml-0"
-             } relative duration-300 `}
-                onClick={() => {
-                  setOpen(!open);
-                  navigate("/profile");
-                }}
-              >
-                <div className="flex ml-3 justify-center gap-3 items-center">
-                  <img src={profile} className="w-[20px] h-[20px]" />
-                  <h3
-                    className={`${
-                      !open && "hidden"
-                    } text-[14px] md:text-[20px]`}
+                    <div className="flex gap-2 items-center w-[160px]">
+                      <BiSolidDashboard style={{ color: "white" }} />
+                      <h3
+                        className={`${
+                          !open && "hidden"
+                        } text-[14px] text-[white] font-normal`}
+                      >
+                        Dashboard
+                      </h3>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div
+                    className={`flex h-[47px] w-[165px] md:w-[200px] items-center justify-center mt-[15px] 
+                    rounded-md p-[20px] border bg-[#836FFF] ${
+                      open ? "w-[289]" : "w-[60px] p-[0px] ml-0"
+                    } relative duration-300`}
+                    onClick={() => {
+                      setOpen(!open);
+                      navigate("/users");
+                    }}
                   >
-                    Profile
-                  </h3>
-                </div>
-              </div>
-            </li> */}
-            {/* <li>
-              <div
-                className={`flex w-[200px] h-[47px] items-center mt-[5px] 
-            rounded-md p-[20px]
-             ${
-               open ? "w-[289]" : "w-[60px] p-[5px] ml-0"
-             } relative duration-300 `}
-              >
-                <div className="flex ml-3 justify-center gap-3 items-center">
-                  <img src={logout} className="w-[20px] h-[20px]" />
-                  <h3
-                    className={`${
-                      !open && "hidden"
-                    } text-[14px] md:text-[20px]`}
+                    <div className="flex gap-2 items-center w-[160px]">
+                      <HiUsers style={{ color: "white" }} />
+                      <h3
+                        className={`${
+                          !open && "hidden"
+                        } text-[14px] text-[white] font-normal`}
+                      >
+                        Users
+                      </h3>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div
+                    className={`flex h-[47px] w-[165px] md:w-[200px] items-center bg-[#836FFF] justify-center mt-[10px] 
+                    rounded-md gap-5 p-[20px] border ${
+                      open ? "w-[289]" : "w-[60px] p-[0px] ml-0"
+                    } relative duration-300`}
+                    onClick={() => {
+                      setOpen(!open);
+                      navigate("/company");
+                    }}
                   >
-                    Logout
-                  </h3>
-                </div>
-              </div>
-            </li> */}
+                    <div className="flex gap-2 items-center w-[200px]">
+                      <FaBuilding style={{ color: "white" }} />
+                      <h3
+                        className={`${
+                          !open && "hidden"
+                        } text-[14px] text-[white] font-normal`}
+                      >
+                        Company
+                      </h3>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div
+                    className={`flex h-[47px] w-[165px] md:w-[200px] items-center bg-[#836FFF] justify-center mt-[10px] 
+                    rounded-md gap-5 p-[20px] border ${
+                      open ? "w-[289]" : "w-[60px] p-[0px] ml-0"
+                    } relative duration-300`}
+                    onClick={() => {
+                      setOpen(!open);
+                      navigate("/appointment");
+                    }}
+                  >
+                    <div className="flex gap-2 items-center w-[200px]">
+                      <FaUserClock style={{ color: "white" }} />
+                      <h3
+                        className={`${
+                          !open && "hidden"
+                        } text-[14px] text-[white] font-normal`}
+                      >
+                        Appointment
+                      </h3>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div
+                    className={`flex h-[47px] w-[165px] md:w-[200px] items-center bg-[#836FFF] justify-center mt-[10px] 
+                    rounded-md gap-5 p-[20px] border ${
+                      open ? "w-[289]" : "w-[60px] p-[0px] ml-0"
+                    } relative duration-300`}
+                    onClick={() => {
+                      setOpen(!open);
+                      navigate("/announcement");
+                    }}
+                  >
+                    <div className="flex gap-2 items-center w-[200px]">
+                      <PiSpeakerSimpleHighFill style={{ color: "white" }} />
+                      <h3
+                        className={`${
+                          !open && "hidden"
+                        } text-[14px] text-[white] font-normal`}
+                      >
+                        Announcement
+                      </h3>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div
+                    className={`flex h-[47px] w-[165px] md:w-[200px] items-center bg-[#836FFF] justify-center mt-[10px] 
+                    rounded-md gap-5 p-[20px] border ${
+                      open ? "w-[289]" : "w-[60px] p-[0px] ml-0"
+                    } relative duration-300`}
+                    onClick={() => {
+                      setOpen(!open);
+                      navigate("/settings");
+                    }}
+                  >
+                    <div className="flex gap-2 items-center w-[200px]">
+                      <IoMdSettings style={{ color: "white" }} />
+                      <h3
+                        className={`${
+                          !open && "hidden"
+                        } text-[14px] text-[white] font-normal`}
+                      >
+                        Settings
+                      </h3>
+                    </div>
+                  </div>
+                </li>
+              </>
+            )}
           </ul>
         </nav>
       </div>
