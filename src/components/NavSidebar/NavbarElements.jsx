@@ -64,6 +64,7 @@ export const NavLink = styled(Link)`
     height: 32px;
   }
   
+  
 `;
   
 export const Bars = styled(FaBars)`

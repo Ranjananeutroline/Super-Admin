@@ -28,7 +28,7 @@ function createData(id, date, name,location,phone, email, users, appointments) {
 const rows = [
   createData(
     0,
-    '16 Mar, 2024',
+    '16/05/2024',
     'Skadden',
     'Tupelo, MS',
     '998833223719',
@@ -38,7 +38,7 @@ const rows = [
   ),
   createData(
     1,
-    '16 Mar, 2024',
+    '16/05/2024',
     'Sidley Austin',
     'London, UK',
     '332237192574',
@@ -47,7 +47,7 @@ const rows = [
     '60%'
   ),
   createData(
-    2, '16 Mar, 2024',
+    2,  '16/05/2024',
      'Bakers & Mckenzie', 
      'Boston, MA', 
      '200059191253', 
@@ -57,7 +57,7 @@ const rows = [
      ),
   createData(
     3,
-    '16 Mar, 2024',
+    '16/05/2024',
     'Davis Polk & Wardwell',
     'Gary, IN',
     '371925742000',
@@ -67,7 +67,7 @@ const rows = [
   ),
   createData(
     4,
-    '15 Mar, 2024',
+    '16/05/2024',
     'Hogan Lovells',
     'Long Branch, NJ',
     '257420005919',
@@ -114,8 +114,9 @@ const DashboardS = () => {
             <TableCell>Location</TableCell>
             <TableCell>Phone</TableCell>
             <TableCell>Email</TableCell>
+            <TableCell>Appointments</TableCell>
             <TableCell>Users</TableCell>
-            <TableCell align="right">Appointments</TableCell>
+            
             {/* <TableCell align="right">Usage</TableCell> */}
           </TableRow>
         </TableHead>
@@ -127,8 +128,9 @@ const DashboardS = () => {
               <TableCell style={{fontSize:"13px"}}>{row.location}</TableCell>
               <TableCell style={{fontSize:"13px"}}>{row.phone}</TableCell>
               <TableCell style={{fontSize:"13px"}}>{row.email}</TableCell>
+              <TableCell  style={{fontSize:"13px"}}>{row.appointments}</TableCell>
               <TableCell style={{fontSize:"13px"}}>{row.users}</TableCell>
-              <TableCell align="right" style={{fontSize:"13px"}}>{row.appointments}</TableCell>
+              
               {/* <TableCell align="right">{`$${row.amount}`}</TableCell> */}
             </TableRow>
           ))}

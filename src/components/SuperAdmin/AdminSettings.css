@@ -20,6 +20,7 @@
 }
 .pro-edit-btn{
   /* background: skyblue; */
+  /* display: block; */
   position: absolute;
   top: 16px;
   right: 15px;
@@ -27,6 +28,9 @@
   border-radius: 5px;
   font-size: 15px;
   color: #bc40df;
+}
+.pro-edit-btn .edit-icon {
+  display: none;
 }
 .change-pswd-btn{
   background: #bd40df6e;
@@ -123,6 +127,28 @@
   background: white!important;
   box-shadow: none!important;
 }
+.h2-base {
+  cursor: pointer;
+  font-family: sans-serif;
+  font-size: 18px;
+}
+
+/* Styles for active tab */
+.h2-active {
+  text-decoration: underline;
+  color: #BC7FCD;
+}
+
+/* Styles for inactive tab */
+.h2-inactive {
+  color: gray;
+  transition: color 0.3s;
+}
+
+.h2-inactive:hover {
+  color: #BC7FCD;
+}
+
 
 
 @media only screen and (max-width: 795px){
@@ -132,4 +158,160 @@
   .user-p{
     font-size: 15px;
   }
+}
+@media only screen and (max-width: 560px){
+  .profileSettings{
+    padding: 0.8rem 0.5rem;
+  }
+  .set-tab-div{
+    display: flex;
+    gap: 0.8rem!important;
+  }
+  .h2-base {
+    font-size: 14px;
+  }
+  .h2-active {
+    font-size: 14px;
+  }
+  .pro-input {
+    font-size: 13.3px;
+    height: 40px;
+  }
+  .pro-edit-btn .edit-icon {
+    font-size: 13px;
+  }
+  .change-pswd-btn {
+    padding: 8px 14px;
+    font-size: 14px;
+}
+  
+  .pro-edit-btn .edit-text {
+    display: none;
+  }
+  .pro-edit-btn .edit-icon {
+    display: inline-block;
+  }
+
+  .accountSettings h3{
+    font-size: 15px;
+  }
+  .accountSettings button{
+    font-size: 14px;
+    padding: 5px 10px!important;
+  }
+  .accountSettings {
+    gap: 0.5rem;
+}
+.add-div{
+  margin-top: 1.3rem!important;
+}
+  .user-p {
+    font-size: 13px;
+}
+  .change-pswd-btn {
+    padding: 8px 14px;
+    font-size: 14px;
+}
+
+  .Settings{
+    padding: 1rem 0.6rem;
+  }
+  .Settings h3{
+    font-size: 14px;
+  }
+  .Settings span{
+    font-size: 13px;
+  }
+  .Settings p{
+    font-size: 14px;
+  }
+  #fromDay, #toDay{
+    height: 30px;
+    width: 95px;
+}
+.work-select{
+  height: 30px;
+}
+}
+/* @media only screen and (max-width: 550px){
+  .profileSettings{
+    padding: 1rem 0.8rem;
+  }
+  .pro-edit-btn .edit-text {
+    display: none;
+  }
+  .pro-edit-btn .edit-icon {
+    display: inline-block;
+  }
+  .h2-base {
+    font-size: 15px;
+  }
+
+  .h2-active {
+    font-size: 15px;
+  }
+  .accountSettings h3{
+    font-size: 15px;
+  }
+  .accountSettings button{
+    font-size: 14px;
+    padding: 5px 10px!important;
+  }
+  .accountSettings {
+    gap: 0.5rem;
+}
+.add-div{
+  margin-top: 1.3rem!important;
+}
+  .user-p {
+    font-size: 13px;
+}
+} */
+@media only screen and (max-width: 500px){
+  .Settings h3 {
+    width: 100px;
+    font-size: 13px;
+}
+.Settings p{
+  font-size: 13px;
+}
+}
+@media only screen and (max-width: 477px){
+  #fromDay, #toDay {
+    font-size: 11px;
+    width: 90px;
+}
+.work-select {
+  width: 55px;
+  font-size: 11px;
+}
+}
+@media only screen and (max-width: 435px){
+  .profileSettings{
+    padding: 0.8rem 0.5rem;
+  }
+  .set-tab-div{
+    display: flex;
+    gap: 0.8rem!important;
+  }
+  .h2-base {
+    font-size: 14px;
+  }
+  .h2-active {
+    font-size: 14px;
+  }
+  .pro-input {
+    font-size: 13.3px;
+    height: 40px;
+  }
+  .pro-edit-btn .edit-icon {
+    font-size: 13px;
+  }
+  .change-pswd-btn {
+    padding: 8px 14px;
+    font-size: 14px;
+}
+}
+@media only screen and (max-width: 395px){
+  
 }

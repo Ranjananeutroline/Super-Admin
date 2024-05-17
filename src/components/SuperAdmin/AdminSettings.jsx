@@ -3,6 +3,7 @@ import { Modal, Button, Form } from 'react-bootstrap';
 import { toast } from 'react-toastify';
 import { RxCross2 } from "react-icons/rx"; 
 import 'react-toastify/dist/ReactToastify.css';
+import { FiEdit } from "react-icons/fi";
 import "./AdminSettings.css";
 import Settingsbh from './Settingsbh';
 import User from '../Users/User';
@@ -174,35 +175,37 @@ const AdminSettings = ({ show, onHide }) => {
     setNewUserData({ ...newUserData, [e.target.name]: e.target.value });
   };
 
+  const getProfileTabClasses = (tabName) => {
+    const baseClasses = 'h2-base';
+    const activeClasses = 'h2-active';
+    const inactiveClasses = 'h2-inactive';
+    
+    return `${baseClasses} ${activeTab === tabName ? activeClasses : inactiveClasses}`;
+  };
+
   <User users={users}/>
   
   return (
     <div className="w-full px-[50px] md:px-10 dashboard-main">
       <h1 className="text-[27px] text-[#3F26A5] pb-2 ">Admin Settings</h1>
 
-      <div className="flex gap-4 mt-2 mb-3 ">
-        <h2
-          className={`cursor-pointer font-sans text-[18px] ${
-            activeTab === 'Profile' ? 'underline' : ''
-            } ${activeTab === 'Profile' ? 'text-[#BC7FCD]' : 'text-gray-600 hover:text-[#BC7FCD]'}`}
-          onClick={() => setActiveTab('Profile')}
-        >
+      <div className="flex gap-4 mt-2 mb-3 set-tab-div">
+      <h2
+        className={getProfileTabClasses('Profile')}
+        onClick={() => setActiveTab('Profile')}
+      >
           Profile Settings
         </h2>
         <h2
-          className={`cursor-pointer font-sans text-[18px] ${
-            activeTab === 'Account' ? 'underline' : ''
-            } ${activeTab === 'Account' ? 'text-[#BC7FCD]' : 'text-gray-600 hover:text-[#BC7FCD]'}`}
-          onClick={() => setActiveTab('Account')}
-        >
+        className={getProfileTabClasses('Account')}
+        onClick={() => setActiveTab('Account')}
+      >
           Account Settings
         </h2>
         <h2
-          className={`cursor-pointer font-sans text-[18px] ${
-            activeTab === 'Settings' ? 'underline' : ''
-            } ${activeTab === 'Settings' ? 'text-[#BC7FCD]' : 'text-gray-600 hover:text-[#BC7FCD]'}`}
-          onClick={() => setActiveTab('Settings')}
-        >
+        className={getProfileTabClasses('Settings')}
+        onClick={() => setActiveTab('Settings')}
+      >
           Settings
         </h2>
       </div>
@@ -230,8 +233,10 @@ const AdminSettings = ({ show, onHide }) => {
                   onClick={() => openModal('name')}
                   className="pro-edit-btn"
                 >
-                  Edit
+                  <span className="edit-text">Edit</span>
+                  <span className="edit-icon"><FiEdit /></span>
                 </button>
+               
               </div>
             </div>
           </div>
@@ -249,8 +254,10 @@ const AdminSettings = ({ show, onHide }) => {
                   onClick={() => openModal('email')}
                   className="pro-edit-btn"
                 >
-                  Edit
+                  <span className="edit-text">Edit</span>
+                  <span className="edit-icon"><FiEdit /></span>
                 </button>
+                
               </div>
             </div>
           </div>
@@ -277,7 +284,7 @@ const AdminSettings = ({ show, onHide }) => {
               >
                 Add User
               </button>
-              <div className="mt-[2rem] bg-white mb-2">
+              <div className="mt-[2rem] bg-white mb-2 add-div">
                 {users.map((user, index) => (
                   <div key={index} className="border border-gray-200 rounded-md p-[0.8rem] shadow-sm">
                     <p className="text-lg font-medium text-[#8644A2] mb-[5px] user-p">{user.username}</p>
@@ -300,7 +307,7 @@ const AdminSettings = ({ show, onHide }) => {
               >
                 Add Admin
               </button>
-              <div className="mt-[2rem] bg-white mb-2">
+              <div className="mt-[2rem] bg-white mb-2 add-div">
                 {admins.map((admin, index) => (
                   <div key={index} className="border border-gray-200 rounded-md p-[0.8rem] shadow-sm">
                     <p className="text-lg font-medium text-[#8644A2] mb-[5px] user-p">{admin.username}</p>

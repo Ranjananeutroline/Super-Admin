@@ -12,6 +12,7 @@
   }
   @media (max-width: 470px){
     .nav-svg{
-      font-size: 12.5px;
+      font-size: 12.5px!important;
+      margin-top: 7px!important;
     }
   }
