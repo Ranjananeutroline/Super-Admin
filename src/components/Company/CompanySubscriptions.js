@@ -4,6 +4,7 @@ import ActivateServiceModal from './ActivateServiceModal';
 import EndServiceModal from './EndServiceModal';
 import RenewalModal from './RenewalModal';
 import ReactivateServiceModal from './ReactivateServiceModal';
+import { MdReviews } from 'react-icons/md';
 import "./ServiceModal.css";
 
 
@@ -49,7 +50,12 @@ const CompanySubscriptions = () => {
           ) : (
             <>
               <p>Please proceed with the following given services at your earliest convenience.</p>
-              {!showDivContent && <button onClick={toggleDivContent}>End of Review</button>}
+              {!showDivContent && (
+                <button onClick={toggleDivContent} className="review-button">
+                    <span className="review-text">End of Review</span>
+                    <MdReviews className="review-icon" />
+                </button>
+            )}
             </>
           )}
         </div>

@@ -83,7 +83,7 @@ const ExpandedRowContent = ({ comp, sn, onCollapse, onUpdateData }) => {
               </button>
               </div>
             </div>
-          <FiArrowUp style={{ color: 'grey', fontSize: '18px', cursor: 'pointer', textAlign:"right", marginTop: "10px" }} onClick={onCollapse} />
+          <FiArrowUp style={{ color: 'grey', fontSize: '18px', cursor: 'pointer', textAlign:"right", marginTop: "17px" }} onClick={onCollapse} />
         </div>
         
         {activeTab === 'companyInfo' && (

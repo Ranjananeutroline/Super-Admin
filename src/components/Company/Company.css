@@ -252,9 +252,49 @@
     color: white;
     border: none;
   }
+  .review-button {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Add some space between the text and the icon */
+}
 
+.review-text {
+    display: inline;
+}
 
+.review-icon {
+    display: none;
+}
 
+  @media only screen and (max-width: 895px){
+    .upper-subs button{
+      margin-right: 0;
+      height: 35px;
+    }
+    .upper-subs p{
+      width: 70%;
+    }
+
+  }
+  @media only screen and (max-width: 555px){
+    .upper-subs button{
+      font-size: 12px;
+      height: 30px;
+    }
+    .detail-tab{
+      width: 95%;
+      gap: 1rem;
+    }
+    .upper-subs p{
+      font-size: 12px;
+    }
+
+  }
+  @media only screen and (max-width: 995px){
+    .upper-subs button, .upper-subs p{
+      font-size: 13px;
+    }
+  }
     @media only screen and (max-width: 934px){
       .desktop-screen{
         display: none;
@@ -311,6 +351,13 @@
       .no-client-p{
         padding: 0.5rem 1rem;
       }
+      .serv-btn-div{
+        display: grid;
+        grid-template-columns: 100%;
+      }
+      .serv-btn-div2 {
+        height: 150px!important;
+    }
     }
      @media only screen and (max-width: 980px) {
       .company-main{
@@ -346,10 +393,32 @@
       }
     }  
     @media only screen and (max-width: 500px){
+      .detail-tab{
+        width: 98%;
+        gap: 0.55rem;
+      }
+      
+      .subs-title{
+        font-size: 16px;
+      }
       .comp-tab-div button{
         padding: 10px 10px;
       }
+      .upper-subs button{
+        background: none;
+        box-shadow: none;
+      }
+        .review-text {
+            display: none;
+        }
+    
+        .review-icon {
+          font-size: 20px;
+          color: #3724cd5e;
+            display: inline;
+        }
     }
+    
       @media only screen and (max-width: 450px){
       
       .company-main{
@@ -424,6 +493,18 @@
     .btn-div button{
       margin: 0;
     }
+    .serv-btn-div{
+      gap: 1rem;
+    }
+    .serv-btn-div2{
+      height: 225px;
+    }
+    .serv-btn-div2 p{
+      font-size: 12.5px;
+    }
+    .serv-btn-div button{
+      font-size: 12.5px;
+    }
     }
     @media only screen and (max-width: 1029px){
      
@@ -483,9 +564,14 @@
         padding: 0.5rem!important;
       }
     }
+    @media only screen and (max-width: 623px){
+      .serv-btn-div2{
+        height: 180px!important;
+      }
+    }
     @media only screen and (max-width: 595px){
       .comp-tab-div{
-        width: 90%;
+        width: 100%;
       }
     }
     @media only screen and (max-width: 510px){
@@ -502,9 +588,7 @@
       strong{
         font-size: 15px;
       }
-      .mobile-row p{
-        font-size: 14px;
-      }
+     
       .lower-first{
         margin-bottom: 10px;
       }
