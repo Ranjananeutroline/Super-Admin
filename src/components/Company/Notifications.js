@@ -60,7 +60,7 @@ const Notifications = () => {
             <>
               <div className='notifi-lower-div'>
                 <div>
-                  <label style={{display:'flex'}}>
+                  <label style={{display:'flex'}} className='noti-label'>
                     <input
                       type="checkbox"
                       value="Option 1"
@@ -73,7 +73,7 @@ const Notifications = () => {
                 </div>
                 
                 <div>
-                  <label style={{display:'flex'}}>
+                  <label style={{display:'flex'}} className='noti-label'>
                     <input
                       type="checkbox"
                       value="Option 2"
@@ -86,7 +86,7 @@ const Notifications = () => {
                 </div>
 
                 <div>
-                  <label style={{display:'flex'}}>
+                  <label style={{display:'flex'}} className='noti-label'>
                     <input
                       type="checkbox"
                       value="Option 3"

@@ -151,7 +151,7 @@
       display: flex;
       justify-content: left;
       gap: 1.8rem; 
-      width: 92%;
+      width: 93%;
       margin: auto;
     }
    
@@ -252,29 +252,17 @@
     color: white;
     border: none;
   }
-  .review-button {
-    display: flex;
-    align-items: center;
-    gap: 8px; /* Add some space between the text and the icon */
-}
-
-.review-text {
-    display: inline;
-}
-
-.review-icon {
-    display: none;
-}
+ 
 
   @media only screen and (max-width: 895px){
     .upper-subs button{
       margin-right: 0;
       height: 35px;
     }
-    .upper-subs p{
-      width: 70%;
-    }
-
+    
+   .detail-tab button{
+    font-size: 14px!important;
+   }
   }
   @media only screen and (max-width: 555px){
     .upper-subs button{
@@ -358,6 +346,12 @@
       .serv-btn-div2 {
         height: 150px!important;
     }
+    .upper-subs{
+      display: block;
+    }
+    .upper-subs button{
+      margin-top: 0.5rem;
+    }
     }
      @media only screen and (max-width: 980px) {
       .company-main{
@@ -397,25 +391,31 @@
         width: 98%;
         gap: 0.55rem;
       }
-      
+      .title-row{
+        padding: 0 0.5rem;
+      }
       .subs-title{
         font-size: 16px;
+        width: 95%;
+      }
+      .second-subs{
+        width: 95%;
+      }
+      .notifi-main-div, .notifi-div{
+        width: 95%!important;
+      }
+      .notifi-main-div h3{
+        font-size: 16px!important;
+      }
+      .notifi-div-btn{
+        font-size: 13px!important;
+        padding: 6px 12px!important;
       }
       .comp-tab-div button{
         padding: 10px 10px;
-      }
-      .upper-subs button{
-        background: none;
-        box-shadow: none;
-      }
-        .review-text {
-            display: none;
-        }
-    
-        .review-icon {
-          font-size: 20px;
-          color: #3724cd5e;
-            display: inline;
+      } 
+        .notifi-main-div h3{
+          font-size: 16px;
         }
     }
     
@@ -443,7 +443,16 @@
       .comp-create-main{
         width: 88%;
       }
+      .title-row svg{
+        font-size: 15px!important;
+      }
     }
+    @media only screen and (max-width: 395px){
+      .detail-tab {
+        width: 100%;
+        gap: 0.3rem;
+    }
+  }
     @media only screen and (max-width: 386px){
       .comp-tab-div button.active-tab{
         font-size: 11px;
@@ -463,6 +472,9 @@
     @media only screen and (max-width: 1075px){
       .heading-td{
         font-size: 13px;
+      }
+      .detail-tab button{
+        font-size: 16px;
       }
       .d-svg{
         font-size: 15px;
@@ -569,6 +581,24 @@
         height: 180px!important;
       }
     }
+    @media only screen and (max-width: 635px){
+      .notifi-lower-div{
+        gap: 2rem!important;
+      }
+    }
+    @media only screen and (max-width: 545px){
+      .notifi-lower-div{
+        gap: 1rem!important;
+      }
+      .input-notifi{
+        height: 14px!important;
+        width: 14px!important;
+        margin-right: 5px!important;
+      }
+      .noti-label{
+        font-size: 12.5px!important;
+      }
+    }
     @media only screen and (max-width: 595px){
       .comp-tab-div{
         width: 100%;
@@ -621,8 +651,27 @@
       width: 115px;
     }
     }
+    @media only screen and (max-width: 445px){
+      .detail-tab button{
+        font-size: 12px!important;
+      }
+      .input-notifi{
+        height: 13px!important;
+        width: 13px!important;
+      }
+      .noti-label{
+        font-size: 12px!important;
+      }
+    }
     @media only screen and (max-width: 425px){
       .comp-tab-div button{
         width: 90px;
+      }
+      .tab-button{
+        font-size: 12px;
+      }
+      .notifi-lower-div{
+        margin: 1.5rem auto!important;
+        display: grid!important;
       }
     }
