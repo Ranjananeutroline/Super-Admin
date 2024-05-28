@@ -15,6 +15,9 @@ export const Nav = styled.nav`
     padding: 1rem 0.5rem;
     border-right: none;
   }
+  @media screen and (max-width: 457px){
+    padding: 1rem 0.3rem;
+  }
  
 `;
   
@@ -62,6 +65,11 @@ export const NavLink = styled(Link)`
     padding: 2px 8px;
     width: 30px;
     height: 32px;
+  }
+  @media screen and (max-width: 457px){
+    padding: 0 8px;
+    width: 28px;
+    height: 28px;
   }
   
   

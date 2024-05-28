@@ -352,6 +352,9 @@
   .upper-subs button{
     margin-top: 0.5rem;
   }
+  .edit-btn-div{
+    padding-bottom: 1rem;
+  }
   }
    @media only screen and (max-width: 980px) {
     .company-main{
@@ -369,21 +372,21 @@
   }  
   @media only screen and (max-width: 945px){
     .comp-create-main{
-      width: 98%;
+      width: 100%;
     }
   } 
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 515px) {
     .company-main{
-        padding-left: 1rem;
-        padding-right: 1rem;
+        padding-left: 1rem!important;
+        padding-right: 1rem!important;
     }
     .comp-tab-div{
-      padding-left: 1rem;
-      padding-right: 1rem;
+      padding-left: 1rem!important;
+      padding-right: 1rem!important;
     }
     .comp-create-main{
-      padding-left: 1rem;
-      padding-right: 1rem;
+      padding-left: 1rem!important;
+      padding-right: 1rem!important;
     }
   }  
   @media only screen and (max-width: 500px){
@@ -411,9 +414,7 @@
       font-size: 13px!important;
       padding: 6px 12px!important;
     }
-    .comp-tab-div button{
-      padding: 10px 10px;
-    } 
+   
       .notifi-main-div h3{
         font-size: 16px;
       }
@@ -421,12 +422,12 @@
   
     @media only screen and (max-width: 450px){
     
-    .company-main{
+    /* .company-main{
       width: 88%;
     }
     .comp-tab-div{
       width: 88%;
-    }
+    } */
     .comp-tab-div button.active-tab{
       padding: 8px 8px;
       font-size: 12px;
@@ -435,9 +436,9 @@
       padding: 8px 8px;
       font-size: 12px;
     }
-    .comp-create-main{
-      width: 90%;
-    }
+    /* .comp-create-main{
+      width: 96%;
+    } */
   }  
   @media only screen and (max-width: 415px){
     .comp-create-main{
@@ -606,7 +607,15 @@
   }
   @media only screen and (max-width: 510px){
     .comp-tab-div{
-      width: 100%;
+      width: 90%;
+      margin-bottom: 1.5rem;
+    }
+    .comp-tab-div button{
+      padding: 8px!important;
+      font-size: 12px!important;
+    } 
+    .form-title p{
+      font-size: 13px!important;
     }
   }
  
