@@ -103,3 +103,50 @@
   gap: 1.27rem;
   grid-template-columns: 48% 48%;
 }
+
+
+@media only screen and (max-width: 555px){
+  .newS-body{
+    padding: 0 1rem;
+  }
+}
+@media only screen and (max-width: 528px){
+  .div-121{
+    gap: 1.1rem;
+  }
+}
+@media only screen and (max-width: 445px){
+  .div-121{
+    grid-template-columns: 100%;
+  }
+}
+@media only screen and (max-width: 480px){
+  .div-121{
+    gap: 0.9rem;
+  }
+  .Act-btn-div{
+    gap: 0.5rem;
+  }
+  .Act-btn-div button{
+    font-size: 14px;
+    padding: 5px 12px;
+  }
+}
+@media only screen and (max-width: 515px){
+  .newS-body{
+    padding: 0 0.8rem;
+  }
+  .div-2, .div-121{
+    margin: 1rem 0;
+  }
+  .Act-btn-div {
+    margin: 1rem 0 1.5rem 0;
+  }
+  .con-label{
+    font-size: 13.5px;
+  }
+  #confirmationCheckbox{
+    height: 14px;
+    width: 15px;
+  }
+}

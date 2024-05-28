@@ -167,7 +167,7 @@ function RenewalModal({ show, onHide }) {
                   checked={confirmationChecked}
                   onChange={handleConfirmationChange}
                 />
-                <label htmlFor="confirmationCheckbox" className='text-[15px]'>By clicking, I confirm that I want to renew the service.</label>
+                <label htmlFor="confirmationCheckbox" className='text-[15px] con-label'>By clicking, I confirm that I want to renew the service.</label>
               </div>
               {formErrors.confirmation && <p className="text-red-500 text-[13px]">{formErrors.confirmation}</p>}
               <div className='Act-btn-div'>

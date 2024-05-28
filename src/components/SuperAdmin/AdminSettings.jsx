@@ -272,10 +272,11 @@ const AdminSettings = ({ show, onHide }) => {
         </div>
       )}
 
+      
       {activeTab === 'Account' && (
         <div className="accountSettings">
           {/* User Settings */}
-          <div className="w-1/2">
+          <div className="w-1/2 setting-w">
             <div>
               <h3 className="text-lg  mb-[0.8rem]">User Settings</h3>
               <button
@@ -296,9 +297,9 @@ const AdminSettings = ({ show, onHide }) => {
             </div>
           </div>
           {/* Vertical Line */}
-          <div className="w-px bg-gray-300"></div>
+          <div className="w-px bg-gray-300 border-line"></div>
           {/* Admin Settings */}
-          <div className="w-1/2">
+          <div className="w-1/2 setting-w">
             <div>
               <h3 className="text-lg  mb-[0.8rem]">Admin Settings</h3>
               <button
@@ -320,6 +321,8 @@ const AdminSettings = ({ show, onHide }) => {
           </div>
         </div>
       )}
+
+
 
       <Modal show={showModal} onHide={closeModal}  dialogClassName="custom-modal">
          <div className="custom-modal-header">

@@ -89,10 +89,25 @@
 }
 .accountSettings{
   display: flex;
+  /* flex-wrap: wrap; */
   gap: 2rem;
   margin: 1.7rem 0 1rem 0;
   /* border: 1px solid;  */
 }
+
+/* .settings-section {
+  width: 100%;
+}
+
+.settings-header {
+  margin-bottom: 1.5rem;
+} */
+
+.add-div {
+  display: flex;
+  flex-direction: column;
+}
+
 .Settings{
   margin: 1.7rem 0 1rem 0;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgb(0 0 0 / 6%) 0px 1px 2px;
@@ -150,7 +165,30 @@
 }
 
 
-
+@media only screen and (max-width: 715px){
+  .accountSettings {
+   display: block;
+  }
+  .settings-section {
+    width: 50%;
+  }
+  .setting-w{
+    width: 100%!important;
+    margin-bottom: 1rem;
+  }
+  .add-div{
+    margin-top: 1rem;
+  }
+  .border-line{
+    display: none;
+  }
+  /* .settings-section {
+    width: 100%;
+  }
+  .settings-header {
+    margin-bottom: 1.5rem;
+  }  */
+}
 @media only screen and (max-width: 795px){
   .accountSettings{
     gap: 1rem;
@@ -233,40 +271,7 @@
   height: 30px;
 }
 }
-/* @media only screen and (max-width: 550px){
-  .profileSettings{
-    padding: 1rem 0.8rem;
-  }
-  .pro-edit-btn .edit-text {
-    display: none;
-  }
-  .pro-edit-btn .edit-icon {
-    display: inline-block;
-  }
-  .h2-base {
-    font-size: 15px;
-  }
 
-  .h2-active {
-    font-size: 15px;
-  }
-  .accountSettings h3{
-    font-size: 15px;
-  }
-  .accountSettings button{
-    font-size: 14px;
-    padding: 5px 10px!important;
-  }
-  .accountSettings {
-    gap: 0.5rem;
-}
-.add-div{
-  margin-top: 1.3rem!important;
-}
-  .user-p {
-    font-size: 13px;
-}
-} */
 @media only screen and (max-width: 500px){
   .Settings h3 {
     width: 100px;
@@ -284,6 +289,15 @@
 .work-select {
   width: 55px;
   font-size: 11px;
+}
+}
+@media only screen and (max-width: 465px){
+ .Settings span{
+  margin-right: 5px;
+ }
+ #fromDay, #toDay {
+  margin-right: 5px!important;
+  width: 85px;
 }
 }
 @media only screen and (max-width: 435px){
@@ -312,6 +326,9 @@
     font-size: 14px;
 }
 }
-@media only screen and (max-width: 395px){
-  
+@media only screen and (max-width: 398px){
+  #toDay{
+    margin-top: 8px;
+    margin-left: 8px;
+  }
 }
