@@ -441,9 +441,9 @@
     } */
   }  
   @media only screen and (max-width: 415px){
-    .comp-create-main{
+    /* .comp-create-main{
       width: 88%;
-    }
+    } */
     .title-row svg{
       font-size: 15px!important;
     }
@@ -607,7 +607,7 @@
   }
   @media only screen and (max-width: 510px){
     .comp-tab-div{
-      width: 90%;
+      width: 100%;
       margin-bottom: 1.5rem;
     }
     .comp-tab-div button{
@@ -673,9 +673,9 @@
     }
   }
   @media only screen and (max-width: 425px){
-    .comp-tab-div button{
+    /* .comp-tab-div button{
       width: 90px;
-    }
+    } */
     .tab-button{
       font-size: 12px;
     }
