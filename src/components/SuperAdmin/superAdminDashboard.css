@@ -131,9 +131,17 @@
     height: 95%!important;
     padding: 0.8rem!important;
   }
-  /* #apexchartse7rveswu{
-    height: 130px!important;
-  } */
+  .css-1howxi1-MuiTableCell-root{
+    font-size: 13px!important;
+    padding: 6px 8px !important;
+  }
+  .see-btn{
+    margin-left: 0.5rem!important;
+  }
+  .css-dsuxgy-MuiTableCell-root{
+    font-size: 12px!important;
+    padding: 6px!important;
+  }
   .chart-no{
     margin-top: 10px!important;
   }
@@ -154,18 +162,70 @@
     height: 155px!important;
   }
 }
-@media only screen and (max-width: 1025px) {
-/* .css-1howxi1-MuiTableCell-root, .css-dsuxgy-MuiTableCell-root, .css-13njpue, .css-1o6fzn1 {
-  font-size: 13px!important;
-  padding: 6px!important;
+@media only screen and (max-width: 1040px) {
+  .chart-heading h3{
+    font-size: 14px;
+  }
+  .chart-heading{
+    margin-top: 20px;
+  }
+  /* .bar-main{
+  grid-template-columns: 100%!important;
+  width: 96%!important;
+}
+#chart{
+  height: 100%!important;
+}
+.chart-second-div{
+  display: grid;
+  grid-template-columns: 60% 40%;
+}
+.chart-heading{
+  padding: 2rem 1rem;
+} 
+.appoint-bar{
+  max-width: 100%!important;
 } */
-.recent-reg{
-  width: 94%!important;
+} 
+@media only screen and (max-width: 620px){
+  .chart-heading h3{
+    font-size: 13px;
+  }
+  .css-dsuxgy-MuiTableCell-root{
+  font-size: 11.5px!important;
 }
-.bar-main{
-  width: 93%!important;
 }
-.see-btn{
-  margin-left: 0.5rem!important;
+@media only screen and (max-width: 995px) {
+  .year {
+    display: none;
+  }
+  .location, .email {
+    display: none!important;
+  }
+  .css-1howxi1-MuiTableCell-root, .css-dsuxgy-MuiTableCell-root{
+    text-align: center!important;
+  }
+  .bar-main{
+  grid-template-columns: 100%!important;
+  width: 96%!important;
+}
+#chart{
+  height: 100%!important;
+}
+/* .chart-second-div{
+  display: grid;
+  grid-template-columns: 60% 40%;
+} */
+/* .chart-heading{
+  padding: 2rem 1rem;
+}  */
+.appoint-bar{
+  max-width: 100%!important;
+} 
+}
+@media only screen and (max-width: 383px){
+  .super-admin-dash {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
 }
 }

@@ -63,7 +63,7 @@ transition-duration: 1s;
 @media only screen and (max-width: 967px) {
   .admin-cards-div{
    justify-content: space-between;
-   width: 94.5%;
+   width: 96%;
   }
 }
 @media only screen and (max-width: 1040px) {
@@ -354,7 +354,12 @@ transition-duration: 1s;
       width: 50%;
   }
 }
-
+@media only screen and (max-width: 383px){
+  .dashboard-main {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+}
+}
 @media only screen and (max-width: 347px) {
   .first-inner{
       width: 40%;

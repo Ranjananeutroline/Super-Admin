@@ -92,6 +92,11 @@ const DashboardS = () => {
     setIsModalOpen(false);
   };
 
+  function formatDate(date) {
+    const [day, month, year] = date.split('/');
+    return `<span class="day-month">${day}/${month}</span><span class="year">/${year}</span>`;
+  }
+
   return (
     <div className="w-full px-[50px] md:px-10 super-admin-dash">
       <h1 className="text-[27px] text-[#3F26A5] pb-3  dash-title">Dashboard</h1>
@@ -105,15 +110,17 @@ const DashboardS = () => {
     
      
       <div className="px-7 py-3 mt-[1.5rem] w-full border rounded-[10px] h-auto bg-[#ffffff] recent-reg">
+        
        <Title>Recent Registrations</Title>
-      <Table size="small">
+        <div className='inner-table'>
+        <Table size="small">
         <TableHead className="bg-[#e3a3e354] h-[40px]">
           <TableRow>
             <TableCell>Date</TableCell>
             <TableCell>Name</TableCell>
-            <TableCell>Location</TableCell>
+            <TableCell className="location">Location</TableCell>
             <TableCell>Phone</TableCell>
-            <TableCell>Email</TableCell>
+            <TableCell className="email">Email</TableCell>
             <TableCell>Appointments</TableCell>
             <TableCell>Users</TableCell>
             
@@ -123,11 +130,11 @@ const DashboardS = () => {
         <TableBody>
           {rows.map((row) => (
             <TableRow key={row.id}  sx={{ height: '40px' }}>
-              <TableCell style={{fontSize:"13px"}}>{row.date}</TableCell>
-              <TableCell style={{fontSize:"13px"}}>{row.name}</TableCell>
-              <TableCell style={{fontSize:"13px"}}>{row.location}</TableCell>
+               <TableCell style={{ fontSize: "13px" }} dangerouslySetInnerHTML={{ __html: formatDate(row.date) }} />
+                <TableCell style={{ fontSize: "13px" }}>{row.name}</TableCell>
+              <TableCell style={{fontSize:"13px"}} className="location">{row.location}</TableCell>
               <TableCell style={{fontSize:"13px"}}>{row.phone}</TableCell>
-              <TableCell style={{fontSize:"13px"}}>{row.email}</TableCell>
+              <TableCell style={{fontSize:"13px"}} className="email">{row.email}</TableCell>
               <TableCell  style={{fontSize:"13px"}}>{row.appointments}</TableCell>
               <TableCell style={{fontSize:"13px"}}>{row.users}</TableCell>
               
@@ -136,6 +143,8 @@ const DashboardS = () => {
           ))}
         </TableBody>
       </Table>
+        </div>
+      
       <button onClick={openModal} className="mt-2 text-[15px] ml-4 font-sans text-[#8b58d1] hover:underline see-btn">
         See more registration
       </button>

@@ -684,3 +684,9 @@
       display: grid!important;
     }
   }
+  @media only screen and (max-width: 383px){
+    .comp-create-main, .comp-tab-div, .company-main {
+      padding-left: 0.5rem !important;
+      padding-right: 0.5rem !important;
+  }
+  }
