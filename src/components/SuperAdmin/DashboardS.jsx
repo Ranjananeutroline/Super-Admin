@@ -101,7 +101,7 @@ const DashboardS = () => {
     <div className="w-full px-[50px] md:px-10 super-admin-dash">
       <h1 className="text-[27px] text-[#3F26A5] pb-3  dash-title">Dashboard</h1>
       <AdminCards />
-    <div className='flex mt-4 justify-between bar-main'>
+    <div className='flex mt-4 justify-between bar-main bars-div'>
     {/* <Chart/> */}
 <HorizontalBars/>
     <ApexChart/>
@@ -111,7 +111,7 @@ const DashboardS = () => {
      
       <div className="px-7 py-3 mt-[1.5rem] w-full border rounded-[10px] h-auto bg-[#ffffff] recent-reg">
         
-       <Title>Recent Registrations</Title>
+       <Title className='reg-title'>Recent Registrations</Title>
         <div className='inner-table'>
         <Table size="small">
         <TableHead className="bg-[#e3a3e354] h-[40px]">

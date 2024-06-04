@@ -195,6 +195,21 @@
   font-size: 11.5px!important;
 }
 }
+@media only screen and (max-width: 600px){
+  .css-1howxi1-MuiTableCell-root, .css-dsuxgy-MuiTableCell-root, .css-13njpue, .css-1o6fzn1 {
+    text-align: center!important;
+    font-size: 11px!important;
+  }
+}
+@media only screen and (max-width: 500px){
+  .recent-reg{
+    padding: 0.8rem 0!important;
+  }
+  .css-gi7hi0-MuiTypography-root{
+    padding: 0 0.8rem!important;
+  }
+}
+
 @media only screen and (max-width: 995px) {
   .year {
     display: none;
@@ -202,9 +217,7 @@
   .location, .email {
     display: none!important;
   }
-  .css-1howxi1-MuiTableCell-root, .css-dsuxgy-MuiTableCell-root{
-    text-align: center!important;
-  }
+ 
   .bar-main{
   grid-template-columns: 100%!important;
   width: 96%!important;
@@ -222,6 +235,14 @@
 .appoint-bar{
   max-width: 100%!important;
 } 
+}
+@media only screen and (max-width: 566px){
+  .bar-main{
+    width: 100%!important;
+  } 
+  .recent-reg{
+    width: 100%!important;
+  }
 }
 @media only screen and (max-width: 383px){
   .super-admin-dash {

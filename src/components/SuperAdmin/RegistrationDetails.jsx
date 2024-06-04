@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import image from "../../assets/right.svg";
-
+import "./AdminSettings.css";
   
   const getCurrentDayIndex = () => {
     // Placeholder function to get current day index
@@ -22,7 +22,7 @@ const RegistrationDetails =  ({ tableData, onClose }) => {
     
   return (
     
-    <div className="bg-[#ffffff] w-[800px] rounded-[10px] ">
+    <div className="bg-[#ffffff] w-[800px] rounded-[10px] reg-modal-main">
     <div className="h-[65px] flex flex-col items-center justify-center bg-[#db7dc583] rounded-t-[10px] mb-2">
       <h2 className="text-[#ffffff] text-[22px] font-[600] font-sans">Recent Registrations</h2>
       <div className="w-full relative">{/* Add your preview image here */}</div>
@@ -42,12 +42,12 @@ const RegistrationDetails =  ({ tableData, onClose }) => {
         <div className="flex flex-col gap-1 w-full">
           <div
             onClick={() => handleRotateClick(index)}
-            className="flex text-[16px] text-[#3835be] w-[310px] font-[500] items-center gap-4 font-sans"
+            className="flex text-[16px] text-[#3835be] w-full font-[500] items-center gap-4 font-sans reg-expand"
           >
             <img
               src={image}
               alt="right"
-              className={`w-[18px] h-[14px] ml-2 transform ${
+              className={`w-[18px] h-[14px] ml-2 transform exp-img ${
                 rotationStates[index] ? "rotate-90" : ""
               }`}
             />
@@ -55,9 +55,9 @@ const RegistrationDetails =  ({ tableData, onClose }) => {
             {row.name}
           </div>
           {rotationStates[index] && (
-              <div className="h-full text-[#5a5a5a] text-[13px] rounded-lg flex flex-col py-1 px-4 w-full">
-                <div className="flex justify-between gap-2 mt-2">
-                  <div className="flex flex-col gap-2">
+              <div className="h-full text-[#5a5a5a] text-[13px] rounded-lg flex flex-col py-1 px-4 w-full inner-reg">
+                <div className="flex justify-between gap-2 mt-2 reg-modal-div">
+                  <div className="flex flex-col gap-2 reg-inner-div reg-inner-div1">
                     <div className="flex items-center gap-2">
                       <h4 className="text-[13px] font-[600] w-[120px] font-sans">DATE</h4>
                       <span className="text-[13px] text-[#8562ee] font-sans">{row.date}</span>
@@ -72,7 +72,7 @@ const RegistrationDetails =  ({ tableData, onClose }) => {
                     </div>
                   </div>
                   <div className="border-l border-gray-300 h-70vh"></div>
-                  <div className="flex flex-col gap-2">
+                  <div className="flex flex-col gap-2 reg-inner-div">
                     <div className="flex items-center gap-2">
                       <h4 className="text-[13px] font-[600] w-[120px] font-sans">EMAIL</h4>
                       <span className="text-[13px] text-[#8562ee] font-sans">{row.email}</span>
@@ -94,7 +94,7 @@ const RegistrationDetails =  ({ tableData, onClose }) => {
       ))}
 
 
-    <div className="flex items-center justify-end m-4">
+    <div className="flex items-center justify-end m-4 reg-btn-div">
       <button
         className="bg-[#d862bc98] text-[16px] text-white font-[500] px-[15px] py-[8px] rounded-[5px] shadow-md hover:bg-[#d862bca6] hover:shadow-md"
         onClick={onClose}

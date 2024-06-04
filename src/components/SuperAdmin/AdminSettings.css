@@ -164,7 +164,26 @@
   color: #BC7FCD;
 }
 
-
+@media only screen and (max-width: 955px){
+  .reg-modal-div{
+    justify-content: center;
+  }
+  .reg-modal-main{
+    width: 100%;
+  }
+  .reg-modal-div h4{
+    font-size: 11px;
+  }
+  .reg-modal-div span{
+    font-size: 11px;
+  }
+  .inner-schedule{
+    margin: 1rem!important;
+  }
+  .reg-btn-div{
+    margin: 1rem!important;
+  }
+}
 @media only screen and (max-width: 715px){
   .accountSettings {
    display: block;
@@ -195,6 +214,14 @@
   }
   .user-p{
     font-size: 15px;
+  }
+}
+@media only screen and (max-width: 600px){
+  .reg-modal-div h4{
+    width:100px;
+  }
+  .react-responsive-modal-modal{
+    margin-top: 1.5rem;
   }
 }
 @media only screen and (max-width: 560px){
@@ -271,7 +298,26 @@
   height: 30px;
 }
 }
-
+@media only screen and (max-width: 530px){
+  .react-responsive-modal-modal{
+    width: 95%;
+  }
+  .inner-schedule{
+    margin: 1rem 0.5rem!important;
+    padding: 0.5rem 0!important;
+  }
+  .reg-btn-div{
+    margin: 1rem 0.5rem!important;
+  }
+  .exp-img{
+    height: 12px!important;
+    width: 12px!important;
+  }
+  .reg-expand{
+    gap: 0.8rem!important;
+    font-size: 14px;
+  }
+}
 @media only screen and (max-width: 500px){
   .Settings h3 {
     width: 100px;
@@ -279,6 +325,16 @@
 }
 .Settings p{
   font-size: 13px;
+}
+.reg-modal-div{
+  display: block;
+}
+.reg-inner-div1{
+  margin-bottom: 0.2rem;
+ 
+}
+.reg-inner-div{
+  gap: 0.2rem!important;
 }
 }
 @media only screen and (max-width: 477px){
