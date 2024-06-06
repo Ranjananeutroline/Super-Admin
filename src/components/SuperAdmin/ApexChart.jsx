@@ -13,6 +13,14 @@ const ApexChart = () => {
         height: 300     // Default height
       },
       colors: ['#C3ACD0', '#6DB9EF', '#9195F6'],
+      dataLabels: {
+        enabled: true,
+        style: {
+          
+          fontSize: "12px", // Change color of the data labels here
+          fontWeight: "400",
+        }
+      },
       responsive: [
         {
           breakpoint: 1040,

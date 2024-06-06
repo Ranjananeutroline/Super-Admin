@@ -537,46 +537,56 @@ const CreateCompany = ({ formDataForEdit, onEditSave, onCancelEdit, isEditing, c
               <span style={{ color: 'red', fontSize: '12px' }}>{companyPhoneError}</span>
             </FloatingLabel>
             <Select 
-            options={options}
-            value={selectedCountry} // Make sure selectedCountry is an object with value and label properties
-            onChange={(value) => handleChange('selectedCountry', value)}
-            placeholder='Select Country'
-            className='country-all-select'
-            styles={{
-              control: (provided) => ({
-                ...provided,
-                fontSize: '14px',
-                color: 'black',
-              }),
-              placeholder: (provided) => ({
-                ...provided,
-                fontSize: '14px',
-                color: 'black', 
-              }),
-            }}
+              options={options}
+              value={selectedCountry} // Make sure selectedCountry is an object with value and label properties
+              onChange={(value) => handleChange('selectedCountry', value)}
+              placeholder='Select Country'
+              className='country-all-select custom-select'
+              styles={{
+                control: (provided) => ({
+                  ...provided,
+                  fontSize: '14px',
+                  color: 'black',
+                  boxShadow: 'rgb(0 0 0 / 6%) 0px 1px 4px',
+                  border: 'var(--bs-border-width) solid var(--bs-border-color)',
+                }),
+                placeholder: (provided) => ({
+                  ...provided,
+                  fontSize: '14px',
+                  color: 'black',
+                }),
+                indicatorSeparator: (provided) => ({
+                  ...provided,
+                  display: 'none',
+                  border: 'none',
+                  outline: 'none',
+                }),
+              }}
             />
             <span style={{ color: 'red', fontSize: '12px' }}>{selectedCountryError}</span>
            
-            <FloatingLabel controlId="startDate" label="Start Date" className="mb-2">
-              <Form.Control
-                type="date"
-                placeholder="Start Date"
-                value={startDate}
-                onChange={(e) => handleChange('startDate', e.target.value)}
-              />
-               <span style={{ color: 'red', fontSize:"12px" }}>{startDateError}</span>
-            </FloatingLabel>
+            <FloatingLabel controlId="startDate" label="Start Date" className="mb-2 custom-floating-label">
+            <Form.Control
+              type="date"
+              placeholder="Start Date"
+              value={startDate}
+              onChange={(e) => handleChange('startDate', e.target.value)}
+              className="custom-date-input"
+            />
+            <span style={{ color: 'red', fontSize: "12px" }}>{startDateError}</span>
+          </FloatingLabel>
 
-            <FloatingLabel controlId="endDate" label="End Date" className="mb-2">
-              <Form.Control
-                type="date"
-                placeholder="End Date"
-                value={endDate}
-                onChange={(e) => handleChange('endDate', e.target.value)}
-              />
-               <span style={{ color: 'red', fontSize:"12px" }}>{endDateError}</span>
-            </FloatingLabel>
-          </div>
+          <FloatingLabel controlId="endDate" label="End Date" className="mb-2 custom-floating-label">
+            <Form.Control
+              type="date"
+              placeholder="End Date"
+              value={endDate}
+              onChange={(e) => handleChange('endDate', e.target.value)}
+              className="custom-date-input"
+            />
+            <span style={{ color: 'red', fontSize: "12px" }}>{endDateError}</span>
+          </FloatingLabel>
+        </div>
 
           <div className='div1-right'>
             <FloatingLabel controlId="website" label="Website" className="mb-2">

@@ -17,24 +17,9 @@
 .nav-div{
     display: none!important;
 }
-/* .header-div{
-    max-width: 100%;
-    display: flex;
-    background: #78C1F3;
-    height: 65px;
-    justify-content: space-between;
-}
 
 
-@media only screen and (max-width: 795px) {
-    .logo-title img{
-        width: 90px;
-        height: 55px;
-    }
-    .logo-title h3{
-        font-size: 25px;
-    }
-} */
+
 @media only screen and (max-width: 767px){
     .user-icon{
         height: 23px;
@@ -53,6 +38,17 @@
     .logo-title{
         font-size: 22px;
     }
+    .border-highlight-blue {
+        border: 2px solid skyblue!important;
+        border-radius: 5px!important; /* Change border color to blue */
+      }
+      .collapse-btn svg{
+        color: #836FFF!important;
+        font-size: 20px!important;
+    }
+    .nav-dash-menu{
+        margin-top: 1.8rem!important;
+    } 
 }
 @media only screen and (max-width: 639px){
     .mob-menu{

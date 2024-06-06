@@ -106,7 +106,7 @@
     text-align: center;
     color: #0000008c;
 }
-.css-gi7hi0-MuiTypography-root{
+.recent-reg h2{
   color: #D862BC!important;
   font-size: 18px!important;
 }
@@ -205,9 +205,12 @@
   .recent-reg{
     padding: 0.8rem 0!important;
   }
-  .css-gi7hi0-MuiTypography-root{
+  .recent-reg h2{
     padding: 0 0.8rem!important;
   }
+  /* .css-gi7hi0-MuiTypography-root{
+    padding: 0 0.8rem!important;
+  } */
 }
 
 @media only screen and (max-width: 995px) {

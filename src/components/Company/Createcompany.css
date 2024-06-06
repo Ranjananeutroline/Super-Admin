@@ -40,17 +40,35 @@ margin-bottom: 1rem;
 }
 .country-all-select{
   width: 100%!important;
-  margin-bottom: 0.5rem;
-}
-.country-all-select:hover{
-  box-shadow: none!important;
+  margin-bottom: 0.5rem!important;
+  height: 50px!important;
 }
 .css-otdvvq-control {
   height: 50px!important;
 }
+/* .css-otdvvq-control:focus{
+  border: none!important;
+} */
+.css-74dhpm-control{
+  height: 50px!important;
+  
+}
+
+.css-19bb58m{
+  display: none!important;
+}
+.css-74dhpm-control:hover{
+  background-color: rgb(0 0 0 / 2%)!important;
+  border: var(--bs-border-width) solid var(--bs-border-color)!important;
+}
+
+/* .custom-select:hover{
+  background-color: rgb(0 0 0 / 2%)!important;
+  border: none!important;
+} */
 .css-yndcp5-placeholder{
   margin-left: 5px!important;
-  /* margin-bottom: 20px!important;  */
+  /* margin-bottom: 20px!important;   */
 }
 .css-hlgwow{
   height: 50px!important;
@@ -80,7 +98,23 @@ margin-bottom: 1rem;
 .submit-div{
   margin-right: 1.5rem;
 }
+/* .custom-select .react-select__control--is-focused {
+  border-left: none!important;
+  box-shadow: none!important; 
+}
 
+.custom-select .react-select__control:hover {
+  border-left: none!important;
+  background-color: rgb(0 0 0 / 2%)!important;
+}
+
+.custom-select .react-select__control {
+  font-size: 14px!important;
+  color: black!important;
+} */
+.custom-date-input {
+  text-align: left!important;
+}
 
 @media only screen and (max-width: 980px){
   .form-div1, .form-div2{

@@ -75,6 +75,8 @@ import { IoMdSettings } from "react-icons/io";
 import { HiUsers } from "react-icons/hi";
 import { FaBuilding } from "react-icons/fa";
 import { ImUser } from 'react-icons/im';
+import { IoIosArrowUp } from "react-icons/io";
+
 const swipeOpenMenuStyles = {
   float: "left",
   position: "fixed",
@@ -126,12 +128,14 @@ export const Header = () => {
     }
   };
 
+ 
+
   return (
     <header  className="border-b  z-10 border-gray-300 sticky top-0 header">
       
       <div className="flex items-center justify-between lg:mr-4 mx-0 mx-auto flex-wrap relative inner-header">
-        <FiMenu
-          className="lg:hidden  h-6 w-6 cursor-pointer ml-2 sm:ml-5 md:ml-10 mob-menu"
+      <FiMenu
+          className={`lg:hidden h-6 w-6 cursor-pointer ml-2 sm:ml-5 md:ml-10 mob-menu ${open ? "border-highlight-blue" : ""}`}
           onClick={() => setOpen(!open)}
         />
          <Link to={adminUser ? "/admindashboard" : "/dashboard"}>
@@ -225,7 +229,7 @@ export const Header = () => {
                 <li>
                   <div
                     className={`flex h-[47px] w-[165px] md:w-[200px] items-center justify-center mt-[15px] 
-                    rounded-md p-[20px] border bg-[#836FFF] ${
+                    rounded-md p-[20px] border bg-[#836FFF] nav-dash-menu ${
                       open ? "w-[289]" : "w-[60px] p-[0px] ml-0"
                     } relative duration-300`}
                     onClick={() => {
@@ -320,7 +324,7 @@ export const Header = () => {
                 <li>
                   <div
                     className={`flex h-[47px] w-[165px] md:w-[200px] items-center justify-center mt-[15px] 
-                    rounded-md p-[20px] border bg-[#836FFF] ${
+                    rounded-md p-[20px] border bg-[#836FFF] nav-dash-menu ${
                       open ? "w-[289]" : "w-[60px] p-[0px] ml-0"
                     } relative duration-300`}
                     onClick={() => {
@@ -458,7 +462,23 @@ export const Header = () => {
               </>
             )}
           </ul>
+          {open && ( // Render the close button only when the navigation menu is open
+          <button
+            className="absolute top-0 left-[0.5rem] ml-2 mt-2 bg-transparent text-md collapse-btn"
+            onClick={() => setOpen(false)}
+          >
+            <IoIosArrowUp />
+          </button>
+        )}
+          {/* <button
+            className="absolute top-0  mb-2 mt-2 bg-transparent text-gray-600 text-sm close-menu"
+            onClick={() => setOpen(false)}
+          >
+            <TbLayoutNavbarCollapse />
+          </button> */}
+             
         </nav>
+        
       </div>
     </header>
   );
