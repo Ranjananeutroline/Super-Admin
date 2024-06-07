@@ -1,7 +1,7 @@
 .form-floating>.form-control{
   height: 50px!important;
   min-height: 0;
-  /* background-color: rgb(0 0 0 / 2%); */
+  text-align: left!important;
   box-shadow: rgb(0 0 0 / 6%) 0px 1px 4px;
 }
 .form-floating>.form-control:not(:placeholder-shown)~label::after{
@@ -58,7 +58,7 @@ margin-bottom: 1rem;
   display: none!important;
 }
 .css-74dhpm-control:hover{
-  background-color: rgb(0 0 0 / 2%)!important;
+  background-color: #00000005!important;
   border: var(--bs-border-width) solid var(--bs-border-color)!important;
 }
 
@@ -74,7 +74,7 @@ margin-bottom: 1rem;
   height: 50px!important;
 }
 .attach-div{
-  box-shadow: rgb(0 0 0 / 6%) 0px 1px 4px;
+  box-shadow: #0000000f 0px 1px 4px;
   background-color: white;
   border-radius: 5px;
   padding: 5px 10px;
@@ -112,9 +112,9 @@ margin-bottom: 1rem;
   font-size: 14px!important;
   color: black!important;
 } */
-.custom-date-input {
+/* .custom-date-input {
   text-align: left!important;
-}
+} */
 
 @media only screen and (max-width: 980px){
   .form-div1, .form-div2{

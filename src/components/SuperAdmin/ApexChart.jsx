@@ -16,7 +16,6 @@ const ApexChart = () => {
       dataLabels: {
         enabled: true,
         style: {
-          
           fontSize: "12px", // Change color of the data labels here
           fontWeight: "400",
         }

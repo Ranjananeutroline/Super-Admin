@@ -75,7 +75,7 @@ import { IoMdSettings } from "react-icons/io";
 import { HiUsers } from "react-icons/hi";
 import { FaBuilding } from "react-icons/fa";
 import { ImUser } from 'react-icons/im';
-import { IoIosArrowUp } from "react-icons/io";
+import { IoIosArrowBack } from "react-icons/io";
 
 const swipeOpenMenuStyles = {
   float: "left",
@@ -135,7 +135,8 @@ export const Header = () => {
       
       <div className="flex items-center justify-between lg:mr-4 mx-0 mx-auto flex-wrap relative inner-header">
       <FiMenu
-          className={`lg:hidden h-6 w-6 cursor-pointer ml-2 sm:ml-5 md:ml-10 mob-menu ${open ? "border-highlight-blue" : ""}`}
+          className={`lg:hidden h-6 w-6 cursor-pointer ml-2 sm:ml-5 md:ml-10  mob-menu
+             ${open ? "border-highlight-blue" : ""}`}
           onClick={() => setOpen(!open)}
         />
          <Link to={adminUser ? "/admindashboard" : "/dashboard"}>
@@ -467,7 +468,7 @@ export const Header = () => {
             className="absolute top-0 left-[0.5rem] ml-2 mt-2 bg-transparent text-md collapse-btn"
             onClick={() => setOpen(false)}
           >
-            <IoIosArrowUp />
+            <IoIosArrowBack />
           </button>
         )}
           {/* <button

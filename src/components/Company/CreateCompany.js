@@ -40,8 +40,30 @@ const CreateCompany = ({ formDataForEdit, onEditSave, onCancelEdit, isEditing, c
     // Add other properties as needed
   });
 
+ // Your full list of options
+ const allOptions = useMemo(() => countryList().getData(), []);
+
+ // Prioritized options
+ const prioritizedOptions = [
+   { value: 'nepal', label: 'Nepal' },
+   { value: 'india', label: 'India' },
+   { value: 'us', label: 'United States' },
+   { value: 'canada', label: 'Canada' },
+   { value: 'mexico', label: 'Mexico' },
+ ];
+
+ // Filter out the prioritized countries from the allOptions list
+ const remainingOptions = allOptions.filter(
+   option => !prioritizedOptions.some(prioritizedOption => prioritizedOption.value === option.value)
+ );
+
+ // Combine the prioritized options with the remaining options
+ const combinedOptions = [...prioritizedOptions, ...remainingOptions];
+
   const [value, setValue] = useState('')
   const options = useMemo(() => countryList().getData(), [])
+
+  
 
   const handleChange = (fieldName, value) => {
     // Update the state for the specified field
@@ -536,10 +558,11 @@ const CreateCompany = ({ formDataForEdit, onEditSave, onCancelEdit, isEditing, c
               />
               <span style={{ color: 'red', fontSize: '12px' }}>{companyPhoneError}</span>
             </FloatingLabel>
-            <Select 
-              options={options}
-              value={selectedCountry} // Make sure selectedCountry is an object with value and label properties
-              onChange={(value) => handleChange('selectedCountry', value)}
+            <Select
+              id="country"
+              options={combinedOptions}
+              value={selectedCountry}
+              onChange={(selectedOption) => handleChange('selectedCountry', selectedOption)}
               placeholder='Select Country'
               className='country-all-select custom-select'
               styles={{
@@ -561,7 +584,16 @@ const CreateCompany = ({ formDataForEdit, onEditSave, onCancelEdit, isEditing, c
                   border: 'none',
                   outline: 'none',
                 }),
+                menuList: (provided) => ({
+                  ...provided,
+                  borderBottom: '1px solid #ccc', // Add border at the bottom
+                }),
+                option: (provided, state) => ({
+                  ...provided,
+                  borderBottom: state.data && state.data.label === 'Mexico' ? '0.1px solid #ccc' : 'none', // Add border after 'Mexico'
+                }),
               }}
+              getOptionLabel={(option) => option.label}
             />
             <span style={{ color: 'red', fontSize: '12px' }}>{selectedCountryError}</span>
            
@@ -572,6 +604,7 @@ const CreateCompany = ({ formDataForEdit, onEditSave, onCancelEdit, isEditing, c
               value={startDate}
               onChange={(e) => handleChange('startDate', e.target.value)}
               className="custom-date-input"
+              style={{ textAlign: 'left' }}
             />
             <span style={{ color: 'red', fontSize: "12px" }}>{startDateError}</span>
           </FloatingLabel>
@@ -583,6 +616,7 @@ const CreateCompany = ({ formDataForEdit, onEditSave, onCancelEdit, isEditing, c
               value={endDate}
               onChange={(e) => handleChange('endDate', e.target.value)}
               className="custom-date-input"
+              style={{ textAlign: 'left' }}
             />
             <span style={{ color: 'red', fontSize: "12px" }}>{endDateError}</span>
           </FloatingLabel>
