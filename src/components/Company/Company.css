@@ -1,0 +1,59 @@
+.company-main{
+    padding-left: 3.5rem;
+    padding-right: 3.5rem;
+    padding-top: 1.25rem;
+    /* padding-bottom: 1.25rem; */
+  }
+  .company-inner{
+    display: flex;
+    justify-content: space-between;
+  }
+  .company-title{
+    font-size: 27px;
+    color: #3F26A5;
+  }
+  .add-company-btn{
+    background: #f8f8f8;
+    color: #5b76fcd1;
+    font-weight: 600;
+    border-radius: 5px;
+    height: 35px;
+    width: 115px;
+
+  }
+  .add-company-btn:hover{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    color: #614BC3;
+  }
+  .comp-tab-div{
+    padding-left: 3.5rem;
+    padding-right: 3.5rem;
+    margin-bottom: 2.5rem;
+    display: flex;
+    justify-content: left;
+  }
+  .comp-tab-div button{
+    border-right-width: 1px;
+    padding: 12px 16px;
+    box-shadow: rgb(210, 243, 250) 0px 2px ;
+    font-size: 14px;
+    
+  }
+  .comp-tab-div button.active-tab {
+    border-width: 0.5px;
+    color: #346AFF;
+    box-shadow: 0px 2px 5px 0px #D2F3FA;
+    font-size: 14px;
+  }
+  .company-second{
+    padding-left: 3.5rem;
+    padding-right: 3.5rem;
+  }
+  .comp-create-main{
+    padding-left: 3.5rem;
+    padding-right: 3.5rem;
+  }
+  .table>:not(caption)>*>* {
+    background: none;
+  }
+  
