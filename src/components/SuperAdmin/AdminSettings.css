@@ -279,9 +279,9 @@
     font-size: 14px;
 }
 
-  .Settings{
+  /* .Settings{
     padding: 1rem 0.6rem;
-  }
+  } */
   .Settings h3{
     font-size: 14px;
   }
@@ -320,6 +320,9 @@
   }
 }
 @media only screen and (max-width: 500px){
+  .Settings{
+    width: 95%;
+  }
   .Settings h3 {
     width: 100px;
     font-size: 13px;

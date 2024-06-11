@@ -62,13 +62,13 @@ const ServiceAccess=()=>{
       value={newService}
       onChange={(e) => setNewService(e.target.value)}
       className="Id-input" 
-      placeholder="Enter Service Id"
+      placeholder="Enter Id"
     />
     <button
       onClick={addService}
       className="manage-Id" 
     >
-      Manage Service
+      Manage 
     </button>
   </div>
   

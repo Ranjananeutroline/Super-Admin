@@ -61,13 +61,13 @@ const AppointmentAccess = () => {
       value={newAppointment}
       onChange={(e) => setNewAppointment(e.target.value)}
       className="Id-input" 
-      placeholder="Enter Appointment Id"
+      placeholder="Enter Id"
       />
       <button
       onClick={addAppointment}
       className="manage-Id" 
       >
-      Manage Appointment
+      Manage 
       </button>
       </div>
 

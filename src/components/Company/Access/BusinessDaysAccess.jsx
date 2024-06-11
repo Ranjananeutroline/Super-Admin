@@ -55,13 +55,13 @@ const BusinessDaysAccess=()=>{
     value={newBusinessDay}
     onChange={(e) => setNewBusinessDay(e.target.value)}
     className="Id-input" 
-    placeholder="Enter BusinessDay Id"
+    placeholder="Enter Id"
     />
     <button
     onClick={addBusinessDay}
     className="manage-Id" 
     >
-    Manage BusinessDay
+    Manage 
     </button>
     </div>
     

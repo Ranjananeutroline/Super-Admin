@@ -8,6 +8,7 @@ import TimeManagement from './TimeManagement';
 import Access from './Access/Access';
 import "./Company.css";
 
+
 const ExpandedRowContent = ({ comp, sn, onCollapse, onUpdateData }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editedData, setEditedData] = useState(null);

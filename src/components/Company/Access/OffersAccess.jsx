@@ -62,13 +62,13 @@ const OffersAccess=()=>{
     value={newOfferAccess}
     onChange={(e) => setNewOfferAccess(e.target.value)}
     className="Id-input" 
-    placeholder="Enter Offer Id"
+    placeholder="Enter Id"
   />
   <button
     onClick={addOfferAccess}
     className="manage-Id" 
   >
-    Manage Offer
+    Manage 
   </button>
 </div>
 

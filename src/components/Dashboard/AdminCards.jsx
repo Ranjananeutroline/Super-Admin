@@ -30,7 +30,7 @@ const AdminCards = () => {
     </div>
       </div>
       <div className="flex justify-between p-img mt-2">
-        <p className="text-[18px] text-[#c54dc3]">25</p>
+        <p className="text-[18px] text-[#3572EF]">25</p>
         <img src={ok} className="mr-2  h-[22px] w-[22px] " />
       </div>
 
@@ -55,7 +55,7 @@ const AdminCards = () => {
     </div>
       </div>
       <div className="flex justify-between p-img mt-1">
-        <p className="text-[18px] text-[#c54dc3]">410</p>
+        <p className="text-[18px] text-[#3572EF]">410</p>
         <img src={appointment} className="mr-2  h-[22px] w-[22px]" />
       </div>
 
@@ -80,7 +80,7 @@ const AdminCards = () => {
     </div>
       </div>
       <div className="flex justify-between p-img mt-1">
-        <p className="text-[18px] text-[#c54dc3]">12</p>
+        <p className="text-[18px] text-[#3572EF]">12</p>
         <img src={request} className="mr-2  h-[22px] w-[22px]" />
       </div>
 
@@ -104,7 +104,7 @@ const AdminCards = () => {
     </div>
       </div>
       <div className="flex justify-between p-img mt-1">
-        <p className="text-[18px] text-[#c54dc3]">250</p>
+        <p className="text-[18px] text-[#3572EF]">250</p>
         <img src={user} className="mr-2  h-[22px] w-[22px]" />
       </div>
 

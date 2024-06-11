@@ -113,8 +113,7 @@
   strong{
     margin-right: 12px;
     font-weight: 400;
-    font-size: 15px;
-    color: black;
+    color: #000000d1;
     
   }
   .btn-div{
@@ -152,8 +151,9 @@
     display: flex;
     justify-content: left;
     gap: 1.2rem; 
-    width: 93%;
+    width: 98%;
     margin: auto;
+  
   }
   .detail-tab button{
     font-size: 14px;
@@ -171,7 +171,7 @@
   }
   .active-detail-btn{
     color: #6420AA;
-    text-decoration: underline;
+    /* text-decoration: underline; */
     /* font-weight: 550; */
     /* background: rgba(255, 255, 255, 0.815); */
     /* border-bottom: 1px solid #6420AA; */
@@ -516,15 +516,15 @@
   }
   @media only screen and (max-width: 1000px){
     .detail-tab{
-      padding-bottom: 1rem;
+      padding: 1rem 0;
       display: grid;
       grid-template-columns: 25% 25% 25%;
-      row-gap: normal;
-      column-gap: normal;
+      row-gap: 10px;
+      column-gap: 1reml;
     }
     .detail-tab button{
       text-align: left;
-      margin: 1rem 0 0 0 !important;
+      margin:  0 !important;
     }
   }
   @media only screen and (max-width: 997px){
@@ -540,9 +540,15 @@
       gap: 3rem;
     }
   }
+ 
   @media only screen and (max-width: 857px){
     .upper, .lower{
       gap: 1rem;
+    }
+  }
+  @media only screen and (max-width: 851px){
+    .detail-tab{
+      grid-template-columns: 28% 28% 28%;
     }
   }
   @media only screen and (max-width: 825px){
@@ -574,6 +580,22 @@
   @media only screen and (max-width: 635px){
     .notifi-lower-div{
       gap: 2rem!important;
+    }
+  }
+  @media only screen and (max-width: 575px){
+    .detail-tab button{
+      font-size: 13.2px!important;
+    }
+  }
+  @media only screen and (max-width: 555px){
+    .detail-tab{
+      grid-template-columns: 29% 29% 29%;
+      gap: 0.5rem;
+    }
+  }
+  @media only screen and (max-width: 546px){
+    .detail-tab{
+      grid-template-columns: 40% 40%;
     }
   }
   @media only screen and (max-width: 545px){

@@ -58,13 +58,13 @@ const AnnouncementAccess = () => {
       value={newAnnouncement}
       onChange={(e) => setNewAnnouncement(e.target.value)}
       className="Id-input" 
-      placeholder="Enter Announcement Id"
+      placeholder="Enter Id"
       />
       <button
       onClick={addAnnouncement}
       className="manage-Id" 
       >
-      Manage Announcement
+      Manage 
       </button>
       </div>
 

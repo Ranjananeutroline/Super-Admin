@@ -87,21 +87,18 @@ margin-bottom: 1rem;
   margin-right: 1.5rem;
 }
 
-/* Target iOS date input fields */
-input[type="date"].custom-date-input {
-  text-align: left!important;
-  /* iOS specific fixes */
-  padding-left: 10px!important; /* Adjust as needed */
-  appearance: none!important;
-  -webkit-appearance: none!important;
-  -moz-appearance: none!important;
-  background-position: left!important;
+.custom-date-input {
+  text-align: left!important; /* Ensure the text is aligned to the left */
+  -webkit-appearance: none!important; /* Remove the default appearance on iOS */
+  -moz-appearance: none!important; /* Remove the default appearance on Firefox */
+  appearance: none!important; /* Remove the default appearance on other browsers */
+  padding-left: 10px!important; /* Add some padding to match the left alignment */
 }
 
-@supports (-webkit-touch-callout: none) {
-  input[type="date"].custom-date-input {
-    text-align: left!important;
-  }
+.custom-floating-label {
+  display: flex!important;
+  flex-direction: column!important;
+  align-items: flex-start!important; /* Ensure the label and input are aligned to the left */
 }
 
 

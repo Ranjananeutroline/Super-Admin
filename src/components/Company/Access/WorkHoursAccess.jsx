@@ -63,13 +63,13 @@ const WorkHoursAccess=()=>{
         value={newWorkHour}
         onChange={(e) => setNewWorkHour(e.target.value)}
         className="Id-input" 
-        placeholder="Enter WorkHour Id"
+        placeholder="Enter Id"
       />
       <button
         onClick={addWorkHour}
         className="manage-Id" 
       >
-        Manage WorkHour
+        Manage 
       </button>
     </div>
     

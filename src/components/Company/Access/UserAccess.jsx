@@ -63,13 +63,13 @@ const UserAccess = () => {
             value={newUser}
             onChange={(e) => setNewUser(e.target.value)}
             className="Id-input" 
-            placeholder="Enter User Id"
+            placeholder="Enter Id"
           />
           <button
             onClick={addUser}
             className="manage-Id" 
           >
-            Manage User
+            Manage 
           </button>
         </div>
 
