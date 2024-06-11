@@ -117,7 +117,7 @@ const DashboardS = () => {
         <TableHead className="bg-[#e3a3e354] h-[40px]">
           <TableRow>
             <TableCell>Date</TableCell>
-            <TableCell>Name</TableCell>
+            <TableCell className='name-cell'>Name</TableCell>
             <TableCell className="location">Location</TableCell>
             <TableCell>Phone</TableCell>
             <TableCell className="email">Email</TableCell>
@@ -131,7 +131,7 @@ const DashboardS = () => {
           {rows.map((row) => (
             <TableRow key={row.id}  sx={{ height: '40px' }}>
                <TableCell style={{ fontSize: "13px" }} dangerouslySetInnerHTML={{ __html: formatDate(row.date) }} />
-                <TableCell style={{ fontSize: "13px" }}>{row.name}</TableCell>
+                <TableCell style={{ fontSize: "13px" }} className='name-cell'>{row.name}</TableCell>
               <TableCell style={{fontSize:"13px"}} className="location">{row.location}</TableCell>
               <TableCell style={{fontSize:"13px"}}>{row.phone}</TableCell>
               <TableCell style={{fontSize:"13px"}} className="email">{row.email}</TableCell>

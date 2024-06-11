@@ -200,6 +200,9 @@
     text-align: center!important;
     font-size: 11px!important;
   }
+  .name-cell{
+    text-align: left!important;
+  }
 }
 @media only screen and (max-width: 500px){
   .recent-reg{

@@ -109,8 +109,9 @@
 }
 
 .Settings{
-  margin: 1.7rem 0 1rem 0;
-  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgb(0 0 0 / 6%) 0px 1px 2px;
+  width: 90%;
+  margin:  0.3rem auto 1.2rem auto;
+ 
 }
 #fromDay, #toDay{
     padding: 0 8px;

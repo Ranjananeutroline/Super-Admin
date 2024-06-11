@@ -75,7 +75,7 @@ import { IoMdSettings } from "react-icons/io";
 import { HiUsers } from "react-icons/hi";
 import { FaBuilding } from "react-icons/fa";
 import { ImUser } from 'react-icons/im';
-import { IoIosArrowBack } from "react-icons/io";
+import { RxCross1 } from "react-icons/rx";
 
 const swipeOpenMenuStyles = {
   float: "left",
@@ -465,10 +465,10 @@ export const Header = () => {
           </ul>
           {open && ( // Render the close button only when the navigation menu is open
           <button
-            className="absolute top-0 left-[0.5rem] ml-2 mt-2 bg-transparent text-md collapse-btn"
+            className="absolute top-0 right-[0.8rem] ml-2 mt-2 bg-transparent  collapse-btn"
             onClick={() => setOpen(false)}
           >
-            <IoIosArrowBack />
+            <RxCross1 />
           </button>
         )}
           {/* <button

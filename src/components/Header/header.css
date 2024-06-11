@@ -42,9 +42,14 @@
         border: 2px solid skyblue!important;
         border-radius: 5px!important; /* Change border color to blue */
       }
-      .collapse-btn svg{
-        color: #836FFF!important;
-        font-size: 20px!important;
+      .collapse-btn {
+        padding: 5px!important;
+        border-radius: 50%!important;
+        background: #8080801f!important;
+    }
+    .collapse-btn svg {
+        color: #5439ff !important;
+        font-size: 11px !important;
     }
     .nav-dash-menu{
         margin-top: 1.8rem!important;

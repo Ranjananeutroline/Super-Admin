@@ -5,8 +5,8 @@ import { RxCross2 } from "react-icons/rx";
 import 'react-toastify/dist/ReactToastify.css';
 import { FiEdit } from "react-icons/fi";
 import "./AdminSettings.css";
-import Settingsbh from './Settingsbh';
 import User from '../Users/User';
+
 
 const AdminSettings = ({ show, onHide }) => {
   const [activeTab, setActiveTab] = useState('Profile');
@@ -189,32 +189,44 @@ const AdminSettings = ({ show, onHide }) => {
     <div className="w-full px-[50px] md:px-10 dashboard-main">
       <h1 className="text-[27px] text-[#3F26A5] pb-2 ">Admin Settings</h1>
 
-      <div className="flex gap-4 mt-2 mb-3 set-tab-div">
+      <div className="flex  mt-2 mb-3 set-tab-div">
+        
       <h2
-        className={getProfileTabClasses('Profile')}
+        className={`border-r w-full p-3 btn-active ${
+          activeTab === "Profile"
+            ? "border-gray-300 bg-gradient-to-b from-gray-100 via-white to-transparent shadow-inner inset-x-0 inset-y-2 bg-purple-200"
+            : ""
+        } md:h-[50px] md:w-[145px] md:p-0 text-[14px] cursor-pointer`}
+        style={{
+          borderWidth: "0.2px",
+          color: activeTab === "Profile" ? "rgb(186 0 237)" : "", // Adjust color if needed
+          boxShadow: activeTab === "Profile" ? "rgb(125 0 125 / 11%) 0px 2px 5px 0px" : "rgb(125 0 125 / 11%) 0px 2px 5px 0px", // Adjust boxShadow for both states
+          fontSize: "14px",
+        }}
         onClick={() => setActiveTab('Profile')}
       >
           Profile Settings
         </h2>
         <h2
-        className={getProfileTabClasses('Account')}
+        className={`border-r w-full p-3 btn-active ${
+          activeTab === "Account"
+            ? "border-gray-300 bg-gradient-to-b from-gray-100 via-white to-transparent shadow-inner inset-x-0 inset-y-2 bg-purple-200"
+            : ""
+        } md:h-[50px] md:w-[145px] md:p-0 text-[14px] cursor-pointer`}
+        style={{
+          borderWidth: "0.2px",
+          color: activeTab === "Account" ? "rgb(186 0 237)" : "", // Adjust color if needed
+          boxShadow: activeTab === "Account" ? "rgb(125 0 125 / 11%) 0px 2px 5px 0px" : "rgb(125 0 125 / 11%) 0px 2px 5px 0px", // Adjust boxShadow for both states
+          fontSize: "14px",
+        }}
         onClick={() => setActiveTab('Account')}
       >
           Account Settings
         </h2>
-        <h2
-        className={getProfileTabClasses('Settings')}
-        onClick={() => setActiveTab('Settings')}
-      >
-          Settings
-        </h2>
+       
       </div>
 
-      {activeTab === 'Settings' && (
-       <div>
-          <Settingsbh/>
-       </div>
-      )}
+      
 
       {activeTab === 'Profile' && (
         <div className="profileSettings">
@@ -322,6 +334,7 @@ const AdminSettings = ({ show, onHide }) => {
         </div>
       )}
 
+      
 
 
       <Modal show={showModal} onHide={closeModal}  dialogClassName="custom-modal">

@@ -76,7 +76,7 @@
   margin: auto;
 }
 .main-detail p{
-  margin: 8px;
+  margin: 8px 0;
   font-size: 14px;
   color: rgb(110, 105, 105);
 }
@@ -87,8 +87,9 @@
 .upper{
   display: flex;
   gap: 5rem;
-  padding: 0.5rem  1rem;
+  padding: 0rem  1.4rem;
   margin: auto;
+ 
   }
   .upper > div {
     flex: 1;
@@ -100,7 +101,7 @@
   .lower{
     display: flex;
     gap: 5rem;
-    padding: 0.5rem  1rem;
+    padding: 0.5rem  1.4rem;
     margin: auto;
   }
   .lower > div {
@@ -150,11 +151,13 @@
     /* border: 1px solid;  */
     display: flex;
     justify-content: left;
-    gap: 1.8rem; 
+    gap: 1.2rem; 
     width: 93%;
     margin: auto;
   }
- 
+  .detail-tab button{
+    font-size: 14px;
+  }
   .tab-button{
     margin: 1rem 0;
     /* padding: 0.5rem; */
@@ -168,9 +171,10 @@
   }
   .active-detail-btn{
     color: #6420AA;
+    text-decoration: underline;
     /* font-weight: 550; */
     /* background: rgba(255, 255, 255, 0.815); */
-    border-bottom: 1px solid #6420AA;
+    /* border-bottom: 1px solid #6420AA; */
   }
 
   
@@ -440,43 +444,15 @@
       width: 96%;
     } */
   }  
-  @media only screen and (max-width: 415px){
-    /* .comp-create-main{
-      width: 88%;
-    } */
-    .title-row svg{
-      font-size: 15px!important;
-    }
-  }
-  @media only screen and (max-width: 395px){
-    .detail-tab {
-      width: 100%;
-      gap: 0.3rem;
-  }
-}
-  @media only screen and (max-width: 386px){
-    .comp-tab-div button.active-tab{
-      font-size: 11px;
-    }
-    .comp-tab-div button{
-      font-size: 11px;
-    }
-  }
-  @media only screen and (max-width: 353px){
-    .comp-tab-div button.active-tab{
-      padding: 5px;
-    }
-    .comp-tab-div button{
-      padding: 5px;
-    }
-  }
+  
+  
   @media only screen and (max-width: 1075px){
     .heading-td{
       font-size: 13px;
     }
-    .detail-tab button{
+    /* .detail-tab button{
       font-size: 16px;
-    }
+    } */
     .d-svg{
       font-size: 15px;
     }
@@ -537,6 +513,19 @@
     padding-left: 1.5rem;
     padding-right: 1.5rem;
   }
+  }
+  @media only screen and (max-width: 1000px){
+    .detail-tab{
+      padding-bottom: 1rem;
+      display: grid;
+      grid-template-columns: 25% 25% 25%;
+      row-gap: normal;
+      column-gap: normal;
+    }
+    .detail-tab button{
+      text-align: left;
+      margin: 1rem 0 0 0 !important;
+    }
   }
   @media only screen and (max-width: 997px){
     .heading-td{
@@ -684,9 +673,39 @@
       display: grid!important;
     }
   }
+  @media only screen and (max-width: 415px){
+    /* .comp-create-main{
+      width: 88%;
+    } */
+    .title-row svg{
+      font-size: 15px!important;
+    }
+  }
+  @media only screen and (max-width: 395px){
+    .detail-tab {
+      width: 100%;
+      gap: 0.3rem;
+  }
+}
+  @media only screen and (max-width: 386px){
+    .comp-tab-div button.active-tab{
+      font-size: 11px;
+    }
+    .comp-tab-div button{
+      font-size: 11px;
+    }
+  }
   @media only screen and (max-width: 383px){
     .comp-create-main, .comp-tab-div, .company-main {
       padding-left: 0.5rem !important;
       padding-right: 0.5rem !important;
   }
+  }
+  @media only screen and (max-width: 353px){
+    .comp-tab-div button.active-tab{
+      padding: 5px;
+    }
+    .comp-tab-div button{
+      padding: 5px;
+    }
   }

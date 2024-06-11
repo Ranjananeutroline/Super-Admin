@@ -1,0 +1,42 @@
+.access-select-div{
+    /* border: 1px solid; */
+    width: 90%;
+    margin: auto;
+}
+.manage-div{
+    /* border: 1px solid red; */
+    width: 90%;
+    margin: auto;
+    gap: 0.5rem;
+}
+.access-table{
+    width: 90%;
+    margin: 1rem auto 1.5rem auto;
+}
+.access-select{
+    border-radius: 5px;
+    font-size: 14px;
+    padding: 5px 10px;
+    width: 150px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.Id-input{
+    width: 170px; 
+    height: 40px;
+    font-size: 13.5px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border: 1px solid rgb(207 158 207) !important;
+    border-radius: 5px!important;
+    text-align: center!important;
+    padding-left: 0!important;
+}
+.manage-Id{
+    width: 170px;
+    height: 40px;
+    font-size: 13.5px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    background: rgb(207 158 207 / 90%) !important;
+    border-radius: 5px!important;
+    text-align: center;
+    color: white;
+}

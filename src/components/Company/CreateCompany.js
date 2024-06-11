@@ -563,8 +563,8 @@ const CreateCompany = ({ formDataForEdit, onEditSave, onCancelEdit, isEditing, c
               options={combinedOptions}
               value={selectedCountry}
               onChange={(selectedOption) => handleChange('selectedCountry', selectedOption)}
-              placeholder='Select Country'
-              className='country-all-select custom-select'
+              placeholder="Select Country"
+              className="country-all-select custom-select"
               styles={{
                 control: (provided) => ({
                   ...provided,
@@ -572,31 +572,38 @@ const CreateCompany = ({ formDataForEdit, onEditSave, onCancelEdit, isEditing, c
                   color: 'black',
                   boxShadow: 'rgb(0 0 0 / 6%) 0px 1px 4px',
                   border: 'var(--bs-border-width) solid var(--bs-border-color)',
+                  cursor: 'pointer',
+                  height: '50px', // Ensuring height consistency
+                  backgroundColor: state.isFocused ? 'rgb(0 0 0 / 2%)' : 'white', // Background color on hover and focus
+                  '&:hover': {
+                    backgroundColor: 'rgb(0 0 0 / 2%)', // Ensuring hover effect
+                  },
                 }),
                 placeholder: (provided) => ({
                   ...provided,
                   fontSize: '14px',
                   color: 'black',
+                  marginLeft: '5px', // Ensuring margin consistency
                 }),
                 indicatorSeparator: (provided) => ({
                   ...provided,
-                  display: 'none',
+                
                   border: 'none',
                   outline: 'none',
                 }),
                 menuList: (provided) => ({
                   ...provided,
-                  borderBottom: '1px solid #ccc', // Add border at the bottom
+                  borderBottom: '1px solid #ccc',
                 }),
                 option: (provided, state) => ({
                   ...provided,
-                  borderBottom: state.data && state.data.label === 'Mexico' ? '0.1px solid #ccc' : 'none', // Add border after 'Mexico'
+                  borderBottom: state.data && state.data.label === 'Mexico' ? '0.1px solid #ccc' : 'none',
                 }),
               }}
               getOptionLabel={(option) => option.label}
             />
             <span style={{ color: 'red', fontSize: '12px' }}>{selectedCountryError}</span>
-           
+              
             <FloatingLabel controlId="startDate" label="Start Date" className="mb-2 custom-floating-label">
             <Form.Control
               type="date"
@@ -604,7 +611,7 @@ const CreateCompany = ({ formDataForEdit, onEditSave, onCancelEdit, isEditing, c
               value={startDate}
               onChange={(e) => handleChange('startDate', e.target.value)}
               className="custom-date-input"
-              style={{ textAlign: 'left' }}
+             
             />
             <span style={{ color: 'red', fontSize: "12px" }}>{startDateError}</span>
           </FloatingLabel>
@@ -616,7 +623,7 @@ const CreateCompany = ({ formDataForEdit, onEditSave, onCancelEdit, isEditing, c
               value={endDate}
               onChange={(e) => handleChange('endDate', e.target.value)}
               className="custom-date-input"
-              style={{ textAlign: 'left' }}
+             
             />
             <span style={{ color: 'red', fontSize: "12px" }}>{endDateError}</span>
           </FloatingLabel>

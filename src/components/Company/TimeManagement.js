@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
-import "./AdminSettings.css";
+import "./Company.css";
+import "../SuperAdmin/AdminSettings.css";
 
-const Settingsbh = () => {
+
+const TimeManagement = () => {
+
   // State to manage the selected business days and work hours
   const [selectedFromDay, setSelectedFromDay] = useState('');
   const [selectedToDay, setSelectedToDay] = useState('');
@@ -29,8 +32,12 @@ const Settingsbh = () => {
   };
 
   return (
-    <div className="pb-4 md:pb-20 bg-gradient-to-b from-[#f1ebf89c]  to-[#fdfbfe]
-    rounded-lg  p-6 Settings">
+    <>
+    <div>
+        <h3 className='subs-title'>Time Management</h3>
+    </div>
+
+    <div className="Settings">
       <div className="flex mb-[0.5rem]">
         <h3 className='w-[120px] text-[16px] pt-[8px]'>Business Days:</h3>
        <div>
@@ -108,7 +115,8 @@ const Settingsbh = () => {
         </p>
       )}
     </div>
-  );
-};
+    </>
+  )
+}
 
-export default Settingsbh;
+export default TimeManagement

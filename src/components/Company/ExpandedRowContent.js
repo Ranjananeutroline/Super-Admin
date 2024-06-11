@@ -4,7 +4,8 @@ import { LiaEditSolid } from "react-icons/lia";
 import CreateCompany from './CreateCompany';
 import CompanySubscriptions from './CompanySubscriptions';
 import Notifications from './Notifications';
-import CompanySettings from './CompanySettings';
+import TimeManagement from './TimeManagement';
+import Access from './Access/Access';
 import "./Company.css";
 
 const ExpandedRowContent = ({ comp, sn, onCollapse, onUpdateData }) => {
@@ -76,10 +77,16 @@ const ExpandedRowContent = ({ comp, sn, onCollapse, onUpdateData }) => {
                 Notifications
               </button>
               <button
-                onClick={() => handleTabClick('settings')}
-                className={`tab-button ${activeTab === 'settings' ? 'active-detail-btn' : ''}`}
+                onClick={() => handleTabClick('timemanagement')}
+                className={`tab-button ${activeTab === 'timemanagement' ? 'active-detail-btn' : ''}`}
               >
-                Settings
+                Time Management
+              </button>
+              <button
+                onClick={() => handleTabClick('accessmanagement')}
+                className={`tab-button ${activeTab === 'accessmanagement' ? 'active-detail-btn' : ''}`}
+              >
+                Access Management
               </button>
               </div>
             </div>
@@ -157,8 +164,11 @@ const ExpandedRowContent = ({ comp, sn, onCollapse, onUpdateData }) => {
               {activeTab === 'notifications' && (
                 <Notifications />
               )}
-              {activeTab === 'settings' && (
-                <CompanySettings />
+              {activeTab === 'timemanagement' && (
+                <TimeManagement />
+              )}
+               {activeTab === "accessmanagement" && (
+                <Access/>
               )}
             </div>
             )}
