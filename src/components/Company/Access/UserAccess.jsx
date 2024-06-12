@@ -77,26 +77,26 @@ const UserAccess = () => {
 
           <table className="bg-[#efedf1]  rounded-[5px] shadow-sm access-table">
             <thead>
-              <tr className="flex justify-between items-center w-full ">
-                <th className="py-2 px-2 font-medium text-center flex-1 border-b-[3px] border-[#ffffff] text-[14px] font-sans">
+              <tr className="flex justify-between items-center w-full access-tr">
+                <th className="py-2 px-2 font-medium text-center flex-[0.5] border-b-[3px] border-[#ffffff] text-[14px] font-sans">
                   User
                 </th>
-                <th className="py-2 px-2 font-medium text-center flex-1 border-b-[3px] border-[#ffffff] text-[14px] font-sans">
+                <th className="py-2 px-2 font-medium text-center flex-[0.5] border-b-[3px] border-[#ffffff] text-[14px] font-sans">
                   Read
                 </th>
-                <th className="py-2 px-2 font-medium text-center flex-1 border-b-[3px] border-[#ffffff] text-[14px] font-sans">
+                <th className="py-2 px-2 font-medium text-center flex-[0.5] border-b-[3px] border-[#ffffff] text-[14px] font-sans">
                   Edit
                 </th>
                 <th className="py-2 px-2 font-medium text-center flex-1 border-b-[3px] border-[#ffffff] text-[14px] font-sans">
                   Read/Write
                 </th>
-                <th className="py-2 px-2 font-medium text-center flex-1 border-b-[3px] border-[#ffffff] text-[14px] font-sans">
+                <th className="py-2 px-2 font-medium text-center flex-1 border-b-[3px] border-[#ffffff] text-[14px] font-sans not-available-width">
                   Not Available
                 </th>
-                <th className="py-2 px-2 font-medium text-center flex-1 border-b-[3px] border-[#ffffff] text-[14px] font-sans">
+                <th className="py-2 px-2 font-medium text-center flex-[0.5] border-b-[3px] border-[#ffffff] text-[14px] font-sans">
                   Delete
                 </th>
-                <th className="py-2 px-2 font-medium text-center flex-1 border-b-[3px] border-[#ffffff] text-[14px] font-sans">
+                <th className="py-2 px-2 font-medium text-center flex-[0.5] border-b-[3px] border-[#ffffff] text-[14px] font-sans">
                   Action
                 </th>
               </tr>
@@ -106,12 +106,12 @@ const UserAccess = () => {
               {accessUsers.map((user, index) => (
                 <tr
                   key={index}
-                  className="flex justify-between items-center w-full"
+                  className="flex justify-between items-center w-full access-tr"
                 >
-                  <td className="py-2 px-4 text-center flex-1">
+                  <td className="py-2 px-2 font-medium text-center flex-[0.5]">
                     {user.user}
                   </td>
-                  <td className="py-2 px-4 text-center flex-1 ml-[-10px]">
+                  <td className="py-2 px-2 font-medium text-center flex-[0.5]">
                     <input
                       type="checkbox"
                       className="h-4 w-4"
@@ -119,7 +119,7 @@ const UserAccess = () => {
                       onChange={() => handleUserChange(index, "read")}
                     />
                   </td>
-                  <td className="py-2 px-4 text-center flex-1">
+                  <td className="py-2 px-2 font-medium text-center flex-[0.5]">
                     <input
                       type="checkbox"
                       className="h-4 w-4 text-blue-600"
@@ -127,7 +127,7 @@ const UserAccess = () => {
                       onChange={() => handleUserChange(index, "edit")}
                     />
                   </td>
-                  <td className="py-2 px-4 text-center flex-1">
+                  <td className="py-2 px-2 font-medium text-center flex-1">
                     <input
                       type="checkbox"
                       className="h-4 w-4 text-blue-600"
@@ -135,7 +135,7 @@ const UserAccess = () => {
                       onChange={() => handleUserChange(index, "readWrite")}
                     />
                   </td>
-                  <td className="py-2 px-4 text-center flex-1">
+                  <td className="py-2 px-2 font-medium text-center flex-1 not-available-width">
                     <input
                       type="checkbox"
                       className="h-4 w-4 text-blue-600"
@@ -143,7 +143,7 @@ const UserAccess = () => {
                       onChange={() => handleUserChange(index, "notAvailable")}
                     />
                   </td>
-                  <td className="py-2 px-4 text-center flex-1">
+                  <td className="py-2 px-2 font-medium text-center flex-[0.5]">
                     <input
                       type="checkbox"
                       className="h-4 w-4 text-blue-600"
@@ -151,7 +151,7 @@ const UserAccess = () => {
                       onChange={() => handleUserChange(index, "delete")}
                     />
                   </td>
-                  <td className="py-2 px-4 text-center flex-1">
+                  <td className="py-2 px-2 font-medium text-center flex-[0.5]">
                     <button
                       onClick={() => handleDeleteUser(index)}
                       className="text-red-500"

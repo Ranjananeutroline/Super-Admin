@@ -217,6 +217,17 @@
     font-size: 15px;
   }
 }
+@media only screen and (max-width: 767px){
+  .set-tab-div{
+    width: 50%!important;
+  }
+}
+@media only screen and (max-width: 664px){
+  .set-tab-div h2{
+    padding: 0.5rem!important;
+    width: 100%!important;
+  }
+}
 @media only screen and (max-width: 600px){
   .reg-modal-div h4{
     width:100px;
@@ -224,14 +235,16 @@
   .react-responsive-modal-modal{
     margin-top: 1.5rem;
   }
+  .set-tab-div{
+    width: 55%!important;
+  }
 }
 @media only screen and (max-width: 560px){
   .profileSettings{
     padding: 0.8rem 0.5rem;
   }
   .set-tab-div{
-    display: flex;
-    gap: 0.8rem!important;
+    width: 60%!important;
   }
   .h2-base {
     font-size: 14px;
@@ -319,6 +332,13 @@
     font-size: 14px;
   }
 }
+
+@media only screen and (max-width: 510px){
+  .set-tab-div h2{
+    padding: 8px!important;
+    font-size: 12px!important;
+  }
+}
 @media only screen and (max-width: 500px){
   .Settings{
     width: 95%;
@@ -360,13 +380,14 @@
   width: 85px;
 }
 }
+@media only screen and (max-width: 440px){
+  .set-tab-div{
+    width: 68%!important;
+  }
+} 
 @media only screen and (max-width: 435px){
   .profileSettings{
     padding: 0.8rem 0.5rem;
-  }
-  .set-tab-div{
-    display: flex;
-    gap: 0.8rem!important;
   }
   .h2-base {
     font-size: 14px;
@@ -386,6 +407,11 @@
     font-size: 14px;
 }
 }
+@media only screen and (max-width: 400px){
+  .set-tab-div{
+    width: 75%!important;
+  }
+} 
 @media only screen and (max-width: 398px){
   #toDay{
     margin-top: 8px;

@@ -196,7 +196,7 @@ const AdminSettings = ({ show, onHide }) => {
           activeTab === "Profile"
             ? "border-gray-300 bg-gradient-to-b from-gray-100 via-white to-transparent shadow-inner inset-x-0 inset-y-2 bg-purple-200"
             : ""
-        } md:h-[50px] md:w-[145px] md:p-0 text-[14px] cursor-pointer`}
+        } md:h-[50px] w-[145px]  text-[14px] text-center cursor-pointer`}
         style={{
           borderWidth: "0.2px",
           color: activeTab === "Profile" ? "rgb(186 0 237)" : "", // Adjust color if needed
@@ -212,7 +212,7 @@ const AdminSettings = ({ show, onHide }) => {
           activeTab === "Account"
             ? "border-gray-300 bg-gradient-to-b from-gray-100 via-white to-transparent shadow-inner inset-x-0 inset-y-2 bg-purple-200"
             : ""
-        } md:h-[50px] md:w-[145px] md:p-0 text-[14px] cursor-pointer`}
+        } md:h-[50px] w-[145px]  text-[14px] text-center cursor-pointer`}
         style={{
           borderWidth: "0.2px",
           color: activeTab === "Account" ? "rgb(186 0 237)" : "", // Adjust color if needed

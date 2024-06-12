@@ -133,7 +133,7 @@ const ExpandedRowContent = ({ comp, sn, onCollapse, onUpdateData }) => {
 
                 <div className='lower'>
                 <div className='lower-first'>
-                <h3 style={{color:"#525CEB", marginBottom:"0.5rem", fontSize:"16px", paddingLeft:"0.5rem"}}>Point of Contact</h3>
+                <h3 style={{color:"#525CEB", marginBottom:"0.5rem", fontSize:"16px"}}>Point of Contact</h3>
                 <p><strong>Name:</strong> {comp.formData?.name}</p>
                 <p><strong>Designation:</strong> {comp.formData?.designation}</p>
                 <p><strong>Email:</strong> {comp.formData?.contactEmail}</p>
@@ -141,7 +141,7 @@ const ExpandedRowContent = ({ comp, sn, onCollapse, onUpdateData }) => {
                 <p><strong>Phone (Work):</strong> {comp.formData?.phoneWork}</p>
                 </div>
                 <div>
-                <h3 style={{color:"#525CEB", marginBottom:"0.5rem", fontSize:"16px", paddingLeft:"0.5rem"}}>Address</h3>
+                <h3 style={{color:"#525CEB", marginBottom:"0.5rem", fontSize:"16px"}}>Address</h3>
                 <p><strong>Street Address 1:</strong> {comp.formData?.streetAddress1}</p>
                 <p><strong>Street Address 2:</strong> {comp.formData?.streetAddress2}</p>
                 <p><strong>City/Town/Village:</strong> {comp.formData?.city}</p>

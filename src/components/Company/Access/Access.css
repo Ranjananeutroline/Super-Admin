@@ -44,3 +44,48 @@
     text-align: center;
     color: white;
 }
+/* .access-tr th{
+    border: 1px solid;
+   
+}
+.access-tr td{
+    border: 1px solid;
+} */
+
+@media only screen and (max-width: 1043px){
+    .access-tr th{
+        font-size: 13px;
+        
+    }
+    .access-tr td{
+        font-size: 13px;
+    }
+    .access-tr input{
+        height: 12px;
+        width: 12px;
+    }
+}
+@media only screen and (max-width: 820px){
+    .access-tr th{
+        font-size: 12px;
+        
+    }
+    .access-tr td{
+        font-size: 12px;
+    }
+}
+@media only screen and (max-width: 556px){
+    .access-select-div, .manage-div, .access-table {
+        width: 95%!important;
+    }
+  }
+  @media only screen and (max-width: 529px){
+    .access-tr th{
+        padding-left: 0.3rem!important;
+        padding-right: 0.3rem!important;
+    }
+    .access-tr td{
+        padding-left: 0.3rem!important;
+        padding-right: 0.3rem!important;
+    }
+}
