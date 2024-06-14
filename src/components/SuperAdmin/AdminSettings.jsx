@@ -192,7 +192,7 @@ const AdminSettings = ({ show, onHide }) => {
       <div className="flex  mt-2 mb-3 set-tab-div">
         
       <h2
-        className={`border-r w-full p-3 btn-active ${
+        className={`border-r  p-3 btn-active ${
           activeTab === "Profile"
             ? "border-gray-300 bg-gradient-to-b from-gray-100 via-white to-transparent shadow-inner inset-x-0 inset-y-2 bg-purple-200"
             : ""
@@ -208,7 +208,7 @@ const AdminSettings = ({ show, onHide }) => {
           Profile Settings
         </h2>
         <h2
-        className={`border-r w-full p-3 btn-active ${
+        className={`border-r  p-3 btn-active ${
           activeTab === "Account"
             ? "border-gray-300 bg-gradient-to-b from-gray-100 via-white to-transparent shadow-inner inset-x-0 inset-y-2 bg-purple-200"
             : ""

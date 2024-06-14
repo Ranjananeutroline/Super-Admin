@@ -599,15 +599,16 @@
       gap: 2rem!important;
     }
   }
-  @media only screen and (max-width: 575px){
-    .detail-tab button{
-      font-size: 13.2px!important;
-    }
-  }
-  @media only screen and (max-width: 555px){
+  
+  @media only screen and (max-width: 621px){
     .detail-tab{
       grid-template-columns: 29% 29% 29%;
       gap: 0.5rem;
+    }
+  }
+  @media only screen and (max-width: 605px){
+    .detail-tab button{
+      font-size: 13px!important;
     }
   }
   @media only screen and (max-width: 546px){

@@ -10,7 +10,7 @@ const AnnouncementAccess = () => {
 
   const addAnnouncement = () => {
     if (newAnnouncement.trim() === "") {
-      setErrorMessage("Please enter the Announcement.");
+      setErrorMessage("Please enter the Announcement's Id.");
       return; 
     }
 
@@ -68,31 +68,38 @@ const AnnouncementAccess = () => {
       </button>
       </div>
 
-     {errorMessage && <p className="text-red-500">{errorMessage}</p>}
+     {errorMessage && <p className="access-error-msg">{errorMessage}</p>}
 
      <table className=" bg-[#efedf1]  rounded-[5px] shadow-sm access-table">
        <thead>
-         <tr className="flex justify-between items-center w-full ">
-           <th className="py-2 px-2 font-medium text-center flex-1 border-b-[3px] border-[#ffffff] text-[14px] font-sans">
-           Announcement
+       <tr className="flex justify-between items-center w-full access-tr">
+           <th className=" font-medium  border-b-[3px] border-[#ffffff] font-sans id-width">
+           <span className="short-text">Announcement</span>
+            <span className="short-text-603">Id</span>
            </th>
-           <th className="py-2 px-2 font-medium text-center flex-1 border-b-[3px] border-[#ffffff] text-[14px] font-sans">
-             Read
+           <th className="font-medium  border-b-[3px] border-[#ffffff] font-sans">
+           <span className="short-text">Read</span>
+           <span className="short-text-603">Rd</span>
            </th>
-           <th className="py-2 px-2 font-medium text-center flex-1 border-b-[3px] border-[#ffffff] text-[14px] font-sans">
-             Edit
+           <th className="font-medium  border-b-[3px] border-[#ffffff] font-sans">
+            <span className="short-text">Edit</span>
+            <span className="short-text-603">Ed</span>
            </th>
-           <th className="py-2 px-2 font-medium text-center flex-1 border-b-[3px] border-[#ffffff] text-[14px] font-sans">
-             Read/Write
+           <th className="font-medium  border-b-[3px] border-[#ffffff] font-sans r-w-width">
+           <span className="short-text">Read/Write</span>
+           <span className="short-text-603">R/W</span>
            </th>
-           <th className="py-2 px-2 font-medium text-center flex-1 border-b-[3px] border-[#ffffff] text-[14px] font-sans">
-             Not Available
+           <th className="font-medium  border-b-[3px] border-[#ffffff] font-sans not-available-width">
+           <span className="short-text">Not Available</span>
+           <span className="short-text-603">NA</span>
            </th>
-           <th className="py-2 px-2 font-medium text-center flex-1 border-b-[3px] border-[#ffffff] text-[14px] font-sans">
-             Delete
+           <th className="font-medium  border-b-[3px] border-[#ffffff] font-sans">
+           <span className="short-text">Delete</span>
+           <span className="short-text-603">Del</span>
            </th>
-           <th className="py-2 px-2 font-medium text-center flex-1 border-b-[3px] border-[#ffffff] text-[14px] font-sans">
-             Action
+           <th className="font-medium  border-b-[3px] border-[#ffffff] font-sans">
+           <span className="short-text">Action</span>
+           <span className="short-text-603">Act</span>
            </th>
          </tr>
        </thead>
@@ -101,52 +108,52 @@ const AnnouncementAccess = () => {
          {accessAnnouncements.map((announcement, index) => (
            <tr
              key={index}
-             className="flex justify-between items-center w-full"
+             className="flex justify-between items-center w-full access-td"
            >
-             <td className="py-2 px-4 text-center flex-1">
+             <td className="font-normal font-sans id-width">
                {announcement.announcement}
              </td>
-             <td className="py-2 px-4 text-center flex-1 ml-[-10px]">
+             <td className="font-normal font-sans">
                <input
                  type="checkbox"
-                 className="h-4 w-4"
+                 className="h-4 w-4 text-blue-600 access-check"
                  checked={announcement.read}
                  onChange={() => handleAnnouncementChange(index, "read")}
                />
              </td>
-             <td className="py-2 px-4 text-center flex-1">
+             <td className="font-normal font-sans">
                <input
                  type="checkbox"
-                 className="h-4 w-4 text-blue-600"
+                 className="h-4 w-4 text-blue-600 access-check"
                  checked={announcement.edit}
                  onChange={() => handleAnnouncementChange(index, "edit")}
                />
              </td>
-             <td className="py-2 px-4 text-center flex-1">
+             <td className="font-normal font-sans r-w-width">
                <input
                  type="checkbox"
-                 className="h-4 w-4 text-blue-600"
+                 className="h-4 w-4 text-blue-600 access-check"
                  checked={announcement.readWrite}
                  onChange={() => handleAnnouncementChange(index, "readWrite")}
                />
              </td>
-             <td className="py-2 px-4 text-center flex-1">
+             <td className="font-normal font-sans not-available-width">
                <input
                  type="checkbox"
-                 className="h-4 w-4 text-blue-600"
+                 className="h-4 w-4 text-blue-600 access-check"
                  checked={announcement.notAvailable}
                  onChange={() => handleAnnouncementChange(index, "notAvailable")}
                />
              </td>
-             <td className="py-2 px-4 text-center flex-1">
+             <td className="font-normal font-sans">
                <input
                  type="checkbox"
-                 className="h-4 w-4 text-blue-600"
+                 className="h-4 w-4 text-blue-600 access-check"
                  checked={announcement.delete}
                  onChange={() => handleAnnouncementChange(index, "delete")}
                />
              </td>
-             <td className="py-2 px-4 text-center flex-1">
+             <td className="font-normal font-sans">
                <button
                  onClick={() => handleDeleteAnnouncement(index)}
                  className="text-red-500"

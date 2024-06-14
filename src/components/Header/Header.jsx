@@ -229,7 +229,7 @@ export const Header = () => {
               <>
                 <li>
                   <div
-                    className={`flex h-[47px] w-[165px] md:w-[200px] items-center justify-center mt-[15px] 
+                    className={`flex h-[47px] w-[165px] md:w-[200px]  items-center justify-center mt-[15px] 
                     rounded-md p-[20px] border bg-[#836FFF] nav-dash-menu ${
                       open ? "w-[289]" : "w-[60px] p-[0px] ml-0"
                     } relative duration-300`}
@@ -239,11 +239,11 @@ export const Header = () => {
                     }}
                   >
                     <div className="flex gap-2 items-center w-[160px]">
-                      <BiSolidDashboard style={{ color: "white" }} />
+                      <BiSolidDashboard style={{ color: "white", fontSize:"13.2px" }} />
                       <h3
                         className={`${
                           !open && "hidden"
-                        } text-[14px] text-[white] font-normal`}
+                        } text-[13.2px] text-[white] font-normal`}
                       >
                         Dashboard
                       </h3>
@@ -262,11 +262,11 @@ export const Header = () => {
                     }}
                   >
                     <div className="flex gap-2 items-center w-[200px]">
-                      <HiUsers style={{ color: "white" }} />
+                      <HiUsers style={{ color: "white", fontSize:"13.2px" }} />
                       <h3
                         className={`${
                           !open && "hidden"
-                        } text-[14px] text-[white] font-normal`}
+                        } text-[13.2px] text-[white] font-normal`}
                       >
                         Users
                       </h3>
@@ -285,11 +285,11 @@ export const Header = () => {
                     }}
                   >
                     <div className="flex gap-2 items-center w-[200px]">
-                      <FaBuilding style={{ color: "white" }} />
+                      <FaBuilding style={{ color: "white", fontSize:"13.2px" }} />
                       <h3
                         className={`${
                           !open && "hidden"
-                        } text-[14px] text-[white] font-normal`}
+                        } text-[13.2px] text-[white] font-normal`}
                       >
                         Company
                       </h3>
@@ -308,11 +308,11 @@ export const Header = () => {
                     }}
                   >
                     <div className="flex gap-2 items-center w-[200px]">
-                      <IoMdSettings style={{ color: "white" }} />
+                      <IoMdSettings style={{ color: "white", fontSize:"13.2px" }} />
                       <h3
                         className={`${
                           !open && "hidden"
-                        } text-[14px] text-[white] font-normal`}
+                        } text-[13.2px] text-[white] font-normal`}
                       >
                         Admin Settings
                       </h3>
@@ -334,11 +334,11 @@ export const Header = () => {
                     }}
                   >
                     <div className="flex gap-2 items-center w-[160px]">
-                      <BiSolidDashboard style={{ color: "white" }} />
+                      <BiSolidDashboard style={{ color: "white", fontSize:"13.2px" }} />
                       <h3
                         className={`${
                           !open && "hidden"
-                        } text-[14px] text-[white] font-normal`}
+                        } text-[13.2px] text-[white] font-normal`}
                       >
                         Dashboard
                       </h3>
@@ -357,11 +357,11 @@ export const Header = () => {
                     }}
                   >
                     <div className="flex gap-2 items-center w-[160px]">
-                      <HiUsers style={{ color: "white" }} />
+                      <HiUsers style={{ color: "white", fontSize:"13.2px" }} />
                       <h3
                         className={`${
                           !open && "hidden"
-                        } text-[14px] text-[white] font-normal`}
+                        } text-[13.2px] text-[white] font-normal`}
                       >
                         Users
                       </h3>
@@ -380,11 +380,11 @@ export const Header = () => {
                     }}
                   >
                     <div className="flex gap-2 items-center w-[200px]">
-                      <FaBuilding style={{ color: "white" }} />
+                      <FaBuilding style={{ color: "white", fontSize:"13.2px" }} />
                       <h3
                         className={`${
                           !open && "hidden"
-                        } text-[14px] text-[white] font-normal`}
+                        } text-[13.2px] text-[white] font-normal`}
                       >
                         Company
                       </h3>
@@ -403,11 +403,11 @@ export const Header = () => {
                     }}
                   >
                     <div className="flex gap-2 items-center w-[200px]">
-                      <FaUserClock style={{ color: "white" }} />
+                      <FaUserClock style={{ color: "white", fontSize:"13.2px" }} />
                       <h3
                         className={`${
                           !open && "hidden"
-                        } text-[14px] text-[white] font-normal`}
+                        } text-[13.2px] text-[white] font-normal`}
                       >
                         Appointment
                       </h3>
@@ -426,11 +426,11 @@ export const Header = () => {
                     }}
                   >
                     <div className="flex gap-2 items-center w-[200px]">
-                      <PiSpeakerSimpleHighFill style={{ color: "white" }} />
+                      <PiSpeakerSimpleHighFill style={{ color: "white", fontSize:"13.2px" }} />
                       <h3
                         className={`${
                           !open && "hidden"
-                        } text-[14px] text-[white] font-normal`}
+                        } text-[13.2px] text-[white] font-normal`}
                       >
                         Announcement
                       </h3>
@@ -449,11 +449,11 @@ export const Header = () => {
                     }}
                   >
                     <div className="flex gap-2 items-center w-[200px]">
-                      <IoMdSettings style={{ color: "white" }} />
+                      <IoMdSettings style={{ color: "white", fontSize:"13.2px" }} />
                       <h3
                         className={`${
                           !open && "hidden"
-                        } text-[14px] text-[white] font-normal`}
+                        } text-[13.2px] text-[white] font-normal`}
                       >
                         Settings
                       </h3>
@@ -465,7 +465,7 @@ export const Header = () => {
           </ul>
           {open && ( // Render the close button only when the navigation menu is open
           <button
-            className="absolute top-0 right-[0.8rem] ml-2 mt-2 bg-transparent  collapse-btn"
+            className="absolute top-0 right-[0.8rem] ml-2 mt-3 bg-transparent  collapse-btn"
             onClick={() => setOpen(false)}
           >
             <RxCross1 />
