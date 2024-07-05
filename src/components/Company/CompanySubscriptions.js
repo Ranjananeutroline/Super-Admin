@@ -51,7 +51,7 @@ const CompanySubscriptions = () => {
               <p>Please proceed with the following given services at your earliest convenience.</p>
               {!showDivContent && (
                 <button onClick={toggleDivContent} className="review-button">
-                   End of Review
+                  Review Account
                 </button>
             )}
             </>

@@ -100,7 +100,7 @@ const ExpandedRowContent = ({ comp, sn, onCollapse, onUpdateData }) => {
           <h3 className='second-title'>Company Information</h3>
         </div>
       
-          <div style={{ display:"flex"}}>
+          <div style={{ display:"flex"}} className='flex-div'>
             <div className='above-up'>
 
               <div className="upper">
