@@ -61,7 +61,7 @@
 .title-row{
   display: flex;
   justify-content: space-between;
-  padding: 0 1rem;
+  padding: 0 1rem 0 0.7rem;
   background: rgb(207 205 205 / 18%);
   /* border-bottom: 1px solid rgba(128, 128, 128, 0.418); */
 }
@@ -72,7 +72,7 @@
   padding-bottom: 0.5rem;
   font-size: 18px;
   /* background: grey; */
-  width: 90%;
+  width: 96%;
   margin: auto;
 }
 .main-detail p{
@@ -81,21 +81,22 @@
   color: rgb(110, 105, 105);
 }
 .above-up{
-  width: 85%;
+  width: 86%;
   margin: auto;
+  margin-bottom: 1rem;
 }
 .upper{
   display: flex;
-  /* gap: 5rem; */
-  padding: 0rem  1.4rem;
+  gap: 5rem; 
+  padding: 0rem;
   margin: auto;
  
   }
   .upper > div {
     flex: 1;
     /* border: 0.5px solid rgba(128, 128, 128, 0.39); */
-    padding: 1rem;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 2px 0px;
+    padding: 0.5rem 0 1rem 0;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 0px 0px;
   }
   .upper > div:last-child {
   
@@ -103,21 +104,17 @@
   }
   .lower{
     display: flex;
-    /* gap: 5rem; */
-    padding: 0  1.4rem;
+    gap: 5rem; 
+    padding: 0;
     margin: auto;
   }
   .lower > div {
     flex: 1;
     /* border: 0.5px solid rgba(128, 128, 128, 0.39); */
-    padding: 1rem;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 2px 0px;
+    padding: 1rem 0;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 0px 0px 0px;
   }
-  .above-up{
-    margin-bottom: 1rem;
-    
-  }
-  
+ 
   .lower > div:last-child {
    
   }
@@ -181,6 +178,7 @@
   }
   .tab-button{
     margin: 1rem 0;
+    color: rgba(0, 0, 0, 0.726);
     /* padding: 0.5rem; */
     /* border-right: 1px solid skyblue; */
   }
@@ -293,15 +291,7 @@
   .title-row{
     padding: 0 0.5rem!important;
   }
-  .second-title{
-    margin-left: 1rem!important;
-  }
-  .upper{
-    padding: 0 1rem!important;
-  }
-  .lower{
-    padding: 0.5rem 1rem!important;
-  }
+  
   .subs-title, .second-subs{
     width: 95%!important;
   }
@@ -324,6 +314,9 @@
   .upper-subs button, .upper-subs p{
     font-size: 13px;
   }
+  button.btn-edit{
+    font-size: 0;
+  }
 }
   @media only screen and (max-width: 934px){
     .desktop-screen{
@@ -342,8 +335,8 @@
     .expand-mble{
       padding: 1.2rem 1.5rem;
     }
-    button.btn-edit{
-      font-size: 0;
+    .second-title{
+      width: 96%!important;
     }
     .btn-div{
       padding-right: 0.7rem;
@@ -510,10 +503,19 @@
     padding-left: 1rem;
     padding-right: 1rem;
   }
-  .second-title{
+  .upper, .lower{
+    gap: 2rem;
+  }
+  .upper > div{
+    padding: 0 1rem 0.5rem 1rem;
+  }
+  .lower > div{
+    padding: 0.5rem 1rem;
+  }
+  /* .second-title{
     width: 100%;
     margin-left: 1.5rem;
-  }
+  } */
   .above-up{
     width: 100%;
   }
@@ -536,9 +538,9 @@
     visibility: visible;
   }
   
-  .flex-div:hover .btn-div button {
+  /* .flex-div:hover .btn-div button {
     visibility: hidden;
-  }
+  } */
   }
   @media only screen and (max-width: 1029px){
    
@@ -565,11 +567,21 @@
       display: grid;
       grid-template-columns: 25% 25% 25%;
       row-gap: 10px;
-      column-gap: 1reml;
+      column-gap: 1rem;
+      width: 100%;
     }
     .detail-tab button{
       text-align: left;
       margin:  0 !important;
+    }
+    .second-title{
+      width: 97%;
+    }
+    .upper > div {
+      padding: 0 0.5rem 1rem 0.8rem;
+    }
+    .lower > div {
+      padding: 0.5rem 0.5rem 1rem 0.8rem;
     }
   }
   @media only screen and (max-width: 997px){
@@ -586,6 +598,27 @@
   @media only screen and (max-width: 851px){
     .detail-tab{
       grid-template-columns: 28% 28% 28%;
+    }
+    
+    .upper{
+      display: grid;
+      gap: 0;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+      box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 0px 0px;
+    } 
+    .lower{
+      display: grid;
+      gap: 0;
+      
+    }
+    .upper > div{
+      padding: 0 0.5rem 0 0.8rem;
+      box-shadow: rgba(99, 99, 99, 0.2) 0px 0px 0px 0px;
+    }
+    .lower > div{
+      padding: 0 0.5rem 0 0.8rem;
+      box-shadow: rgba(99, 99, 99, 0.2) 0px 0px 0px 0px;
     }
   }
   @media only screen and (max-width: 825px){
@@ -669,10 +702,10 @@
   }
  
   @media only screen and (max-width: 515px){
-    .upper, .lower{
+    /* .upper, .lower{
       display: grid;
       gap: 0;
-    }
+    } */
     strong{
       font-size: 15px;
     }

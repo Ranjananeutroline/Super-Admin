@@ -17,7 +17,8 @@ const ApexChart = () => {
         enabled: true,
         style: {
           fontSize: "12px", // Change color of the data labels here
-          fontWeight: "400",
+          fontWeight: "200",
+          colors: ['#FEFDED'],
         }
       },
       responsive: [
@@ -50,10 +51,17 @@ const ApexChart = () => {
           options: {
             chart: {
               width: '100%',  // Width for screens < 995px
-              height: 180  // Height for screens < 995px
+              height: 200  // Height for screens < 995px
             },
             legend: {
               position: 'bottom'
+            },
+            dataLabels: {
+              style: {
+                fontSize: "10.5px", 
+                
+               
+              }
             }
           }
         },

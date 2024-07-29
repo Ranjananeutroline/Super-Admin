@@ -459,7 +459,7 @@ const CreateCompany = ({ formDataForEdit, onEditSave, onCancelEdit, isEditing, c
     addCompany(newCompany);
 
       // Increment serial number for the next company
-      setSerialNumber(serialNumber + 1);
+      // setSerialNumber(serialNumber + 1);
 
     // Reset form fields or perform any other necessary actions
     setCompanyDetails({
