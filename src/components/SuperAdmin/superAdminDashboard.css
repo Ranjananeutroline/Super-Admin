@@ -169,24 +169,13 @@
   .chart-heading{
     margin-top: 20px;
   }
-  /* .bar-main{
-  grid-template-columns: 100%!important;
-  width: 96%!important;
-}
-#chart{
-  height: 100%!important;
-}
-.chart-second-div{
-  display: grid;
-  grid-template-columns: 60% 40%;
-}
-.chart-heading{
-  padding: 2rem 1rem;
 } 
-.appoint-bar{
-  max-width: 100%!important;
-} */
-} 
+@media only screen and (max-width: 630px){
+  .custom-modal{
+    max-width: 90%!important;
+    margin: 2rem auto!important;
+  }
+}
 @media only screen and (max-width: 620px){
   .chart-heading h3{
     font-size: 13px;
@@ -211,6 +200,7 @@
   .recent-reg h2{
     padding: 0 0.8rem!important;
   }
+  
   /* .css-gi7hi0-MuiTypography-root{
     padding: 0 0.8rem!important;
   } */
@@ -254,5 +244,8 @@
   .super-admin-dash {
     padding-left: 0.5rem !important;
     padding-right: 0.5rem !important;
+}
+.custom-modal{
+  max-width: 95%!important;
 }
 }
